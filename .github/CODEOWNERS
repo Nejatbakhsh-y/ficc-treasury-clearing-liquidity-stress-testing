@@ -1,0 +1,11 @@
+# Default owner for repository content and governance
+* @Nejatbakhsh-y
+
+# Model, configuration, data-control, and validation artifacts
+/src/ @Nejatbakhsh-y
+/configs/ @Nejatbakhsh-y
+/data/ @Nejatbakhsh-y
+/sql/ @Nejatbakhsh-y
+/tests/ @Nejatbakhsh-y
+/docs/ @Nejatbakhsh-y
+/.github/ @Nejatbakhsh-y

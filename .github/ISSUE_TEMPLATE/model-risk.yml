@@ -1,0 +1,46 @@
+name: Model-risk finding
+description: Record a model, methodology, implementation, performance, or governance concern.
+title: "[MODEL RISK] "
+labels: ["model-risk", "needs-triage"]
+body:
+  - type: dropdown
+    id: severity
+    attributes:
+      label: Severity
+      options: [Critical, High, Medium, Low, Observation]
+    validations:
+      required: true
+  - type: dropdown
+    id: component
+    attributes:
+      label: Component
+      options: [Intended use, Conceptual soundness, Implementation, Data, Stress scenarios, Performance, Sensitivity, Governance, Reporting]
+    validations:
+      required: true
+  - type: textarea
+    id: finding
+    attributes:
+      label: Finding
+      description: State the condition, criteria, cause, consequence, and supporting evidence.
+    validations:
+      required: true
+  - type: textarea
+    id: evidence
+    attributes:
+      label: Reproduction and evidence
+      description: Provide configuration IDs, commands, tests, tables, figures, or report references.
+    validations:
+      required: true
+  - type: textarea
+    id: recommendation
+    attributes:
+      label: Recommended remediation
+    validations:
+      required: true
+  - type: checkboxes
+    id: controls
+    attributes:
+      label: Submission controls
+      options:
+        - label: No secret, personal, restricted, or proprietary clearing data is included.
+          required: true

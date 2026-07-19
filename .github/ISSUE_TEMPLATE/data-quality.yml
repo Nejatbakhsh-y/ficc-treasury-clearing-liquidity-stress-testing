@@ -1,0 +1,53 @@
+name: Data-quality issue
+description: Record a source, lineage, schema, completeness, accuracy, or reconciliation problem.
+title: "[DATA QUALITY] "
+labels: ["data-quality", "needs-triage"]
+body:
+  - type: input
+    id: dataset
+    attributes:
+      label: Dataset or table
+      placeholder: FRED series, source file, DuckDB table, or output artifact
+    validations:
+      required: true
+  - type: dropdown
+    id: dimension
+    attributes:
+      label: Quality dimension
+      options: [Source authority, Lineage, Schema, Type, Uniqueness, Completeness, Timeliness, Validity, Accuracy, Reconciliation, Licensing]
+    validations:
+      required: true
+  - type: dropdown
+    id: classification
+    attributes:
+      label: Value classification
+      options: [Observed, Derived, Synthetic, Assumed, Modeled, Mixed]
+    validations:
+      required: true
+  - type: textarea
+    id: issue
+    attributes:
+      label: Issue and business impact
+      description: Include dates, fields, expected behavior, observed behavior, and affected results.
+    validations:
+      required: true
+  - type: textarea
+    id: reproduction
+    attributes:
+      label: Reproduction and evidence
+      description: Provide safe commands, configuration IDs, manifests, queries, or checksums.
+    validations:
+      required: true
+  - type: textarea
+    id: remediation
+    attributes:
+      label: Proposed remediation and acceptance test
+    validations:
+      required: true
+  - type: checkboxes
+    id: controls
+    attributes:
+      label: Submission controls
+      options:
+        - label: The report contains no secret, personal, restricted, or proprietary clearing data.
+          required: true
