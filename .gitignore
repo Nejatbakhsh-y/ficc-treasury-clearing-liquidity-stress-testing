@@ -40,3 +40,12 @@ reports/evidence/*
 .ipynb_checkpoints/
 data/raw/fr2004/*.csv
 data/raw/fr2004/.staging/
+
+# Rules integrated automatically from Phase II Section 4 data catalog
+# Python and Section 3 runtime outputs
+.venv_python_mismatch_*/
+coverage.xml
+*.duckdb
+data/processed/*.parquet
+reports/evidence/logs/*.log
+reports/evidence/backups/
