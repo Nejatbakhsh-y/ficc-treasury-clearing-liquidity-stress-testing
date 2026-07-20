@@ -49,3 +49,5 @@ coverage.xml
 data/processed/*.parquet
 reports/evidence/logs/*.log
 reports/evidence/backups/
+data/raw/fed/
+data/processed/fed/
