@@ -18,6 +18,7 @@ dependencies = [
   "pandas>=2.2,<4.0",
   "pyarrow>=17,<25",
   "PyYAML>=6.0,<7.0",
+  "requests>=2.0,<3.0",
 ]
 
 [project.optional-dependencies]

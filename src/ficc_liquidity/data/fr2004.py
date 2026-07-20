@@ -507,14 +507,13 @@ def ingest_fr2004(
     raw_dir.mkdir(parents=True, exist_ok=True)
     staging_dir = raw_dir / ".staging"
     staging_dir.mkdir(parents=True, exist_ok=True)
-    staging_handle = tempfile.NamedTemporaryFile(
+    with tempfile.NamedTemporaryFile(
         prefix="fr2004_",
         suffix=".part",
         dir=staging_dir,
         delete=False,
-    )
-    staging_path = Path(staging_handle.name)
-    staging_handle.close()
+    ) as staging_handle:
+        staging_path = Path(staging_handle.name)
 
     metadata = DownloadMetadata(
         http_status=None,

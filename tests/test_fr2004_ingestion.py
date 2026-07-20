@@ -1,8 +1,11 @@
 from __future__ import annotations
 
 import csv
+import typing
 from datetime import UTC, datetime
 from pathlib import Path
+from typing import Any as _RuffAny
+from typing import ClassVar as _RuffClassVar
 
 import pytest
 
@@ -17,7 +20,7 @@ VALID_CSV = """As Of Date,Time Series,Value (millions),Series Break
 
 class FakeResponse:
     status_code = 200
-    headers = {
+    headers: _RuffClassVar[_RuffAny] = {
         "Content-Type": "text/csv",
         "ETag": '"sample-etag"',
         "Last-Modified": "Thu, 11 Jul 2024 20:15:00 GMT",
@@ -89,7 +92,7 @@ def test_ingestion_creates_immutable_raw_file_and_manifest(tmp_path: Path) -> No
         raw_dir=raw_dir,
         manifest_path=manifest,
         now=datetime(2026, 7, 19, 12, 30, tzinfo=UTC),
-        session=FakeSession(),
+        session=typing.cast(typing.Any, FakeSession()),
     )
 
     assert result.raw_path.exists()

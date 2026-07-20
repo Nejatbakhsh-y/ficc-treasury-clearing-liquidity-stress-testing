@@ -20,10 +20,16 @@ SOURCE_URL: Final = "https://markets.newyorkfed.org/api/rates/secured/sofr/searc
 FIELD_MAP: Final[dict[str, tuple[str, ...]]] = {
     "observation_date": ("effectiveDate", "effective_date", "date", "businessDate"),
     "sofr_rate": ("percentRate", "rate", "sofr"),
-    "percentile_01": ("percentile1", "percentile01", "percentile_1"),
-    "percentile_25": ("percentile25", "percentile_25"),
-    "percentile_75": ("percentile75", "percentile_75"),
-    "percentile_99": ("percentile99", "percentile_99"),
+    "percentile_01": (
+        "percentPercentile1",
+        "percentPercentile01",
+        "percentile1",
+        "percentile01",
+        "percentile_1",
+    ),
+    "percentile_25": ("percentPercentile25", "percentile25", "percentile_25"),
+    "percentile_75": ("percentPercentile75", "percentile75", "percentile_75"),
+    "percentile_99": ("percentPercentile99", "percentile99", "percentile_99"),
     "volume_billions": ("volumeInBillions", "volume", "volume_billions"),
     "revision_indicator": ("revisionIndicator", "revision", "revision_indicator"),
 }
