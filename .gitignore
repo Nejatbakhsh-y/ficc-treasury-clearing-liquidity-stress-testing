@@ -38,3 +38,11 @@ reports/evidence/*
 
 # Notebooks
 .ipynb_checkpoints/
+
+# Python and Section 3 runtime outputs
+.venv_python_mismatch_*/
+coverage.xml
+*.duckdb
+data/processed/*.parquet
+reports/evidence/logs/*.log
+reports/evidence/backups/
