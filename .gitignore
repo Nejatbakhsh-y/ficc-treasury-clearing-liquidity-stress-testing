@@ -38,3 +38,5 @@ reports/evidence/*
 
 # Notebooks
 .ipynb_checkpoints/
+data/raw/fr2004/*.csv
+data/raw/fr2004/.staging/
