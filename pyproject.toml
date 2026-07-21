@@ -1,49 +1,95 @@
 [build-system]
-requires = ["setuptools>=69", "wheel"]
+requires = ["setuptools>=75", "wheel"]
 build-backend = "setuptools.build_meta"
 
 [project]
 name = "ficc-treasury-clearing-liquidity-stress-testing"
 version = "0.1.0"
-description = "Public-data research framework for FICC-style Treasury-clearing liquidity stress testing and independent model validation."
+description = "FICC Treasury clearing liquidity stress testing and independent model validation."
 readme = "README.md"
-requires-python = ">=3.11"
-license = { text = "MIT" }
-authors = [{ name = "Yousef Nejatbakhsh" }]
+requires-python = ">=3.11,<3.12"
+license = { file = "LICENSE" }
+authors = [
+  { name = "Yousef Nejatbakhsh" }
+]
 dependencies = [
-    "duckdb>=1.1",
-    "numpy>=1.26",
-    "pandas>=2.2",
-    "pyarrow>=17",
-    "pydantic>=2.8",
-    "PyYAML>=6.0",
-    "requests>=2.32",
-    "scipy>=1.13",
+  "duckdb>=1.1,<2.0",
+  "numpy>=1.26,<3.0",
+  "pandas>=2.2,<4.0",
+  "pyarrow>=17,<25",
+  "PyYAML>=6.0,<7.0",
+  "requests>=2.0,<3.0",
 ]
 
 [project.optional-dependencies]
 dev = [
-    "mypy>=1.11",
-    "pre-commit>=3.8",
-    "pytest>=8.3",
-    "pytest-cov>=5.0",
-    "ruff>=0.6",
+  "mypy>=1.13,<2.0",
+  "pandas-stubs>=2.2",
+  "pytest>=8.3,<10.0",
+  "pytest-cov>=6.0,<8.0",
+  "ruff>=0.9,<1.0",
+  "types-PyYAML>=6.0",
 ]
+
+[project.scripts]
+ficc-liquidity = "ficc_liquidity.cli:main"
+
+[tool.setuptools]
+package-dir = { "" = "src" }
 
 [tool.setuptools.packages.find]
 where = ["src"]
 
-[tool.pytest.ini_options]
-addopts = "-ra --strict-markers --strict-config"
-testpaths = ["tests"]
-pythonpath = ["src"]
-
 [tool.ruff]
-line-length = 100
 target-version = "py311"
+line-length = 100
+src = ["src", "tests"]
 
 [tool.ruff.lint]
-select = ["E", "F", "I", "B", "UP"]
+select = ["B", "E", "F", "I", "RUF", "SIM", "UP"]
+ignore = []
+
+[tool.ruff.lint.isort]
+known-first-party = ["ficc_liquidity"]
 
 [tool.ruff.format]
 quote-style = "double"
+indent-style = "space"
+line-ending = "lf"
+
+[tool.pytest.ini_options]
+addopts = [
+  "--strict-config",
+  "--strict-markers",
+  "--cov=ficc_liquidity",
+  "--cov-branch",
+  "--cov-report=term-missing",
+  "--cov-report=xml",
+  "--cov-fail-under=85",
+]
+testpaths = ["tests"]
+
+[tool.coverage.run]
+branch = true
+source = ["ficc_liquidity"]
+
+[tool.coverage.report]
+show_missing = true
+skip_covered = false
+exclude_also = [
+  "if TYPE_CHECKING:",
+  "raise AssertionError",
+  "raise NotImplementedError",
+]
+
+[tool.mypy]
+python_version = "3.11"
+strict = true
+pretty = true
+show_error_codes = true
+warn_unreachable = true
+files = ["src", "tests"]
+
+[[tool.mypy.overrides]]
+module = ["duckdb.*"]
+ignore_missing_imports = true

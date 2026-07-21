@@ -1,0 +1,27 @@
+schema_version: "1.0"
+
+project:
+  name: ficc-treasury-clearing-liquidity-stress-testing
+  display_name: FICC Treasury Clearing Liquidity Stress Testing and Model Validation
+  currency: USD
+
+runtime:
+  python_version: "3.11"
+  random_seed: 2026
+  timezone: UTC
+
+storage:
+  database_path: data/processed/ficc_liquidity.duckdb
+  parquet_directory: data/processed
+
+logging:
+  level: INFO
+  file_path: reports/evidence/logs/ficc_liquidity.log
+
+provenance:
+  permitted_value_classes:
+    - observed
+    - derived
+    - synthetic
+    - assumed
+    - modeled
