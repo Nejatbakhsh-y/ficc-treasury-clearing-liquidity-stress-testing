@@ -3,9 +3,10 @@ from __future__ import annotations
 import argparse
 import inspect
 import runpy
+from collections.abc import Sequence
 from pathlib import Path
 from types import SimpleNamespace
-from typing import Any
+from typing import Any, cast
 
 import pandas as pd
 import pytest
@@ -121,8 +122,10 @@ def test_results_frame_accepts_objects_and_dictionaries(
     pass_result = _make_result(tmp_path, passed=True)
     mapping = _result_mapping(pass_result)
 
-    object_frame = data_quality.results_frame([pass_result])
-    mapping_frame = data_quality.results_frame([mapping])
+    object_frame = data_quality.results_frame(
+        cast(Sequence[data_quality.CheckResult], [pass_result])
+    )
+    mapping_frame = data_quality.results_frame(cast(Sequence[data_quality.CheckResult], [mapping]))
 
     assert not object_frame.empty
     assert not mapping_frame.empty
@@ -146,7 +149,7 @@ def test_write_evidence_covers_pass_and_fail_paths(
     pass_report = tmp_path / "pass_report.txt"
 
     data_quality.write_evidence(
-        [_make_result(tmp_path, passed=True)],
+        cast(Sequence[data_quality.CheckResult], [_make_result(tmp_path, passed=True)]),
         selected,
         pass_csv,
         pass_report,
@@ -161,7 +164,7 @@ def test_write_evidence_covers_pass_and_fail_paths(
     fail_report = tmp_path / "fail_report.txt"
 
     data_quality.write_evidence(
-        [_make_result(tmp_path, passed=False)],
+        cast(Sequence[data_quality.CheckResult], [_make_result(tmp_path, passed=False)]),
         selected,
         fail_csv,
         fail_report,
@@ -178,8 +181,12 @@ def test_has_failure_true_and_false_paths(
 ) -> None:
     helper = data_quality._has_failure
 
-    passing = data_quality.results_frame([_make_result(tmp_path, passed=True)])
-    failing = data_quality.results_frame([_make_result(tmp_path, passed=False)])
+    passing = data_quality.results_frame(
+        cast(Sequence[data_quality.CheckResult], [_make_result(tmp_path, passed=True)])
+    )
+    failing = data_quality.results_frame(
+        cast(Sequence[data_quality.CheckResult], [_make_result(tmp_path, passed=False)])
+    )
 
     check_id = str(passing.iloc[0]["check_id"])
 
@@ -305,7 +312,14 @@ def test_main_covers_pass_and_fail_paths(
     try:
         code = _invoke_main()
     except SystemExit as exc:
-        code = exc.code
+        raw = exc.code
+        if isinstance(raw, int) or raw is None:
+            code = raw
+        else:
+            try:
+                code = int(raw)
+            except Exception:
+                code = None
 
     assert code in accepted_codes
 

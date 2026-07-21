@@ -5,6 +5,7 @@ import json
 from datetime import date
 from pathlib import Path
 
+import duckdb
 import pytest
 import yaml
 
@@ -179,7 +180,7 @@ def test_cli_doctor_rejects_missing_database_row(
     connection = _NoRowConnection()
 
     monkeypatch.setattr(
-        cli.duckdb,
+        duckdb,
         "connect",
         lambda database: connection,
     )

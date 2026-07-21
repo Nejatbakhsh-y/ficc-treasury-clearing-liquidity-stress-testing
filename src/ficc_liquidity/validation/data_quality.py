@@ -15,7 +15,7 @@ from collections.abc import Iterable, Sequence
 from dataclasses import dataclass, field
 from datetime import UTC, datetime, timedelta
 from pathlib import Path
-from typing import Any
+from typing import Any, cast
 from typing import Any as _RuffAny
 from typing import ClassVar as _RuffClassVar
 
@@ -1597,11 +1597,11 @@ def main(argv: Sequence[str] | None = None) -> int:
     if not 0.0 < args.minimum_completeness <= 1.0:
         parser.error("--minimum-completeness must be in (0, 1].")
 
-    discovered_result = discover_dataset_files(args.data_root.resolve())
+    discovered_result: object = discover_dataset_files(args.data_root.resolve())
     if isinstance(discovered_result, tuple) and len(discovered_result) == 2:
-        discovered, _ = discovered_result
+        discovered = cast(dict[str, Path], discovered_result[0])
     else:
-        discovered = discovered_result
+        discovered = cast(dict[str, Path], discovered_result)
     try:
         overrides = parse_file_overrides(args.file)
     except ValueError as exc:
