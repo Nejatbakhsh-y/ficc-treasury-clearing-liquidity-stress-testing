@@ -1,0 +1,280 @@
+schema_version: '1.0'
+section: Phase II Section 10
+title: Historical stress-window identification
+objective: Select historical liquidity-stress windows from the canonical Section 8
+  long-form analytical datasets without forcing predetermined episodes into the final
+  scenario sample.
+input_files:
+- data/processed/fed_liquidity_factors.parquet
+- data/processed/treasury_market_factors.parquet
+fr2004_raw_glob: data/raw/fr2004/fr2004_*.csv
+methodology:
+  tail_quantile: 0.95
+  rolling_window_observations: 60
+  minimum_available_components: 2
+  require_all_series_groups: true
+  merge_gap_days: 7
+  pre_window_days: 3
+  post_window_days: 3
+  minimum_exceedance_days: 1
+  maximum_windows: 12
+  component_weights:
+    sofr_spike_score: 1.0
+    treasury_yield_shock_score: 1.0
+    settlement_fail_score: 1.0
+    financing_disruption_score: 1.0
+    reserve_contraction_score: 1.0
+series_rules:
+  sofr:
+    source_names:
+    - SOFR
+    alignment_frequency: daily
+    standardized_units:
+    - PERCENT
+    - BASIS_POINTS
+    metric_kinds:
+    - rate
+    include_patterns:
+    - sofr
+    exclude_patterns:
+    - volume
+    - percentile
+    - 25th
+    - 75th
+    - 99th
+    exact_series_ids: []
+  treasury_yields:
+    source_names:
+    - H15
+    alignment_frequency: daily
+    standardized_units:
+    - PERCENT
+    - BASIS_POINTS
+    require_maturity: true
+    include_patterns: []
+    exclude_patterns:
+    - spread
+    - change
+    exact_series_ids: []
+  settlement_fails:
+    source_names:
+    - FR2004
+    alignment_frequency: weekly
+    standardized_units:
+    - USD
+    include_patterns:
+    - fail
+    - pdft[rd][_-]
+    exclude_patterns:
+    - ratio
+    - percent
+    - pdft[rd][_-][a-z0-9_-]*c(?:\s|$)
+    exact_series_ids: []
+  financing_volume:
+    source_names:
+    - FR2004
+    - SOFR
+    alignment_frequency: weekly
+    standardized_units:
+    - USD
+    include_patterns:
+    - repo
+    - financ
+    - securities[ _-]+in
+    - securities[ _-]+out
+    - volume
+    - pds(?:ora|irra|iosb|oos)[_-]
+    exclude_patterns:
+    - fail
+    - position
+    - holding
+    - inventory
+    - pds(?:ora|irra|iosb|oos)[_-][a-z0-9_-]*c(?:\s|$)
+    exact_series_ids: []
+  reserve_balances:
+    source_names:
+    - H41
+    alignment_frequency: daily
+    standardized_units:
+    - USD
+    include_patterns:
+    - reserve.*balance
+    - balances.*depository
+    - wresbal
+    exclude_patterns:
+    - requirement
+    - ratio
+    - change
+    exact_series_ids:
+    - WRESBAL
+candidate_anchors:
+- id: financial_crisis_2007_2009
+  name: 2007-2009 financial crisis
+  start_date: '2007-07-01'
+  end_date: '2009-06-30'
+  treatment: Label only if an empirically selected window overlaps this range.
+- id: september_2019_repo_stress
+  name: September 2019 repo-market stress
+  start_date: '2019-09-01'
+  end_date: '2019-10-15'
+  treatment: Label only if an empirically selected window overlaps this range.
+- id: march_2020_treasury_stress
+  name: March 2020 Treasury-market stress
+  start_date: '2020-03-01'
+  end_date: '2020-04-30'
+  treatment: Label only if an empirically selected window overlaps this range.
+selected_scenarios:
+- id: HIST_001
+  name: Empirical tail window
+  start_date: '2003-08-10'
+  peak_date: '2003-08-13'
+  end_date: '2003-08-16'
+  anchor_match: null
+  selection:
+    peak_combined_score: 0.971228
+    mean_combined_score: 0.971228
+    threshold: 0.865069
+    trigger_components:
+    - treasury_yield_shock_score
+    - reserve_contraction_score
+- id: HIST_002
+  name: Empirical tail window
+  start_date: '2004-01-25'
+  peak_date: '2004-01-28'
+  end_date: '2004-01-31'
+  anchor_match: null
+  selection:
+    peak_combined_score: 0.965708
+    mean_combined_score: 0.965708
+    threshold: 0.865069
+    trigger_components:
+    - treasury_yield_shock_score
+    - reserve_contraction_score
+- id: HIST_003
+  name: Empirical tail window
+  start_date: '2005-03-06'
+  peak_date: '2005-03-09'
+  end_date: '2005-03-12'
+  anchor_match: null
+  selection:
+    peak_combined_score: 0.967266
+    mean_combined_score: 0.967266
+    threshold: 0.865069
+    trigger_components:
+    - reserve_contraction_score
+- id: HIST_004
+  name: Empirical tail window
+  start_date: '2007-06-24'
+  peak_date: '2007-06-27'
+  end_date: '2007-06-30'
+  anchor_match: null
+  selection:
+    peak_combined_score: 0.969529
+    mean_combined_score: 0.969529
+    threshold: 0.865069
+    trigger_components:
+    - treasury_yield_shock_score
+    - reserve_contraction_score
+- id: HIST_005
+  name: 2007-2009 financial crisis
+  start_date: '2007-09-16'
+  peak_date: '2007-09-19'
+  end_date: '2007-09-22'
+  anchor_match: financial_crisis_2007_2009
+  selection:
+    peak_combined_score: 0.973462
+    mean_combined_score: 0.973462
+    threshold: 0.865069
+    trigger_components:
+    - treasury_yield_shock_score
+    - reserve_contraction_score
+- id: HIST_006
+  name: 2007-2009 financial crisis
+  start_date: '2007-12-23'
+  peak_date: '2007-12-26'
+  end_date: '2007-12-29'
+  anchor_match: financial_crisis_2007_2009
+  selection:
+    peak_combined_score: 0.973594
+    mean_combined_score: 0.973594
+    threshold: 0.865069
+    trigger_components:
+    - treasury_yield_shock_score
+    - reserve_contraction_score
+- id: HIST_007
+  name: 2007-2009 financial crisis
+  start_date: '2008-04-06'
+  peak_date: '2008-04-09'
+  end_date: '2008-04-12'
+  anchor_match: financial_crisis_2007_2009
+  selection:
+    peak_combined_score: 0.984822
+    mean_combined_score: 0.984822
+    threshold: 0.865069
+    trigger_components:
+    - treasury_yield_shock_score
+    - reserve_contraction_score
+- id: HIST_008
+  name: 2007-2009 financial crisis
+  start_date: '2008-10-05'
+  peak_date: '2008-10-08'
+  end_date: '2008-10-11'
+  anchor_match: financial_crisis_2007_2009
+  selection:
+    peak_combined_score: 0.964736
+    mean_combined_score: 0.964736
+    threshold: 0.865069
+    trigger_components:
+    - treasury_yield_shock_score
+- id: HIST_009
+  name: March 2020 Treasury-market stress
+  start_date: '2020-02-28'
+  peak_date: '2020-03-17'
+  end_date: '2020-03-20'
+  anchor_match: march_2020_treasury_stress
+  selection:
+    peak_combined_score: 0.994767
+    mean_combined_score: 0.758493
+    threshold: 0.865069
+    trigger_components:
+    - sofr_spike_score
+    - treasury_yield_shock_score
+- id: HIST_010
+  name: Empirical tail window
+  start_date: '2022-09-12'
+  peak_date: '2022-09-22'
+  end_date: '2022-09-25'
+  anchor_match: null
+  selection:
+    peak_combined_score: 0.98093
+    mean_combined_score: 0.674793
+    threshold: 0.865069
+    trigger_components:
+    - sofr_spike_score
+    - treasury_yield_shock_score
+- id: HIST_011
+  name: Empirical tail window
+  start_date: '2023-03-20'
+  peak_date: '2023-03-23'
+  end_date: '2023-04-02'
+  anchor_match: null
+  selection:
+    peak_combined_score: 0.980987
+    mean_combined_score: 0.754422
+    threshold: 0.865069
+    trigger_components:
+    - sofr_spike_score
+    - treasury_yield_shock_score
+- id: HIST_012
+  name: Empirical tail window
+  start_date: '2023-04-17'
+  peak_date: '2023-05-04'
+  end_date: '2023-05-18'
+  anchor_match: null
+  selection:
+    peak_combined_score: 0.996995
+    mean_combined_score: 0.771038
+    threshold: 0.865069
+    trigger_components:
+    - sofr_spike_score
+    - treasury_yield_shock_score
