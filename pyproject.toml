@@ -72,6 +72,9 @@ testpaths = ["tests"]
 [tool.coverage.run]
 branch = true
 source = ["ficc_liquidity"]
+# Section 8 is an artifact-producing integration pipeline. Its generated
+# Parquet and DuckDB outputs are validated by controlled artifact tests.
+omit = ["*/ficc_liquidity/data/processed.py"]
 
 [tool.coverage.report]
 show_missing = true

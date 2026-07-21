@@ -1,0 +1,87 @@
+SECTION 8 â€” PROCESSED ANALYTICAL DATASET
+==============================================
+Generated at (UTC): 2026-07-21T17:44:06.953835+00:00
+Overall status: PASS
+
+Source files used:
+- FR2004: C:/Users/nejat/OneDrive/Desktop/UN/Skills/GitHub 2026/ficc-treasury-clearing-liquidity-stress-testing/data/processed/fed/fr2004/fr2004_canonical_def6076443fb.parquet | sha256=cf03518845c644579dddf762aaf361b08c7f897519fc5045d78fd0cc8b800b86
+- FR2004: C:/Users/nejat/OneDrive/Desktop/UN/Skills/GitHub 2026/ficc-treasury-clearing-liquidity-stress-testing/data/raw/fr2004/fr2004_20260720T012731Z_def6076443fb.csv | sha256=def6076443fb620fc866fed08ccafadaabf20c26b6522fdeec4155a5eb45844f
+- H15: C:/Users/nejat/OneDrive/Desktop/UN/Skills/GitHub 2026/ficc-treasury-clearing-liquidity-stress-testing/data/processed/fed/h15/h15_treasury_yields_dd9526aedb66.parquet | sha256=bbc2d2dc8f2d7039efd54021bdab4bdd0661613f233a1630b03db3e49c1b5b68
+- H15: C:/Users/nejat/OneDrive/Desktop/UN/Skills/GitHub 2026/ficc-treasury-clearing-liquidity-stress-testing/data/raw/fed/h15/frb_h15_DGS10_20260720T085830Z_7ecb389ad422.csv | sha256=7ecb389ad4221ec328890607a4f0850340898b1d19f16a75a67ed6041f01b384
+- H15: C:/Users/nejat/OneDrive/Desktop/UN/Skills/GitHub 2026/ficc-treasury-clearing-liquidity-stress-testing/data/raw/fed/h15/frb_h15_DGS1_20260720T085830Z_0c60be032f69.csv | sha256=0c60be032f692a96e39a9869f632e3209c1c90d7a3c4e7164acab4d1459a01b5
+- H15: C:/Users/nejat/OneDrive/Desktop/UN/Skills/GitHub 2026/ficc-treasury-clearing-liquidity-stress-testing/data/raw/fed/h15/frb_h15_DGS1MO_20260720T085830Z_bbeb1944d7d6.csv | sha256=bbeb1944d7d6c10d3007492083e25c01151ec55f7077398bd00fe3a27a961b56
+- H15: C:/Users/nejat/OneDrive/Desktop/UN/Skills/GitHub 2026/ficc-treasury-clearing-liquidity-stress-testing/data/raw/fed/h15/frb_h15_DGS20_20260720T085830Z_a32449c928b2.csv | sha256=a32449c928b2b44db1ebdf7cb8f9ec29b347bea10840684a87d85e4f6ecc620d
+- H15: C:/Users/nejat/OneDrive/Desktop/UN/Skills/GitHub 2026/ficc-treasury-clearing-liquidity-stress-testing/data/raw/fed/h15/frb_h15_DGS2_20260720T085830Z_7655381c5ce0.csv | sha256=7655381c5ce04c63de507e28d4ebe8efab3d05163d3b43d374158707f07a657f
+- H15: C:/Users/nejat/OneDrive/Desktop/UN/Skills/GitHub 2026/ficc-treasury-clearing-liquidity-stress-testing/data/raw/fed/h15/frb_h15_DGS30_20260720T085830Z_42877baea1d5.csv | sha256=42877baea1d543227d824185dee752562b35fda53082ab9ec8556727e8929ae3
+- H15: C:/Users/nejat/OneDrive/Desktop/UN/Skills/GitHub 2026/ficc-treasury-clearing-liquidity-stress-testing/data/raw/fed/h15/frb_h15_DGS3_20260720T085830Z_c8328f2481ee.csv | sha256=c8328f2481ee998150b6e099c18f0bdeaa197225bb6a3f761828820662a9f667
+- H15: C:/Users/nejat/OneDrive/Desktop/UN/Skills/GitHub 2026/ficc-treasury-clearing-liquidity-stress-testing/data/raw/fed/h15/frb_h15_DGS3MO_20260720T085830Z_8447af347495.csv | sha256=8447af34749544d06353b2b251f57b634c71134d8456079ac6dbd50ecc9b8581
+- H15: C:/Users/nejat/OneDrive/Desktop/UN/Skills/GitHub 2026/ficc-treasury-clearing-liquidity-stress-testing/data/raw/fed/h15/frb_h15_DGS5_20260720T085830Z_a50d524f2730.csv | sha256=a50d524f2730b5a24f0336f5b99edf5c0299c55caed1939601f8a5561add808f
+- H15: C:/Users/nejat/OneDrive/Desktop/UN/Skills/GitHub 2026/ficc-treasury-clearing-liquidity-stress-testing/data/raw/fed/h15/frb_h15_DGS6MO_20260720T085830Z_0d14dd702df8.csv | sha256=0d14dd702df88b9db504253358e0dddbb3cf53f20c6bab904475f0c32e719c1d
+- H15: C:/Users/nejat/OneDrive/Desktop/UN/Skills/GitHub 2026/ficc-treasury-clearing-liquidity-stress-testing/data/raw/fed/h15/frb_h15_DGS7_20260720T085830Z_9fa154049c98.csv | sha256=9fa154049c98934d0880cb961cc62a7a0309d221663342744a89b83a88a417af
+- H41: C:/Users/nejat/OneDrive/Desktop/UN/Skills/GitHub 2026/ficc-treasury-clearing-liquidity-stress-testing/data/processed/fed/h41/h41_liquidity_conditions_8ff751707fbe.parquet | sha256=fcef5704bb4483b5221f07627225b0683c5a154efcff406d0d56e9fb6a0ee20e
+- H41: C:/Users/nejat/OneDrive/Desktop/UN/Skills/GitHub 2026/ficc-treasury-clearing-liquidity-stress-testing/data/raw/fed/h41/frb_h41_TREAST_20260720T085831Z_cb3c8b55162b.csv | sha256=cb3c8b55162bbd36d8051a3c6cf589b54aa9cbc2f79dd49d741c5277c0dcb66d
+- H41: C:/Users/nejat/OneDrive/Desktop/UN/Skills/GitHub 2026/ficc-treasury-clearing-liquidity-stress-testing/data/raw/fed/h41/frb_h41_WALCL_20260720T085831Z_ecf355046589.csv | sha256=ecf3550465895df47bebf173a37083f158aea87014b49d4cbb97e16852472a43
+- H41: C:/Users/nejat/OneDrive/Desktop/UN/Skills/GitHub 2026/ficc-treasury-clearing-liquidity-stress-testing/data/raw/fed/h41/frb_h41_WDTGAL_20260720T085831Z_8c58ae206675.csv | sha256=8c58ae206675f4af138b4a4f94a4536354553803aa1fe66cee49e032075687dc
+- H41: C:/Users/nejat/OneDrive/Desktop/UN/Skills/GitHub 2026/ficc-treasury-clearing-liquidity-stress-testing/data/raw/fed/h41/frb_h41_WLRRAL_20260720T085831Z_a205e57baea6.csv | sha256=a205e57baea61cacfdd0695927c4dc4d9c7e9adb4e1acc5c867357862f5d2b6f
+- H41: C:/Users/nejat/OneDrive/Desktop/UN/Skills/GitHub 2026/ficc-treasury-clearing-liquidity-stress-testing/data/raw/fed/h41/frb_h41_WORAL_20260720T085831Z_15022a22b234.csv | sha256=15022a22b234c0b3f7d3be6af06a108356ef686a57a02ef728ef7f6ee112cdb2
+- H41: C:/Users/nejat/OneDrive/Desktop/UN/Skills/GitHub 2026/ficc-treasury-clearing-liquidity-stress-testing/data/raw/fed/h41/frb_h41_WRBWFRBL_20260720T085831Z_c4e20c1a5d4a.csv | sha256=c4e20c1a5d4a5d99a8dfe4f1df62a9637cb33ce7aa563361d4b927b906701b1f
+- H41: C:/Users/nejat/OneDrive/Desktop/UN/Skills/GitHub 2026/ficc-treasury-clearing-liquidity-stress-testing/data/raw/fed/h41/frb_h41_WRESBAL_20260720T085831Z_3ab8000fc827.csv | sha256=3ab8000fc827df5689ddc12123e52371d88a363ce7f9801bcfa99c04b4990e04
+- SOFR: C:/Users/nejat/OneDrive/Desktop/UN/Skills/GitHub 2026/ficc-treasury-clearing-liquidity-stress-testing/data/processed/fed/sofr/sofr_ebcb2ed9d2b9.parquet | sha256=953e49046cd5e426d1ebe4cd75a0691ac84327143f7c0f48e2932a0ef963ef0f
+- SOFR: C:/Users/nejat/OneDrive/Desktop/UN/Skills/GitHub 2026/ficc-treasury-clearing-liquidity-stress-testing/data/processed/fed/sofr/sofr_fred_manual_bd0a26204539.parquet | sha256=c4d53ea5c5cb1aec6e8f07153c178e4bd2f83c3b16804948ac784dea28caebca
+- SOFR: C:/Users/nejat/OneDrive/Desktop/UN/Skills/GitHub 2026/ficc-treasury-clearing-liquidity-stress-testing/data/raw/fed/sofr/nyfed_sofr_SOFR_20260720T035324Z_ebcb2ed9d2b9.json | sha256=ebcb2ed9d2b938401158e776ae04d1156578e464844d23ffad80dd56cba53932
+
+Validation checks:
+{
+  "fed_liquidity_factors": {
+    "path": "data/processed/fed_liquidity_factors.parquet",
+    "rows": 80808,
+    "columns": 40,
+    "required_columns_present": true,
+    "duplicate_key_rows": 0,
+    "allowed_units": true,
+    "minimum_date": "2002-12-18",
+    "maximum_date": "2026-07-17",
+    "daily_rows": 67426,
+    "weekly_rows": 13382,
+    "lineage_complete": true
+  },
+  "treasury_market_factors": {
+    "path": "data/processed/treasury_market_factors.parquet",
+    "rows": 191623,
+    "columns": 40,
+    "required_columns_present": true,
+    "duplicate_key_rows": 0,
+    "allowed_units": true,
+    "minimum_date": "1998-01-02",
+    "maximum_date": "2026-07-17",
+    "daily_rows": 159783,
+    "weekly_rows": 31840,
+    "lineage_complete": true
+  },
+  "duckdb": {
+    "path": "reports/sql/ficc_liquidity.duckdb",
+    "required_tables_present": true,
+    "tables": [
+      "analytical_dataset_build_metadata",
+      "fed_liquidity_factors",
+      "fed_liquidity_factors_daily",
+      "fed_liquidity_factors_weekly",
+      "latest_factor_observations",
+      "source_lineage_summary",
+      "treasury_market_factors",
+      "treasury_market_factors_daily",
+      "treasury_market_factors_weekly"
+    ]
+  }
+}
+
+Standard observation dates: PASS
+Standard USD units: PASS
+Treasury maturity mappings: PASS
+Daily and weekly alignment: PASS
+Lagged variables: PASS
+Missing-value policy: PASS
+Source lineage columns: PASS
+Processed Parquet datasets: PASS
+DuckDB analytical tables: PASS
+Section 8 final decision: PASS
