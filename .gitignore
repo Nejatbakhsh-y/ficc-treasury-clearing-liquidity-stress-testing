@@ -53,3 +53,7 @@ data/raw/fed/
 data/processed/fed/
 
 data/manual/
+# Controlled Phase II Section 10 calibration deliverables
+!reports/tables/historical_stress_windows.csv
+!reports/tables/historical_stress_daily_scores.csv
+!reports/evidence/historical_stress_calibration.txt
