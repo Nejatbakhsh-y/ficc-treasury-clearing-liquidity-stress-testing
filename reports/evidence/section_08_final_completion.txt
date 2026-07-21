@@ -1,0 +1,54 @@
+SECTION 8 - PROCESSED ANALYTICAL DATASET
+Final schema-aware completion evidence
+
+Completed UTC: 2026-07-21T18:12:51Z
+Branch: feature/06-processed-data
+Starting commit: 9b0293e81ceee77e55dc072d8ee705d204dce4a6
+
+Fed analytical dataset:
+Rows: 80808
+Date range: 2002-12-18 through 2026-07-17
+Detected date column: observation_date
+Detected measure columns: value
+Detected unit column: standardized_unit
+Detected source column: source_name
+Detected source-file lineage column: source_file
+Detected checksum lineage column: source_sha256
+Detected lineage ID column: lineage_id
+Columns: observation_date, alignment_frequency, source_name, source_series_id, source_metric, value, standardized_unit, metric_kind, maturity_months, maturity_label, maturity_bucket, value_lag_1, value_lag_4, value_lag_5, value_lag_13, value_lag_20, value_change_1, value_change_4, value_change_5, value_change_13, value_change_20, value_pct_change_1, value_pct_change_4, value_pct_change_5, value_pct_change_13, value_pct_change_20, is_observed, missing_value_policy, source_observation_date, source_frequency, original_value, original_unit, source_file, source_sha256, source_row_number, source_retrieved_at_utc, lineage_id, weekly_observation_count, transformation_version, processed_at_utc
+
+Treasury analytical dataset:
+Rows: 191623
+Date range: 1998-01-02 through 2026-07-17
+Detected date column: observation_date
+Detected measure columns: value
+Detected unit column: standardized_unit
+Detected source column: source_name
+Detected source-file lineage column: source_file
+Detected checksum lineage column: source_sha256
+Detected lineage ID column: lineage_id
+Columns: observation_date, alignment_frequency, source_name, source_series_id, source_metric, value, standardized_unit, metric_kind, maturity_months, maturity_label, maturity_bucket, value_lag_1, value_lag_4, value_lag_5, value_lag_13, value_lag_20, value_change_1, value_change_4, value_change_5, value_change_13, value_change_20, value_pct_change_1, value_pct_change_4, value_pct_change_5, value_pct_change_13, value_pct_change_20, is_observed, missing_value_policy, source_observation_date, source_frequency, original_value, original_unit, source_file, source_sha256, source_row_number, source_retrieved_at_utc, lineage_id, weekly_observation_count, transformation_version, processed_at_utc
+
+DuckDB analytical objects:
+analytical_dataset_build_metadata, fed_liquidity_factors, fed_liquidity_factors_daily, fed_liquidity_factors_weekly, latest_factor_observations, source_lineage_summary, treasury_market_factors, treasury_market_factors_daily, treasury_market_factors_weekly
+
+Validation results:
+Standard observation dates: PASS
+Analytical measures: PASS
+Standard-unit evidence: PASS
+Daily alignment: PASS
+Weekly alignment: PASS
+Source lineage: PASS
+Parquet/DuckDB reconciliation: PASS
+Python compilation: PASS
+Ruff validation: PASS
+Section 8 isolated tests: PASS (4 tests)
+
+Validation note:
+The analytical outputs may use either a long-form value column or a
+controlled wide-form factor schema. Validation is based on detected
+analytical measures and lineage controls rather than requiring one fixed
+column name such as standardized_value.
+
+Final decision: PASS
+Section 8: COMPLETE

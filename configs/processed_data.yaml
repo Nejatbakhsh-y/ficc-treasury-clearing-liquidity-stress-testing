@@ -1,0 +1,45 @@
+schema_version: "1.0"
+transformation_version: "section-08-v1"
+standard_currency: USD
+output:
+  fed_liquidity_factors: data/processed/fed_liquidity_factors.parquet
+  treasury_market_factors: data/processed/treasury_market_factors.parquet
+  duckdb: reports/sql/ficc_liquidity.duckdb
+  sql: sql/create_analytical_tables.sql
+source_discovery:
+  roots:
+    - data/interim
+    - data/raw
+    - data/processed
+  supported_extensions:
+    - .parquet
+    - .csv
+    - .xlsx
+    - .xls
+    - .json
+  source_tokens:
+    FR2004: [fr2004, primary_dealer, primary-dealer, dealer_statistics]
+    SOFR: [sofr]
+    H15: [h15, treasury_yield, treasury-yield, constant_maturity]
+    H41: [h41, h4_1, h4.1, reserve_balance, reserve-balances]
+missing_value_policy:
+  daily_stock_rate_forward_fill_business_days: 5
+  daily_flow_volume_fill: none
+  weekly_stock_rate_aggregation: last
+  weekly_flow_volume_aggregation: sum
+  weekly_other_aggregation: mean
+lag_periods:
+  daily: [1, 5, 20]
+  weekly: [1, 4, 13]
+treasury_maturities:
+  - {months: 1, label: 1M, bucket: bill}
+  - {months: 3, label: 3M, bucket: bill}
+  - {months: 6, label: 6M, bucket: bill}
+  - {months: 12, label: 1Y, bucket: bill}
+  - {months: 24, label: 2Y, bucket: note}
+  - {months: 36, label: 3Y, bucket: note}
+  - {months: 60, label: 5Y, bucket: note}
+  - {months: 84, label: 7Y, bucket: note}
+  - {months: 120, label: 10Y, bucket: note}
+  - {months: 240, label: 20Y, bucket: bond}
+  - {months: 360, label: 30Y, bucket: bond}
