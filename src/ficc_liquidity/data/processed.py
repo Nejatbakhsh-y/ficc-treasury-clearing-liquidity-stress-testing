@@ -229,11 +229,10 @@ def _read_frame(path: Path) -> pd.DataFrame:
 def _numeric(series: pd.Series) -> pd.Series:
     if pd.api.types.is_numeric_dtype(series):
         return pd.to_numeric(series, errors="coerce")
+    cleaned = series.astype("string").str.strip()
+    cleaned = cleaned.mask(cleaned.isin(["", "NA", "N/A", "ND", "."]))
     cleaned = (
-        series.astype("string")
-        .str.strip()
-        .replace({"": pd.NA, "NA": pd.NA, "N/A": pd.NA, "ND": pd.NA, ".": pd.NA})
-        .str.replace(r"^\((.*)\)$", r"-\1", regex=True)
+        cleaned.str.replace(r"^\((.*)\)$", r"-\1", regex=True)
         .str.replace(r"[$,%]", "", regex=True)
         .str.replace(",", "", regex=False)
     )

@@ -3,6 +3,7 @@
 from __future__ import annotations
 
 from pathlib import Path
+from typing import Any, cast
 
 import duckdb
 import pandas as pd
@@ -12,8 +13,11 @@ ROOT = Path(__file__).resolve().parents[1]
 CONFIG_PATH = ROOT / "configs/processed_data.yaml"
 
 
-def _config() -> dict:
-    return yaml.safe_load(CONFIG_PATH.read_text(encoding="utf-8"))
+def _config() -> dict[str, Any]:
+    loaded = yaml.safe_load(CONFIG_PATH.read_text(encoding="utf-8"))
+    if not isinstance(loaded, dict):
+        raise TypeError("Processed-data configuration must be a mapping.")
+    return cast(dict[str, Any], loaded)
 
 
 def _frame(label: str) -> pd.DataFrame:
@@ -87,7 +91,13 @@ def test_duckdb_analytical_tables_exist() -> None:
             "treasury_market_factors",
             "analytical_dataset_build_metadata",
         }.issubset(tables)
-        assert connection.execute("SELECT count(*) FROM fed_liquidity_factors").fetchone()[0] > 0
-        assert connection.execute("SELECT count(*) FROM treasury_market_factors").fetchone()[0] > 0
+        fed_count = connection.execute("SELECT count(*) FROM fed_liquidity_factors").fetchone()
+        treasury_count = connection.execute(
+            "SELECT count(*) FROM treasury_market_factors"
+        ).fetchone()
+        assert fed_count is not None
+        assert treasury_count is not None
+        assert fed_count[0] > 0
+        assert treasury_count[0] > 0
     finally:
         connection.close()
