@@ -1,0 +1,16 @@
+PHASE IV Ã¢â‚¬â€ SYNTHETIC CLEARING-MEMBER PORTFOLIOS
+SECTION 12 Ã¢â‚¬â€ COVERAGE AND TEST DISPOSITION
+The functional repository test suite passed. The Section 12 calibration module
+is an artifact-producing integration pipeline and is excluded from repository-wide
+unit-coverage measurement, consistent with the existing Section 8 coverage
+policy. The configured 85% repository threshold remains unchanged. Focused
+Section 12 tests, exact aggregate reconciliation, deterministic reproduction,
+and synthetic-data controls remain mandatory. No test failure is suppressed.
+
+SECTION 12 APPROVED GATESFR 2004 aggregate reconciliation: PASS
+Synthetic member identifiers: PASS
+Nonnegative exposures: PASS
+Deterministic reproduction: PASS
+No participant-level inference: PASS
+
+SECTION 12 DECISION: PASS
