@@ -1,0 +1,32 @@
+PHASE IV â€” SECTION 12: CALIBRATION TO FEDERAL RESERVE AGGREGATES
+========================================================================
+Generated at UTC: 2026-07-22T01:03:48.566558+00:00
+FR 2004 source date: 2026-07-08
+FR 2004 source file: C:/Users/nejat/OneDrive/Desktop/UN/Skills/GitHub 2026/ficc-treasury-clearing-liquidity-stress-testing/data/raw/fr2004/fr2004_20260720T012731Z_def6076443fb.csv
+FR 2004 source SHA-256: def6076443fb620fc866fed08ccafadaabf20c26b6522fdeec4155a5eb45844f
+Member count: 48
+Random seed: 2026
+Pareto shape: 1.55
+Concentration power: 1.4
+Deterministic record digest: 8e15e6fb65690ab3cc9817144a38812a229a4c9d2e1262563324b08a62bf8161
+Largest-member Treasury share: 0.100628
+Top-five Treasury share: 0.386442
+
+Control results:
+- Reconciliation rows: 14
+- Reconciliation failures: 0
+- Negative USD values: 0
+- Actual-participant flags: 0
+- Participant-inference flags: 0
+
+GATE RESULTS
+FR 2004 aggregate reconciliation: PASS
+Synthetic member identifiers: PASS
+Nonnegative exposures: PASS
+Deterministic reproduction: PASS
+No participant-level inference: PASS
+
+Important limitation:
+This output is a stochastic allocation of public aggregate controls. It is not an estimate of any actual FICC participant and must not be used for participant identification, ranking, or reverse engineering.
+
+Section 12 final decision: PASS

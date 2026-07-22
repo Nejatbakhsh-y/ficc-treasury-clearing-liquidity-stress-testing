@@ -1,0 +1,206 @@
+schema_version: "1.0"
+calibration_version: "section-12-v1"
+
+synthetic_data_controls:
+  value_class: synthetic
+  actual_ficc_participants_permitted: false
+  participant_level_inference_permitted: false
+  identification_statement: >
+    Every generated record is fictional. No record represents, approximates,
+    ranks, identifies, or purports to describe an actual FICC participant.
+  member_id_prefix: "SYN-MBR-"
+  member_label_prefix: "Fictional Clearing Member "
+
+generation:
+  member_count: 48
+  random_seed: 2026
+  pareto_shape: 1.55
+  concentration_power: 1.40
+  idiosyncratic_sigma: 0.20
+  generator_version: "2.0.0-calibrated"
+  deterministic_rounding_unit_usd: 0.01
+
+source:
+  official_name: "FR 2004 Primary Dealer Statistics"
+  raw_glob: "data/raw/fr2004/fr2004_*.csv"
+  canonical_glob: "data/processed/fed/fr2004/fr2004_canonical_*.parquet"
+  processed_file: "data/processed/fed_liquidity_factors.parquet"
+  definitions_cache: "data/interim/fr2004/fr2004_series_definitions.csv"
+  definitions_url: "https://markets.newyorkfed.org/api/pd/list/timeseries.csv"
+  values_are_usd_millions_when_raw_or_canonical: true
+  use_latest_common_observation_date: true
+
+outputs:
+  calibrated_portfolios: "data/synthetic/calibrated_member_portfolios.parquet"
+  reconciliation_table: "reports/tables/synthetic_calibration_reconciliation.csv"
+  manifest: "data/manifests/synthetic_calibration_manifest.csv"
+  evidence: "reports/evidence/section_12_synthetic_calibration_report.txt"
+  series_resolution_diagnostic: "reports/evidence/fr2004_series_resolution_diagnostic.csv"
+
+resolution:
+  common_exclude_patterns:
+    - "(?i)change"
+    - "(?i)percent"
+    - "(?i)ratio"
+
+  maturity_common_include:
+    - "(?i)U\\.S\\. Treasury"
+    - "(?i)Treasury securities"
+    - "(?i)^PDPOSGSC"
+  maturity_common_exclude:
+    - "(?i)transaction"
+    - "(?i)customer"
+    - "(?i)inter-dealer"
+    - "(?i)net position"
+    - "(?i)position - short"
+    - "(?i)short position"
+    - "(?i)total"
+    - "(?i)inflation-protected"
+    - "(?i)TIPS"
+    - "(?i)floating rate"
+
+  maturity_buckets:
+    treasury_position_bills_0_1y_usd:
+      include:
+        - "(?i)Treasury bills"
+        - "(?i)\\bbills\\b"
+        - "(?i)\\bt-?bills?\\b"
+    treasury_position_notes_1_3y_usd:
+      include:
+        - "(?i)2 years or less"
+        - "(?i)more than 2.*3 years"
+        - "(?i)G2L3"
+        - "(?i)-L2(?:\\b|$)"
+    treasury_position_notes_3_7y_usd:
+      include:
+        - "(?i)more than 3.*6 years"
+        - "(?i)more than 6.*7 years"
+        - "(?i)G3L6"
+        - "(?i)G6L7"
+    treasury_position_notes_7_10y_usd:
+      include:
+        - "(?i)more than 7.*(?:10|11) years"
+        - "(?i)G7L11"
+    treasury_position_bonds_10_30y_usd:
+      include:
+        - "(?i)more than 11.*21 years"
+        - "(?i)more than 21 years"
+        - "(?i)G11L21"
+        - "(?i)G21"
+    treasury_position_strips_30y_plus_usd:
+      include:
+        - "(?i)STRIPS"
+
+  fallback_maturity_shares:
+    treasury_position_bills_0_1y_usd: 0.12
+    treasury_position_notes_1_3y_usd: 0.25
+    treasury_position_notes_3_7y_usd: 0.25
+    treasury_position_notes_7_10y_usd: 0.16
+    treasury_position_bonds_10_30y_usd: 0.22
+    treasury_position_strips_30y_plus_usd: 0.00
+
+  total_position:
+    include:
+      - "(?i)U\\.S\\. Treasury.*position - long"
+      - "(?i)Treasury securities.*long position"
+      - "(?i)^PDPOSGSC"
+    exclude:
+      - "(?i)transaction"
+      - "(?i)customer"
+      - "(?i)inter-dealer"
+      - "(?i)net position"
+      - "(?i)position - short"
+      - "(?i)short position"
+      - "(?i)change"
+      - "(?i)total"
+
+  treasury_transactions:
+    include:
+      - "(?i)Treasury.*transaction"
+      - "(?i)transaction.*Treasury"
+      - "(?i)^PDTR"
+    exclude:
+      - "(?i)repo"
+      - "(?i)financing"
+      - "(?i)fail"
+      - "(?i)position"
+      - "(?i)change"
+      - "(?i)percent"
+
+  repo_financing_out:
+    include:
+      - "(?i)Treasury.*securities out"
+      - "(?i)securities out.*Treasury"
+      - "(?i)Treasury.*repo"
+      - "(?i)^PDSORA[-_:]"
+      - "(?i)^PDSOOS[-_:]"
+    exclude:
+      - "(?i)fail"
+      - "(?i)change"
+      - "(?i)percent"
+      - "(?i)rate"
+      - "(?i)reverse repo"
+      - "(?i)securities in"
+      - "(?i)^PDSIRRA[-_:]"
+      - "(?i)^PDSIRA[-_:]"
+      - "(?i)^PDSIOSB[-_:]"
+
+  reverse_repo_in:
+    include:
+      - "(?i)Treasury.*securities in"
+      - "(?i)securities in.*Treasury"
+      - "(?i)Treasury.*reverse repo"
+      - "(?i)^PDSIRRA[-_:]"
+      - "(?i)^PDSIRA[-_:]"
+      - "(?i)^PDSIOSB[-_:]"
+    exclude:
+      - "(?i)fail"
+      - "(?i)change"
+      - "(?i)percent"
+      - "(?i)rate"
+      - "(?i)securities out"
+      - "(?i)^PDSORA[-_:]"
+      - "(?i)^PDSOOS[-_:]"
+
+  fails_to_receive:
+    include:
+      - "(?i)Treasury.*fails to receive"
+      - "(?i)fails to receive.*Treasury"
+      - "(?i)^PDFTR[-_:]USTET"
+    exclude:
+      - "(?i)change"
+      - "(?i)percent"
+
+  fails_to_deliver:
+    include:
+      - "(?i)Treasury.*fails to deliver"
+      - "(?i)fails to deliver.*Treasury"
+      - "(?i)^PDFTD[-_:]USTET"
+    exclude:
+      - "(?i)change"
+      - "(?i)percent"
+
+derived_member_assumptions:
+  collateral_coverage_low: 1.05
+  collateral_coverage_high: 1.45
+  qualified_resource_share_low: 0.35
+  qualified_resource_share_high: 0.70
+  stress_multiplier_low: 1.10
+  stress_multiplier_high: 1.55
+
+risk_score:
+  concentration_weight: 0.25
+  funding_dependency_weight: 0.25
+  settlement_fail_weight: 0.20
+  collateral_shortfall_weight: 0.15
+  liquidity_shortfall_weight: 0.15
+  elevated_threshold: 40.0
+  high_threshold: 65.0
+
+validation:
+  aggregate_tolerance_usd: 0.01
+  require_exact_cents_reconciliation: true
+  require_nonnegative_exposures: true
+  require_deterministic_reproduction: true
+  require_synthetic_identifiers: true
+  require_no_participant_inference: true
