@@ -1,0 +1,77 @@
+schema_version: "1.0"
+model_version: "section-14-v1"
+
+classification:
+  source_values: synthetic
+  assumptions: assumed
+  calculations: modeled
+  actual_ficc_participants_permitted: false
+  participant_level_inference_permitted: false
+
+source:
+  member_portfolios: "data/synthetic/calibrated_member_portfolios.parquet"
+  member_id_column: "member_id"
+  synthetic_id_pattern: "^SYN-MBR-[0-9]{4}$"
+
+liquidity_horizon:
+  label: "two-business-day baseline horizon"
+  hours: 48
+  buckets:
+    - name: "day1_open"
+      elapsed_hours: 0
+    - name: "day1_midday"
+      elapsed_hours: 6
+    - name: "day1_close"
+      elapsed_hours: 12
+    - name: "day2_open"
+      elapsed_hours: 24
+    - name: "day2_close"
+      elapsed_hours: 48
+
+payment_timing:
+  settlement_obligations:
+    day1_open: 0.35
+    day1_midday: 0.30
+    day1_close: 0.25
+    day2_open: 0.10
+    day2_close: 0.00
+  repo_maturities:
+    day1_open: 0.20
+    day1_midday: 0.30
+    day1_close: 0.30
+    day2_open: 0.15
+    day2_close: 0.05
+  financing_inflows:
+    day1_open: 0.10
+    day1_midday: 0.25
+    day1_close: 0.30
+    day2_open: 0.25
+    day2_close: 0.10
+  eligible_collateral_availability:
+    day1_open: 0.00
+    day1_midday: 0.25
+    day1_close: 0.45
+    day2_open: 0.20
+    day2_close: 0.10
+
+assumptions:
+  settlement_netting_rate: 0.25
+  repo_roll_rate: 0.80
+  reverse_repo_inflow_recognition_rate: 0.95
+  financing_netting_enabled: true
+  available_cash_share_of_aqlr: 0.35
+  eligible_collateral_haircut: 0.05
+  collateral_operational_availability_rate: 0.90
+  resource_reuse_permitted: false
+
+validation:
+  reconciliation_tolerance_usd: 0.01
+  require_nonnegative_cashflow_components: true
+  require_synthetic_identifiers: true
+  require_deterministic_reproduction: true
+
+outputs:
+  cashflows: "reports/tables/baseline_liquidity_cashflows.csv"
+  member_summary: "reports/tables/baseline_liquidity_summary.csv"
+  manifest: "data/manifests/baseline_liquidity_manifest.csv"
+  evidence: "reports/evidence/section14_baseline_liquidity_validation.txt"
