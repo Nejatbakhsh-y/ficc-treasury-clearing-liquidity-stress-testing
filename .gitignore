@@ -59,3 +59,6 @@ data/manual/
 !reports/evidence/historical_stress_calibration.txt
 # Controlled Phase IV Section 11 schema evidence
 !reports/evidence/section11_synthetic_member_schema.txt
+
+# Section 15 local transient files
+*.section15_backup_*
