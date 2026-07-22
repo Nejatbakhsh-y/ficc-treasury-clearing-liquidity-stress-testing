@@ -17,6 +17,7 @@ from pathlib import Path
 from typing import Any, cast
 
 import numpy as np
+import numpy.typing as npt
 import pandas as pd
 import requests
 import yaml
@@ -690,7 +691,10 @@ def resolve_targets(
     return targets, diagnostic
 
 
-def exact_allocate(total_cents: int, weights: Sequence[float]) -> np.ndarray:
+def exact_allocate(
+    total_cents: int,
+    weights: Sequence[float],
+) -> npt.NDArray[np.int64]:
     """Allocate integer cents exactly by the largest-remainder method."""
     if total_cents < 0:
         raise ValueError("total_cents must be nonnegative.")
@@ -715,14 +719,14 @@ def exact_allocate(total_cents: int, weights: Sequence[float]) -> np.ndarray:
         base[order[:remainder]] += 1
     if int(base.sum()) != total_cents or (base < 0).any():
         raise RuntimeError("Exact allocation failed.")
-    return base
+    return cast(npt.NDArray[np.int64], base)
 
 
 def heavy_tail_weights(
     settings: CalibrationSettings,
     *,
     seed_offset: int = 0,
-) -> np.ndarray:
+) -> npt.NDArray[np.float64]:
     """Create deterministic Pareto weights with configurable concentration."""
     generator = np.random.default_rng(settings.random_seed + seed_offset)
     raw = generator.pareto(settings.pareto_shape, settings.member_count) + 1.0
@@ -730,21 +734,24 @@ def heavy_tail_weights(
     weights = powered / powered.sum()
     if not np.isfinite(weights).all() or (weights <= 0.0).any():
         raise RuntimeError("Heavy-tailed weights are invalid.")
-    return cast(np.ndarray, weights)
+    return cast(npt.NDArray[np.float64], weights)
 
 
 def _component_weights(
-    base_weights: np.ndarray,
+    base_weights: npt.NDArray[np.float64],
     settings: CalibrationSettings,
     generator: np.random.Generator,
-) -> np.ndarray:
+) -> npt.NDArray[np.float64]:
     shocks = generator.lognormal(
         mean=0.0,
         sigma=settings.idiosyncratic_sigma,
         size=settings.member_count,
     )
     component = base_weights * shocks
-    return cast(np.ndarray, component / component.sum())
+    return cast(
+        npt.NDArray[np.float64],
+        component / component.sum(),
+    )
 
 
 def _risk_score(
@@ -770,7 +777,9 @@ def _risk_score(
     return min(max(score, 0.0), 100.0)
 
 
-def _usd(values_cents: np.ndarray) -> np.ndarray:
+def _usd(
+    values_cents: npt.NDArray[np.int64],
+) -> npt.NDArray[np.float64]:
     return values_cents.astype(np.float64) / 100.0
 
 
@@ -782,7 +791,7 @@ def generate_calibrated_frame(
     base_weights = heavy_tail_weights(settings)
     generator = np.random.default_rng(settings.random_seed + 10_000)
 
-    allocated: dict[str, np.ndarray] = {}
+    allocated: dict[str, npt.NDArray[np.int64]] = {}
     for index, (column, target_cents) in enumerate(targets.control_cents().items()):
         weights = _component_weights(base_weights, settings, generator)
         allocated[column] = exact_allocate(target_cents, weights.tolist())

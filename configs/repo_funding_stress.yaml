@@ -1,0 +1,123 @@
+schema_version: "1.0"
+section: 16
+model_name: repo_funding_stress
+model_version: "section-16-v1"
+currency: USD
+random_seed: 2026
+
+classification:
+  baseline_cash_flows: modeled
+  synthetic_member_profiles: synthetic
+  sofr_observations: observed
+  scenario_assumptions: assumed
+  stress_results: modeled
+  actual_ficc_participants_permitted: false
+  participant_level_inference_permitted: false
+
+source:
+  baseline_cashflow_candidates:
+    - reports/tables/baseline_liquidity_cashflows.parquet
+    - reports/tables/baseline_liquidity_cashflows.csv
+  member_profile_candidates:
+    - data/synthetic/calibrated_member_portfolios.parquet
+    - data/synthetic/calibrated_member_portfolios.csv
+    - data/synthetic/synthetic_members.parquet
+    - data/synthetic/synthetic_members.csv
+  synthetic_id_pattern: '^SYN-MBR-[0-9]{4}$'
+
+sofr:
+  mode: latest_available_or_assumed
+  input_candidates:
+    - data/processed/fed_liquidity_factors.parquet
+    - data/processed/fed_liquidity_factors.csv
+    - data/raw/nyfed_sofr.parquet
+    - data/raw/nyfed_sofr.csv
+  date_column_candidates:
+    - observation_date
+    - as_of_date
+    - date
+  value_column_candidates:
+    - sofr_rate
+    - sofr
+    - rate
+  unit: percent
+  fallback_reference_percent: 4.50
+
+assumptions:
+  reference_sofr_percent: 4.50
+  baseline_liquidity_horizon_hours: 48
+  day_count_basis: 360
+
+scenarios:
+  - name: control
+    enabled: true
+    severity_rank: 0
+    sofr_spike_bp: 0.0
+    funding_spread_increase_bp: 0.0
+    repo_rollover_failure_rate: 0.0
+    lender_withdrawal_rate: 0.0
+    refinancing_horizon_hours: 48
+    collateral_haircut_increase: 0.0
+    collateral_call_rate: 0.0
+    concentration_threshold: 0.25
+    concentration_multiplier: 0.0
+    funding_dependency_multiplier: 0.0
+    max_effective_unavailability_rate: 0.0
+
+  - name: moderate_market_stress
+    enabled: true
+    severity_rank: 1
+    sofr_spike_bp: 100.0
+    funding_spread_increase_bp: 50.0
+    repo_rollover_failure_rate: 0.10
+    lender_withdrawal_rate: 0.10
+    refinancing_horizon_hours: 24
+    collateral_haircut_increase: 0.02
+    collateral_call_rate: 0.03
+    concentration_threshold: 0.25
+    concentration_multiplier: 1.00
+    funding_dependency_multiplier: 0.50
+    max_effective_unavailability_rate: 0.60
+
+  - name: severe_market_stress
+    enabled: true
+    severity_rank: 2
+    sofr_spike_bp: 250.0
+    funding_spread_increase_bp: 150.0
+    repo_rollover_failure_rate: 0.30
+    lender_withdrawal_rate: 0.25
+    refinancing_horizon_hours: 12
+    collateral_haircut_increase: 0.05
+    collateral_call_rate: 0.08
+    concentration_threshold: 0.20
+    concentration_multiplier: 2.00
+    funding_dependency_multiplier: 1.00
+    max_effective_unavailability_rate: 0.85
+
+  - name: concentrated_funding_freeze
+    enabled: true
+    severity_rank: 3
+    sofr_spike_bp: 400.0
+    funding_spread_increase_bp: 250.0
+    repo_rollover_failure_rate: 0.55
+    lender_withdrawal_rate: 0.40
+    refinancing_horizon_hours: 6
+    collateral_haircut_increase: 0.10
+    collateral_call_rate: 0.15
+    concentration_threshold: 0.15
+    concentration_multiplier: 3.00
+    funding_dependency_multiplier: 1.50
+    max_effective_unavailability_rate: 0.98
+
+validation:
+  reconciliation_tolerance_usd: 0.01
+  require_deterministic_reproduction: true
+  require_synthetic_identifiers: true
+  require_all_seven_stress_channels: true
+
+output:
+  directory: reports/tables
+  evidence_directory: reports/evidence
+  manifest: data/manifests/repo_funding_stress_manifest.csv
+  write_csv: true
+  write_parquet: true
