@@ -730,7 +730,7 @@ def heavy_tail_weights(
     weights = powered / powered.sum()
     if not np.isfinite(weights).all() or (weights <= 0.0).any():
         raise RuntimeError("Heavy-tailed weights are invalid.")
-    return weights
+    return cast(np.ndarray, weights)
 
 
 def _component_weights(
@@ -744,7 +744,7 @@ def _component_weights(
         size=settings.member_count,
     )
     component = base_weights * shocks
-    return component / component.sum()
+    return cast(np.ndarray, component / component.sum())
 
 
 def _risk_score(

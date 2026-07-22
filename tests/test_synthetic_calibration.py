@@ -4,7 +4,7 @@ from __future__ import annotations
 
 from datetime import date
 
-import numpy as np
+import pandas as pd
 
 from ficc_liquidity.synthetic.calibrate_members import (
     MATURITY_COLUMNS,
@@ -123,7 +123,7 @@ def test_all_monetary_exposures_are_nonnegative() -> None:
     monetary = [
         column
         for column in frame.columns
-        if column.endswith("_usd") and np.issubdtype(frame[column].dtype, np.number)
+        if column.endswith("_usd") and pd.api.types.is_numeric_dtype(frame[column])
     ]
     assert monetary
     assert (frame[monetary] >= 0.0).all().all()
