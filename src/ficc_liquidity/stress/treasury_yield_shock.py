@@ -397,7 +397,8 @@ class TreasuryYieldShockModel:
         )
 
         impact = base * np.power(size_ratio, exponent) * concentration_multiplier * horizon_factor
-        return impact.clip(lower=0.0, upper=cap)
+        clipped_impact = np.clip(np.asarray(impact, dtype=float), 0.0, cap)
+        return pd.Series(clipped_impact, index=frame.index, dtype=float)
 
     def apply_scenario(
         self,

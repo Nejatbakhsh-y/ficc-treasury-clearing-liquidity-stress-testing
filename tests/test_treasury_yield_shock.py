@@ -3,6 +3,7 @@
 from __future__ import annotations
 
 from copy import deepcopy
+from typing import Any
 
 import pandas as pd
 import pytest
@@ -17,7 +18,7 @@ from ficc_liquidity.stress.treasury_yield_shock import (
 
 
 @pytest.fixture
-def config() -> dict:
+def config() -> dict[str, Any]:
     buckets = {
         "short": {
             "midpoint_years": 1.0,
@@ -94,7 +95,7 @@ def test_positive_convexity_reduces_parallel_up_loss() -> None:
     assert curved > linear
 
 
-def test_parallel_shift_is_equal_across_buckets(config: dict) -> None:
+def test_parallel_shift_is_equal_across_buckets(config: dict[str, Any]) -> None:
     shocks = build_shock_vector(
         {"name": "parallel", "type": "parallel", "shock_bp": 100.0},
         config["maturity_buckets"],
@@ -102,7 +103,7 @@ def test_parallel_shift_is_equal_across_buckets(config: dict) -> None:
     assert set(shocks.values()) == {100.0}
 
 
-def test_steepening_vector_increases_with_maturity(config: dict) -> None:
+def test_steepening_vector_increases_with_maturity(config: dict[str, Any]) -> None:
     shocks = build_shock_vector(
         {
             "name": "steepener",
@@ -114,7 +115,7 @@ def test_steepening_vector_increases_with_maturity(config: dict) -> None:
     assert shocks["short"] < shocks["intermediate"] < shocks["long"]
 
 
-def test_flattening_vector_decreases_with_maturity(config: dict) -> None:
+def test_flattening_vector_decreases_with_maturity(config: dict[str, Any]) -> None:
     shocks = build_shock_vector(
         {
             "name": "flattener",
@@ -126,7 +127,7 @@ def test_flattening_vector_decreases_with_maturity(config: dict) -> None:
     assert shocks["short"] > shocks["intermediate"] > shocks["long"]
 
 
-def test_key_rate_shock_peaks_near_target(config: dict) -> None:
+def test_key_rate_shock_peaks_near_target(config: dict[str, Any]) -> None:
     shocks = build_shock_vector(
         {
             "name": "key5",
@@ -143,7 +144,7 @@ def test_key_rate_shock_peaks_near_target(config: dict) -> None:
     assert shocks["intermediate"] > shocks["long"]
 
 
-def test_liquidation_horizon_scales_shock(config: dict, positions: pd.DataFrame) -> None:
+def test_liquidation_horizon_scales_shock(config: dict[str, Any], positions: pd.DataFrame) -> None:
     scenario = {"name": "parallel", "family": "parallel", "type": "parallel", "shock_bp": 100.0}
     result = TreasuryYieldShockModel(config).apply_scenario(positions, scenario)
     short_shock = result.loc[result["maturity_bucket"] == "short", "horizon_scaled_shock_bp"].iloc[
@@ -154,7 +155,7 @@ def test_liquidation_horizon_scales_shock(config: dict, positions: pd.DataFrame)
     assert long_shock == pytest.approx(200.0)
 
 
-def test_market_impact_increases_with_position_size(config: dict) -> None:
+def test_market_impact_increases_with_position_size(config: dict[str, Any]) -> None:
     stressed_config = deepcopy(config)
     stressed_config["market_impact"]["enabled"] = True
     frame = pd.DataFrame(
@@ -170,7 +171,7 @@ def test_market_impact_increases_with_position_size(config: dict) -> None:
     assert impacts[1] > impacts[0]
 
 
-def test_model_is_deterministic(config: dict, positions: pd.DataFrame) -> None:
+def test_model_is_deterministic(config: dict[str, Any], positions: pd.DataFrame) -> None:
     scenario = {"name": "parallel", "family": "parallel", "type": "parallel", "shock_bp": 100.0}
     model = TreasuryYieldShockModel(config)
     first = model.apply_scenario(positions, scenario)
@@ -178,7 +179,7 @@ def test_model_is_deterministic(config: dict, positions: pd.DataFrame) -> None:
     pd.testing.assert_frame_equal(first, second)
 
 
-def test_h15_changes_are_converted_to_basis_points(config: dict) -> None:
+def test_h15_changes_are_converted_to_basis_points(config: dict[str, Any]) -> None:
     h15 = pd.DataFrame(
         {
             "observation_date": ["2020-03-02", "2020-03-16"],
@@ -199,7 +200,7 @@ def test_h15_changes_are_converted_to_basis_points(config: dict) -> None:
 
 
 def test_non_synthetic_member_identifier_is_rejected(
-    config: dict,
+    config: dict[str, Any],
     positions: pd.DataFrame,
 ) -> None:
     invalid = positions.copy()
@@ -209,7 +210,7 @@ def test_non_synthetic_member_identifier_is_rejected(
         TreasuryYieldShockModel(config).apply_scenario(invalid, scenario)
 
 
-def test_wide_member_positions_are_melted_to_buckets(config: dict) -> None:
+def test_wide_member_positions_are_melted_to_buckets(config: dict[str, Any]) -> None:
     wide_config = deepcopy(config)
     wide_config["input"]["wide_position_column_candidates"] = {
         "short": ["treasury_short_usd"],
@@ -236,7 +237,7 @@ def test_wide_member_positions_are_melted_to_buckets(config: dict) -> None:
 
 
 def test_run_produces_member_and_scenario_summaries(
-    config: dict,
+    config: dict[str, Any],
     positions: pd.DataFrame,
 ) -> None:
     scenarios = [
