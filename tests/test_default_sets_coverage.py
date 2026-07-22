@@ -296,8 +296,14 @@ def test_explicit_default_set_validation() -> None:
     with pytest.raises(ds.DefaultSetError, match="must be a list"):
         ds.construct_default_sets(_members(), invalid_type)
 
-    unknown = deepcopy(invalid_type)
-    unknown["definitions"][0]["member_ids"] = ["SYN-MEMBER-9999"]
+    unknown = _config()
+    unknown["definitions"] = [
+        {
+            "default_set_id": "explicit",
+            "selection_type": "explicit",
+            "member_ids": ["SYN-MEMBER-9999"],
+        }
+    ]
 
     with pytest.raises(ds.DefaultSetError, match="unknown synthetic members"):
         ds.construct_default_sets(_members(), unknown)

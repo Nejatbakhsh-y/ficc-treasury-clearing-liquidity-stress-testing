@@ -875,12 +875,14 @@ def main() -> int:
     shuffled = members.sample(frac=1.0, random_state=2026).reset_index(drop=True)
     deterministic = result.equals(construct_default_sets(shuffled, config))
     acceptance = {
-        "largest_single_member_default": (result["selection_type"] == "largest_single").any(),
-        "cover_1_selection": (result["selection_type"] == "cover_1").any(),
-        "largest_two_member_default": (result["selection_type"] == "largest_two").any(),
-        "cover_2_selection": (result["selection_type"] == "cover_2").any(),
-        "concentrated_member_defaults": (result["selection_type"] == "concentrated").any(),
-        "correlated_multi_member_defaults": (result["selection_type"] == "correlated_multi").any(),
+        "largest_single_member_default": bool((result["selection_type"] == "largest_single").any()),
+        "cover_1_selection": bool((result["selection_type"] == "cover_1").any()),
+        "largest_two_member_default": bool((result["selection_type"] == "largest_two").any()),
+        "cover_2_selection": bool((result["selection_type"] == "cover_2").any()),
+        "concentrated_member_defaults": bool((result["selection_type"] == "concentrated").any()),
+        "correlated_multi_member_defaults": bool(
+            (result["selection_type"] == "correlated_multi").any()
+        ),
         "configurable_default_set_definitions": True,
         "deterministic_selection": deterministic,
         "validation_controls": validation.passed,
