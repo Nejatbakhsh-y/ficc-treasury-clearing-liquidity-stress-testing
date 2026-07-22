@@ -1,0 +1,2 @@
+dataset,runtime_file,sha256,row_count,column_count,minimum_as_of_date,maximum_as_of_date,value_class,actual_ficc_participants,generated_at_utc
+synthetic_clearing_members,data/synthetic/synthetic_members.parquet,f5227950b071018c3f7f8dff95c60a1299d806e1719b82f2f3d06f2b3aec78f1,48,32,2026-01-02,2026-01-02,synthetic,False,2026-07-22T00:00:08.809651+00:00

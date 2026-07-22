@@ -57,3 +57,5 @@ data/manual/
 !reports/tables/historical_stress_windows.csv
 !reports/tables/historical_stress_daily_scores.csv
 !reports/evidence/historical_stress_calibration.txt
+# Controlled Phase IV Section 11 schema evidence
+!reports/evidence/section11_synthetic_member_schema.txt
