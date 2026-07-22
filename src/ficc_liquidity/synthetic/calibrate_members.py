@@ -711,7 +711,7 @@ def exact_allocate(
 
     normalized = weight_array / weight_sum
     raw = normalized * total_cents
-    base = np.floor(raw).astype(np.int64)
+    base: npt.NDArray[np.int64] = np.floor(raw).astype(np.int64)
     remainder = int(total_cents - int(base.sum()))
     if remainder:
         fractions = raw - base
@@ -719,7 +719,7 @@ def exact_allocate(
         base[order[:remainder]] += 1
     if int(base.sum()) != total_cents or (base < 0).any():
         raise RuntimeError("Exact allocation failed.")
-    return cast(npt.NDArray[np.int64], base)
+    return base
 
 
 def heavy_tail_weights(
