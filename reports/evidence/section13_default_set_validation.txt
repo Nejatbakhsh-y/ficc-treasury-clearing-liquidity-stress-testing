@@ -1,0 +1,28 @@
+Phase IV â€” Synthetic Clearing-Member Portfolios
+Section 13 â€” Default-set construction
+Source: controlled built-in synthetic fixture
+
+Largest single-member default: PASS
+Cover 1 selection: PASS
+Largest two-member default: PASS
+Cover 2 selection: PASS
+Concentrated-member defaults: PASS
+Correlated multi-member defaults: PASS
+Configurable default-set definitions: PASS
+Deterministic selection: PASS
+Validation controls: PASS
+
+Validation â€” required_output_columns: PASS
+Validation â€” unique_members_within_default_set: PASS
+Validation â€” all_members_exist_in_source: PASS
+Validation â€” nonnegative_default_scores: PASS
+Validation â€” cover_1_has_one_member: PASS
+Validation â€” cover_2_has_two_members: PASS
+Validation â€” synthetic_member_identifiers_only: PASS
+
+Default-set rows: 14
+Distinct default sets: 9
+Actual FICC participants represented: NO
+Synthetic member identifiers only: YES
+
+Section 13: COMPLETE

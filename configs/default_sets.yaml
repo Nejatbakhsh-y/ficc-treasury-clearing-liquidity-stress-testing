@@ -1,0 +1,92 @@
+schema_version: "1.0"
+description: >-
+  Controlled definitions for constructing synthetic clearing-member default sets.
+  These definitions must never contain or imply actual FICC participant identities.
+
+member_id_column: synthetic_member_id
+synthetic_member_id_pattern: "^SYN-MEMBER-[0-9]{4,}$"
+
+column_aliases:
+  synthetic_member_id:
+    - member_id
+    - synthetic_id
+  stressed_liquidity_need_usd:
+    - liquidity_need_usd
+    - net_liquidity_need_usd
+    - stressed_outflow_usd
+  settlement_obligation_usd:
+    - settlement_obligations_usd
+    - net_settlement_obligation_usd
+  repo_financing_need_usd:
+    - repo_financing_needs_usd
+    - repo_need_usd
+  available_qualified_liquid_resources_usd:
+    - qualified_liquid_resources_usd
+    - available_qlr_usd
+    - qlr_usd
+  member_concentration:
+    - concentration
+    - concentration_share
+    - member_concentration_share
+  correlation_cluster:
+    - correlated_group
+    - funding_cluster
+    - stress_cluster
+
+scoring:
+  description: >-
+    Default severity is a configurable weighted stressed-liquidity measure.
+    Available qualified liquid resources reduce the net default severity.
+  fields:
+    stressed_liquidity_need_usd: 1.00
+    settlement_obligation_usd: 0.25
+    repo_financing_need_usd: 0.25
+    available_qualified_liquid_resources_usd: -1.00
+  missing_field_policy: ignore
+  floor_at_zero: true
+
+definitions:
+  - default_set_id: largest_single_member_default
+    selection_type: largest_single
+    enabled: true
+
+  - default_set_id: cover_1
+    selection_type: cover_1
+    enabled: true
+
+  - default_set_id: largest_two_member_default
+    selection_type: largest_two
+    enabled: true
+
+  - default_set_id: cover_2
+    selection_type: cover_2
+    enabled: true
+
+  - default_set_id: concentrated_member_defaults
+    selection_type: concentrated
+    enabled: true
+    concentration_column: member_concentration
+    minimum_concentration: 0.10
+    maximum_members: 5
+    scenario_per_member: true
+    allow_empty: false
+
+  - default_set_id: correlated_multi_member_defaults
+    selection_type: correlated_multi
+    enabled: true
+    group_column: correlation_cluster
+    minimum_members: 2
+    maximum_members_per_group: 4
+    maximum_groups: 2
+    allow_empty: false
+
+  - default_set_id: governance_explicit_default_set
+    selection_type: explicit
+    enabled: false
+    member_ids: []
+
+validation:
+  require_synthetic_identifiers: true
+  require_unique_members_within_set: true
+  require_nonnegative_scores: true
+  require_deterministic_selection: true
