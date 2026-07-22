@@ -1,0 +1,38 @@
+PHASE V ÃƒÆ’Ã‚Â¢ÃƒÂ¢Ã¢â‚¬Å¡Ã‚Â¬ÃƒÂ¢Ã¢â€šÂ¬Ã‚Â SECTION 14: BASELINE LIQUIDITY CASH-FLOW ENGINE
+==========================================================================
+Generated at UTC: 2026-07-22T13:59:16.803938+00:00
+Source synthetic portfolio: data/synthetic/calibrated_member_portfolios.parquet
+Configuration: configs/baseline_liquidity.yaml
+Synthetic members: 48
+Cash-flow rows: 240
+Liquidity horizon hours: 48
+Actual FICC participants represented: NO
+Participant-level inference performed: NO
+
+CONTROL RESULTS
+member_bucket_completeness: PASS
+unique_member_time_buckets: PASS
+payment_timing_is_ordered: PASS
+settlement_obligations_reconcile: PASS
+repo_maturities_reconcile: PASS
+financing_inflows_reconcile: PASS
+financing_outflows_reconcile: PASS
+available_qualified_liquid_resources_reconcile: PASS
+eligible_collateral_timing_reconciles: PASS
+nonnegative_cashflow_components: PASS
+liquidity_shortfall_identity: PASS
+synthetic_members_only: PASS
+deterministic_reproduction: PASS
+
+Members with baseline shortfall: 10
+Maximum baseline shortfall USD: 6232574638.54
+
+Section 14 final decision: PASS
+
+AUTOMATION QUALITY GATES
+Ruff formatting: PASS
+Ruff linting: PASS
+Strict Mypy: PASS
+Focused Section 14 tests: PASS
+Focused Section 14 coverage: 90.18 percent
+Complete repository test and coverage gate: PASS
