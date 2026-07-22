@@ -1,0 +1,254 @@
+schema_version: "1.0"
+section: 15
+model_name: treasury_yield_shock
+currency: USD
+yield_convention: annualized_nominal
+random_seed: 2026
+
+input:
+  position_candidates:
+    - data/synthetic/synthetic_member_treasury_positions.parquet
+    - data/synthetic/member_treasury_positions.parquet
+    - data/processed/synthetic_member_treasury_positions.parquet
+    - data/processed/member_treasury_positions.parquet
+    - data/processed/synthetic_member_portfolios.parquet
+    - data/synthetic/synthetic_member_treasury_positions.csv
+    - data/synthetic/member_treasury_positions.csv
+  h15_candidates:
+    - data/processed/treasury_market_factors.parquet
+    - data/processed/fed_liquidity_factors.parquet
+    - data/processed/treasury_market_factors.csv
+  required_member_id_pattern: '^SYNTH(?:ETIC)?[_-]'
+  allow_par_value_as_market_value: true
+  wide_position_column_candidates:
+    bills_0_1y:
+      - treasury_bills_0_1y_usd
+      - treasury_position_bills_0_1y_usd
+      - treasury_0_1y_usd
+    notes_1_2y:
+      - treasury_notes_1_2y_usd
+      - treasury_position_1_2y_usd
+      - treasury_1_2y_usd
+    notes_2_3y:
+      - treasury_notes_2_3y_usd
+      - treasury_position_2_3y_usd
+      - treasury_2_3y_usd
+    notes_3_5y:
+      - treasury_notes_3_5y_usd
+      - treasury_position_3_5y_usd
+      - treasury_3_5y_usd
+    notes_5_7y:
+      - treasury_notes_5_7y_usd
+      - treasury_position_5_7y_usd
+      - treasury_5_7y_usd
+    notes_7_10y:
+      - treasury_notes_7_10y_usd
+      - treasury_position_7_10y_usd
+      - treasury_7_10y_usd
+    bonds_10_20y:
+      - treasury_bonds_10_20y_usd
+      - treasury_position_10_20y_usd
+      - treasury_10_20y_usd
+    bonds_20_30y:
+      - treasury_bonds_20_30y_usd
+      - treasury_position_20_30y_usd
+      - treasury_20_30y_usd
+    bonds_30y_plus:
+      - treasury_bonds_30y_plus_usd
+      - treasury_position_30y_plus_usd
+      - treasury_30y_plus_usd
+
+h15:
+  date_column_candidates:
+    - observation_date
+    - date
+    - as_of_date
+  yield_unit: percent
+  key_rate_column_candidates:
+    "0.25":
+      - treasury_3m_yield
+      - dgs3mo
+      - h15_treasury_3m
+    "0.50":
+      - treasury_6m_yield
+      - dgs6mo
+      - h15_treasury_6m
+    "1.0":
+      - treasury_1y_yield
+      - dgs1
+      - h15_treasury_1y
+    "2.0":
+      - treasury_2y_yield
+      - dgs2
+      - h15_treasury_2y
+    "3.0":
+      - treasury_3y_yield
+      - dgs3
+      - h15_treasury_3y
+    "5.0":
+      - treasury_5y_yield
+      - dgs5
+      - h15_treasury_5y
+    "7.0":
+      - treasury_7y_yield
+      - dgs7
+      - h15_treasury_7y
+    "10.0":
+      - treasury_10y_yield
+      - dgs10
+      - h15_treasury_10y
+    "20.0":
+      - treasury_20y_yield
+      - dgs20
+      - h15_treasury_20y
+    "30.0":
+      - treasury_30y_yield
+      - dgs30
+      - h15_treasury_30y
+
+valuation:
+  approximation: modified_duration_plus_convexity
+  floor_price_factor: 0.0
+  scale_shocks_by_sqrt_liquidation_horizon: true
+  reference_liquidation_days: 1.0
+
+market_impact:
+  enabled: true
+  reference_position_usd: 100000000.0
+  base_impact_bp: 2.0
+  size_exponent: 0.60
+  maximum_impact_bp: 75.0
+  concentration_threshold: 0.20
+  concentration_multiplier_per_excess_share: 2.0
+
+maturity_buckets:
+  bills_0_1y:
+    midpoint_years: 0.50
+    modified_duration: 0.48
+    convexity: 0.35
+    liquidation_days: 1
+  notes_1_2y:
+    midpoint_years: 1.50
+    modified_duration: 1.43
+    convexity: 2.70
+    liquidation_days: 1
+  notes_2_3y:
+    midpoint_years: 2.50
+    modified_duration: 2.34
+    convexity: 7.20
+    liquidation_days: 1
+  notes_3_5y:
+    midpoint_years: 4.00
+    modified_duration: 3.68
+    convexity: 16.50
+    liquidation_days: 2
+  notes_5_7y:
+    midpoint_years: 6.00
+    modified_duration: 5.25
+    convexity: 33.00
+    liquidation_days: 2
+  notes_7_10y:
+    midpoint_years: 8.50
+    modified_duration: 7.05
+    convexity: 59.00
+    liquidation_days: 3
+  bonds_10_20y:
+    midpoint_years: 15.00
+    modified_duration: 10.20
+    convexity: 132.00
+    liquidation_days: 4
+  bonds_20_30y:
+    midpoint_years: 25.00
+    modified_duration: 14.80
+    convexity: 270.00
+    liquidation_days: 5
+  bonds_30y_plus:
+    midpoint_years: 32.00
+    modified_duration: 17.20
+    convexity: 390.00
+    liquidation_days: 5
+
+scenarios:
+  - name: parallel_up_100bp
+    family: parallel
+    type: parallel
+    shock_bp: 100.0
+    enabled: true
+
+  - name: parallel_down_100bp
+    family: parallel
+    type: parallel
+    shock_bp: -100.0
+    enabled: true
+
+  - name: bear_steepener
+    family: steepening
+    type: bucket_vector
+    enabled: true
+    shocks_bp:
+      bills_0_1y: 25.0
+      notes_1_2y: 35.0
+      notes_2_3y: 45.0
+      notes_3_5y: 60.0
+      notes_5_7y: 75.0
+      notes_7_10y: 90.0
+      bonds_10_20y: 110.0
+      bonds_20_30y: 125.0
+      bonds_30y_plus: 135.0
+
+  - name: bear_flattener
+    family: flattening
+    type: bucket_vector
+    enabled: true
+    shocks_bp:
+      bills_0_1y: 125.0
+      notes_1_2y: 115.0
+      notes_2_3y: 100.0
+      notes_3_5y: 85.0
+      notes_5_7y: 70.0
+      notes_7_10y: 55.0
+      bonds_10_20y: 40.0
+      bonds_20_30y: 30.0
+      bonds_30y_plus: 25.0
+
+  - name: key_rate_2y_up_100bp
+    family: key_rate
+    type: key_rate
+    key_rate_years: 2.0
+    peak_bp: 100.0
+    width_years: 3.0
+    floor_bp: 0.0
+    enabled: true
+
+  - name: key_rate_5y_up_100bp
+    family: key_rate
+    type: key_rate
+    key_rate_years: 5.0
+    peak_bp: 100.0
+    width_years: 4.0
+    floor_bp: 0.0
+    enabled: true
+
+  - name: key_rate_10y_up_100bp
+    family: key_rate
+    type: key_rate
+    key_rate_years: 10.0
+    peak_bp: 100.0
+    width_years: 7.0
+    floor_bp: 0.0
+    enabled: true
+
+  - name: key_rate_30y_up_100bp
+    family: key_rate
+    type: key_rate
+    key_rate_years: 30.0
+    peak_bp: 100.0
+    width_years: 12.0
+    floor_bp: 0.0
+    enabled: true
+
+output:
+  directory: reports/tables
+  evidence_directory: reports/evidence
+  write_parquet: true
+  write_csv: true
