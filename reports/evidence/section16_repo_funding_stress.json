@@ -1,0 +1,51 @@
+{
+  "section": 16,
+  "model": "repo_funding_stress",
+  "model_version": "section-16-v1",
+  "run_timestamp_utc": "2026-07-22T17:50:29.854741+00:00",
+  "run_type": "CONTROLLED_MODEL_RUN",
+  "baseline_source": "C:\\Users\\nejat\\OneDrive\\Desktop\\UN\\Skills\\GitHub 2026\\ficc-treasury-clearing-liquidity-stress-testing\\reports\\tables\\baseline_liquidity_cashflows.csv",
+  "member_source": "C:\\Users\\nejat\\OneDrive\\Desktop\\UN\\Skills\\GitHub 2026\\ficc-treasury-clearing-liquidity-stress-testing\\data\\synthetic\\calibrated_member_portfolios.parquet",
+  "sofr_source": "ASSUMED_CONFIG_FALLBACK_AFTER_fed_liquidity_factors.parquet",
+  "reference_sofr_percent": 4.5,
+  "cashflow_rows": 960,
+  "member_scenario_rows": 192,
+  "scenario_rows": 4,
+  "scenario_names": [
+    "control",
+    "moderate_market_stress",
+    "severe_market_stress",
+    "concentrated_funding_freeze"
+  ],
+  "result_sha256": "096b864aee6314bce6e3b0919a2665dc353ae8d3d937a3edd1ae2a4f24af6cfb",
+  "gates": {
+    "Sofr Rate Spikes Implemented": "PASS",
+    "Funding Cost Increases Implemented": "PASS",
+    "Repo Rollover Failures Implemented": "PASS",
+    "Partial Lender Withdrawal Implemented": "PASS",
+    "Shorter Refinancing Horizons Implemented": "PASS",
+    "Increased Collateral Demands Implemented": "PASS",
+    "Funding Concentration Implemented": "PASS",
+    "Scenario Cashflow Rows Complete": "PASS",
+    "Member Scenario Rows Complete": "PASS",
+    "Scenario Summary Complete": "PASS",
+    "Unique Scenario Member Buckets": "PASS",
+    "Nonnegative Stress Components": "PASS",
+    "Sofr Rate Identity": "PASS",
+    "All In Funding Rate Identity": "PASS",
+    "Rollover Failure Bounded By Roll Amount": "PASS",
+    "Funding Stress Decomposition Identity": "PASS",
+    "Stressed Liquidity Need Identity": "PASS",
+    "Stressed Need Not Below Baseline": "PASS",
+    "Stressed Headroom Identity": "PASS",
+    "Stressed Shortfall Identity": "PASS",
+    "Synthetic Members Only": "PASS",
+    "Deterministic Reproduction": "PASS"
+  },
+  "limitations": [
+    "All member-level records are synthetic and do not represent actual FICC participants.",
+    "SOFR spikes, lender withdrawal, rollover failure, collateral demand, and concentration parameters are explicit stress assumptions.",
+    "Incremental funding costs use a simple annualized day-count approximation rather than contractual repricing.",
+    "The model overlays Section 16 stress on Section 14 cash flows and does not infer bilateral lender identities."
+  ]
+}

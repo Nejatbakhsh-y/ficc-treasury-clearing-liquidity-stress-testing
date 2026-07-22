@@ -1,5 +1,12 @@
 """Stress-model components for FICC liquidity analysis."""
 
+from ficc_liquidity.stress.repo_funding_stress import (
+    RepoFundingScenario,
+    RepoFundingStressError,
+    RepoFundingStressSettings,
+    calculate_repo_funding_stress,
+    run_model,
+)
 from ficc_liquidity.stress.treasury_yield_shock import (
     TreasuryYieldShockModel,
     build_shock_vector,
@@ -8,8 +15,13 @@ from ficc_liquidity.stress.treasury_yield_shock import (
 )
 
 __all__ = [
+    "RepoFundingScenario",
+    "RepoFundingStressError",
+    "RepoFundingStressSettings",
     "TreasuryYieldShockModel",
     "build_shock_vector",
+    "calculate_repo_funding_stress",
     "derive_h15_bucket_shocks",
     "load_stress_config",
+    "run_model",
 ]
