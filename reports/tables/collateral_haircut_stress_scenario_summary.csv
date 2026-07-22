@@ -1,0 +1,5 @@
+scenario_name,severity_rank,additional_collateral_requirement_total_usd,collateral_posted_total_usd,collateral_shortfall_total_usd,collateral_resource_reduction_usd,baseline_available_resources_usd,stressed_available_resources_usd,baseline_liquidity_need_usd,stressed_liquidity_need_usd,baseline_liquidity_shortfall_usd,stressed_liquidity_shortfall_usd,member_count,members_with_collateral_shortfall,members_with_liquidity_shortfall,minimum_liquidity_coverage_ratio
+control,0,0.0,0.0,0.0,0.0,3585520931632.5425,3585520931632.5425,1866107925412.269,1866107925412.269,0.0,0.0,48,0,0,1.2185496393243624
+moderate_haircut_stress,1,38210461417.5072,0.0,38210461417.5072,1954982350.0,3585520931632.5425,3583565949282.542,1866107925412.269,1904318386829.7764,0.0,0.0,48,48,0,1.1941698956914812
+severe_haircut_stress,2,125152638772.5269,0.0,125152638772.5269,6423970799.660756,3585520931632.5425,3579096960832.8813,1866107925412.269,1991260564184.796,0.0,0.0,48,48,0,1.1416691093684213
+extreme_collateral_freeze,3,317202383002.7779,0.0,317202383002.7779,14543531784.110811,3585520931632.5425,3570977399848.4316,1866107925412.269,2183310308415.0469,0.0,0.0,48,48,0,1.0400613975317368

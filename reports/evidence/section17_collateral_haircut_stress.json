@@ -1,0 +1,43 @@
+{
+  "section": 17,
+  "model": "collateral_haircut_stress",
+  "model_version": "section-17-v1",
+  "generated_at_utc": "2026-07-22T19:40:10.389975+00:00",
+  "run_type": "CONTROLLED_MODEL_RUN",
+  "member_source": "C:\\Users\\nejat\\OneDrive\\Desktop\\UN\\Skills\\GitHub 2026\\ficc-treasury-clearing-liquidity-stress-testing\\data\\synthetic\\calibrated_member_portfolios.parquet",
+  "baseline_source": "C:\\Users\\nejat\\OneDrive\\Desktop\\UN\\Skills\\GitHub 2026\\ficc-treasury-clearing-liquidity-stress-testing\\reports\\tables\\baseline_liquidity_cashflows.csv",
+  "bucket_rows": 1152,
+  "member_scenario_rows": 192,
+  "scenario_rows": 4,
+  "scenario_names": [
+    "control",
+    "moderate_haircut_stress",
+    "severe_haircut_stress",
+    "extreme_collateral_freeze"
+  ],
+  "bucket_result_sha256": "0b4cc29f73ae5cebe71bee5c7a04f0d3724d623ad4361634c01cdee6d5c627f8",
+  "member_summary_sha256": "116bde6ab45a6093540a9080b7e30b6d068ea0330b22d395fbdbd3d0e7ba1874",
+  "gates": {
+    "Complete Bucket Matrix": "PASS",
+    "Complete Member Matrix": "PASS",
+    "Unique Bucket Keys": "PASS",
+    "Finite Nonnegative Amounts": "PASS",
+    "Haircut Bounds": "PASS",
+    "Additional Requirement Identity": "PASS",
+    "Available Collateral Constraint": "PASS",
+    "Liquidity Identities": "PASS",
+    "Zero Shock Control": "PASS",
+    "Severity Monotonicity": "PASS",
+    "Scenario Aggregation Complete": "PASS",
+    "Baseline Member Coverage": "PASS",
+    "Synthetic Identity Controls": "PASS",
+    "Deterministic Reproduction": "PASS",
+    "All Required Stress Channels": "PASS"
+  },
+  "limitations": [
+    "Haircuts are controlled model assumptions, not participant-level contractual terms.",
+    "Public aggregate data do not disclose actual FICC member collateral inventories.",
+    "Treasury positions and members are fictional synthetic records.",
+    "The model is a deterministic scenario overlay and not a market equilibrium model."
+  ]
+}
