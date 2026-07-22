@@ -1,0 +1,59 @@
+schema_version: "1.0"
+
+dataset:
+  name: synthetic_clearing_members
+  description: >
+    Controlled fictional clearing-member profiles for research, stress testing,
+    and independent model validation.
+  value_class: synthetic
+  currency: USD
+  actual_ficc_participants_permitted: false
+  identification_statement: >
+    Every record is fictional and must not be interpreted as representing,
+    approximating, ranking, or identifying an actual FICC participant.
+
+generation:
+  member_count: 48
+  random_seed: 2026
+  as_of_date: "2026-01-02"
+  generator_version: "1.0.0"
+  member_id_prefix: "SYN-MBR-"
+  member_label_prefix: "Fictional Clearing Member "
+
+treasury_maturity_buckets:
+  - bills_0_1y
+  - notes_1_3y
+  - notes_3_7y
+  - notes_7_10y
+  - bonds_10_30y
+  - strips_30y_plus
+
+ranges:
+  total_treasury_position_usd: [5000000000, 120000000000]
+  treasury_turnover_ratio: [0.05, 0.35]
+  repo_financing_share: [0.05, 0.80]
+  reverse_repo_share: [0.00, 0.65]
+  settlement_obligation_share: [0.04, 0.30]
+  settlement_fail_rate: [0.0001, 0.08]
+  collateral_coverage_ratio: [0.75, 1.65]
+  qualified_liquid_resource_share: [0.15, 0.65]
+  stress_multiplier: [1.05, 1.80]
+  maturity_dirichlet_alpha: [0.40, 3.00]
+
+risk_score:
+  concentration_weight: 0.25
+  funding_dependency_weight: 0.25
+  settlement_fail_weight: 0.20
+  collateral_shortfall_weight: 0.15
+  liquidity_shortfall_weight: 0.15
+  elevated_threshold: 40.0
+  high_threshold: 65.0
+
+validation:
+  require_unique_member_ids: true
+  require_nonnegative_usd_values: true
+  require_ratios_between_zero_and_one: true
+  require_settlement_fails_not_above_obligations: true
+  require_qualified_resources_not_above_collateral: true
+  require_generic_member_labels: true
+  prohibit_actual_ficc_participant_flag: true

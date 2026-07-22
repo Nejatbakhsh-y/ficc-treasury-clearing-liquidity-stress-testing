@@ -1,0 +1,43 @@
+Phase IV - Section 11: Synthetic member data model
+Generated at UTC: 2026-07-22T00:00:25.7924015Z
+Branch: feature/09-synthetic-member-schema
+Configured member count: 48
+
+Identity separation: PASS
+Generic synthetic identifiers: PASS
+Actual FICC participant flag prohibited: PASS
+Treasury maturity positions: PASS
+Treasury transaction activity: PASS
+Repo financing needs: PASS
+Reverse-repo positions: PASS
+Settlement obligations: PASS
+Settlement fails: PASS
+Collateral inventory: PASS
+Available qualified liquid resources: PASS
+Member concentration: PASS
+Funding dependency: PASS
+Liquidity-risk characteristics: PASS
+Risk-threshold provenance: PASS
+Deterministic generation: PASS
+Manifest and machine-readable schema: PASS
+Ruff validation: PASS
+Mypy validation: PASS
+Pytest and coverage validation: PASS
+Git diff validation: PASS
+
+Runtime output:
+data/synthetic/synthetic_members.parquet
+
+Controlled deliverables:
+configs/synthetic_members.yaml
+docs/synthetic_member_data_model.md
+src/ficc_liquidity/synthetic/__init__.py
+src/ficc_liquidity/synthetic/member_schema.py
+src/ficc_liquidity/synthetic/generate_members.py
+tests/test_synthetic_member_schema.py
+data/manifests/synthetic_member_manifest.csv
+data/manifests/synthetic_member_schema.json
+reports/evidence/section11_synthetic_member_schema.txt
+
+Final decision: PASS
+Section 11: COMPLETE
