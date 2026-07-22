@@ -111,9 +111,7 @@ def test_largest_single_and_cover_1_match(
     cover_1 = cover_1_selection(prepared)
 
     assert largest["synthetic_member_id"].tolist() == ["SYN-MEMBER-0001"]
-    assert cover_1["synthetic_member_id"].tolist() == largest[
-        "synthetic_member_id"
-    ].tolist()
+    assert cover_1["synthetic_member_id"].tolist() == largest["synthetic_member_id"].tolist()
 
 
 def test_largest_two_and_cover_2_match(

@@ -63,9 +63,7 @@ def read_member_data(path: str | Path) -> pd.DataFrame:
     if suffix in {".parquet", ".pq"}:
         return pd.read_parquet(data_path)
 
-    raise DefaultSetError(
-        f"Unsupported member-data format '{suffix}'. Use CSV or Parquet."
-    )
+    raise DefaultSetError(f"Unsupported member-data format '{suffix}'. Use CSV or Parquet.")
 
 
 def _canonicalize_columns(
@@ -115,9 +113,7 @@ def _canonicalize_columns(
                 f"'synthetic_member_id' or configured column '{configured_id}'."
             )
 
-    frame["synthetic_member_id"] = (
-        frame["synthetic_member_id"].astype("string").str.strip()
-    )
+    frame["synthetic_member_id"] = frame["synthetic_member_id"].astype("string").str.strip()
     if frame["synthetic_member_id"].isna().any():
         raise DefaultSetError("Synthetic member identifiers may not be missing.")
     if frame["synthetic_member_id"].duplicated().any():
@@ -130,9 +126,7 @@ def _canonicalize_columns(
             .unique()
             .tolist()
         )
-        raise DefaultSetError(
-            f"Synthetic member identifiers must be unique: {duplicates}"
-        )
+        raise DefaultSetError(f"Synthetic member identifiers must be unique: {duplicates}")
 
     return frame
 
@@ -164,8 +158,7 @@ def _validate_synthetic_ids(
     ]
     if invalid:
         raise DefaultSetError(
-            "Non-synthetic or invalid member identifiers detected: "
-            f"{sorted(invalid)}"
+            f"Non-synthetic or invalid member identifiers detected: {sorted(invalid)}"
         )
 
 
@@ -195,21 +188,15 @@ def _compute_default_score(
 
         numeric = pd.to_numeric(frame[field], errors="coerce")
         if numeric.isna().any():
-            raise DefaultSetError(
-                f"Scoring field '{field}' contains missing or nonnumeric values."
-            )
+            raise DefaultSetError(f"Scoring field '{field}' contains missing or nonnumeric values.")
         if (numeric < 0).any():
-            raise DefaultSetError(
-                f"Scoring field '{field}' contains negative values."
-            )
+            raise DefaultSetError(f"Scoring field '{field}' contains negative values.")
 
         score = score + numeric.astype(float) * float(weight_value)
         used_fields.append(field)
 
     if not used_fields:
-        raise DefaultSetError(
-            "None of the configured scoring fields were found in member data."
-        )
+        raise DefaultSetError("None of the configured scoring fields were found in member data.")
 
     if bool(scoring.get("floor_at_zero", True)):
         score = score.clip(lower=0.0)
@@ -239,8 +226,7 @@ def prepare_member_frame(
 def _require_member_count(frame: pd.DataFrame, count: int, label: str) -> None:
     if len(frame) < count:
         raise DefaultSetError(
-            f"{label} requires at least {count} synthetic members; "
-            f"received {len(frame)}."
+            f"{label} requires at least {count} synthetic members; received {len(frame)}."
         )
 
 
@@ -307,19 +293,13 @@ def _select_concentrated(
 ) -> list[tuple[str, pd.DataFrame, str | None]]:
     column = str(definition.get("concentration_column", "member_concentration"))
     if column not in frame.columns:
-        raise DefaultSetError(
-            f"Concentrated-member definition requires column '{column}'."
-        )
+        raise DefaultSetError(f"Concentrated-member definition requires column '{column}'.")
 
     concentration = pd.to_numeric(frame[column], errors="coerce")
     if concentration.isna().any():
-        raise DefaultSetError(
-            f"Concentration column '{column}' contains invalid values."
-        )
+        raise DefaultSetError(f"Concentration column '{column}' contains invalid values.")
     if ((concentration < 0) | (concentration > 1)).any():
-        raise DefaultSetError(
-            f"Concentration column '{column}' must be between 0 and 1."
-        )
+        raise DefaultSetError(f"Concentration column '{column}' must be between 0 and 1.")
 
     minimum = float(definition.get("minimum_concentration", 0.10))
     maximum = int(definition.get("maximum_members", len(frame)))
@@ -336,9 +316,7 @@ def _select_concentrated(
 
     allow_empty = bool(definition.get("allow_empty", False))
     if selected.empty and not allow_empty:
-        raise DefaultSetError(
-            "No members satisfy the concentrated-member threshold."
-        )
+        raise DefaultSetError("No members satisfy the concentrated-member threshold.")
 
     default_set_id = str(definition["default_set_id"])
     scenario_per_member = bool(definition.get("scenario_per_member", True))
@@ -351,9 +329,7 @@ def _select_concentrated(
         scenarios.append(
             (
                 f"{default_set_id}__{member_id}",
-                selected.loc[
-                    selected["synthetic_member_id"].astype(str) == member_id
-                ].copy(),
+                selected.loc[selected["synthetic_member_id"].astype(str) == member_id].copy(),
                 None,
             )
         )
@@ -366,31 +342,22 @@ def _select_correlated_groups(
 ) -> list[tuple[str, pd.DataFrame, str | None]]:
     group_column = str(definition.get("group_column", "correlation_cluster"))
     if group_column not in frame.columns:
-        raise DefaultSetError(
-            f"Correlated default definition requires column '{group_column}'."
-        )
+        raise DefaultSetError(f"Correlated default definition requires column '{group_column}'.")
 
     minimum_members = int(definition.get("minimum_members", 2))
-    maximum_members = int(
-        definition.get("maximum_members_per_group", len(frame))
-    )
+    maximum_members = int(definition.get("maximum_members_per_group", len(frame)))
     maximum_groups = int(definition.get("maximum_groups", 1))
     if minimum_members < 2:
         raise DefaultSetError("'minimum_members' must be at least 2.")
     if maximum_members < minimum_members:
-        raise DefaultSetError(
-            "'maximum_members_per_group' must be >= 'minimum_members'."
-        )
+        raise DefaultSetError("'maximum_members_per_group' must be >= 'minimum_members'.")
     if maximum_groups < 1:
         raise DefaultSetError("'maximum_groups' must be at least 1.")
 
     grouped_frame = frame.copy(deep=True)
-    grouped_frame[group_column] = (
-        grouped_frame[group_column].astype("string").str.strip()
-    )
+    grouped_frame[group_column] = grouped_frame[group_column].astype("string").str.strip()
     grouped_frame = grouped_frame.loc[
-        grouped_frame[group_column].notna()
-        & (grouped_frame[group_column] != "")
+        grouped_frame[group_column].notna() & (grouped_frame[group_column] != "")
     ]
 
     candidates: list[tuple[str, float, pd.DataFrame]] = []
@@ -411,9 +378,7 @@ def _select_correlated_groups(
 
     allow_empty = bool(definition.get("allow_empty", False))
     if not selected_groups and not allow_empty:
-        raise DefaultSetError(
-            "No correlation group satisfies the minimum-member requirement."
-        )
+        raise DefaultSetError("No correlation group satisfies the minimum-member requirement.")
 
     base_id = str(definition["default_set_id"])
     return [
@@ -437,14 +402,10 @@ def _select_explicit(
     available = set(frame["synthetic_member_id"].astype(str))
     unknown = sorted(set(member_ids) - available)
     if unknown:
-        raise DefaultSetError(
-            f"Explicit default set contains unknown synthetic members: {unknown}"
-        )
+        raise DefaultSetError(f"Explicit default set contains unknown synthetic members: {unknown}")
 
     order = {member_id: rank for rank, member_id in enumerate(member_ids)}
-    selected = frame.loc[
-        frame["synthetic_member_id"].astype(str).isin(member_ids)
-    ].copy()
+    selected = frame.loc[frame["synthetic_member_id"].astype(str).isin(member_ids)].copy()
     selected["_explicit_order"] = selected["synthetic_member_id"].map(order)
     return selected.sort_values(
         by=["_explicit_order", "synthetic_member_id"],
@@ -474,16 +435,12 @@ def construct_default_sets(
 
         definition = dict(raw_definition)
         default_set_id = str(definition.get("default_set_id", "")).strip()
-        selection_type = str(
-            definition.get("selection_type", "")
-        ).strip().lower()
+        selection_type = str(definition.get("selection_type", "")).strip().lower()
 
         if not default_set_id:
             raise DefaultSetError("Every definition needs 'default_set_id'.")
         if default_set_id in seen_ids:
-            raise DefaultSetError(
-                f"Duplicate configured default_set_id: {default_set_id}"
-            )
+            raise DefaultSetError(f"Duplicate configured default_set_id: {default_set_id}")
         seen_ids.add(default_set_id)
 
         if selection_type == "largest_single":
@@ -566,8 +523,7 @@ def construct_default_sets(
             )
         else:
             raise DefaultSetError(
-                f"Unsupported selection_type '{selection_type}' "
-                f"for definition '{default_set_id}'."
+                f"Unsupported selection_type '{selection_type}' for definition '{default_set_id}'."
             )
 
     if not rows:
@@ -600,9 +556,7 @@ def validate_default_sets(
     source_ids = set(source["synthetic_member_id"].astype(str))
     result_ids = set(result.get("synthetic_member_id", pd.Series(dtype=str)).astype(str))
 
-    no_duplicates = not result.duplicated(
-        subset=["default_set_id", "synthetic_member_id"]
-    ).any()
+    no_duplicates = not result.duplicated(subset=["default_set_id", "synthetic_member_id"]).any()
     members_exist = result_ids.issubset(source_ids)
     scores_nonnegative = bool(
         pd.to_numeric(result["default_score_usd"], errors="coerce").ge(0).all()
@@ -611,12 +565,10 @@ def validate_default_sets(
     cover_1_rows = result.loc[result["selection_type"] == "cover_1"]
     cover_2_rows = result.loc[result["selection_type"] == "cover_2"]
     cover_1_count = (
-        not cover_1_rows.empty
-        and cover_1_rows.groupby("default_set_id").size().eq(1).all()
+        not cover_1_rows.empty and cover_1_rows.groupby("default_set_id").size().eq(1).all()
     )
     cover_2_count = (
-        not cover_2_rows.empty
-        and cover_2_rows.groupby("default_set_id").size().eq(2).all()
+        not cover_2_rows.empty and cover_2_rows.groupby("default_set_id").size().eq(2).all()
     )
 
     pattern = str(
@@ -786,24 +738,14 @@ def run_self_test() -> tuple[pd.DataFrame, ValidationResult, dict[str, bool]]:
     ].tolist()
 
     acceptance = {
-        "largest_single_member_default": largest_single_ids
-        == ["SYN-MEMBER-0001"],
+        "largest_single_member_default": largest_single_ids == ["SYN-MEMBER-0001"],
         "cover_1_selection": cover_1_ids == largest_single_ids,
-        "largest_two_member_default": largest_two_ids
-        == ["SYN-MEMBER-0001", "SYN-MEMBER-0002"],
+        "largest_two_member_default": largest_two_ids == ["SYN-MEMBER-0001", "SYN-MEMBER-0002"],
         "cover_2_selection": cover_2_ids == largest_two_ids,
-        "concentrated_member_defaults": (
-            result["selection_type"] == "concentrated"
-        ).sum()
-        == 3,
-        "correlated_multi_member_defaults": (
-            result["selection_type"] == "correlated_multi"
-        ).sum()
+        "concentrated_member_defaults": (result["selection_type"] == "concentrated").sum() == 3,
+        "correlated_multi_member_defaults": (result["selection_type"] == "correlated_multi").sum()
         >= 4,
-        "configurable_default_set_definitions": result[
-            "default_set_id"
-        ].nunique()
-        >= 8,
+        "configurable_default_set_definitions": result["default_set_id"].nunique() >= 8,
         "deterministic_selection": deterministic,
         "validation_controls": validation.passed,
     }
@@ -837,9 +779,7 @@ def _write_evidence(
         "cover_2_selection": "Cover 2 selection",
         "concentrated_member_defaults": "Concentrated-member defaults",
         "correlated_multi_member_defaults": "Correlated multi-member defaults",
-        "configurable_default_set_definitions": (
-            "Configurable default-set definitions"
-        ),
+        "configurable_default_set_definitions": ("Configurable default-set definitions"),
         "deterministic_selection": "Deterministic selection",
         "validation_controls": "Validation controls",
     }
@@ -935,24 +875,12 @@ def main() -> int:
     shuffled = members.sample(frac=1.0, random_state=2026).reset_index(drop=True)
     deterministic = result.equals(construct_default_sets(shuffled, config))
     acceptance = {
-        "largest_single_member_default": (
-            result["selection_type"] == "largest_single"
-        ).any(),
-        "cover_1_selection": (
-            result["selection_type"] == "cover_1"
-        ).any(),
-        "largest_two_member_default": (
-            result["selection_type"] == "largest_two"
-        ).any(),
-        "cover_2_selection": (
-            result["selection_type"] == "cover_2"
-        ).any(),
-        "concentrated_member_defaults": (
-            result["selection_type"] == "concentrated"
-        ).any(),
-        "correlated_multi_member_defaults": (
-            result["selection_type"] == "correlated_multi"
-        ).any(),
+        "largest_single_member_default": (result["selection_type"] == "largest_single").any(),
+        "cover_1_selection": (result["selection_type"] == "cover_1").any(),
+        "largest_two_member_default": (result["selection_type"] == "largest_two").any(),
+        "cover_2_selection": (result["selection_type"] == "cover_2").any(),
+        "concentrated_member_defaults": (result["selection_type"] == "concentrated").any(),
+        "correlated_multi_member_defaults": (result["selection_type"] == "correlated_multi").any(),
         "configurable_default_set_definitions": True,
         "deterministic_selection": deterministic,
         "validation_controls": validation.passed,
