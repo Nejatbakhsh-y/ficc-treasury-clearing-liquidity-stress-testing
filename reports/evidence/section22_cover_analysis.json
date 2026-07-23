@@ -1,0 +1,29 @@
+{
+  "actual_ficc_participant": false,
+  "checks": {
+    "actual_ficc_participants_excluded": true,
+    "available_resources_nonnegative": true,
+    "component_reconciliation": true,
+    "cover_1_member_count": true,
+    "cover_2_member_count": true,
+    "cover_2_not_less_than_cover_1": true,
+    "deterministic_reproduction": true,
+    "liquidity_shortfall_identity": true,
+    "one_dominant_component_per_cover": true,
+    "scenario_coverage_complete": true,
+    "selected_members_unique_within_cover": true,
+    "synthetic_identifiers_only": true
+  },
+  "component_rows": 176,
+  "configuration": "C:\\Users\\nejat\\OneDrive\\Desktop\\UN\\Skills\\GitHub 2026\\ficc-treasury-clearing-liquidity-stress-testing\\configs\\cover_analysis.yaml",
+  "cover_result_rows": 22,
+  "final_decision": "PASS",
+  "generated_at_utc": "2026-07-23T23:32:24.555482+00:00",
+  "model_version": "section-22-v1",
+  "participant_level_inference": false,
+  "run_type": "CONTROLLED_MODEL_RUN",
+  "scenario_count": 11,
+  "section": 22,
+  "selected_member_rows": 33,
+  "source_table": "C:\\Users\\nejat\\OneDrive\\Desktop\\UN\\Skills\\GitHub 2026\\ficc-treasury-clearing-liquidity-stress-testing\\reports\\tables\\hypothetical_scenario_member_results.parquet"
+}
