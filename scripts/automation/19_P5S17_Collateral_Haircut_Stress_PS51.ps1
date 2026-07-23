@@ -2743,16 +2743,19 @@ Open the repository in VS Code and restore the Section 3 environment first.
                 -ArgumentList @("auth", "status") `
                 -FailureMessage "GitHub CLI authentication is unavailable."
 
-            $existingPrJson = & gh pr list `
-                --repo $RepoFullName `
-                --head $BranchName `
-                --state open `
-                --json url `
-                --limit 1
+            $existingPrJson = (& gh pr list --repo $RepoFullName --head $BranchName --state open --json url --limit 1 | Out-String).Trim()
             if ($LASTEXITCODE -ne 0) {
                 throw "Unable to inspect existing pull requests for $BranchName."
             }
-            $existingPr = @($existingPrJson | ConvertFrom-Json)
+            $existingPr = @()
+            if (-not [string]::IsNullOrWhiteSpace($existingPrJson)) {
+                $parsedPr = $existingPrJson | ConvertFrom-Json
+                if ($null -ne $parsedPr) {
+                    $existingPr = @(@($parsedPr) | Where-Object {
+                        $null -ne $_ -and $_.PSObject.Properties.Name -contains "url"
+                    })
+                }
+            }
             if ($existingPr.Count -gt 0) {
                 $pullRequestUrl = [string]$existingPr[0].url
                 Write-Warn "An open pull request already exists: $pullRequestUrl"
