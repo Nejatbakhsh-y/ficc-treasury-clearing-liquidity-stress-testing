@@ -25,3 +25,23 @@ __all__ = [
     "load_stress_config",
     "run_model",
 ]
+
+from ficc_liquidity.stress.collateral_haircut_stress import (  # noqa: F401
+    CollateralHaircutStressError,
+    CollateralHaircutStressResult,
+    CollateralHaircutStressSettings,
+    HaircutScenario,
+    MaturityHaircut,
+    calculate_collateral_haircut_stress,
+)
+
+__all__.extend(
+    [
+        "CollateralHaircutStressError",
+        "CollateralHaircutStressResult",
+        "CollateralHaircutStressSettings",
+        "HaircutScenario",
+        "MaturityHaircut",
+        "calculate_collateral_haircut_stress",
+    ]
+)

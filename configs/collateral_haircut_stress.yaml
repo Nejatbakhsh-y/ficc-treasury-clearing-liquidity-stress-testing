@@ -1,0 +1,147 @@
+schema_version: "1.0"
+section: 17
+model_name: collateral_haircut_stress
+model_version: "section-17-v1"
+currency: USD
+random_seed: 2026
+
+classification:
+  baseline_cash_flows: modeled
+  synthetic_member_profiles: synthetic
+  maturity_haircuts: assumed
+  scenario_haircuts: assumed
+  stress_results: modeled
+  actual_ficc_participants_permitted: false
+  participant_level_inference_permitted: false
+
+source:
+  baseline_cashflow_candidates:
+    - reports/tables/baseline_liquidity_cashflows.parquet
+    - reports/tables/baseline_liquidity_cashflows.csv
+  member_profile_candidates:
+    - data/synthetic/calibrated_member_portfolios.parquet
+    - data/synthetic/calibrated_member_portfolios.csv
+    - data/synthetic/synthetic_members.parquet
+    - data/synthetic/synthetic_members.csv
+  synthetic_id_pattern: '^SYN-MBR-[0-9]{4}$'
+
+maturity_buckets:
+  bills_0_1y:
+    source_columns:
+      - treasury_position_bills_0_1y_usd
+    base_haircut_rate: 0.010
+    eligibility_factor: 1.00
+  notes_1_3y:
+    source_columns:
+      - treasury_position_notes_1_3y_usd
+    base_haircut_rate: 0.015
+    eligibility_factor: 1.00
+  notes_3_7y:
+    source_columns:
+      - treasury_position_notes_3_7y_usd
+    base_haircut_rate: 0.025
+    eligibility_factor: 0.98
+  notes_7_10y:
+    source_columns:
+      - treasury_position_notes_7_10y_usd
+    base_haircut_rate: 0.035
+    eligibility_factor: 0.96
+  bonds_10_30y:
+    source_columns:
+      - treasury_position_bonds_10_30y_usd
+    base_haircut_rate: 0.060
+    eligibility_factor: 0.92
+  strips_30y_plus:
+    source_columns:
+      - treasury_position_strips_30y_plus_usd
+    base_haircut_rate: 0.100
+    eligibility_factor: 0.85
+
+scenarios:
+  - name: control
+    enabled: true
+    severity_rank: 0
+    stress_multiplier: 1.00
+    additive_haircut_rate: 0.000
+    bucket_addons:
+      bills_0_1y: 0.000
+      notes_1_3y: 0.000
+      notes_3_7y: 0.000
+      notes_7_10y: 0.000
+      bonds_10_30y: 0.000
+      strips_30y_plus: 0.000
+    concentration_threshold: 1.00
+    concentration_multiplier: 0.00
+    additional_collateral_call_rate: 0.000
+    inventory_availability_rate: 1.00
+    maximum_haircut_rate: 0.50
+
+  - name: moderate_haircut_stress
+    enabled: true
+    severity_rank: 1
+    stress_multiplier: 1.25
+    additive_haircut_rate: 0.005
+    bucket_addons:
+      bills_0_1y: 0.000
+      notes_1_3y: 0.001
+      notes_3_7y: 0.002
+      notes_7_10y: 0.004
+      bonds_10_30y: 0.008
+      strips_30y_plus: 0.015
+    concentration_threshold: 0.35
+    concentration_multiplier: 0.10
+    additional_collateral_call_rate: 0.010
+    inventory_availability_rate: 0.95
+    maximum_haircut_rate: 0.50
+
+  - name: severe_haircut_stress
+    enabled: true
+    severity_rank: 2
+    stress_multiplier: 1.75
+    additive_haircut_rate: 0.015
+    bucket_addons:
+      bills_0_1y: 0.002
+      notes_1_3y: 0.004
+      notes_3_7y: 0.008
+      notes_7_10y: 0.012
+      bonds_10_30y: 0.025
+      strips_30y_plus: 0.040
+    concentration_threshold: 0.25
+    concentration_multiplier: 0.30
+    additional_collateral_call_rate: 0.030
+    inventory_availability_rate: 0.80
+    maximum_haircut_rate: 0.50
+
+  - name: extreme_collateral_freeze
+    enabled: true
+    severity_rank: 3
+    stress_multiplier: 2.50
+    additive_haircut_rate: 0.030
+    bucket_addons:
+      bills_0_1y: 0.005
+      notes_1_3y: 0.010
+      notes_3_7y: 0.018
+      notes_7_10y: 0.030
+      bonds_10_30y: 0.050
+      strips_30y_plus: 0.075
+    concentration_threshold: 0.20
+    concentration_multiplier: 0.50
+    additional_collateral_call_rate: 0.080
+    inventory_availability_rate: 0.60
+    maximum_haircut_rate: 0.50
+
+validation:
+  reconciliation_tolerance_usd: 0.01
+  require_deterministic_reproduction: true
+  require_synthetic_identifiers: true
+  require_maturity_dependent_haircuts: true
+  require_stress_dependent_haircuts: true
+  require_concentration_multiplier: true
+  require_available_collateral_constraints: true
+
+output:
+  directory: reports/tables
+  evidence_directory: reports/evidence
+  manifest: data/manifests/collateral_haircut_stress_manifest.csv
+  write_csv: true
+  write_parquet: true
