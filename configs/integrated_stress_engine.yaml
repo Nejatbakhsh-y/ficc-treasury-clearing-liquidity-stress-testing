@@ -1,0 +1,148 @@
+schema_version: "1.0"
+section: 19
+model_name: integrated_stressed_liquidity_requirement
+model_version: "section-19-v1"
+currency: USD
+random_seed: 2026
+
+classification:
+  baseline_cash_flows: modeled
+  repo_funding_stress_results: modeled
+  treasury_yield_stress_results: modeled
+  collateral_haircut_stress_results: modeled
+  settlement_fail_stress_results: modeled
+  concentration_adjustment: assumed
+  operational_liquidity_buffer: assumed
+  integrated_results: modeled
+  actual_ficc_participants_permitted: false
+  participant_level_inference_permitted: false
+
+source:
+  baseline_summary_candidates:
+    - reports/tables/baseline_liquidity_summary.parquet
+    - reports/tables/baseline_liquidity_summary.csv
+  funding_summary_candidates:
+    - reports/tables/repo_funding_stress_member_summary.parquet
+    - reports/tables/repo_funding_stress_member_summary.csv
+  haircut_summary_candidates:
+    - reports/tables/collateral_haircut_stress_member_summary.parquet
+    - reports/tables/collateral_haircut_stress_member_summary.csv
+  treasury_summary_candidates:
+    - reports/tables/treasury_yield_stress_member_summary_section19_adapter.parquet
+    - reports/tables/treasury_yield_stress_member_summary_section19_adapter.csv
+    - reports/tables/treasury_yield_stress_member_summary.parquet
+    - reports/tables/treasury_yield_stress_member_summary.csv
+  settlement_fail_cashflow_candidates:
+    - reports/tables/settlement_fail_stress_cashflows.parquet
+    - reports/tables/settlement_fail_stress_cashflows.csv
+  synthetic_member_profile_candidates:
+    - data/synthetic/calibrated_member_portfolios.parquet
+    - data/synthetic/calibrated_member_portfolios.csv
+  treasury_yield_config: configs/treasury_yield_stress.yaml
+  synthetic_id_pattern: '^SYN-MBR-[0-9]{4}$'
+
+integration:
+  lcr_minimum_ratio: 1.00
+  aqlr_basis: section14_modeled_aqlr
+  concentration_base_components:
+    - settlement_liquidity_need_usd
+    - settlement_fail_requirement_usd
+  excluded_composite_controls:
+    - section16_incremental_repo_funding_stress_outflow
+    - section16_additional_collateral_demand
+    - section18_incremental_combined_stress_outflow
+    - section18_combined_funding_shock
+    - section17_stressed_aqlr_reduction
+
+treasury_adapter:
+  enabled_when_summary_unavailable: true
+  mapping_method: deterministic_weighted_bucket_bridge
+  maturity_mapping:
+    - source_column: treasury_position_bills_0_1y_usd
+      target_bucket: bills_0_1y
+      weight: 1.00
+    - source_column: treasury_position_notes_1_3y_usd
+      target_bucket: notes_1_2y
+      weight: 0.50
+    - source_column: treasury_position_notes_1_3y_usd
+      target_bucket: notes_2_3y
+      weight: 0.50
+    - source_column: treasury_position_notes_3_7y_usd
+      target_bucket: notes_3_5y
+      weight: 0.50
+    - source_column: treasury_position_notes_3_7y_usd
+      target_bucket: notes_5_7y
+      weight: 0.50
+    - source_column: treasury_position_notes_7_10y_usd
+      target_bucket: notes_7_10y
+      weight: 1.00
+    - source_column: treasury_position_bonds_10_30y_usd
+      target_bucket: bonds_10_20y
+      weight: 0.50
+    - source_column: treasury_position_bonds_10_30y_usd
+      target_bucket: bonds_20_30y
+      weight: 0.50
+    - source_column: treasury_position_strips_30y_plus_usd
+      target_bucket: bonds_30y_plus
+      weight: 1.00
+
+scenarios:
+  - name: control
+    enabled: true
+    severity_rank: 0
+    funding_scenario_name: control
+    haircut_scenario_name: control
+    treasury_scenario_name: NONE
+    settlement_fail_scenario_name: control
+    concentration_threshold: 1.00
+    concentration_multiplier: 0.00
+    operational_liquidity_buffer_rate: 0.00
+
+  - name: moderate_integrated_stress
+    enabled: true
+    severity_rank: 1
+    funding_scenario_name: moderate_market_stress
+    haircut_scenario_name: moderate_haircut_stress
+    treasury_scenario_name: key_rate_5y_up_100bp
+    settlement_fail_scenario_name: moderate_settlement_disruption
+    concentration_threshold: 0.35
+    concentration_multiplier: 0.10
+    operational_liquidity_buffer_rate: 0.02
+
+  - name: severe_integrated_stress
+    enabled: true
+    severity_rank: 2
+    funding_scenario_name: severe_market_stress
+    haircut_scenario_name: severe_haircut_stress
+    treasury_scenario_name: parallel_up_100bp
+    settlement_fail_scenario_name: severe_multi_day_fails
+    concentration_threshold: 0.25
+    concentration_multiplier: 0.25
+    operational_liquidity_buffer_rate: 0.05
+
+  - name: extreme_integrated_crisis
+    enabled: true
+    severity_rank: 3
+    funding_scenario_name: concentrated_funding_freeze
+    haircut_scenario_name: extreme_collateral_freeze
+    treasury_scenario_name: bear_steepener
+    settlement_fail_scenario_name: combined_settlement_funding_crisis
+    concentration_threshold: 0.20
+    concentration_multiplier: 0.50
+    operational_liquidity_buffer_rate: 0.10
+
+validation:
+  reconciliation_tolerance_usd: 0.01
+  require_deterministic_reproduction: true
+  require_atomic_component_selection: true
+  require_composite_identity_checks: true
+  require_synthetic_identifiers: true
+  require_nondecreasing_aggregate_requirement: true
+  require_lcr_identity: true
+
+output:
+  directory: reports/tables
+  evidence_directory: reports/evidence
+  manifest: data/manifests/integrated_stress_engine_manifest.csv
+  write_csv: true
+  write_parquet: true
