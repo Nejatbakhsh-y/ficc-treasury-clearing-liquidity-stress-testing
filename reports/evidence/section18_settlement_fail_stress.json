@@ -1,0 +1,44 @@
+{
+  "section": 18,
+  "model": "settlement_fail_stress",
+  "model_version": "section-18-v1",
+  "generated_at_utc": "2026-07-23T01:14:39.743047+00:00",
+  "run_type": "CONTROLLED_MODEL_RUN",
+  "baseline_source": "C:\\Users\\nejat\\OneDrive\\Desktop\\UN\\Skills\\GitHub 2026\\ficc-treasury-clearing-liquidity-stress-testing\\reports\\tables\\baseline_liquidity_cashflows.csv",
+  "member_source": "C:\\Users\\nejat\\OneDrive\\Desktop\\UN\\Skills\\GitHub 2026\\ficc-treasury-clearing-liquidity-stress-testing\\data\\synthetic\\calibrated_member_portfolios.parquet",
+  "funding_source": "C:\\Users\\nejat\\OneDrive\\Desktop\\UN\\Skills\\GitHub 2026\\ficc-treasury-clearing-liquidity-stress-testing\\reports\\tables\\repo_funding_stress_cashflows.csv",
+  "cashflow_rows": 960,
+  "member_scenario_rows": 192,
+  "scenario_rows": 4,
+  "scenario_names": [
+    "control",
+    "moderate_settlement_disruption",
+    "severe_multi_day_fails",
+    "combined_settlement_funding_crisis"
+  ],
+  "result_sha256": "9f4f1aeda286adad31c90bb2c9bea224676ea1a5652fdeb28041e8baf2e6289c",
+  "gates": {
+    "complete_cashflow_matrix": "PASS",
+    "complete_member_matrix": "PASS",
+    "unique_cashflow_keys": "PASS",
+    "finite_nonnegative_stress_amounts": "PASS",
+    "fails_to_receive_bounds": "PASS",
+    "fails_to_deliver_bounds": "PASS",
+    "replacement_liquidity_identity": "PASS",
+    "delayed_payment_recovery_bounds": "PASS",
+    "combined_stress_identity": "PASS",
+    "liquidity_headroom_identity": "PASS",
+    "zero_shock_control": "PASS",
+    "severity_monotonicity": "PASS",
+    "section16_funding_combination": "PASS",
+    "scenario_aggregation_complete": "PASS",
+    "synthetic_identity_controls": "PASS",
+    "deterministic_reproduction": "PASS"
+  },
+  "limitations": [
+    "All member-level records are fictional synthetic observations.",
+    "Fail splits, delays, persistence, replacement rates, and penalties are assumptions.",
+    "Section 16 funding outflows are scenario overlays, not bilateral lender forecasts.",
+    "Public aggregate data do not reveal actual FICC participant settlement behavior."
+  ]
+}
