@@ -1,0 +1,12 @@
+scenario_name,display_order,scenario_family,treasury_active,maximum_absolute_treasury_shock_bp,funding_stress_outflow_usd,haircut_requirement_usd,settlement_stress_usd,stressed_liquidity_requirement_usd,aggregate_aqlr_usd,aggregate_lcr,funding_required_checks_pass,haircut_required_checks_pass,settlement_required_checks_pass,integrated_checks_pass
+moderate_stress,1,broad_market,True,50.0,495658082058.75116,43213257445.95201,699029679219.7286,3527498799081.104,3585520931632.542,1.0164485194343802,True,True,True,True
+severe_stress,2,broad_market,True,100.0,1099553415105.4692,137798070451.5444,1889465777498.9895,4963718672486.311,3585520931632.542,0.7223457186457681,True,True,True,True
+extreme_but_plausible_stress,3,broad_market,True,300.0,1381582695112.1465,339849155135.9784,3914031661574.2866,7409269597705.813,3585520931632.542,0.4839236694454678,True,True,True,True
+parallel_treasury_shock,4,treasury_parallel,True,150.0,0.0,0.0,0.0,2556513759982.467,3585520931632.542,1.4025040614908062,True,True,True,True
+curve_steepening,5,treasury_curve,True,175.0,0.0,0.0,0.0,2539738737827.651,3585520931632.542,1.4117676272085349,True,True,True,True
+curve_flattening,6,treasury_curve,True,175.0,0.0,0.0,0.0,2546930699830.3525,3585520931632.542,1.4077811115439334,True,True,True,True
+sofr_spike,7,funding_rate,False,0.0,233556685.18108213,0.0,0.0,2509968390000.051,3585520931632.542,1.4285123852226957,True,True,True,True
+repo_rollover_failure,8,funding_rollover,False,0.0,896857671095.3555,0.0,0.0,3406592504410.2246,3585520931632.542,1.0525241651270805,True,True,True,True
+collateral_haircut_increase,9,collateral,False,0.0,0.0,167105778798.28183,0.0,2676840612113.1514,3585520931632.542,1.339460001991699,True,True,True,True
+settlement_fail_increase,10,settlement,False,0.0,0.0,0.0,1574103628185.1772,4083838461500.0464,3585520931632.542,0.8779781486056953,True,True,True,True
+combined_systemic_stress,11,systemic,True,350.0,1461656333542.4233,483869143440.4399,4758486642658.403,9141552753023.479,3585520931632.542,0.39222230932777435,True,True,True,True

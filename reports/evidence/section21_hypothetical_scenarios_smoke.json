@@ -1,0 +1,24 @@
+{
+  "actual_ficc_participant": false,
+  "catalog_digest": "c6d4fb56ac464dc1b539f4b9a26c92818819ee0d40d5858de9158942ea828f04",
+  "checks": {
+    "all_component_required_checks_pass": true,
+    "all_integrated_checks_pass": true,
+    "all_required_scenarios_created": true,
+    "double_count_controls_pass": true,
+    "hypothetical_treasury_matrix_created": true,
+    "scenario_definitions_deterministic": true,
+    "stressed_requirement_identity": true,
+    "synthetic_members_only": true,
+    "unique_scenario_member_keys": true
+  },
+  "generated_at_utc": "2026-07-23T19:24:08.801308+00:00",
+  "member_result_digest": "ad4be56dc2601fedfd820b15824712281c9e7a282ff7a3c2593df79947d0bcf3",
+  "member_result_rows": 144,
+  "model_version": "section-21-v1",
+  "participant_level_inference": false,
+  "scenario_count": 3,
+  "section": 21,
+  "smoke_mode": true,
+  "status": "PASS"
+}
