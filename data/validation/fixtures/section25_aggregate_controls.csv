@@ -1,0 +1,11 @@
+scenario_id,source_table,metric_name,expected_total,absolute_tolerance,relative_tolerance
+moderate,members,treasury_market_value,2400,0.000001,0.000000001
+moderate,members,repo_maturity,900,0.000001,0.000000001
+moderate,members,settlement_obligation,1200,0.000001,0.000000001
+moderate,members,fails_to_receive,100,0.000001,0.000000001
+moderate,resources,qualified_resource_amount,1156,0.000001,0.000000001
+severe,members,treasury_market_value,2400,0.000001,0.000000001
+severe,members,repo_maturity,1200,0.000001,0.000000001
+severe,members,settlement_obligation,1450,0.000001,0.000000001
+severe,members,fails_to_receive,240,0.000001,0.000000001
+severe,resources,qualified_resource_amount,920,0.000001,0.000000001

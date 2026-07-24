@@ -1,0 +1,25 @@
+schema_version: "1.0"
+section: 25
+name: independent_implementation_verification
+
+inputs:
+  members: data/validation/fixtures/section25_members.csv
+  resources: data/validation/fixtures/section25_resources.csv
+  aggregate_controls: data/validation/fixtures/section25_aggregate_controls.csv
+
+comparison:
+  label: controlled_hand_calculated_fixture
+  results_path: data/validation/fixtures/section25_control_results.csv
+  absolute_tolerance: 1.0e-8
+  relative_tolerance: 1.0e-8
+  required: true
+
+outputs:
+  member_calculations: reports/tables/section25_member_calculations.csv
+  qualified_resources: reports/tables/section25_qualified_resources.csv
+  default_sets: reports/tables/section25_default_sets.csv
+  cover_results: reports/tables/section25_cover_results.csv
+  aggregate_reconciliation: reports/tables/section25_aggregate_reconciliation.csv
+  calculation_comparison: reports/tables/section25_calculation_comparison.csv
+  summary_json: reports/evidence/section25_independent_verification_summary.json
+  evidence_txt: reports/evidence/section25_independent_verification.txt

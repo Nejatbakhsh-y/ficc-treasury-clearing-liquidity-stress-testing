@@ -1,0 +1,5 @@
+scenario_id,coverage_basis,default_members,stressed_requirement,available_resources,lcr,liquidity_shortfall,resource_utilization,dominant_stress_component
+moderate,cover1,M001,552.983333333333,1056.000000000000,1.909641640797,0.000000000000,0.523658459596,settlement_liquidity_need
+moderate,cover2,M001|M002,858.988888888889,976.000000000000,1.136219586335,0.000000000000,0.880111566485,settlement_liquidity_need
+severe,cover1,M001,1428.680555555556,820.000000000000,0.573956156127,608.680555555556,1.742293360434,settlement_fail_requirement
+severe,cover2,M001|M002,2438.297222222222,740.000000000000,0.303490482315,1698.297222222222,3.294996246246,settlement_fail_requirement

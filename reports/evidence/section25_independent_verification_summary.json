@@ -1,0 +1,28 @@
+{
+  "section": "25",
+  "title": "Independent implementation verification",
+  "overall_status": "PASS",
+  "independence_status": "PASS",
+  "prohibited_internal_imports": [],
+  "aggregate_reconciliation_status": "PASS",
+  "comparison_status": "PASS",
+  "comparison_label": "controlled_hand_calculated_fixture",
+  "comparison_path": "C:\\Users\\nejat\\OneDrive\\Desktop\\UN\\Skills\\GitHub 2026\\ficc-treasury-clearing-liquidity-stress-testing\\data\\validation\\fixtures\\section25_control_results.csv",
+  "scenario_count": 2,
+  "member_scenario_count": 6,
+  "cover_result_count": 4,
+  "aggregate_control_count": 10,
+  "aggregate_control_failures": 0,
+  "comparison_failures": 0,
+  "formula_components": [
+    "settlement_liquidity_need",
+    "repo_rollover_need",
+    "incremental_funding_cost",
+    "additional_haircut_requirement",
+    "treasury_liquidation_loss",
+    "settlement_fail_requirement",
+    "concentration_adjustment",
+    "operational_liquidity_buffer"
+  ],
+  "production_functions_called": false
+}
