@@ -1,0 +1,42 @@
+{
+  "default_set_changes": 4,
+  "detailed_rows": 218,
+  "dominant_component_changes": 8,
+  "failed_directional_groups": 0,
+  "independence_boundary": "Uses the Section 25 independent flat-file calculation path and does not call production stress functions.",
+  "lcr_breach_observations": 115,
+  "most_lcr_sensitive_dimension": "available_resource_assumptions",
+  "name": "sensitivity_analysis",
+  "overall_status": "PASS",
+  "required_sensitivities": [
+    "yield_shocks",
+    "duration_assumptions",
+    "sofr_spikes",
+    "rollover_failure_percentages",
+    "haircut_increases",
+    "settlement_fail_percentages",
+    "member_concentration",
+    "liquidation_horizon",
+    "default_set_size",
+    "available_resource_assumptions"
+  ],
+  "scenarios_tested": [
+    "moderate",
+    "severe"
+  ],
+  "section": 26,
+  "sensitivities_executed": [
+    "available_resource_assumptions",
+    "default_set_size",
+    "duration_assumptions",
+    "haircut_increases",
+    "liquidation_horizon",
+    "member_concentration",
+    "rollover_failure_percentages",
+    "settlement_fail_percentages",
+    "sofr_spikes",
+    "yield_shocks"
+  ],
+  "shortfall_observations": 115,
+  "summary_groups": 38
+}
