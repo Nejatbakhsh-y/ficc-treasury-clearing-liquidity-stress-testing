@@ -22,19 +22,13 @@ from ficc_liquidity.validation.independent_implementation import (
 PROJECT_ROOT = Path(__file__).resolve().parents[1]
 FIXTURE_DIR = PROJECT_ROOT / "data" / "validation" / "fixtures"
 MODULE_PATH = (
-    PROJECT_ROOT
-    / "src"
-    / "ficc_liquidity"
-    / "validation"
-    / "independent_implementation.py"
+    PROJECT_ROOT / "src" / "ficc_liquidity" / "validation" / "independent_implementation.py"
 )
 
 
 def _load_inputs() -> tuple[pd.DataFrame, pd.DataFrame, pd.DataFrame]:
     members = pd.read_csv(FIXTURE_DIR / "section25_members.csv")
-    resources = pd.read_csv(
-        FIXTURE_DIR / "section25_resources.csv", keep_default_na=False
-    )
+    resources = pd.read_csv(FIXTURE_DIR / "section25_resources.csv", keep_default_na=False)
     controls = pd.read_csv(FIXTURE_DIR / "section25_aggregate_controls.csv")
     return members, resources, controls
 
@@ -44,9 +38,7 @@ def _calculate() -> tuple[pd.DataFrame, pd.DataFrame, pd.DataFrame, pd.DataFrame
     member_results = calculate_member_stress(members)
     qualified_resources = calculate_qualified_resources(resources)
     default_sets = select_default_sets(member_results)
-    cover_results = calculate_cover_results(
-        member_results, qualified_resources, default_sets
-    )
+    cover_results = calculate_cover_results(member_results, qualified_resources, default_sets)
     return member_results, qualified_resources, default_sets, cover_results
 
 
@@ -68,8 +60,7 @@ def test_independent_module_imports_no_production_package_code() -> None:
 def test_hand_calculated_stress_components() -> None:
     member_results, _, _, _ = _calculate()
     moderate_m001 = member_results.loc[
-        member_results["scenario_id"].eq("moderate")
-        & member_results["member_id"].eq("M001")
+        member_results["scenario_id"].eq("moderate") & member_results["member_id"].eq("M001")
     ].iloc[0]
 
     assert moderate_m001["settlement_liquidity_need"] == pytest.approx(250.0)
@@ -80,20 +71,16 @@ def test_hand_calculated_stress_components() -> None:
     assert moderate_m001["settlement_fail_requirement"] == pytest.approx(120.0)
     assert moderate_m001["concentration_adjustment"] == pytest.approx(10.0)
     assert moderate_m001["operational_liquidity_buffer"] == pytest.approx(10.0)
-    assert moderate_m001["stressed_liquidity_requirement"] == pytest.approx(
-        552.983333333333
-    )
+    assert moderate_m001["stressed_liquidity_requirement"] == pytest.approx(552.983333333333)
 
 
 def test_default_set_selection_uses_independent_member_requirements() -> None:
     _, _, default_sets, _ = _calculate()
     moderate_cover1 = default_sets.loc[
-        default_sets["scenario_id"].eq("moderate")
-        & default_sets["coverage_basis"].eq("cover1")
+        default_sets["scenario_id"].eq("moderate") & default_sets["coverage_basis"].eq("cover1")
     ]
     moderate_cover2 = default_sets.loc[
-        default_sets["scenario_id"].eq("moderate")
-        & default_sets["coverage_basis"].eq("cover2")
+        default_sets["scenario_id"].eq("moderate") & default_sets["coverage_basis"].eq("cover2")
     ].sort_values("default_rank")
 
     assert moderate_cover1["member_id"].tolist() == ["M001"]
@@ -103,21 +90,17 @@ def test_default_set_selection_uses_independent_member_requirements() -> None:
 def test_cover_results_exclude_defaulting_member_resources() -> None:
     _, _, _, cover_results = _calculate()
     moderate_cover1 = cover_results.loc[
-        cover_results["scenario_id"].eq("moderate")
-        & cover_results["coverage_basis"].eq("cover1")
+        cover_results["scenario_id"].eq("moderate") & cover_results["coverage_basis"].eq("cover1")
     ].iloc[0]
     severe_cover2 = cover_results.loc[
-        cover_results["scenario_id"].eq("severe")
-        & cover_results["coverage_basis"].eq("cover2")
+        cover_results["scenario_id"].eq("severe") & cover_results["coverage_basis"].eq("cover2")
     ].iloc[0]
 
     assert moderate_cover1["available_resources"] == pytest.approx(1056.0)
     assert moderate_cover1["lcr"] == pytest.approx(1.909641640797)
     assert moderate_cover1["liquidity_shortfall"] == pytest.approx(0.0)
     assert severe_cover2["available_resources"] == pytest.approx(740.0)
-    assert severe_cover2["liquidity_shortfall"] == pytest.approx(
-        1698.297222222222
-    )
+    assert severe_cover2["liquidity_shortfall"] == pytest.approx(1698.297222222222)
 
 
 def test_aggregate_reconciliation_passes() -> None:

@@ -181,8 +181,7 @@ def calculate_member_stress(members: pd.DataFrame) -> pd.DataFrame:
 
     yield_change = frame["yield_shock_bps"] / 10_000.0
     duration_convexity_loss_rate = (
-        frame["modified_duration"] * yield_change
-        - 0.5 * frame["convexity"] * yield_change.pow(2)
+        frame["modified_duration"] * yield_change - 0.5 * frame["convexity"] * yield_change.pow(2)
     ).clip(lower=0.0)
 
     frame["settlement_liquidity_need"] = (
@@ -190,9 +189,7 @@ def calculate_member_stress(members: pd.DataFrame) -> pd.DataFrame:
         - frame["settlement_inflow"]
         - frame["settlement_netting_credit"]
     ).clip(lower=0.0)
-    frame["repo_rollover_need"] = (
-        frame["repo_maturity"] * frame["repo_rollover_failure_rate"]
-    )
+    frame["repo_rollover_need"] = frame["repo_maturity"] * frame["repo_rollover_failure_rate"]
     frame["incremental_funding_cost"] = (
         frame["refinanced_repo"]
         * (frame["sofr_spike_bps"] / 10_000.0)
@@ -207,13 +204,10 @@ def calculate_member_stress(members: pd.DataFrame) -> pd.DataFrame:
         frame["treasury_market_value"] * duration_convexity_loss_rate
     )
     frame["settlement_fail_requirement"] = (
-        (
-            frame["fails_to_receive"]
-            + frame["delayed_incoming_payments"]
-            - frame["fails_to_deliver_credit"]
-        ).clip(lower=0.0)
-        * frame["fail_persistence_days"].clip(lower=1.0)
-    )
+        frame["fails_to_receive"]
+        + frame["delayed_incoming_payments"]
+        - frame["fails_to_deliver_credit"]
+    ).clip(lower=0.0) * frame["fail_persistence_days"].clip(lower=1.0)
     frame["concentration_adjustment"] = (
         frame["concentration_base"] * frame["concentration_addon_pct"]
     )
@@ -224,9 +218,7 @@ def calculate_member_stress(members: pd.DataFrame) -> pd.DataFrame:
         pd.DataFrame,
         frame.loc[:, list(COMPONENT_COLUMNS)],
     )
-    frame["stressed_liquidity_requirement"] = component_frame.sum(
-        axis="columns"
-    )
+    frame["stressed_liquidity_requirement"] = component_frame.sum(axis="columns")
 
     if frame.duplicated(["scenario_id", "member_id"]).any():
         duplicates = frame.loc[
@@ -298,9 +290,7 @@ def select_default_sets(member_results: pd.DataFrame) -> pd.DataFrame:
             selected = ranked.head(count)
             selected_frame = cast(
                 pd.DataFrame,
-                selected.loc[
-                    :, ["member_id", "stressed_liquidity_requirement"]
-                ],
+                selected.loc[:, ["member_id", "stressed_liquidity_requirement"]],
             )
             selected_records = cast(
                 list[dict[str, Any]],
@@ -314,9 +304,7 @@ def select_default_sets(member_results: pd.DataFrame) -> pd.DataFrame:
                         "coverage_basis": coverage_basis,
                         "default_rank": rank,
                         "member_id": str(row["member_id"]),
-                        "member_stressed_requirement": float(
-                            row["stressed_liquidity_requirement"]
-                        ),
+                        "member_stressed_requirement": float(row["stressed_liquidity_requirement"]),
                     }
                 )
 
@@ -337,46 +325,32 @@ def calculate_cover_results(
         ["scenario_id", "coverage_basis"], sort=True
     ):
         default_member_ids = selected.sort_values("default_rank")["member_id"].astype(str).tolist()
-        member_mask = (
-            member_results["scenario_id"].astype(str).eq(str(scenario_id))
-            & member_results["member_id"].astype(str).isin(default_member_ids)
-        )
+        member_mask = member_results["scenario_id"].astype(str).eq(
+            str(scenario_id)
+        ) & member_results["member_id"].astype(str).isin(default_member_ids)
         selected_members = member_results.loc[member_mask]
         if selected_members.empty:
-            raise ValueError(
-                f"No member calculations found for {scenario_id}/{coverage_basis}"
-            )
+            raise ValueError(f"No member calculations found for {scenario_id}/{coverage_basis}")
 
-        stressed_requirement = float(
-            selected_members["stressed_liquidity_requirement"].sum()
-        )
+        stressed_requirement = float(selected_members["stressed_liquidity_requirement"].sum())
 
         scenario_resources = qualified_resources.loc[
             qualified_resources["scenario_id"].astype(str).eq(str(scenario_id))
         ].copy()
-        resource_available = (
-            scenario_resources["owner_member_id"].eq("")
-            | ~scenario_resources["owner_member_id"].isin(default_member_ids)
-        )
+        resource_available = scenario_resources["owner_member_id"].eq("") | ~scenario_resources[
+            "owner_member_id"
+        ].isin(default_member_ids)
         available_resources = float(
-            scenario_resources.loc[
-                resource_available, "qualified_resource_amount"
-            ].sum()
+            scenario_resources.loc[resource_available, "qualified_resource_amount"].sum()
         )
 
         component_totals = selected_members.loc[:, COMPONENT_COLUMNS].sum(axis=0)
         dominant_component = str(component_totals.sort_values(ascending=False).index[0])
 
-        lcr = (
-            available_resources / stressed_requirement
-            if stressed_requirement > 0.0
-            else math.inf
-        )
+        lcr = available_resources / stressed_requirement if stressed_requirement > 0.0 else math.inf
         liquidity_shortfall = max(stressed_requirement - available_resources, 0.0)
         resource_utilization = (
-            stressed_requirement / available_resources
-            if available_resources > 0.0
-            else math.inf
+            stressed_requirement / available_resources if available_resources > 0.0 else math.inf
         )
 
         records.append(
@@ -398,9 +372,7 @@ def calculate_cover_results(
         pd.DataFrame,
         result.loc[:, list(COVER_RESULT_COLUMNS)],
     )
-    return ordered_result.sort_values(
-        ["scenario_id", "coverage_basis"]
-    ).reset_index(drop=True)
+    return ordered_result.sort_values(["scenario_id", "coverage_basis"]).reset_index(drop=True)
 
 
 def reconcile_aggregates(
@@ -444,22 +416,17 @@ def reconcile_aggregates(
         relative_tolerance = float(control["relative_tolerance"])
 
         if source_table == "members":
-            source = members.loc[
-                members["scenario_id"].astype(str).eq(scenario_id)
-            ]
+            source = members.loc[members["scenario_id"].astype(str).eq(scenario_id)]
         elif source_table == "resources":
             source = qualified_resources.loc[
                 qualified_resources["scenario_id"].astype(str).eq(scenario_id)
             ]
         else:
-            raise ValueError(
-                f"Unsupported source_table: {source_table}"
-            )
+            raise ValueError(f"Unsupported source_table: {source_table}")
 
         if metric_name not in source.columns:
             raise ValueError(
-                f"Aggregate control metric {metric_name!r} "
-                f"is not present in {source_table}"
+                f"Aggregate control metric {metric_name!r} is not present in {source_table}"
             )
 
         numeric_values = pd.to_numeric(
@@ -467,14 +434,9 @@ def reconcile_aggregates(
             errors="raise",
         )
 
-        actual_total = math.fsum(
-            float(value)
-            for value in numeric_values.tolist()
-        )
+        actual_total = math.fsum(float(value) for value in numeric_values.tolist())
 
-        absolute_difference = abs(
-            actual_total - expected_total
-        )
+        absolute_difference = abs(actual_total - expected_total)
 
         relative_difference = (
             absolute_difference / abs(expected_total)
@@ -483,8 +445,7 @@ def reconcile_aggregates(
         )
 
         passed = (
-            absolute_difference <= absolute_tolerance
-            or relative_difference <= relative_tolerance
+            absolute_difference <= absolute_tolerance or relative_difference <= relative_tolerance
         )
 
         records.append(
@@ -553,9 +514,7 @@ def compare_results(
         independent_members = str(row.get("default_members_independent", "")).strip()
         reference_members = str(row.get("default_members_reference", "")).strip()
         member_status = (
-            "PASS"
-            if key_status == "PASS" and independent_members == reference_members
-            else "FAIL"
+            "PASS" if key_status == "PASS" and independent_members == reference_members else "FAIL"
         )
         records.append(
             {
@@ -678,9 +637,7 @@ def run_verification(
     member_results = calculate_member_stress(members)
     qualified_resources = calculate_qualified_resources(resources)
     default_sets = select_default_sets(member_results)
-    cover_results = calculate_cover_results(
-        member_results, qualified_resources, default_sets
-    )
+    cover_results = calculate_cover_results(member_results, qualified_resources, default_sets)
     reconciliation = reconcile_aggregates(members, qualified_resources, controls)
 
     reference_path = production_results_override
@@ -690,9 +647,7 @@ def run_verification(
         reference_path = project_root / reference_path
 
     comparison_label = (
-        comparison_label_override
-        or comparison_config.get("label")
-        or "not_configured"
+        comparison_label_override or comparison_config.get("label") or "not_configured"
     )
     tolerance = ComparisonTolerance(
         absolute=float(comparison_config.get("absolute_tolerance", 1.0e-8)),
@@ -702,9 +657,7 @@ def run_verification(
     if reference_path is not None and reference_path.exists():
         reference_results = pd.read_csv(reference_path)
         comparison = compare_results(cover_results, reference_results, tolerance)
-        comparison_status = (
-            "PASS" if comparison["status"].eq("PASS").all() else "FAIL"
-        )
+        comparison_status = "PASS" if comparison["status"].eq("PASS").all() else "FAIL"
     else:
         comparison = pd.DataFrame(
             columns=[
@@ -722,12 +675,12 @@ def run_verification(
         )
         comparison_status = "NOT_RUN"
 
-    module_path = project_root / "src" / "ficc_liquidity" / "validation" / "independent_implementation.py"
+    module_path = (
+        project_root / "src" / "ficc_liquidity" / "validation" / "independent_implementation.py"
+    )
     prohibited_imports = verify_import_independence(module_path)
     independence_status = "PASS" if not prohibited_imports else "FAIL"
-    reconciliation_status = (
-        "PASS" if reconciliation["status"].eq("PASS").all() else "FAIL"
-    )
+    reconciliation_status = "PASS" if reconciliation["status"].eq("PASS").all() else "FAIL"
 
     output_paths: dict[str, Path] = {
         str(name): _required_resolve(project_root, str(value), f"outputs.{name}")
@@ -760,7 +713,9 @@ def run_verification(
         "cover_result_count": int(len(cover_results)),
         "aggregate_control_count": int(len(reconciliation)),
         "aggregate_control_failures": int(reconciliation["status"].eq("FAIL").sum()),
-        "comparison_failures": int(comparison["status"].eq("FAIL").sum()) if not comparison.empty else 0,
+        "comparison_failures": int(comparison["status"].eq("FAIL").sum())
+        if not comparison.empty
+        else 0,
         "formula_components": list(COMPONENT_COLUMNS),
         "production_functions_called": False,
     }
