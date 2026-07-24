@@ -1294,7 +1294,7 @@ def render_report(
     metadata: Mapping[str, Any],
 ) -> str:
     lines = [
-        "# Section 27 â€” Outcomes and Benchmark Analysis",
+        "# Section 27 - Outcomes and Benchmark Analysis",
         "",
         f"**Overall status:** {overall_status}",
         f"**Evidence mode:** {evidence_mode}",

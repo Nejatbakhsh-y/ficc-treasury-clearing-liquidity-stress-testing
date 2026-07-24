@@ -1,4 +1,4 @@
-# Section 27 â€” Outcomes and Benchmark Analysis
+# Section 27 - Outcomes and Benchmark Analysis
 
 ## Objective
 
