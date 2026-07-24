@@ -1,0 +1,139 @@
+{
+  "evidence_mode": "controlled_benchmark",
+  "input_path": null,
+  "limitations": [
+    "Actual FICC outcomes are unavailable and are not inferred.",
+    "Controlled benchmark results are engineering evidence, not empirical outcome validation.",
+    "External model outputs require compatible fields for every gate to be evaluated."
+  ],
+  "metadata": {
+    "lcr_orientation": "resources_over_requirement",
+    "warnings": [
+      "No external model-output file was supplied; controlled benchmark mode was used."
+    ]
+  },
+  "overall_status": "PASS_CONTROLLED_ONLY",
+  "record_count": 270,
+  "results": [
+    {
+      "evaluated": 270,
+      "failed": 0,
+      "metrics": {
+        "minimum_required": 0.95,
+        "record_pass_rate": 1.0
+      },
+      "name": "historical_plausibility",
+      "notes": [
+        "Plausibility tests are structural and economically bounded; they do not establish empirical FICC calibration."
+      ],
+      "pass_rate": 1.0,
+      "passed": 270,
+      "status": "PASS"
+    },
+    {
+      "evaluated": 25,
+      "failed": 0,
+      "metrics": {
+        "seeds_evaluated": 5,
+        "severity_order": [
+          "baseline",
+          "moderate",
+          "severe",
+          "extreme"
+        ]
+      },
+      "name": "scenario_rank_ordering",
+      "notes": [],
+      "pass_rate": 1.0,
+      "passed": 25,
+      "status": "PASS"
+    },
+    {
+      "evaluated": 100,
+      "failed": 0,
+      "metrics": {
+        "driver_seed_groups": 50
+      },
+      "name": "monotonicity",
+      "notes": [],
+      "pass_rate": 1.0,
+      "passed": 100,
+      "status": "PASS"
+    },
+    {
+      "evaluated": 270,
+      "failed": 0,
+      "metrics": {
+        "directional_agreement": 1.0,
+        "directional_pairs": 195,
+        "threshold": 0.25
+      },
+      "name": "independent_benchmarks",
+      "notes": [],
+      "pass_rate": 1.0,
+      "passed": 270,
+      "status": "PASS"
+    },
+    {
+      "evaluated": 270,
+      "failed": 0,
+      "metrics": {
+        "threshold": 0.005
+      },
+      "name": "component_reconciliation",
+      "notes": [],
+      "pass_rate": 1.0,
+      "passed": 270,
+      "status": "PASS"
+    },
+    {
+      "evaluated": 108,
+      "failed": 0,
+      "metrics": {
+        "cv_threshold": 0.05,
+        "range_threshold": 0.15
+      },
+      "name": "seed_stability",
+      "notes": [],
+      "pass_rate": 1.0,
+      "passed": 108,
+      "status": "PASS"
+    },
+    {
+      "evaluated": 4,
+      "failed": 0,
+      "metrics": {
+        "body_mean_lcr": 1.7733122345596974,
+        "body_shortfall_rate": 0.0196078431372549,
+        "lcr_q05": 0.8341370407981576,
+        "requirement_q50": 356.2859191122699,
+        "requirement_q95": 797.2311112856034,
+        "requirement_q99": 1497.9594694197324,
+        "shortfall_q95": 132.23111128560345,
+        "tail_amplification_q95_over_q50": 2.237616106951413,
+        "tail_mean_lcr": 0.6494405996472913,
+        "tail_record_count": 15,
+        "tail_shortfall_rate": 1.0
+      },
+      "name": "tail_behavior",
+      "notes": [],
+      "pass_rate": 1.0,
+      "passed": 4,
+      "status": "PASS"
+    },
+    {
+      "evaluated": 11,
+      "failed": 0,
+      "metrics": {
+        "families_interpreted": 11
+      },
+      "name": "economic_interpretation",
+      "notes": [],
+      "pass_rate": 1.0,
+      "passed": 11,
+      "status": "PASS"
+    }
+  ],
+  "section": 27,
+  "title": "Outcomes and benchmark analysis"
+}

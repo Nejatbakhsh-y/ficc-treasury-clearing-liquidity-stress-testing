@@ -1,0 +1,40 @@
+{
+  "severity_order": ["baseline", "moderate", "severe", "extreme"],
+  "tolerances": {
+    "identity_absolute": 1e-06,
+    "identity_relative": 1e-06,
+    "monotonic_absolute": 1e-08,
+    "component_reconciliation_relative": 0.005,
+    "benchmark_relative": 0.25,
+    "seed_cv": 0.05,
+    "seed_range_relative": 0.15,
+    "plausibility_pass_rate": 0.95
+  },
+  "plausibility_bounds": {
+    "stressed_requirement": [0.0, 1000000000000000.0],
+    "available_resources": [0.0, 1000000000000000.0],
+    "lcr": [0.0, 100.0],
+    "resource_utilization": [0.0, 100.0],
+    "yield_shock_bps": [0.0, 2000.0],
+    "duration_years": [0.0, 30.0],
+    "sofr_spike_bps": [0.0, 3000.0],
+    "rollover_failure_pct": [0.0, 1.0],
+    "haircut_increase_pct": [0.0, 1.0],
+    "settlement_fail_pct": [0.0, 1.0],
+    "member_concentration_pct": [0.0, 1.0],
+    "liquidation_horizon_days": [0.0, 30.0],
+    "default_set_size": [1.0, 10.0],
+    "available_resource_multiplier": [0.0, 2.0]
+  },
+  "controlled": {
+    "seeds": [2026, 2027, 2028, 2029, 2030],
+    "base_exposures": {
+      "settlement_obligation": 550.0,
+      "repo_maturity": 420.0,
+      "collateral_value": 650.0,
+      "treasury_market_value": 900.0
+    },
+    "base_available_resources": 700.0,
+    "noise_scale": 0.004
+  }
+}

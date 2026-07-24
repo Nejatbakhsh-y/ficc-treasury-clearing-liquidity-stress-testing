@@ -1,0 +1,5 @@
+metric,status
+positive_tail_amplification,PASS
+ordered_tail_quantiles,PASS
+tail_shortfall_not_lower,PASS
+tail_lcr_direction,PASS
