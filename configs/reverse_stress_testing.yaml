@@ -1,0 +1,84 @@
+schema_version: "1.0"
+section: 23
+model_name: reverse_stress_testing
+model_version: "section-23-v1"
+currency: USD
+random_seed: 2026
+
+classification:
+  integrated_control_results: modeled
+  reverse_stress_parameters: solved
+  yield_shock_results: modeled
+  rollover_failure_results: modeled
+  haircut_stress_results: modeled
+  member_combinations: synthetic
+  actual_ficc_participants_permitted: false
+  participant_level_inference_permitted: false
+
+source:
+  integrated_member_result_candidates:
+    - reports/tables/integrated_stress_member_results.parquet
+    - reports/tables/integrated_stress_member_results.csv
+  baseline_cashflow_candidates:
+    - reports/tables/baseline_liquidity_cashflows.parquet
+    - reports/tables/baseline_liquidity_cashflows.csv
+  member_profile_candidates:
+    - data/synthetic/calibrated_member_portfolios.parquet
+    - data/synthetic/calibrated_member_portfolios.csv
+  treasury_position_candidates:
+    - reports/tables/treasury_yield_stress_positions_section19_adapter.parquet
+    - reports/tables/treasury_yield_stress_positions_section19_adapter.csv
+  integrated_config: configs/integrated_stress_engine.yaml
+  treasury_config: configs/treasury_yield_stress.yaml
+  repo_funding_config: configs/repo_funding_stress.yaml
+  haircut_config: configs/collateral_haircut_stress.yaml
+  control_scenario_name: control
+  synthetic_id_pattern: '^SYN-MBR-[0-9]{4}$'
+
+search:
+  yield_shock:
+    lower_bound: 0.0
+    upper_bound: 1000.0
+    parameter_tolerance: 0.01
+    include_market_impact: false
+
+  rollover_failure:
+    lower_bound: 0.0
+    upper_bound: 1.0
+    parameter_tolerance: 0.000001
+
+  haircut_increase:
+    lower_bound: 0.0
+    upper_bound: 0.50
+    parameter_tolerance: 0.000001
+    maximum_haircut_rate: 0.95
+
+  combined_scenario:
+    lower_bound: 0.0
+    upper_bound: 1.0
+    parameter_tolerance: 0.00001
+    maximum_yield_shock_bp: 500.0
+    maximum_rollover_failure_rate: 0.75
+    maximum_haircut_increase_rate: 0.15
+
+member_combinations:
+  combination_size: 2
+  top_n: 25
+  aggregation_assumption: additive_requirements_and_resources
+  cross_member_netting: false
+
+validation:
+  lcr_minimum_ratio: 1.0
+  liquidity_tolerance_usd: 0.01
+  maximum_binary_search_iterations: 80
+  require_deterministic_reproduction: true
+  require_synthetic_identifiers: true
+  require_search_minimality: true
+  require_exact_prior_model_reuse: true
+
+output:
+  directory: reports/tables
+  evidence_directory: reports/evidence
+  manifest: data/manifests/reverse_stress_testing_manifest.csv
+  write_csv: true
+  write_parquet: true

@@ -1,0 +1,5 @@
+test_name,stage,parameter_value,parameter_unit,criterion_type,breached,binding_entity_id,minimum_liquidity_coverage_ratio,maximum_liquidity_shortfall_usd
+minimum_yield_shock,lower_bound,0.0,basis_points,member,True,SYN-MBR-0045,0.8898102688899491,3590873227.4137993
+minimum_rollover_failure_rate,lower_bound,0.0,decimal_rate,member,True,SYN-MBR-0045,0.8898102688899491,3590873227.4137993
+minimum_haircut_increase,lower_bound,0.0,decimal_rate,member,True,SYN-MBR-0045,0.8898102688899491,3590873227.4137993
+minimum_combined_scenario,lower_bound,0.0,normalized_severity,combination,True,SYN-MBR-0002|SYN-MBR-0045,0.9004329704796823,8789256398.366714

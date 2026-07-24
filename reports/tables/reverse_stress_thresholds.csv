@@ -1,0 +1,5 @@
+test_name,parameter_unit,search_status,minimum_threshold,safe_lower_bound,breaching_upper_bound,iterations,criterion_type,breached_entity_id,liquidity_coverage_ratio,liquidity_shortfall_usd,yield_shock_bp,rollover_failure_rate,haircut_increase_rate,combined_severity,minimality_check_pass,value_class,actual_ficc_participant,participant_level_inference
+minimum_yield_shock,basis_points,BREACH_AT_LOWER_BOUND,0.0,0.0,0.0,0,member,SYN-MBR-0045,0.8898102688899491,3590873227.4137993,0.0,0.0,0.0,0.0,True,synthetic,False,False
+minimum_rollover_failure_rate,decimal_rate,BREACH_AT_LOWER_BOUND,0.0,0.0,0.0,0,member,SYN-MBR-0045,0.8898102688899491,3590873227.4137993,0.0,0.0,0.0,0.0,True,synthetic,False,False
+minimum_haircut_increase,decimal_rate,BREACH_AT_LOWER_BOUND,0.0,0.0,0.0,0,member,SYN-MBR-0045,0.8898102688899491,3590873227.4137993,0.0,0.0,0.0,0.0,True,synthetic,False,False
+minimum_combined_scenario,normalized_severity,BREACH_AT_LOWER_BOUND,0.0,0.0,0.0,0,combination,SYN-MBR-0002|SYN-MBR-0045,0.9004329704796823,8789256398.366714,0.0,0.0,0.0,0.0,True,synthetic,False,False
