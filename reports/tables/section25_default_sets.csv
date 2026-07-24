@@ -1,0 +1,7 @@
+scenario_id,coverage_basis,default_rank,member_id,member_stressed_requirement
+moderate,cover1,1,M001,552.983333333333
+moderate,cover2,1,M001,552.983333333333
+moderate,cover2,2,M002,306.005555555556
+severe,cover1,1,M001,1428.680555555556
+severe,cover2,1,M001,1428.680555555556
+severe,cover2,2,M002,1009.616666666667

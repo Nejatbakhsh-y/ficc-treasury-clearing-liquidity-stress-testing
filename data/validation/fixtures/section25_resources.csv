@@ -1,0 +1,11 @@
+scenario_id,resource_id,owner_member_id,resource_type,nominal_amount,eligibility_flag,liquidity_haircut_pct,availability_factor
+moderate,R001,,cash,700,true,0.00,1.00
+moderate,R002,,committed_facility,300,true,0.10,0.80
+moderate,R003,M001,member_contribution,100,true,0.00,1.00
+moderate,R004,M002,member_contribution,80,true,0.00,1.00
+moderate,R005,M003,member_contribution,60,true,0.00,1.00
+severe,R001,,cash,700,true,0.00,0.80
+severe,R002,,committed_facility,300,true,0.20,0.50
+severe,R003,M001,member_contribution,100,true,0.00,1.00
+severe,R004,M002,member_contribution,80,true,0.00,1.00
+severe,R005,M003,member_contribution,60,true,0.00,1.00

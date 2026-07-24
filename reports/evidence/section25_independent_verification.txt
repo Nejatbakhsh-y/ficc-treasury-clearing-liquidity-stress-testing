@@ -1,0 +1,27 @@
+SECTION 25 â€” INDEPENDENT IMPLEMENTATION VERIFICATION
+=========================================================
+Overall status: PASS
+Import independence: PASS
+Aggregate reconciliation: PASS
+Calculation comparison: PASS
+Comparison label: controlled_hand_calculated_fixture
+Scenarios: 2
+Member-scenario calculations: 6
+Cover results: 4
+Aggregate controls: 10
+Aggregate failures: 0
+Comparison failures: 0
+Production calculation functions called: NO
+
+Independent components:
+- settlement_liquidity_need
+- repo_rollover_need
+- incremental_funding_cost
+- additional_haircut_requirement
+- treasury_liquidation_loss
+- settlement_fail_requirement
+- concentration_adjustment
+- operational_liquidity_buffer
+
+Files are calculated from CSV input contracts. The independent module does not import
+or call any production liquidity, stress, scenario, default-set, or resource functions.
