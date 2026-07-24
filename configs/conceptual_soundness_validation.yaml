@@ -1,0 +1,345 @@
+schema_version: "1.0"
+section: 24
+title: "Conceptual soundness validation"
+
+validation:
+  independent_review: true
+  overall_pass_score: 0.90
+  partial_evidence_ratio: 0.60
+  evidence_date: "2026-07-23"
+  conclusion_scale:
+    - PASS
+    - ACCEPTABLE_WITH_FINDINGS
+    - FAIL
+
+standards:
+  PFMI:
+    name: "CPMI-IOSCO Principles for Financial Market Infrastructures"
+    url: "https://www.bis.org/cpmi/publ/d101.htm"
+  PFMI_ASSESSMENT:
+    name: "PFMI disclosure framework and assessment methodology"
+    url: "https://www.bis.org/cpmi/publ/d106.htm"
+  CCP_RESILIENCE:
+    name: "CPMI-IOSCO Resilience of central counterparties"
+    url: "https://www.bis.org/cpmi/publ/d163.htm"
+  SEC_17AD22:
+    name: "SEC Covered Clearing Agency Standards"
+    url: "https://www.sec.gov/rules-regulations/2016/09/standards-covered-clearing-agencies"
+  FICC_DISCLOSURE:
+    name: "FICC Disclosure Framework 2026 Q1"
+    url: "https://www.dtcc.com/legal/policy-and-compliance?q=Disclosure-Framework"
+  DTCC_STRESS_TESTING:
+    name: "DTCC stress testing program"
+    url: "https://www.dtcc.com/managing-risk/financial-risk-management/stress-testing"
+
+outputs:
+  matrix_csv: "reports/tables/section24_conceptual_soundness_matrix.csv"
+  findings_csv: "reports/tables/section24_conceptual_soundness_findings.csv"
+  summary_json: "reports/evidence/section24_conceptual_soundness_summary.json"
+  report_md: "reports/independent_validation/section24_conceptual_soundness_report.md"
+  evidence_txt: "reports/evidence/section24_conceptual_soundness_validation.txt"
+
+challenges:
+  - id: liquidity_horizon
+    name: "Liquidity horizon"
+    weight: 0.10
+    critical: true
+    minimum_evidence_files: 2
+    evidence_paths:
+      - "configs/**/*baseline*.yaml"
+      - "configs/**/*liquidity*.yaml"
+      - "src/ficc_liquidity/**/*baseline*.py"
+      - "src/ficc_liquidity/**/*liquidity*.py"
+      - "docs/**/*baseline*.md"
+      - "docs/**/*liquidity*.md"
+    required_keyword_groups:
+      - ["liquidity horizon", "horizon days", "intraday"]
+      - ["payment timing", "time bucket", "settlement time"]
+      - ["multi-day", "overnight", "day 2"]
+      - ["same-day", "available when needed", "timely availability"]
+    challenge_questions:
+      - "Does the horizon capture intraday peaks and multi-day persistence?"
+      - "Are resource monetization times aligned with obligation timing?"
+      - "Is the horizon conservative under delayed receipts and rollover failure?"
+    risk_statement: "An understated or timing-inconsistent horizon can omit the peak liquidity need."
+    remediation: "Document time buckets, peak-need selection, multi-day persistence, and resource monetization timing."
+    standards: ["PFMI Principle 7", "SEC Rule 17Ad-22(e)(7)"]
+
+  - id: cash_flow_definitions
+    name: "Cash-flow definitions"
+    weight: 0.10
+    critical: true
+    minimum_evidence_files: 2
+    evidence_paths:
+      - "configs/**/*liquidity*.yaml"
+      - "configs/**/*stress*.yaml"
+      - "src/ficc_liquidity/**/*cash*.py"
+      - "src/ficc_liquidity/**/*liquidity*.py"
+      - "src/ficc_liquidity/**/*stress*.py"
+      - "docs/**/*liquidity*.md"
+      - "docs/**/*stress*.md"
+    required_keyword_groups:
+      - ["settlement cash", "settlement obligation"]
+      - ["repo maturity", "repo rollover"]
+      - ["funding inflow", "funding outflow"]
+      - ["haircut requirement", "additional collateral"]
+      - ["settlement fail", "fails to receive"]
+      - ["operational liquidity buffer", "operational buffer"]
+      - ["double counting", "double-counting", "unique component"]
+    challenge_questions:
+      - "Are contractual, contingent, and stressed cash flows separately defined?"
+      - "Are signs, units, timing, and aggregation conventions unambiguous?"
+      - "Does the integrated requirement prevent duplicate recognition?"
+    risk_statement: "Ambiguous definitions or duplicated components can materially misstate stressed requirements."
+    remediation: "Create a controlled cash-flow dictionary with sign, timing, source, unit, and anti-double-counting rules."
+    standards: ["PFMI Principles 3 and 7", "SEC Rule 17Ad-22(e)(7)"]
+
+  - id: default_set_construction
+    name: "Default-set construction"
+    weight: 0.10
+    critical: true
+    minimum_evidence_files: 2
+    evidence_paths:
+      - "configs/**/*default*.yaml"
+      - "src/ficc_liquidity/**/*default*.py"
+      - "docs/**/*default*.md"
+      - "tests/**/*default*.py"
+      - "configs/**/*cover*.yaml"
+      - "src/ficc_liquidity/**/*cover*.py"
+    required_keyword_groups:
+      - ["largest single-member", "largest single member", "cover 1"]
+      - ["largest two-member", "largest two member", "cover 2"]
+      - ["unique member", "distinct member", "no duplicate"]
+      - ["concentrated-member", "concentrated member"]
+      - ["correlated multi-member", "correlated member"]
+      - ["configurable default", "default-set definitions"]
+    challenge_questions:
+      - "Are Cover 1 and Cover 2 selected from scenario-specific stressed needs?"
+      - "Can affiliated or correlated members be represented without duplication?"
+      - "Are default sets reproducible and configurable?"
+    risk_statement: "Incorrect default-set logic can select the wrong liquidity-driving member combination."
+    remediation: "Base selection on scenario-specific member requirements, enforce uniqueness, and retain ranked member evidence."
+    standards: ["PFMI Principles 4 and 7", "CCP resilience guidance"]
+
+  - id: yield_to_price_methodology
+    name: "Yield-to-price methodology"
+    weight: 0.10
+    critical: true
+    minimum_evidence_files: 2
+    evidence_paths:
+      - "configs/**/*yield*.yaml"
+      - "src/ficc_liquidity/**/*yield*.py"
+      - "docs/**/*yield*.md"
+      - "tests/**/*yield*.py"
+      - "src/ficc_liquidity/**/*treasury*.py"
+    required_keyword_groups:
+      - ["modified duration", "duration"]
+      - ["convexity"]
+      - ["basis points", "bps"]
+      - ["parallel shift", "parallel shock"]
+      - ["steepening", "flattening"]
+      - ["key-rate", "key rate"]
+      - ["liquidation horizon", "market impact"]
+    challenge_questions:
+      - "Are yield shocks converted using consistent decimal and basis-point units?"
+      - "Are duration and convexity signs correct for long and short positions?"
+      - "Are curve and key-rate shocks mapped to maturity buckets without gaps?"
+    risk_statement: "Unit, sign, or mapping errors can reverse or materially distort Treasury liquidation losses."
+    remediation: "Retain benchmark calculations, sign tests, key-rate mappings, and independent price-change reconciliation."
+    standards: ["PFMI Principles 4 and 7", "SEC Rule 17Ad-22(e)(6)"]
+
+  - id: repo_rollover_assumptions
+    name: "Repo rollover assumptions"
+    weight: 0.09
+    critical: true
+    minimum_evidence_files: 2
+    evidence_paths:
+      - "configs/**/*repo*.yaml"
+      - "src/ficc_liquidity/**/*repo*.py"
+      - "docs/**/*repo*.md"
+      - "tests/**/*repo*.py"
+      - "configs/**/*funding*.yaml"
+    required_keyword_groups:
+      - ["rollover failure", "rollover-failure"]
+      - ["partial lender withdrawal", "lender withdrawal"]
+      - ["shorter refinancing horizon", "refinancing horizon"]
+      - ["sofr spike", "SOFR"]
+      - ["funding concentration", "lender concentration"]
+      - ["increased collateral demand", "collateral demand"]
+    challenge_questions:
+      - "Are failure rates severity-dependent, bounded, and empirically defensible?"
+      - "Are lender withdrawal and refinancing-horizon assumptions independent where appropriate?"
+      - "Does the model avoid treating failed rollover and haircut demand as the same cash flow?"
+    risk_statement: "Unsubstantiated rollover assumptions can understate replacement funding and concentration risk."
+    remediation: "Calibrate bounded monotonic rates, document lender concentration, and separate principal replacement from incremental cost."
+    standards: ["PFMI Principle 7", "SEC Rule 17Ad-22(e)(7)"]
+
+  - id: haircut_assumptions
+    name: "Haircut assumptions"
+    weight: 0.08
+    critical: false
+    minimum_evidence_files: 2
+    evidence_paths:
+      - "configs/**/*haircut*.yaml"
+      - "src/ficc_liquidity/**/*haircut*.py"
+      - "docs/**/*haircut*.md"
+      - "tests/**/*haircut*.py"
+      - "src/ficc_liquidity/**/*collateral*.py"
+    required_keyword_groups:
+      - ["Treasury haircut", "haircut increase"]
+      - ["maturity-dependent", "maturity bucket"]
+      - ["stress-dependent", "stress multiplier"]
+      - ["concentration multiplier", "concentration adjustment"]
+      - ["additional collateral requirement", "additional collateral"]
+      - ["available-collateral constraint", "available collateral"]
+    challenge_questions:
+      - "Are baseline and stressed haircuts conservative and maturity-sensitive?"
+      - "Are concentration effects applied once and in the correct sequence?"
+      - "Can additional collateral exceed available unencumbered inventory?"
+    risk_statement: "Haircut misspecification can understate collateral calls or double count concentration effects."
+    remediation: "Document haircut hierarchy, caps, concentration sequence, and inventory constraints with boundary tests."
+    standards: ["PFMI Principle 5", "SEC Rule 17Ad-22(e)(5)"]
+
+  - id: settlement_fail_treatment
+    name: "Settlement-fail treatment"
+    weight: 0.08
+    critical: false
+    minimum_evidence_files: 2
+    evidence_paths:
+      - "configs/**/*fail*.yaml"
+      - "src/ficc_liquidity/**/*fail*.py"
+      - "docs/**/*fail*.md"
+      - "tests/**/*fail*.py"
+      - "src/ficc_liquidity/**/*settlement*.py"
+    required_keyword_groups:
+      - ["fails to receive", "fail to receive"]
+      - ["fails to deliver", "fail to deliver"]
+      - ["delayed incoming payment", "delayed incoming"]
+      - ["replacement liquidity"]
+      - ["persistent multi-day", "multi-day fail"]
+      - ["combined settlement and funding", "combined shock"]
+      - ["double counting", "double-counting"]
+    challenge_questions:
+      - "Are fails-to-receive and fails-to-deliver treated asymmetrically where required?"
+      - "Are recoveries credited only when timely and reliable?"
+      - "Are persistent fails carried forward without duplicating original settlement obligations?"
+    risk_statement: "Incorrect fail treatment can omit replacement liquidity or count the same obligation multiple times."
+    remediation: "Introduce obligation identifiers, persistence roll-forward logic, and explicit recovery eligibility."
+    standards: ["PFMI Principles 7 and 8", "SEC Rule 17Ad-22(e)(7)"]
+
+  - id: resource_eligibility
+    name: "Resource eligibility"
+    weight: 0.10
+    critical: true
+    minimum_evidence_files: 2
+    evidence_paths:
+      - "configs/**/*resource*.yaml"
+      - "configs/**/*liquidity*.yaml"
+      - "src/ficc_liquidity/**/*resource*.py"
+      - "src/ficc_liquidity/**/*liquidity*.py"
+      - "docs/**/*resource*.md"
+      - "docs/**/*liquidity*.md"
+    required_keyword_groups:
+      - ["qualified liquid resource", "qualifying liquid resource"]
+      - ["eligible collateral", "resource eligibility"]
+      - ["unencumbered", "encumbered"]
+      - ["availability", "available when needed"]
+      - ["haircut", "valuation adjustment"]
+      - ["committed", "prearranged funding"]
+      - ["same-day", "monetization"]
+    challenge_questions:
+      - "Can every counted resource be accessed in the relevant currency and time bucket?"
+      - "Are encumbrance, haircuts, provider reliability, and operational capacity reflected?"
+      - "Are contingent or uncommitted resources excluded from available qualified resources?"
+    risk_statement: "Counting unavailable or ineligible resources can create a false LCR surplus."
+    remediation: "Maintain a resource eligibility register with legal, operational, currency, timing, haircut, and encumbrance attributes."
+    standards: ["PFMI Principle 7", "SEC Rule 17Ad-22(e)(7)"]
+
+  - id: netting_assumptions
+    name: "Netting assumptions"
+    weight: 0.08
+    critical: false
+    minimum_evidence_files: 2
+    evidence_paths:
+      - "configs/**/*netting*.yaml"
+      - "configs/**/*liquidity*.yaml"
+      - "src/ficc_liquidity/**/*netting*.py"
+      - "src/ficc_liquidity/**/*liquidity*.py"
+      - "docs/**/*netting*.md"
+      - "docs/**/*liquidity*.md"
+    required_keyword_groups:
+      - ["legally enforceable", "enforceability"]
+      - ["same currency", "currency"]
+      - ["same settlement date", "settlement date"]
+      - ["gross fallback", "gross obligation"]
+      - ["bilateral netting", "multilateral netting", "netting set"]
+      - ["default scenario", "defaulted member"]
+    challenge_questions:
+      - "Is netting supported by enforceable rules for the modeled default state?"
+      - "Are only compatible currency, date, product, and settlement-system obligations netted?"
+      - "Does the model revert to gross obligations when criteria fail?"
+    risk_statement: "Overly broad netting can materially suppress peak settlement liquidity."
+    remediation: "Define legal netting sets, operational compatibility criteria, and an automatic gross fallback."
+    standards: ["PFMI Principles 1, 7, and 8"]
+
+  - id: scenario_severity
+    name: "Scenario severity"
+    weight: 0.09
+    critical: true
+    minimum_evidence_files: 3
+    evidence_paths:
+      - "configs/**/*scenario*.yaml"
+      - "src/ficc_liquidity/**/*scenario*.py"
+      - "docs/**/*scenario*.md"
+      - "tests/**/*scenario*.py"
+      - "reports/**/*scenario*.csv"
+    required_keyword_groups:
+      - ["moderate stress"]
+      - ["severe stress"]
+      - ["extreme but plausible", "extreme-but-plausible"]
+      - ["parallel Treasury", "parallel shock"]
+      - ["steepening", "flattening"]
+      - ["SOFR spike", "SOFR"]
+      - ["rollover failure"]
+      - ["haircut increase"]
+      - ["settlement-fail increase", "settlement fail"]
+      - ["combined systemic"]
+      - ["reverse stress"]
+    challenge_questions:
+      - "Are scenarios monotonic where expected and non-redundant?"
+      - "Is extreme-but-plausible severity supported by historical or hypothetical rationale?"
+      - "Do combined scenarios preserve coherent dependencies rather than simply summing maxima?"
+    risk_statement: "Weak or incoherent scenarios can fail to expose the model's true liquidity vulnerability."
+    remediation: "Document severity calibration, dependence structure, historical anchors, and reverse-stress thresholds."
+    standards: ["PFMI Principles 4 and 7", "CCP resilience guidance", "DTCC stress testing framework"]
+
+  - id: synthetic_member_calibration
+    name: "Synthetic-member calibration"
+    weight: 0.08
+    critical: false
+    minimum_evidence_files: 3
+    evidence_paths:
+      - "configs/**/*synthetic*.yaml"
+      - "src/ficc_liquidity/**/*synthetic*.py"
+      - "src/ficc_liquidity/**/*calibrat*.py"
+      - "docs/**/*synthetic*.md"
+      - "docs/**/*calibrat*.md"
+      - "tests/**/*synthetic*.py"
+      - "tests/**/*calibrat*.py"
+    required_keyword_groups:
+      - ["exact aggregate reconciliation", "aggregate reconciliation"]
+      - ["nonnegative", "non-negative"]
+      - ["deterministic random seed", "deterministic seed", "random_seed"]
+      - ["configurable member count", "member count"]
+      - ["heavy-tailed", "heavy tailed"]
+      - ["maturity-bucket reconciliation", "maturity bucket"]
+      - ["financing and fails reconciliation", "fails reconciliation"]
+      - ["synthetic data", "synthetic member"]
+      - ["no participant-level inference", "no participant inference"]
+    challenge_questions:
+      - "Do synthetic members exactly reconcile to controlled Federal Reserve aggregates?"
+      - "Are concentration and tail behavior intentional, reproducible, and documented?"
+      - "Is any actual FICC participant identity or participant-level inference excluded?"
+    risk_statement: "Poor calibration can invalidate member concentration, default-set, and Cover 1/Cover 2 conclusions."
+    remediation: "Retain reconciliation tables, deterministic seeds, distribution diagnostics, and explicit synthetic-data controls."
+    standards: ["PFMI Principle 3", "Model risk governance"]
