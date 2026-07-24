@@ -11,13 +11,13 @@ import argparse
 import ast
 import json
 import math
+from collections.abc import Iterable
 from dataclasses import dataclass
 from pathlib import Path
-from typing import Any, Iterable, cast
+from typing import Any, cast
 
 import pandas as pd
-import yaml  # type: ignore[import-untyped]
-
+import yaml
 
 COMPONENT_COLUMNS: tuple[str, ...] = (
     "settlement_liquidity_need",
@@ -136,10 +136,7 @@ def calculate_member_stress(members: pd.DataFrame) -> pd.DataFrame:
     """Calculate each stress component directly from raw member inputs."""
 
     _require_columns(members, MEMBER_INPUT_COLUMNS, "members")
-    frame = cast(
-        pd.DataFrame,
-        members.loc[:, list(MEMBER_INPUT_COLUMNS)].copy(),
-    )
+    frame = members.loc[:, list(MEMBER_INPUT_COLUMNS)].copy()
     frame["scenario_id"] = frame["scenario_id"].astype(str)
     frame["member_id"] = frame["member_id"].astype(str)
 
@@ -214,10 +211,7 @@ def calculate_member_stress(members: pd.DataFrame) -> pd.DataFrame:
     frame["operational_liquidity_buffer"] = (
         frame["operational_base"] * frame["operational_buffer_pct"]
     )
-    component_frame = cast(
-        pd.DataFrame,
-        frame.loc[:, list(COMPONENT_COLUMNS)],
-    )
+    component_frame = frame.loc[:, list(COMPONENT_COLUMNS)]
     frame["stressed_liquidity_requirement"] = component_frame.sum(axis="columns")
 
     if frame.duplicated(["scenario_id", "member_id"]).any():
@@ -234,10 +228,7 @@ def calculate_qualified_resources(resources: pd.DataFrame) -> pd.DataFrame:
     """Apply independent eligibility, haircut, and availability rules."""
 
     _require_columns(resources, RESOURCE_INPUT_COLUMNS, "resources")
-    frame = cast(
-        pd.DataFrame,
-        resources.loc[:, list(RESOURCE_INPUT_COLUMNS)].copy(),
-    )
+    frame = resources.loc[:, list(RESOURCE_INPUT_COLUMNS)].copy()
     frame["scenario_id"] = frame["scenario_id"].astype(str)
     frame["resource_id"] = frame["resource_id"].astype(str)
     frame["resource_type"] = frame["resource_type"].astype(str)
@@ -288,10 +279,7 @@ def select_default_sets(member_results: pd.DataFrame) -> pd.DataFrame:
 
         for coverage_basis, count in (("cover1", 1), ("cover2", 2)):
             selected = ranked.head(count)
-            selected_frame = cast(
-                pd.DataFrame,
-                selected.loc[:, ["member_id", "stressed_liquidity_requirement"]],
-            )
+            selected_frame = selected.loc[:, ["member_id", "stressed_liquidity_requirement"]]
             selected_records = cast(
                 list[dict[str, Any]],
                 selected_frame.to_dict(orient="records"),
@@ -368,10 +356,7 @@ def calculate_cover_results(
         )
 
     result = pd.DataFrame.from_records(records)
-    ordered_result = cast(
-        pd.DataFrame,
-        result.loc[:, list(COVER_RESULT_COLUMNS)],
-    )
+    ordered_result = result.loc[:, list(COVER_RESULT_COLUMNS)]
     return ordered_result.sort_values(["scenario_id", "coverage_basis"]).reset_index(drop=True)
 
 
@@ -709,9 +694,9 @@ def run_verification(
         "comparison_label": comparison_label,
         "comparison_path": str(reference_path) if reference_path is not None else None,
         "scenario_count": int(member_results["scenario_id"].nunique()),
-        "member_scenario_count": int(len(member_results)),
-        "cover_result_count": int(len(cover_results)),
-        "aggregate_control_count": int(len(reconciliation)),
+        "member_scenario_count": len(member_results),
+        "cover_result_count": len(cover_results),
+        "aggregate_control_count": len(reconciliation),
         "aggregate_control_failures": int(reconciliation["status"].eq("FAIL").sum()),
         "comparison_failures": int(comparison["status"].eq("FAIL").sum())
         if not comparison.empty

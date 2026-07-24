@@ -205,7 +205,7 @@ from pathlib import Path
 from typing import Any, Iterable, cast
 
 import pandas as pd
-import yaml  # type: ignore[import-untyped]
+import yaml
 
 
 COMPONENT_COLUMNS: tuple[str, ...] = (
@@ -325,10 +325,7 @@ def calculate_member_stress(members: pd.DataFrame) -> pd.DataFrame:
     """Calculate each stress component directly from raw member inputs."""
 
     _require_columns(members, MEMBER_INPUT_COLUMNS, "members")
-    frame = cast(
-        pd.DataFrame,
-        members.loc[:, list(MEMBER_INPUT_COLUMNS)].copy(),
-    )
+    frame = members.loc[:, list(MEMBER_INPUT_COLUMNS)].copy()
     frame["scenario_id"] = frame["scenario_id"].astype(str)
     frame["member_id"] = frame["member_id"].astype(str)
 
@@ -409,10 +406,7 @@ def calculate_member_stress(members: pd.DataFrame) -> pd.DataFrame:
     frame["operational_liquidity_buffer"] = (
         frame["operational_base"] * frame["operational_buffer_pct"]
     )
-    component_frame = cast(
-        pd.DataFrame,
-        frame.loc[:, list(COMPONENT_COLUMNS)],
-    )
+    component_frame = frame.loc[:, list(COMPONENT_COLUMNS)]
     frame["stressed_liquidity_requirement"] = component_frame.sum(
         axis="columns"
     )
@@ -431,10 +425,7 @@ def calculate_qualified_resources(resources: pd.DataFrame) -> pd.DataFrame:
     """Apply independent eligibility, haircut, and availability rules."""
 
     _require_columns(resources, RESOURCE_INPUT_COLUMNS, "resources")
-    frame = cast(
-        pd.DataFrame,
-        resources.loc[:, list(RESOURCE_INPUT_COLUMNS)].copy(),
-    )
+    frame = resources.loc[:, list(RESOURCE_INPUT_COLUMNS)].copy()
     frame["scenario_id"] = frame["scenario_id"].astype(str)
     frame["resource_id"] = frame["resource_id"].astype(str)
     frame["resource_type"] = frame["resource_type"].astype(str)
@@ -583,10 +574,7 @@ def calculate_cover_results(
         )
 
     result = pd.DataFrame.from_records(records)
-    ordered_result = cast(
-        pd.DataFrame,
-        result.loc[:, list(COVER_RESULT_COLUMNS)],
-    )
+    ordered_result = result.loc[:, list(COVER_RESULT_COLUMNS)]
     return ordered_result.sort_values(
         ["scenario_id", "coverage_basis"]
     ).reset_index(drop=True)

@@ -18,7 +18,6 @@ from ficc_liquidity.validation.independent_implementation import (
     select_default_sets,
 )
 
-
 PROJECT_ROOT = Path(__file__).resolve().parents[1]
 FIXTURE_DIR = PROJECT_ROOT / "data" / "validation" / "fixtures"
 MODULE_PATH = (
