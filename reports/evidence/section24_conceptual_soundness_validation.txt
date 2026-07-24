@@ -1,0 +1,17 @@
+SECTION 24 CONCEPTUAL SOUNDNESS VALIDATION
+Generated UTC: 2026-07-24T00:50:51.877352+00:00
+Overall status: FAIL
+Weighted score: 0.899322
+Critical failures: liquidity_horizon, resource_eligibility
+
+liquidity_horizon: FAIL (score=0.750000, evidence=2/4, quantitative=2/2)
+cash_flow_definitions: PASS (score=1.000000, evidence=7/7, quantitative=2/2)
+default_set_construction: PASS (score=1.000000, evidence=6/6, quantitative=2/2)
+yield_to_price_methodology: PASS (score=1.000000, evidence=7/7, quantitative=3/3)
+repo_rollover_assumptions: PASS (score=1.000000, evidence=6/6, quantitative=2/2)
+haircut_assumptions: PASS (score=1.000000, evidence=6/6, quantitative=2/2)
+settlement_fail_treatment: PARTIAL (score=0.928571, evidence=6/7, quantitative=2/2)
+resource_eligibility: FAIL (score=0.785714, evidence=4/7, quantitative=1/1)
+netting_assumptions: FAIL (score=0.500000, evidence=0/6, quantitative=2/2)
+scenario_severity: PARTIAL (score=0.954545, evidence=10/11, quantitative=2/2)
+synthetic_member_calibration: PARTIAL (score=0.944444, evidence=8/9, quantitative=3/3)
