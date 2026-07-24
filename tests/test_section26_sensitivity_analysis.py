@@ -1,6 +1,7 @@
 from __future__ import annotations
 
 from pathlib import Path
+from typing import Any
 
 import pandas as pd
 import pytest
@@ -24,7 +25,7 @@ ROOT = Path(__file__).resolve().parents[1]
 CONFIG_PATH = ROOT / "configs" / "sensitivity_analysis.yaml"
 
 
-def _load() -> tuple[dict[str, object], pd.DataFrame, pd.DataFrame]:
+def _load() -> tuple[dict[str, Any], pd.DataFrame, pd.DataFrame]:
     config = yaml.safe_load(CONFIG_PATH.read_text(encoding="utf-8"))
     members = pd.read_csv(ROOT / "data" / "validation" / "fixtures" / "section25_members.csv")
     resources = pd.read_csv(

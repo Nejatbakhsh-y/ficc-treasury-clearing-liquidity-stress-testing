@@ -995,7 +995,7 @@ ROOT = Path(__file__).resolve().parents[1]
 CONFIG_PATH = ROOT / "configs" / "sensitivity_analysis.yaml"
 
 
-def _load() -> tuple[dict[str, object], pd.DataFrame, pd.DataFrame]:
+def _load() -> tuple[dict[str, Any], pd.DataFrame, pd.DataFrame]:
     config = yaml.safe_load(CONFIG_PATH.read_text(encoding="utf-8"))
     members = pd.read_csv(ROOT / "data" / "validation" / "fixtures" / "section25_members.csv")
     resources = pd.read_csv(
@@ -1121,7 +1121,7 @@ def test_runner_writes_pass_evidence() -> None:
 Set-Utf8File -Path (Join-Path $resolvedRoot "tests\test_section26_sensitivity_analysis.py") -Content $sectionTests
 
 $documentation = @'
-# Section 26 — Sensitivity Analysis
+# Section 26 â€” Sensitivity Analysis
 
 ## Objective
 
@@ -1170,7 +1170,7 @@ Resource direction is unconstrained for member-stress sensitivities because rank
 
 The Section 25 flat-file contract does not contain a separate liquidation-horizon field. Section 26 therefore applies a transparent square-root-of-time scaling to the Treasury yield shock around a five-day baseline:
 
-`effective shock = baseline shock × sqrt(test horizon / 5 days)`
+`effective shock = baseline shock Ã— sqrt(test horizon / 5 days)`
 
 This is a validation assumption, not a claim that the production model uses this exact scaling. It is documented so that future production-output comparisons can replace the proxy with the production liquidation-horizon implementation.
 
