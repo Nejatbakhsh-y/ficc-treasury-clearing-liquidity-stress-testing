@@ -1,0 +1,391 @@
+schema_version: "1.0"
+section: 21
+model_name: hypothetical_scenario_framework
+model_version: "section-21-v1"
+currency: USD
+random_seed: 2026
+
+classification:
+  scenario_assumptions: hypothetical
+  synthetic_member_exposures: synthetic
+  component_models: modeled
+  integrated_results: modeled
+  actual_ficc_participants_permitted: false
+  participant_level_inference_permitted: false
+
+source:
+  baseline_cashflow_candidates:
+    - reports/tables/baseline_liquidity_cashflows.parquet
+    - reports/tables/baseline_liquidity_cashflows.csv
+  baseline_summary_candidates:
+    - reports/tables/baseline_liquidity_summary.parquet
+    - reports/tables/baseline_liquidity_summary.csv
+  member_profile_candidates:
+    - data/synthetic/calibrated_member_portfolios.parquet
+    - data/synthetic/calibrated_member_portfolios.csv
+  treasury_position_candidates:
+    - reports/tables/treasury_yield_stress_positions_section19_adapter.parquet
+    - reports/tables/treasury_yield_stress_positions_section19_adapter.csv
+  treasury_config: configs/treasury_yield_stress.yaml
+  funding_config: configs/repo_funding_stress.yaml
+  haircut_config: configs/collateral_haircut_stress.yaml
+  settlement_config: configs/settlement_fail_stress.yaml
+  integrated_config: configs/integrated_stress_engine.yaml
+
+guardrails:
+  maximum_absolute_treasury_shock_bp: 500.0
+  maximum_sofr_spike_bp: 500.0
+  maximum_funding_spread_increase_bp: 350.0
+  maximum_rollover_failure_rate: 0.75
+  maximum_lender_withdrawal_rate: 0.60
+  maximum_additive_haircut_rate: 0.10
+  maximum_settlement_fail_multiplier: 5.00
+  maximum_operational_liquidity_buffer_rate: 0.20
+
+scenarios:
+  - name: moderate_stress
+    label: Moderate stress
+    family: broad_market
+    severity: moderate
+    display_order: 1
+    treasury:
+      shape: parallel
+      parallel_bp: 50.0
+    funding:
+      sofr_spike_bp: 100.0
+      funding_spread_increase_bp: 50.0
+      repo_rollover_failure_rate: 0.10
+      lender_withdrawal_rate: 0.10
+      refinancing_horizon_hours: 24
+      collateral_haircut_increase: 0.02
+      collateral_call_rate: 0.03
+      concentration_threshold: 0.25
+      concentration_multiplier: 1.00
+      funding_dependency_multiplier: 0.50
+      max_effective_unavailability_rate: 0.60
+    haircut:
+      stress_multiplier: 1.25
+      additive_haircut_rate: 0.005
+      bucket_addon_short_rate: 0.000
+      bucket_addon_long_rate: 0.015
+      concentration_threshold: 0.35
+      concentration_multiplier: 0.10
+      additional_collateral_call_rate: 0.010
+      inventory_availability_rate: 0.95
+      maximum_haircut_rate: 0.50
+    settlement:
+      fails_to_receive_multiplier: 1.50
+      fails_to_deliver_multiplier: 1.25
+      additional_fails_to_receive_rate: 0.02
+      additional_fails_to_deliver_rate: 0.01
+      incoming_payment_delay_buckets: 1
+      replacement_liquidity_rate: 1.00
+      persistence_days: 2
+      persistence_decay: 0.70
+      funding_stress_weight: 0.50
+    integrated:
+      concentration_threshold: 0.35
+      concentration_multiplier: 0.10
+      operational_liquidity_buffer_rate: 0.02
+
+  - name: severe_stress
+    label: Severe stress
+    family: broad_market
+    severity: severe
+    display_order: 2
+    treasury:
+      shape: parallel
+      parallel_bp: 100.0
+    funding:
+      sofr_spike_bp: 250.0
+      funding_spread_increase_bp: 150.0
+      repo_rollover_failure_rate: 0.30
+      lender_withdrawal_rate: 0.25
+      refinancing_horizon_hours: 12
+      collateral_haircut_increase: 0.05
+      collateral_call_rate: 0.08
+      concentration_threshold: 0.20
+      concentration_multiplier: 2.00
+      funding_dependency_multiplier: 1.00
+      max_effective_unavailability_rate: 0.85
+    haircut:
+      stress_multiplier: 1.75
+      additive_haircut_rate: 0.015
+      bucket_addon_short_rate: 0.002
+      bucket_addon_long_rate: 0.040
+      concentration_threshold: 0.25
+      concentration_multiplier: 0.30
+      additional_collateral_call_rate: 0.030
+      inventory_availability_rate: 0.80
+      maximum_haircut_rate: 0.50
+    settlement:
+      fails_to_receive_multiplier: 2.50
+      fails_to_deliver_multiplier: 2.00
+      additional_fails_to_receive_rate: 0.05
+      additional_fails_to_deliver_rate: 0.03
+      incoming_payment_delay_buckets: 2
+      replacement_liquidity_rate: 1.10
+      persistence_days: 4
+      persistence_decay: 0.80
+      funding_stress_weight: 0.75
+    integrated:
+      concentration_threshold: 0.25
+      concentration_multiplier: 0.25
+      operational_liquidity_buffer_rate: 0.05
+
+  - name: extreme_but_plausible_stress
+    label: Extreme but plausible stress
+    family: broad_market
+    severity: extreme
+    display_order: 3
+    treasury:
+      shape: steepening
+      short_end_bp: 150.0
+      long_end_bp: 300.0
+    funding:
+      sofr_spike_bp: 400.0
+      funding_spread_increase_bp: 250.0
+      repo_rollover_failure_rate: 0.55
+      lender_withdrawal_rate: 0.40
+      refinancing_horizon_hours: 6
+      collateral_haircut_increase: 0.10
+      collateral_call_rate: 0.15
+      concentration_threshold: 0.15
+      concentration_multiplier: 3.00
+      funding_dependency_multiplier: 1.50
+      max_effective_unavailability_rate: 0.98
+    haircut:
+      stress_multiplier: 2.50
+      additive_haircut_rate: 0.030
+      bucket_addon_short_rate: 0.005
+      bucket_addon_long_rate: 0.075
+      concentration_threshold: 0.20
+      concentration_multiplier: 0.50
+      additional_collateral_call_rate: 0.080
+      inventory_availability_rate: 0.60
+      maximum_haircut_rate: 0.50
+    settlement:
+      fails_to_receive_multiplier: 4.00
+      fails_to_deliver_multiplier: 3.00
+      additional_fails_to_receive_rate: 0.10
+      additional_fails_to_deliver_rate: 0.07
+      incoming_payment_delay_buckets: 4
+      replacement_liquidity_rate: 1.25
+      persistence_days: 7
+      persistence_decay: 0.90
+      funding_stress_weight: 1.00
+    integrated:
+      concentration_threshold: 0.20
+      concentration_multiplier: 0.50
+      operational_liquidity_buffer_rate: 0.10
+
+  - name: parallel_treasury_shock
+    label: Parallel Treasury shock
+    family: treasury_parallel
+    severity: targeted
+    display_order: 4
+    treasury:
+      shape: parallel
+      parallel_bp: 150.0
+    funding: &funding_control
+      sofr_spike_bp: 0.0
+      funding_spread_increase_bp: 0.0
+      repo_rollover_failure_rate: 0.0
+      lender_withdrawal_rate: 0.0
+      refinancing_horizon_hours: 48
+      collateral_haircut_increase: 0.0
+      collateral_call_rate: 0.0
+      concentration_threshold: 1.00
+      concentration_multiplier: 0.0
+      funding_dependency_multiplier: 0.0
+      max_effective_unavailability_rate: 0.0
+    haircut: &haircut_control
+      stress_multiplier: 1.00
+      additive_haircut_rate: 0.000
+      bucket_addon_short_rate: 0.000
+      bucket_addon_long_rate: 0.000
+      concentration_threshold: 1.00
+      concentration_multiplier: 0.00
+      additional_collateral_call_rate: 0.000
+      inventory_availability_rate: 1.00
+      maximum_haircut_rate: 0.50
+    settlement: &settlement_control
+      fails_to_receive_multiplier: 0.0
+      fails_to_deliver_multiplier: 0.0
+      additional_fails_to_receive_rate: 0.0
+      additional_fails_to_deliver_rate: 0.0
+      incoming_payment_delay_buckets: 0
+      replacement_liquidity_rate: 0.0
+      persistence_days: 1
+      persistence_decay: 0.0
+      funding_stress_weight: 0.0
+    integrated: &integrated_targeted
+      concentration_threshold: 1.00
+      concentration_multiplier: 0.00
+      operational_liquidity_buffer_rate: 0.00
+
+  - name: curve_steepening
+    label: Treasury curve steepening
+    family: treasury_curve
+    severity: targeted
+    display_order: 5
+    treasury:
+      shape: steepening
+      short_end_bp: 25.0
+      long_end_bp: 175.0
+    funding: *funding_control
+    haircut: *haircut_control
+    settlement: *settlement_control
+    integrated: *integrated_targeted
+
+  - name: curve_flattening
+    label: Treasury curve flattening
+    family: treasury_curve
+    severity: targeted
+    display_order: 6
+    treasury:
+      shape: flattening
+      short_end_bp: 175.0
+      long_end_bp: 25.0
+    funding: *funding_control
+    haircut: *haircut_control
+    settlement: *settlement_control
+    integrated: *integrated_targeted
+
+  - name: sofr_spike
+    label: SOFR spike
+    family: funding_rate
+    severity: targeted
+    display_order: 7
+    treasury:
+      shape: none
+    funding:
+      <<: *funding_control
+      sofr_spike_bp: 300.0
+      funding_spread_increase_bp: 75.0
+    haircut: *haircut_control
+    settlement: *settlement_control
+    integrated: *integrated_targeted
+
+  - name: repo_rollover_failure
+    label: Repo rollover failure
+    family: funding_rollover
+    severity: targeted
+    display_order: 8
+    treasury:
+      shape: none
+    funding:
+      <<: *funding_control
+      repo_rollover_failure_rate: 0.45
+      lender_withdrawal_rate: 0.20
+      refinancing_horizon_hours: 12
+      concentration_threshold: 0.20
+      concentration_multiplier: 1.50
+      funding_dependency_multiplier: 0.75
+      max_effective_unavailability_rate: 0.80
+    haircut: *haircut_control
+    settlement: *settlement_control
+    integrated: *integrated_targeted
+
+  - name: collateral_haircut_increase
+    label: Collateral haircut increase
+    family: collateral
+    severity: targeted
+    display_order: 9
+    treasury:
+      shape: none
+    funding: *funding_control
+    haircut:
+      <<: *haircut_control
+      stress_multiplier: 1.75
+      additive_haircut_rate: 0.020
+      bucket_addon_short_rate: 0.002
+      bucket_addon_long_rate: 0.050
+      concentration_threshold: 0.25
+      concentration_multiplier: 0.25
+      additional_collateral_call_rate: 0.040
+      inventory_availability_rate: 0.75
+    settlement: *settlement_control
+    integrated: *integrated_targeted
+
+  - name: settlement_fail_increase
+    label: Settlement-fail increase
+    family: settlement
+    severity: targeted
+    display_order: 10
+    treasury:
+      shape: none
+    funding: *funding_control
+    haircut: *haircut_control
+    settlement:
+      <<: *settlement_control
+      fails_to_receive_multiplier: 3.00
+      fails_to_deliver_multiplier: 2.50
+      additional_fails_to_receive_rate: 0.07
+      additional_fails_to_deliver_rate: 0.05
+      incoming_payment_delay_buckets: 3
+      replacement_liquidity_rate: 1.15
+      persistence_days: 5
+      persistence_decay: 0.85
+    integrated: *integrated_targeted
+
+  - name: combined_systemic_stress
+    label: Combined systemic stress
+    family: systemic
+    severity: extreme
+    display_order: 11
+    treasury:
+      shape: steepening
+      short_end_bp: 200.0
+      long_end_bp: 350.0
+    funding:
+      sofr_spike_bp: 450.0
+      funding_spread_increase_bp: 300.0
+      repo_rollover_failure_rate: 0.65
+      lender_withdrawal_rate: 0.50
+      refinancing_horizon_hours: 6
+      collateral_haircut_increase: 0.12
+      collateral_call_rate: 0.18
+      concentration_threshold: 0.12
+      concentration_multiplier: 3.50
+      funding_dependency_multiplier: 1.75
+      max_effective_unavailability_rate: 0.99
+    haircut:
+      stress_multiplier: 2.75
+      additive_haircut_rate: 0.040
+      bucket_addon_short_rate: 0.008
+      bucket_addon_long_rate: 0.090
+      concentration_threshold: 0.15
+      concentration_multiplier: 0.60
+      additional_collateral_call_rate: 0.100
+      inventory_availability_rate: 0.50
+      maximum_haircut_rate: 0.50
+    settlement:
+      fails_to_receive_multiplier: 4.50
+      fails_to_deliver_multiplier: 3.50
+      additional_fails_to_receive_rate: 0.12
+      additional_fails_to_deliver_rate: 0.09
+      incoming_payment_delay_buckets: 5
+      replacement_liquidity_rate: 1.30
+      persistence_days: 8
+      persistence_decay: 0.92
+      funding_stress_weight: 1.00
+    integrated:
+      concentration_threshold: 0.15
+      concentration_multiplier: 0.65
+      operational_liquidity_buffer_rate: 0.15
+
+validation:
+  reconciliation_tolerance_usd: 0.01
+  require_all_scenario_families: true
+  require_guardrail_compliance: true
+  require_deterministic_reproduction: true
+  require_synthetic_members_only: true
+  require_integrated_double_count_controls: true
+
+output:
+  directory: reports/tables
+  evidence_directory: reports/evidence
+  manifest: data/manifests/hypothetical_scenario_manifest.csv
+  write_csv: true
+  write_parquet: true

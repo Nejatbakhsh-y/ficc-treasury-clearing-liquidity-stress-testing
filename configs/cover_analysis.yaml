@@ -1,0 +1,75 @@
+schema_version: "1.0"
+section: 22
+model_name: cover_1_cover_2_analysis
+model_version: "section-22-v1"
+currency: USD
+random_seed: 2026
+
+classification:
+  hypothetical_scenario_results: modeled
+  cover_selection_rule: assumed
+  cover_results: modeled
+  actual_ficc_participants_permitted: false
+  participant_level_inference_permitted: false
+
+source:
+  member_result_candidates:
+    - reports/tables/hypothetical_scenario_member_results.parquet
+    - reports/tables/hypothetical_scenario_member_results.csv
+    - reports/tables/integrated_stress_member_results.parquet
+    - reports/tables/integrated_stress_member_results.csv
+  synthetic_id_pattern: '^SYN-MBR-[0-9]{4}$'
+
+selection:
+  method: largest_gross_stressed_liquidity_requirement
+  ranking_column: stressed_liquidity_requirement_usd
+  tie_breakers:
+    - liquidity_shortfall_usd_descending
+    - member_id_ascending
+  cover_levels:
+    - 1
+    - 2
+  available_resources_basis: selected_member_aqlr_sum
+
+metrics:
+  lcr_minimum_ratio: 1.00
+  resource_utilization_definition: stressed_requirement_divided_by_available_resources
+  component_columns:
+    - column: settlement_liquidity_need_usd
+      label: settlement_liquidity_need
+    - column: repo_rollover_need_usd
+      label: repo_rollover_need
+    - column: incremental_funding_cost_usd
+      label: incremental_funding_cost
+    - column: additional_haircut_requirement_usd
+      label: additional_haircut_requirement
+    - column: treasury_liquidation_loss_usd
+      label: treasury_liquidation_loss
+    - column: settlement_fail_requirement_usd
+      label: settlement_fail_requirement
+    - column: concentration_adjustment_usd
+      label: concentration_adjustment
+    - column: operational_liquidity_buffer_usd
+      label: operational_liquidity_buffer
+
+validation:
+  reconciliation_tolerance_usd: 0.01
+  require_cover_1_member_count: true
+  require_cover_2_member_count: true
+  require_cover_2_not_less_than_cover_1: true
+  require_deterministic_reproduction: true
+  require_component_reconciliation: true
+  require_synthetic_identifiers: true
+
+output:
+  cover_results_csv: reports/tables/cover_analysis_results.csv
+  cover_results_parquet: reports/tables/cover_analysis_results.parquet
+  scenario_summary_csv: reports/tables/cover_analysis_scenario_summary.csv
+  scenario_summary_parquet: reports/tables/cover_analysis_scenario_summary.parquet
+  selected_members_csv: reports/tables/cover_analysis_selected_members.csv
+  selected_members_parquet: reports/tables/cover_analysis_selected_members.parquet
+  component_summary_csv: reports/tables/cover_analysis_component_summary.csv
+  component_summary_parquet: reports/tables/cover_analysis_component_summary.parquet
+  evidence_json: reports/evidence/section22_cover_analysis.json
+  evidence_markdown: reports/evidence/section22_cover_analysis.md
+  manifest: data/manifests/cover_analysis_manifest.csv

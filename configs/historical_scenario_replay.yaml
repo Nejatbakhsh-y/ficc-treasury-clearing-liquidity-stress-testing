@@ -1,0 +1,66 @@
+schema_version: "1.0"
+section: 20
+model_name: historical_scenario_replay
+model_version: section-20-v1
+currency: USD
+random_seed: 2026
+
+classification:
+  observed_market_conditions: observed
+  synthetic_member_exposures: synthetic
+  component_scenario_mapping: assumed
+  integrated_results: modeled
+  actual_ficc_participants_permitted: false
+  participant_level_inference_permitted: false
+
+source:
+  scenario_catalog: configs/historical_scenarios.yaml
+  analytical_inputs:
+    - data/processed/fed_liquidity_factors.parquet
+    - data/processed/treasury_market_factors.parquet
+  treasury_yield_config: configs/treasury_yield_stress.yaml
+  integrated_stress_config: configs/integrated_stress_engine.yaml
+  baseline_summary_candidates:
+    - reports/tables/baseline_liquidity_summary.parquet
+    - reports/tables/baseline_liquidity_summary.csv
+  funding_summary_candidates:
+    - reports/tables/repo_funding_stress_member_summary.parquet
+    - reports/tables/repo_funding_stress_member_summary.csv
+  haircut_summary_candidates:
+    - reports/tables/collateral_haircut_stress_member_summary.parquet
+    - reports/tables/collateral_haircut_stress_member_summary.csv
+  settlement_fail_cashflow_candidates:
+    - reports/tables/settlement_fail_stress_cashflows.parquet
+    - reports/tables/settlement_fail_stress_cashflows.csv
+  treasury_position_candidates:
+    - reports/tables/treasury_yield_stress_positions_section19_adapter.parquet
+    - reports/tables/treasury_yield_stress_positions_section19_adapter.csv
+
+severity_weights:
+  sofr_spike_bp: 1.0
+  maximum_absolute_treasury_shock_bp: 1.0
+  financing_contraction_rate: 1.0
+  settlement_fail_increase_rate: 1.0
+  reserve_contraction_rate: 1.0
+
+factor_caps:
+  sofr_spike_bp: 500.0
+  maximum_absolute_treasury_shock_bp: 300.0
+  financing_contraction_rate: 0.50
+  settlement_fail_increase_rate: 5.00
+  reserve_contraction_rate: 0.25
+
+validation:
+  observed_only: true
+  maximum_asof_lookback_days: 35
+  reconciliation_tolerance_usd: 0.01
+  require_no_lookahead: true
+  require_synthetic_members_only: true
+  require_integrated_double_count_controls: true
+
+output:
+  directory: reports/tables
+  evidence_directory: reports/evidence
+  manifest: data/manifests/historical_scenario_manifest.csv
+  write_csv: true
+  write_parquet: true

@@ -1,0 +1,12 @@
+scenario_name,scenario_label,scenario_family,severity,display_order,treasury_shape,maximum_absolute_treasury_shock_bp,sofr_spike_bp,repo_rollover_failure_rate,additive_haircut_rate,fails_to_receive_multiplier,fails_to_deliver_multiplier,operational_liquidity_buffer_rate,value_class,actual_ficc_participant,participant_level_inference
+moderate_stress,Moderate stress,broad_market,moderate,1,parallel,50.0,100.0,0.1,0.005,1.5,1.25,0.02,hypothetical_assumptions_on_synthetic_members,False,False
+severe_stress,Severe stress,broad_market,severe,2,parallel,100.0,250.0,0.3,0.015,2.5,2.0,0.05,hypothetical_assumptions_on_synthetic_members,False,False
+extreme_but_plausible_stress,Extreme but plausible stress,broad_market,extreme,3,steepening,300.0,400.0,0.55,0.03,4.0,3.0,0.1,hypothetical_assumptions_on_synthetic_members,False,False
+parallel_treasury_shock,Parallel Treasury shock,treasury_parallel,targeted,4,parallel,150.0,0.0,0.0,0.0,0.0,0.0,0.0,hypothetical_assumptions_on_synthetic_members,False,False
+curve_steepening,Treasury curve steepening,treasury_curve,targeted,5,steepening,175.0,0.0,0.0,0.0,0.0,0.0,0.0,hypothetical_assumptions_on_synthetic_members,False,False
+curve_flattening,Treasury curve flattening,treasury_curve,targeted,6,flattening,175.0,0.0,0.0,0.0,0.0,0.0,0.0,hypothetical_assumptions_on_synthetic_members,False,False
+sofr_spike,SOFR spike,funding_rate,targeted,7,none,0.0,300.0,0.0,0.0,0.0,0.0,0.0,hypothetical_assumptions_on_synthetic_members,False,False
+repo_rollover_failure,Repo rollover failure,funding_rollover,targeted,8,none,0.0,0.0,0.45,0.0,0.0,0.0,0.0,hypothetical_assumptions_on_synthetic_members,False,False
+collateral_haircut_increase,Collateral haircut increase,collateral,targeted,9,none,0.0,0.0,0.0,0.02,0.0,0.0,0.0,hypothetical_assumptions_on_synthetic_members,False,False
+settlement_fail_increase,Settlement-fail increase,settlement,targeted,10,none,0.0,0.0,0.0,0.0,3.0,2.5,0.0,hypothetical_assumptions_on_synthetic_members,False,False
+combined_systemic_stress,Combined systemic stress,systemic,extreme,11,steepening,350.0,450.0,0.65,0.04,4.5,3.5,0.15,hypothetical_assumptions_on_synthetic_members,False,False
