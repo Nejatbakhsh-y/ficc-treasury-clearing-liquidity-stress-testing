@@ -15,6 +15,7 @@ authors = [
 dependencies = [
   "duckdb>=1.1,<2.0",
   "numpy>=1.26,<3.0",
+  "matplotlib>=3.8,<4.0",
   "pandas>=2.2,<4.0",
   "pyarrow>=17,<25",
   "PyYAML>=6.0,<7.0",

@@ -13,10 +13,11 @@ import math
 from collections.abc import Iterable, Mapping
 from dataclasses import dataclass
 from pathlib import Path
-from typing import Any
+from typing import Any, overload
 
 import matplotlib.pyplot as plt
 import numpy as np
+import numpy.typing as npt
 import pandas as pd
 import yaml
 
@@ -52,7 +53,11 @@ class TriangularRange:
         if self.minimum <= 0:
             raise ValueError(f"{name} multipliers must be strictly positive.")
 
-    def draw(self, rng: np.random.Generator, size: int) -> np.ndarray:
+    def draw(
+        self,
+        rng: np.random.Generator,
+        size: int,
+    ) -> npt.NDArray[np.float64]:
         if self.minimum == self.maximum:
             return np.full(size, self.minimum, dtype=float)
         return rng.triangular(self.minimum, self.mode, self.maximum, size=size)
@@ -259,7 +264,21 @@ def build_uncertainty_register(config: AssessmentConfig) -> pd.DataFrame:
     )
 
 
-def _bounded_adjustment(weight: float, multiplier: np.ndarray | float) -> np.ndarray | float:
+@overload
+def _bounded_adjustment(weight: float, multiplier: float) -> float: ...
+
+
+@overload
+def _bounded_adjustment(
+    weight: float,
+    multiplier: npt.NDArray[np.float64],
+) -> npt.NDArray[np.float64]: ...
+
+
+def _bounded_adjustment(
+    weight: float,
+    multiplier: npt.NDArray[np.float64] | float,
+) -> npt.NDArray[np.float64] | float:
     return weight * (multiplier - 1.0)
 
 

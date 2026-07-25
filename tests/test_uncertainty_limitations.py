@@ -4,8 +4,9 @@ from __future__ import annotations
 
 import sys
 from pathlib import Path
-from typing import Any
+from typing import Any, cast
 
+import numpy as np
 import pandas as pd
 import pytest
 import yaml
@@ -29,7 +30,10 @@ CONFIG = ROOT / "configs" / "validation" / "section_28_uncertainty.yaml"
 
 
 def _raw_config() -> dict[str, Any]:
-    return yaml.safe_load(CONFIG.read_text(encoding="utf-8-sig"))
+    raw = yaml.safe_load(CONFIG.read_text(encoding="utf-8-sig"))
+    if not isinstance(raw, dict):
+        raise TypeError("The controlled Section 28 test configuration must be a mapping.")
+    return cast(dict[str, Any], raw)
 
 
 def _write_config(tmp_path: Path, raw: Any) -> Path:
@@ -110,7 +114,7 @@ def test_risk_rating_covers_all_controlled_bands() -> None:
 
 
 def test_triangular_range_validation_and_constant_draw() -> None:
-    rng = ul.np.random.default_rng(2026)
+    rng = np.random.default_rng(2026)
     constant = TriangularRange(1.0, 1.0, 1.0)
     constant.validate("constant")
     assert (constant.draw(rng, 5) == 1.0).all()
