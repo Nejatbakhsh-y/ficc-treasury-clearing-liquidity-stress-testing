@@ -1,5 +1,9 @@
 """Model monitoring package."""
 
+from ficc_liquidity.monitoring.governance import (
+    GovernanceSummary,
+    MonitoringGovernanceEngine,
+)
 from ficc_liquidity.monitoring.monthly import (
     MonitoringResult,
     MonitoringSummary,
@@ -8,6 +12,8 @@ from ficc_liquidity.monitoring.monthly import (
 )
 
 __all__ = [
+    "GovernanceSummary",
+    "MonitoringGovernanceEngine",
     "MonitoringResult",
     "MonitoringSummary",
     "MonthlyMonitoringEngine",
