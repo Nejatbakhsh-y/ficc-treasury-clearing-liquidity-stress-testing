@@ -1,0 +1,21 @@
+metric,value
+baseline_requirement,1000000000.0
+baseline_resources,1150000000.0
+baseline_lcr,1.15
+simulation_samples,10000
+seed,2026
+requirement_mean,1081060533.2936854
+requirement_p95,1130089635.278792
+requirement_p99,1150460220.0312586
+resources_mean,1102496298.408407
+resources_p05,1062436848.0058818
+resources_p01,1050834949.7552441
+lcr_mean,1.0205718442481762
+lcr_p01,0.9412538327475793
+lcr_p05,0.9634284010424062
+lcr_p50,1.021699029517476
+lcr_p95,1.076138541476839
+probability_lcr_below_1,0.2748
+expected_shortfall_given_shortfall,24150944.097463787
+maximum_simulated_shortfall,130417915.14716077
+evidence_classification,Illustrative synthetic calibration
