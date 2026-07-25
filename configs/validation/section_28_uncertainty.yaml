@@ -1,0 +1,289 @@
+﻿metadata:
+  section: "Phase VII - Section 28"
+  title: "Uncertainty and limitations assessment"
+  branch: "feature/19-independent-validation"
+  model_scope: "Synthetic FICC Treasury clearing liquidity stress-testing research model"
+  evidence_classification: "Illustrative synthetic calibration"
+  disclaimer: >-
+    All values in this configuration are illustrative research assumptions. They are
+    not FICC estimates, participant data, legal interpretations, regulatory thresholds,
+    or production model parameters.
+
+simulation:
+  seed: 2026
+  samples: 10000
+  currency: "USD"
+  lcr_definition: "available_resources / stressed_liquidity_requirement"
+  shortfall_threshold: 1.0
+  baseline:
+    stressed_liquidity_requirement: 1000000000.0
+    available_resources: 1150000000.0
+    label: "Illustrative synthetic benchmark"
+
+risk_scoring:
+  probability_scale:
+    1: "Remote"
+    2: "Unlikely"
+    3: "Possible"
+    4: "Likely"
+    5: "Very likely"
+  impact_scale:
+    1: "Immaterial"
+    2: "Low"
+    3: "Moderate"
+    4: "High"
+    5: "Severe"
+  thresholds:
+    low_max: 4
+    moderate_max: 9
+    high_max: 15
+
+uncertainty_drivers:
+  - key: "aggregate_data_uncertainty"
+    title: "Aggregate-data uncertainty"
+    uncertainty_type: "Data and measurement"
+    description: >-
+      Public Federal Reserve series are aggregate, revised, and not aligned perfectly
+      with FICC member portfolios or settlement timelines.
+    evidence_gap: >-
+      Aggregate market statistics cannot identify member-specific cash-flow timing,
+      netting sets, collateral eligibility, or default liquidity contributions.
+    model_effect: >-
+      Aggregate calibration may smooth tail concentrations and obscure cross-member
+      heterogeneity.
+    probability: 5
+    impact: 4
+    mitigation_effectiveness: 0.35
+    requirement_weight: 0.14
+    resource_weight: 0.05
+    requirement_multiplier: {minimum: 0.97, mode: 1.00, maximum: 1.08}
+    resource_multiplier: {minimum: 0.98, mode: 1.00, maximum: 1.02}
+    limitations:
+      - "Aggregate series cannot be mapped uniquely to clearing-member portfolios."
+      - "Publication frequency may mask daily and intraday liquidity peaks."
+    mitigations:
+      - "Maintain source contracts, revision logs, and conservative calibration ranges."
+      - "Reperform calibration when source definitions or publication practices change."
+    validation_actions:
+      - "Compare weekly and daily transformations where both are available."
+      - "Run conservative scaling and data-vintage sensitivity tests."
+    owner: "Model Validation"
+
+  - key: "synthetic_allocation_uncertainty"
+    title: "Synthetic allocation uncertainty"
+    uncertainty_type: "Synthetic data construction"
+    description: >-
+      Aggregate positions, financing, settlement obligations, and collateral are
+      allocated to non-real synthetic clearing members.
+    evidence_gap: >-
+      No public dataset provides the true participant-level allocation or dependence
+      structure required to validate the synthetic population directly.
+    model_effect: >-
+      Allocation rules can change default-set rankings, concentration, netting benefits,
+      and stressed liquidity requirements.
+    probability: 5
+    impact: 5
+    mitigation_effectiveness: 0.30
+    requirement_weight: 0.18
+    resource_weight: 0.08
+    requirement_multiplier: {minimum: 0.92, mode: 1.00, maximum: 1.15}
+    resource_multiplier: {minimum: 0.95, mode: 1.00, maximum: 1.05}
+    limitations:
+      - "Synthetic members must never be interpreted as actual FICC participants."
+      - "Tail dependence and concentration are assumption-driven."
+    mitigations:
+      - "Use multiple seeds, alternative allocation algorithms, and concentration regimes."
+      - "Publish allocation controls and preserve deterministic seeds."
+    validation_actions:
+      - "Compare scenario rankings and Cover 1/Cover 2 results across seeds."
+      - "Challenge allocation distributions and dependence assumptions independently."
+    owner: "Model Development and Model Validation"
+
+  - key: "scenario_selection_uncertainty"
+    title: "Scenario-selection uncertainty"
+    uncertainty_type: "Stress design"
+    description: >-
+      Historical and hypothetical scenarios may omit relevant combinations, sequencing,
+      persistence, or nonlinear interactions.
+    evidence_gap: >-
+      Public evidence does not identify the exact FICC scenario library, internal risk
+      appetite, or participant-specific stress calibration.
+    model_effect: >-
+      Incomplete scenario coverage can understate the dominant liquidity driver or fail
+      to identify a reverse-stress threshold.
+    probability: 4
+    impact: 5
+    mitigation_effectiveness: 0.35
+    requirement_weight: 0.20
+    resource_weight: 0.00
+    requirement_multiplier: {minimum: 0.90, mode: 1.00, maximum: 1.25}
+    resource_multiplier: {minimum: 1.00, mode: 1.00, maximum: 1.00}
+    limitations:
+      - "Extreme-but-plausible severity is judgmental."
+      - "Joint shocks may not preserve real-world dependence or temporal ordering."
+    mitigations:
+      - "Use historical, hypothetical, combined, and reverse-stress scenarios."
+      - "Document scenario rationale, exclusions, and rank-order expectations."
+    validation_actions:
+      - "Test monotonicity and rank ordering under single-factor and combined stresses."
+      - "Compare outcomes with simpler deterministic benchmarks."
+    owner: "Model Validation"
+
+  - key: "parameter_uncertainty"
+    title: "Parameter uncertainty"
+    uncertainty_type: "Calibration and estimation"
+    description: >-
+      Duration, convexity, rollover failure, haircut, fail persistence, concentration,
+      liquidation horizon, and available-resource assumptions are estimated or judgmental.
+    evidence_gap: >-
+      Parameter estimates are not calibrated to confidential member-level or FICC
+      operational data.
+    model_effect: >-
+      Parameter uncertainty changes stressed requirements, shortfall thresholds, and the
+      identity of dominant stress components.
+    probability: 5
+    impact: 5
+    mitigation_effectiveness: 0.40
+    requirement_weight: 0.15
+    resource_weight: 0.08
+    requirement_multiplier: {minimum: 0.95, mode: 1.00, maximum: 1.15}
+    resource_multiplier: {minimum: 0.92, mode: 1.00, maximum: 1.03}
+    limitations:
+      - "Point estimates can create false precision."
+      - "Parameter dependence is simplified in the quantitative envelope."
+    mitigations:
+      - "Use parameter ranges, sensitivity analysis, and version-controlled assumptions."
+      - "Escalate parameters with high residual risk for targeted validation."
+    validation_actions:
+      - "Reconcile Section 26 sensitivity results with uncertainty rankings."
+      - "Confirm directional behavior and boundary handling."
+    owner: "Model Development and Model Validation"
+
+  - key: "missing_intraday_information"
+    title: "Missing intraday information"
+    uncertainty_type: "Data granularity"
+    description: >-
+      Daily and weekly public datasets do not show intraday settlement peaks, payment
+      queues, timing mismatches, substitutions, or operational bottlenecks.
+    evidence_gap: >-
+      Intraday cash-flow and collateral-movement data are unavailable publicly.
+    model_effect: >-
+      End-of-day aggregation can understate peak liquidity usage and the duration of
+      temporary shortfalls.
+    probability: 5
+    impact: 5
+    mitigation_effectiveness: 0.20
+    requirement_weight: 0.18
+    resource_weight: 0.08
+    requirement_multiplier: {minimum: 1.00, mode: 1.08, maximum: 1.35}
+    resource_multiplier: {minimum: 0.90, mode: 0.98, maximum: 1.00}
+    limitations:
+      - "Intraday peak requirements cannot be empirically validated."
+      - "Payment timing and queuing are represented through conservative overlays only."
+    mitigations:
+      - "Apply explicit intraday peak overlays and delayed-payment scenarios."
+      - "Separate end-of-day and peak-liquidity conclusions in reporting."
+    validation_actions:
+      - "Run overlays for delayed receipts, concentrated payment windows, and multi-day fails."
+      - "Report the range rather than a single intraday estimate."
+    owner: "Model Validation"
+
+  - key: "participant_level_data_limitations"
+    title: "Participant-level data limitations"
+    uncertainty_type: "Coverage and representativeness"
+    description: >-
+      Public data do not provide actual FICC participant positions, settlement obligations,
+      collateral inventories, liquidity resources, or legal agreements.
+    evidence_gap: >-
+      Confidential participant and clearing-agency data are outside the research model's
+      evidence base.
+    model_effect: >-
+      Member ranking, wrong-way risk, concentration, default-set selection, and resource
+      eligibility cannot be validated against actual outcomes.
+    probability: 5
+    impact: 5
+    mitigation_effectiveness: 0.20
+    requirement_weight: 0.15
+    resource_weight: 0.05
+    requirement_multiplier: {minimum: 0.95, mode: 1.05, maximum: 1.20}
+    resource_multiplier: {minimum: 0.95, mode: 1.00, maximum: 1.02}
+    limitations:
+      - "The model is unsuitable for participant-level decisions."
+      - "Cover 1 and Cover 2 results are methodological demonstrations only."
+    mitigations:
+      - "Use generic member identifiers and explicit synthetic-data labels."
+      - "Restrict conclusions to methodology, controls, and directional behavior."
+    validation_actions:
+      - "Verify that no synthetic member is represented as an actual participant."
+      - "Document prohibited uses in every material report."
+    owner: "Model Risk Governance"
+
+  - key: "operational_legal_assumptions"
+    title: "Operational and legal assumptions"
+    uncertainty_type: "Operational, legal, and governance"
+    description: >-
+      Resource mobilization, settlement sequencing, access to credit, collateral eligibility,
+      default-management timing, and enforceability are represented through simplified rules.
+    evidence_gap: >-
+      Public documents do not provide all contractual terms, operational cutoffs, committed
+      facility conditions, or crisis-time execution constraints.
+    model_effect: >-
+      Resources that appear available in a static model may be delayed, encumbered,
+      ineligible, or legally unavailable during stress.
+    probability: 4
+    impact: 5
+    mitigation_effectiveness: 0.25
+    requirement_weight: 0.08
+    resource_weight: 0.35
+    requirement_multiplier: {minimum: 0.95, mode: 1.00, maximum: 1.12}
+    resource_multiplier: {minimum: 0.75, mode: 0.95, maximum: 1.00}
+    limitations:
+      - "Legal enforceability is not independently opined upon."
+      - "Operational execution risk is not modeled as a full process simulation."
+    mitigations:
+      - "Apply resource-availability haircuts and timing restrictions."
+      - "Require legal and operational subject-matter review before production use."
+    validation_actions:
+      - "Test delayed or unavailable resources and document eligibility assumptions."
+      - "Reconcile modeled resources with Section 24 conceptual-soundness challenges."
+    owner: "Legal, Operations, and Model Risk Governance"
+
+  - key: "simplified_liquidation_functions"
+    title: "Model risk from simplified liquidation functions"
+    uncertainty_type: "Methodology and implementation"
+    description: >-
+      Treasury liquidation losses are approximated with duration, convexity, concentration,
+      liquidation-horizon, and market-impact functions rather than an order-book model.
+    evidence_gap: >-
+      Public data do not provide stressed liquidation execution, bid depth, dealer capacity,
+      or member-specific hedge behavior.
+    model_effect: >-
+      Simplified functions may miss nonlinear price impact, liquidity spirals, basis risk,
+      and feedback between funding and liquidation.
+    probability: 4
+    impact: 5
+    mitigation_effectiveness: 0.35
+    requirement_weight: 0.22
+    resource_weight: 0.05
+    requirement_multiplier: {minimum: 0.95, mode: 1.05, maximum: 1.30}
+    resource_multiplier: {minimum: 0.95, mode: 1.00, maximum: 1.00}
+    limitations:
+      - "Linear or piecewise approximations may understate discontinuous market impact."
+      - "Hedging, basis, and feedback effects are simplified."
+    mitigations:
+      - "Benchmark against deterministic haircuts and alternative nonlinear impact functions."
+      - "Apply conservative liquidation horizons and concentration multipliers."
+    validation_actions:
+      - "Compare duration-convexity results with simpler deterministic valuation shocks."
+      - "Test nonlinear impact and longer liquidation-horizon challengers."
+    owner: "Model Development and Model Validation"
+
+reporting:
+  prohibited_uses:
+    - "Do not use outputs to infer actual FICC participant exposures or liquidity resources."
+    - "Do not interpret illustrative uncertainty ranges as regulatory thresholds."
+    - "Do not use the assessment for legal conclusions, production limits, or participant decisions."
+  required_conclusions:
+    - "The framework supports methodological validation, not empirical validation of actual FICC outcomes."
+    - "Participant-level and intraday data gaps remain material residual limitations."
+    - "Operational, legal, and liquidation-function assumptions require expert review before production use."

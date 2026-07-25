@@ -1,0 +1,61 @@
+{
+  "section": "Phase VII - Section 28",
+  "title": "Uncertainty and limitations assessment",
+  "evidence_classification": "Illustrative synthetic calibration",
+  "baseline": {
+    "stressed_liquidity_requirement": 1000000000.0,
+    "available_resources": 1150000000.0,
+    "lcr": 1.15
+  },
+  "joint_uncertainty": {
+    "samples": 10000,
+    "seed": 2026,
+    "lcr_p01": 0.9412538327475793,
+    "lcr_p05": 0.9634284010424062,
+    "lcr_p50": 1.021699029517476,
+    "probability_lcr_below_1": 0.2748,
+    "maximum_simulated_shortfall": 130417915.14716077
+  },
+  "highest_residual_risks": [
+    {
+      "key": "missing_intraday_information",
+      "title": "Missing intraday information",
+      "residual_score": 20,
+      "residual_rating": "Critical",
+      "owner": "Model Validation"
+    },
+    {
+      "key": "participant_level_data_limitations",
+      "title": "Participant-level data limitations",
+      "residual_score": 20,
+      "residual_rating": "Critical",
+      "owner": "Model Risk Governance"
+    },
+    {
+      "key": "synthetic_allocation_uncertainty",
+      "title": "Synthetic allocation uncertainty",
+      "residual_score": 18,
+      "residual_rating": "Critical",
+      "owner": "Model Development and Model Validation"
+    },
+    {
+      "key": "parameter_uncertainty",
+      "title": "Parameter uncertainty",
+      "residual_score": 15,
+      "residual_rating": "High",
+      "owner": "Model Development and Model Validation"
+    },
+    {
+      "key": "operational_legal_assumptions",
+      "title": "Operational and legal assumptions",
+      "residual_score": 15,
+      "residual_rating": "High",
+      "owner": "Legal, Operations, and Model Risk Governance"
+    }
+  ],
+  "prohibited_uses": [
+    "Do not use outputs to infer actual FICC participant exposures or liquidity resources.",
+    "Do not interpret illustrative uncertainty ranges as regulatory thresholds.",
+    "Do not use the assessment for legal conclusions, production limits, or participant decisions."
+  ]
+}
