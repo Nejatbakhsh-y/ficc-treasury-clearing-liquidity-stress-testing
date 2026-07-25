@@ -633,7 +633,10 @@ class MonthlyMonitoringEngine:
         )
 
     @staticmethod
-    def _pearson(x: npt.NDArray[np.float64], y: npt.NDArray[np.float64]) -> float:
+    def _pearson(
+        x: npt.NDArray[np.floating[Any]],
+        y: npt.NDArray[np.floating[Any]],
+    ) -> float:
         if x.size != y.size or x.size < 2:
             return float("nan")
         x_centered = x - x.mean()
