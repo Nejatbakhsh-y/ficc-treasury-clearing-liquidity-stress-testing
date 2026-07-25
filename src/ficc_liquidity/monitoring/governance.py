@@ -7,7 +7,7 @@ import json
 from collections.abc import Mapping, Sequence
 from dataclasses import asdict, dataclass
 from pathlib import Path
-from typing import Any, ClassVar
+from typing import Any, ClassVar, cast
 
 import pandas as pd
 import yaml
@@ -91,7 +91,8 @@ class MonitoringGovernanceEngine:
 
         actions: list[dict[str, Any]] = []
         revalidation_reasons: set[str] = set()
-        for row in scorecard.to_dict(orient="records"):
+        for raw_row in scorecard.to_dict(orient="records"):
+            row = cast(dict[str, Any], raw_row)
             action = self._build_action(
                 row,
                 as_of=as_of,
@@ -366,7 +367,8 @@ class MonitoringGovernanceEngine:
                     "|---|---|---|---|---|---|",
                 ]
             )
-            for row in open_actions.to_dict(orient="records"):
+            for raw_row in open_actions.to_dict(orient="records"):
+                row = cast(dict[str, Any], raw_row)
                 lines.append(
                     "| {control} | {traffic_light} | {severity} | {primary_owner} | "
                     "{investigation_due_date} | {remediation_due_date} |".format(**row)
