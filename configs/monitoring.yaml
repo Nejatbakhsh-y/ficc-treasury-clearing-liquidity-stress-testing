@@ -1,0 +1,53 @@
+﻿monitoring:
+  frequency: monthly
+  required_columns:
+    - date
+    - member_id
+    - scenario
+    - exposure
+    - stressed_liquidity_requirement
+    - available_resources
+    - lcr
+  numeric_columns:
+    - exposure
+    - stressed_liquidity_requirement
+    - available_resources
+    - lcr
+  component_columns:
+    - settlement_liquidity_need
+    - repo_rollover_need
+    - incremental_funding_cost
+    - additional_haircut_requirement
+    - treasury_liquidation_loss
+    - settlement_fail_requirement
+    - concentration_adjustment
+    - operational_liquidity_buffer
+  thresholds:
+    data_completeness_warn: 0.995
+    data_completeness_fail: 0.980
+    missing_business_days_warn: 1
+    missing_business_days_fail: 3
+    historical_range_breach_rate_warn: 0.010
+    historical_range_breach_rate_fail: 0.050
+    historical_quantile_low: 0.001
+    historical_quantile_high: 0.999
+    parameter_relative_change_warn: 0.050
+    parameter_relative_change_fail: 0.150
+    largest_member_share_warn: 0.200
+    largest_member_share_fail: 0.300
+    exposure_hhi_warn: 0.180
+    exposure_hhi_fail: 0.250
+    lcr_p05_warn: 1.050
+    lcr_p05_fail: 1.000
+    lcr_breach_rate_warn: 0.001
+    lcr_breach_rate_fail: 0.010
+    lcr_mean_relative_change_warn: 0.100
+    lcr_mean_relative_change_fail: 0.250
+    scenario_rank_correlation_warn: 0.900
+    scenario_rank_correlation_fail: 0.750
+    component_share_drift_warn: 0.050
+    component_share_drift_fail: 0.100
+    sensitivity_relative_change_warn: 0.150
+    sensitivity_relative_change_fail: 0.300
+    reconciliation_failures_warn: 1
+    reconciliation_failures_fail: 2
