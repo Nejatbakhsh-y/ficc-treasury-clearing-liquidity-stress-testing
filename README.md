@@ -68,3 +68,17 @@ All participant-level views use fictional synthetic members. The dashboard does 
 display, identify, or infer actual FICC or DTCC participant-level information.
 
 <!-- END SECTION 33 DASHBOARD -->
+
+<!-- SECTION34:START -->
+## Phase IX - Section 34: Independent Validation Report
+
+The controlled final validation package is available at:
+
+- [Independent validation report](reports/independent_validation_report.md)
+- [Evidence index](reports/validation/section34_evidence_index.md)
+- [Report readiness](reports/validation/section34_report_readiness.csv)
+- [Completion checklist](reports/validation/section34_completion_checklist.md)
+- [Report manifest](reports/validation/section34_report_manifest.json)
+
+Automated conclusion: **CONDITIONALLY SATISFACTORY**
+<!-- SECTION34:END -->

@@ -1,0 +1,86 @@
+{
+    "project":  "FICC Treasury Clearing Liquidity Stress Testing and Model Validation",
+    "phase":  9,
+    "section":  34,
+    "report_id":  "IVR-P9-S34",
+    "generated_utc":  "2026-07-26T23:46:05Z",
+    "repository_root":  "C:\\Users\\nejat\\OneDrive\\Desktop\\UN\\Skills\\GitHub 2026\\ficc-treasury-clearing-liquidity-stress-testing",
+    "remote":  "https://github.com/Nejatbakhsh-y/ficc-treasury-clearing-liquidity-stress-testing.git",
+    "branch":  "docs/22-final-validation-report",
+    "base_branch":  "main",
+    "starting_commit":  "6bde9c50740b45dbbe5bc7efe1f1a5fabdb0488f",
+    "evidence_count":  673,
+    "readiness_domains_passed":  13,
+    "readiness_domains_total":  13,
+    "missing_domains":  [
+
+                        ],
+    "finding_register":  "reports/evidence/backups/section31_20260725_211940/data/manifests/validation_finding_register.csv",
+    "open_critical_findings":  0,
+    "open_high_findings":  0,
+    "validation_conclusion":  "CONDITIONALLY SATISFACTORY",
+    "outputs":  [
+                    {
+                        "Path":  "reports/independent_validation_report.md",
+                        "Sha256":  "dcc6659d36fc4d9acde4da320146463b2f8f7d77039c4355ad4f7618fc03a568",
+                        "SizeBytes":  22124
+                    },
+                    {
+                        "Path":  "reports/validation/section34_evidence_index.md",
+                        "Sha256":  "305fb037f67f7a60003c71279358e6fec19aa1b868f340c92089d503683992a5",
+                        "SizeBytes":  127561
+                    },
+                    {
+                        "Path":  "reports/validation/section34_evidence_index.csv",
+                        "Sha256":  "6549d4bd711708de8ce9065615a796dff5544c9e23055b68958de1c43dde0a8c",
+                        "SizeBytes":  191190
+                    },
+                    {
+                        "Path":  "reports/validation/section34_report_readiness.csv",
+                        "Sha256":  "01823c37b6b6c94b53b2c8fd65c4ff55711ac49d773ab7d228ddbd877b06d606",
+                        "SizeBytes":  3546
+                    },
+                    {
+                        "Path":  "reports/validation/section34_completion_checklist.md",
+                        "Sha256":  "8a0b3d7a3003174073d3cebd8422ab2b9adb8fac0b02b558e0448cb92bd6f52b",
+                        "SizeBytes":  1393
+                    },
+                    {
+                        "Path":  "tests/test_section34_independent_validation_report.py",
+                        "Sha256":  "87dd311f6a98e9879460dc94b4983060622eedfb9596957347da282d453f6483",
+                        "SizeBytes":  3320
+                    },
+                    {
+                        "Path":  "README.md",
+                        "Sha256":  "4261391f3137518c94ac66f41b29a5dba2482bea8b6f411d9d96a73bb8b55293",
+                        "SizeBytes":  3781
+                    },
+                    {
+                        "Path":  "P9S34_Setup_Independent_Validation_Report.ps1",
+                        "Sha256":  "e8f828cc8396447cb8e3ae1760fae03aa65f055c76d98df635eab9422ff5949d",
+                        "SizeBytes":  65470
+                    }
+                ],
+    "quality_gates":  [
+                          {
+                              "Name":  "Section 34 focused pytest",
+                              "Status":  "PASS",
+                              "Details":  "Completed successfully."
+                          },
+                          {
+                              "Name":  "Full pytest suite",
+                              "Status":  "PASS",
+                              "Details":  "Completed successfully."
+                          },
+                          {
+                              "Name":  "Ruff validation",
+                              "Status":  "PASS",
+                              "Details":  "Completed successfully."
+                          },
+                          {
+                              "Name":  "Mypy validation",
+                              "Status":  "PASS",
+                              "Details":  "Completed successfully."
+                          }
+                      ]
+}
