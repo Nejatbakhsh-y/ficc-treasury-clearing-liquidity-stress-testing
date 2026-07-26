@@ -10,6 +10,7 @@ from pathlib import Path
 from typing import Any
 
 import numpy as np
+import numpy.typing as npt
 import pandas as pd
 import yaml
 
@@ -632,7 +633,10 @@ class MonthlyMonitoringEngine:
         )
 
     @staticmethod
-    def _pearson(x: np.ndarray, y: np.ndarray) -> float:
+    def _pearson(
+        x: npt.NDArray[np.floating[Any]],
+        y: npt.NDArray[np.floating[Any]],
+    ) -> float:
         if x.size != y.size or x.size < 2:
             return float("nan")
         x_centered = x - x.mean()

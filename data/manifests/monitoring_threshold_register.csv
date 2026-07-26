@@ -1,0 +1,12 @@
+﻿control,metric,direction,green,amber,red,primary_owner,secondary_owner,model_change_trigger,revalidation_trigger
+data_completeness,minimum_required_field_completeness,lower_is_worse,">=0.995",">=0.980 and <0.995","<0.980",Data Owner,Model Monitoring Owner,false,"critical red or persistence"
+schema_changes,schema_issue_count,higher_is_worse,"0",not_applicable,">=1",Data Owner,Model Developer,true,"critical red or persistence"
+missing_observations,missing_business_days,higher_is_worse,"0","1-2",">=3",Data Owner,Model Monitoring Owner,false,"critical red or persistence"
+historical_range_breaches,breach_rate,higher_is_worse,"<0.010",">=0.010 and <0.050",">=0.050",Model Monitoring Owner,Market Risk Subject-Matter Expert,false,"critical red or persistence"
+parameter_changes,maximum_relative_change,higher_is_worse,"<0.050 and no structural change",">=0.050 and <0.150",">=0.150 or structural change",Model Owner,Model Risk Management,true,"critical red or persistence"
+exposure_concentration,largest_member_share_and_hhi,higher_is_worse,"share<0.200 and HHI<0.180","share>=0.200 or HHI>=0.180","share>=0.300 or HHI>=0.250",Liquidity Risk Owner,Model Owner,false,"critical red or persistence"
+lcr_distribution,lcr_tail_breach_and_drift,lower_or_higher_is_worse,"p05>1.050 and breach<0.001 and drift<0.100",intermediate,"p05<=1.000 or breach>=0.010 or drift>=0.250",Liquidity Risk Owner,Model Risk Management,true,"critical red or persistence"
+scenario_rank_stability,rank_correlation,lower_is_worse,">0.900",">0.750 and <=0.900","<=0.750",Model Owner,Scenario Governance Committee,true,"critical red or persistence"
+component_contribution_drift,maximum_absolute_share_change,higher_is_worse,"<0.050",">=0.050 and <0.100",">=0.100",Model Monitoring Owner,Model Developer,true,"critical red or persistence"
+sensitivity_changes,maximum_relative_change,higher_is_worse,"<0.150",">=0.150 and <0.300",">=0.300",Model Validation Owner,Model Owner,true,"critical red or persistence"
+reconciliation_failures,failure_count,higher_is_worse,"0","1",">=2",Model Validation Owner,Model Developer,true,"critical red or persistence"

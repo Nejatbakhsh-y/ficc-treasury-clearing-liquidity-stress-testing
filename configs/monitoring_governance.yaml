@@ -1,0 +1,228 @@
+﻿governance:
+  schema_version: "1.0"
+  status_mapping:
+    PASS: GREEN
+    WARN: AMBER
+    FAIL: RED
+
+  escalation_levels:
+    GREEN:
+      investigation_required: false
+      use_restriction_assessment: false
+      acknowledgment_business_days:
+      investigation_business_days:
+      remediation_business_days:
+      escalation_route:
+        - Monitoring Owner
+    AMBER:
+      investigation_required: true
+      use_restriction_assessment: false
+      acknowledgment_business_days: 2
+      investigation_business_days: 5
+      remediation_business_days: 20
+      escalation_route:
+        - Monitoring Owner
+        - Model Owner
+        - Model Risk Reviewer
+    RED:
+      investigation_required: true
+      use_restriction_assessment: true
+      acknowledgment_business_days: 1
+      investigation_business_days: 2
+      remediation_business_days: 10
+      escalation_route:
+        - Monitoring Owner
+        - Model Owner
+        - Model Risk Management
+        - Senior Management
+
+  control_ownership:
+    default:
+      primary_owner: Model Monitoring Owner
+      secondary_owner: Model Owner
+      investigation_requirements:
+        - Reproduce the breach from frozen inputs
+        - Validate source lineage and configuration
+        - Quantify model and liquidity-risk impact
+        - Document root cause and disposition
+      required_evidence:
+        - Frozen source data and hashes
+        - Reproduction log
+        - Root-cause memorandum
+        - Closure verification
+    data_completeness:
+      primary_owner: Data Owner
+      secondary_owner: Model Monitoring Owner
+      red_remediation_business_days: 5
+      investigation_requirements:
+        - Identify missing fields, dates, or source files
+        - Compare source delivery with the data contract
+        - Determine whether calculations must be rerun
+      required_evidence:
+        - Data-quality exception report
+        - Source lineage
+        - Corrected dataset or approved waiver
+    schema_changes:
+      primary_owner: Data Owner
+      secondary_owner: Model Developer
+      red_remediation_business_days: 5
+      investigation_requirements:
+        - Compare the observed schema with the approved contract
+        - Identify upstream or code changes
+        - Test backward compatibility
+      required_evidence:
+        - Schema diff
+        - Change approval
+        - Regression-test evidence
+    missing_observations:
+      primary_owner: Data Owner
+      secondary_owner: Model Monitoring Owner
+      investigation_requirements:
+        - Reconcile expected and observed business dates
+        - Confirm publication-calendar exceptions
+        - Assess interpolation or carry-forward use
+      required_evidence:
+        - Missing-date register
+        - Source confirmation
+        - Corrected data or approved treatment
+    historical_range_breaches:
+      primary_owner: Model Monitoring Owner
+      secondary_owner: Market Risk Subject-Matter Expert
+      investigation_requirements:
+        - Distinguish market stress from data error
+        - Compare with source publications and historical windows
+        - Assess calibration and scenario implications
+      required_evidence:
+        - Outlier analysis
+        - Source cross-check
+        - Impact assessment
+    parameter_changes:
+      primary_owner: Model Owner
+      secondary_owner: Model Risk Management
+      red_remediation_business_days: 5
+      investigation_requirements:
+        - Reconcile current parameters with the approved inventory
+        - Confirm authorization and implementation date
+        - Quantify output impact
+      required_evidence:
+        - Parameter diff
+        - Approval record
+        - Impact and regression tests
+    exposure_concentration:
+      primary_owner: Liquidity Risk Owner
+      secondary_owner: Model Owner
+      investigation_requirements:
+        - Identify concentration drivers
+        - Recalculate Cover 1 and Cover 2 outcomes
+        - Assess resource and scenario adequacy
+      required_evidence:
+        - Concentration attribution
+        - Cover analysis
+        - Management disposition
+    lcr_distribution:
+      primary_owner: Liquidity Risk Owner
+      secondary_owner: Model Risk Management
+      red_remediation_business_days: 5
+      investigation_requirements:
+        - Reconcile stressed requirement and available resources
+        - Identify members and scenarios below threshold
+        - Assess model-use restrictions and liquidity action
+      required_evidence:
+        - LCR tail analysis
+        - Independent reconciliation
+        - Use-restriction decision
+    scenario_rank_stability:
+      primary_owner: Model Owner
+      secondary_owner: Scenario Governance Committee
+      investigation_requirements:
+        - Reconcile scenario definitions and parameters
+        - Explain rank reversals economically
+        - Test deterministic benchmark ordering
+      required_evidence:
+        - Scenario rank comparison
+        - Parameter lineage
+        - Economic rationale
+    component_contribution_drift:
+      primary_owner: Model Monitoring Owner
+      secondary_owner: Model Developer
+      investigation_requirements:
+        - Attribute drift to exposures, inputs, or code
+        - Reconcile Section 19 components
+        - Test for double counting
+      required_evidence:
+        - Component attribution
+        - Reconciliation output
+        - Code or data change record
+    sensitivity_changes:
+      primary_owner: Model Validation Owner
+      secondary_owner: Model Owner
+      investigation_requirements:
+        - Reproduce sensitivity results across seeds
+        - Compare with deterministic benchmarks
+        - Assess parameter instability or nonlinear response
+      required_evidence:
+        - Sensitivity comparison
+        - Seed-stability results
+        - Benchmark analysis
+    reconciliation_failures:
+      primary_owner: Model Validation Owner
+      secondary_owner: Model Developer
+      red_remediation_business_days: 3
+      investigation_requirements:
+        - Isolate production and independent implementation differences
+        - Reconcile inputs, formulas, rounding, and aggregation
+        - Determine whether reported results are reliable
+      required_evidence:
+        - Line-item reconciliation
+        - Defect record
+        - Independent closure test
+
+  triggers:
+    model_change_controls:
+      - schema_changes
+      - parameter_changes
+      - lcr_distribution
+      - scenario_rank_stability
+      - component_contribution_drift
+      - sensitivity_changes
+      - reconciliation_failures
+    amber_model_change_controls:
+      - schema_changes
+      - parameter_changes
+      - reconciliation_failures
+    red_repeat_lookback_months: 3
+    red_occurrences_for_revalidation: 2
+    amber_repeat_lookback_months: 6
+    amber_occurrences_for_revalidation: 3
+
+  monthly_sign_off:
+    green_status: READY_FOR_SIGNATURE
+    amber_status: CONDITIONAL_PENDING_BREACH_DISPOSITION
+    red_status: BLOCKED_PENDING_RED_BREACH_DECISION
+    due_business_days_after_month_end: 10
+    required_roles:
+      - Data Owner
+      - Model Monitoring Owner
+      - Model Owner
+      - Model Risk Reviewer
+    required_evidence:
+      - Final Section 29 scorecard
+      - Section 30 breach register
+      - Investigation and remediation status
+      - Approved parameter and code changes
+      - Reconciliation evidence
+      - Sign-off decisions
+
+  annual_independent_validation:
+    required: true
+    maximum_interval_months: 12
+    due_soon_calendar_days: 60
+    independent_from_development: true
+    minimum_scope:
+      - Conceptual soundness
+      - Independent implementation verification
+      - Outcomes and benchmark analysis
+      - Sensitivity analysis
+      - Uncertainty and limitations
+      - Monitoring performance and threshold effectiveness
+      - Open findings and remediation validation
