@@ -1,0 +1,31 @@
+dashboard:
+  title: FICC Treasury Clearing Liquidity Stress Testing
+  section: Phase IX - Section 33
+  default_currency: USD
+  default_allow_demo: true
+  cache_ttl_seconds: 300
+  source_priority:
+    - reports/evidence_package
+    - reports
+    - data/processed
+    - data/analytical
+    - data
+  prohibited_representations:
+    - actual FICC participant exposures
+    - confidential DTCC participant data
+    - production FICC stress outcomes
+  pages:
+    - Executive summary
+    - Federal Reserve market conditions
+    - Synthetic member exposures
+    - Cover 1 and Cover 2
+    - Historical stress scenarios
+    - Hypothetical scenarios
+    - Liquidity Coverage Ratio
+    - Liquidity shortfalls
+    - Component contributions
+    - Sensitivity analysis
+    - Reverse stress
+    - Model monitoring
+    - Findings and remediation
+    - Limitations and governance

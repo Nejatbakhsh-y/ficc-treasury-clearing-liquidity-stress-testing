@@ -21,9 +21,10 @@ Every material field and result must be classified as **observed**, **derived**,
 | configs/ | Version-controlled model and scenario configurations |
 | data/ | Data documentation and local pipeline outputs |
 | docs/ | Charters, methodology, governance, limitations, and decisions |
-| 
+|
 otebooks/ | Controlled exploratory analysis |
-| eports/ | Generated tables, figures, evidence, and validation reports |
+|
+eports/ | Generated tables, figures, evidence, and validation reports |
 | scripts/ | Reproducible command-line entry points and automation |
 | sql/ | Data controls, transformations, and analytical queries |
 | src/ficc_liquidity/ | Production-quality Python package |
@@ -42,3 +43,28 @@ pytest
 `
 
 See [CONTRIBUTING.md](CONTRIBUTING.md), [SECURITY.md](SECURITY.md), and [docs/project_backlog.md](docs/project_backlog.md).
+
+<!-- BEGIN SECTION 33 DASHBOARD -->
+
+## Streamlit Dashboard
+
+Phase IX, Section 33 provides a controlled multipage Streamlit dashboard for:
+
+- public Federal Reserve market conditions;
+- synthetic clearing-member exposures;
+- Cover 1 and Cover 2 results;
+- historical and hypothetical stress scenarios;
+- Liquidity Coverage Ratio and shortfalls;
+- component contributions;
+- sensitivity and reverse-stress testing;
+- monthly monitoring;
+- findings, remediation, limitations, and governance.
+
+Run locally:
+
+Run .\.venv\Scripts\python.exe -m streamlit run dashboard\streamlit_app.py from the repository root.
+
+All participant-level views use fictional synthetic members. The dashboard does not
+display, identify, or infer actual FICC or DTCC participant-level information.
+
+<!-- END SECTION 33 DASHBOARD -->
