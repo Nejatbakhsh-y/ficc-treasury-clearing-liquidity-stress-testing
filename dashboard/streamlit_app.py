@@ -97,7 +97,7 @@ def money(value: float) -> str:
 
 
 def show_table(frame: pd.DataFrame, *, key: str, max_rows: int = 500) -> None:
-    st.dataframe(frame.head(max_rows), use_container_width=True, hide_index=True)
+    st.dataframe(frame.head(max_rows), width="stretch", hide_index=True)
     st.download_button(
         "Download displayed data",
         data=frame.to_csv(index=False).encode("utf-8"),
@@ -194,7 +194,7 @@ def executive_summary() -> None:
             errors="coerce",
         )
         st.subheader("Scenario LCR")
-        st.bar_chart(chart.set_index(scenario_col), use_container_width=True)
+        st.bar_chart(chart.set_index(scenario_col), width="stretch")
 
     st.subheader("Scenario results")
     show_table(lcr, key="executive_scenario_results")
@@ -223,7 +223,7 @@ def federal_reserve_conditions() -> None:
     if date_col and rate_columns:
         st.subheader("Rates and Treasury yields")
         chart = frame[[date_col, *rate_columns]].copy().set_index(date_col)
-        st.line_chart(chart, use_container_width=True)
+        st.line_chart(chart, width="stretch")
 
     liquidity_columns = [
         column
@@ -240,7 +240,7 @@ def federal_reserve_conditions() -> None:
     if date_col and liquidity_columns:
         st.subheader("Funding and system liquidity indicators")
         chart = frame[[date_col, *liquidity_columns]].copy().set_index(date_col)
-        st.line_chart(chart, use_container_width=True)
+        st.line_chart(chart, width="stretch")
 
     show_table(frame, key="federal_reserve_market_conditions")
 
@@ -277,7 +277,7 @@ def synthetic_member_exposures() -> None:
             .sort_values(exposure_col, ascending=False)
         )
         st.subheader("Treasury exposure by synthetic member")
-        st.bar_chart(grouped.set_index(member_col), use_container_width=True)
+        st.bar_chart(grouped.set_index(member_col), width="stretch")
 
     show_table(filtered, key="synthetic_member_exposures")
 
@@ -319,7 +319,7 @@ def scenario_page(key: str, heading: str, purpose: str) -> None:
     if scenario_col and lcr_col:
         chart = frame[[scenario_col, lcr_col]].copy()
         chart[lcr_col] = pd.to_numeric(chart[lcr_col], errors="coerce")
-        st.bar_chart(chart.set_index(scenario_col), use_container_width=True)
+        st.bar_chart(chart.set_index(scenario_col), width="stretch")
     show_table(frame, key=key)
 
 
@@ -343,7 +343,7 @@ def lcr_page() -> None:
         )
 
     if scenario_col and lcr_col:
-        st.bar_chart(frame.set_index(scenario_col)[[lcr_col]], use_container_width=True)
+        st.bar_chart(frame.set_index(scenario_col)[[lcr_col]], width="stretch")
     show_table(frame, key="liquidity_coverage_ratio")
 
 
@@ -369,7 +369,7 @@ def shortfall_page() -> None:
         if breaches_only:
             frame = frame.loc[values.gt(0.0)].copy()
         if scenario_col and not frame.empty:
-            st.bar_chart(frame.set_index(scenario_col)[[shortfall_col]], use_container_width=True)
+            st.bar_chart(frame.set_index(scenario_col)[[shortfall_col]], width="stretch")
     show_table(frame, key="liquidity_shortfalls")
 
 
@@ -388,7 +388,7 @@ def component_page() -> None:
         row = frame.loc[frame[scenario_col].astype(str).eq(selected), available]
         if not row.empty:
             contribution = row.iloc[0].astype(float).sort_values(ascending=False)
-            st.bar_chart(contribution, use_container_width=True)
+            st.bar_chart(contribution, width="stretch")
 
     show_table(frame, key="component_contributions")
 
@@ -404,7 +404,7 @@ def sensitivity_page() -> None:
     if driver_col and elasticity_col:
         chart = frame[[driver_col, elasticity_col]].copy()
         chart[elasticity_col] = pd.to_numeric(chart[elasticity_col], errors="coerce")
-        st.bar_chart(chart.set_index(driver_col), use_container_width=True)
+        st.bar_chart(chart.set_index(driver_col), width="stretch")
     show_table(frame, key="sensitivity_analysis")
 
 
@@ -427,7 +427,7 @@ def monitoring_page() -> None:
     counts = status_counts(frame)
     if not counts.empty:
         status_col = counts.columns[0]
-        st.bar_chart(counts.set_index(status_col), use_container_width=True)
+        st.bar_chart(counts.set_index(status_col), width="stretch")
     show_table(frame, key="model_monitoring")
 
 
@@ -455,7 +455,7 @@ def findings_page() -> None:
     counts = status_counts(filtered)
     if not counts.empty:
         category = counts.columns[0]
-        st.bar_chart(counts.set_index(category), use_container_width=True)
+        st.bar_chart(counts.set_index(category), width="stretch")
     show_table(filtered, key="findings_and_remediation")
 
 
