@@ -1,0 +1,92 @@
+schema_version: "1.0"
+package_name: "ficc_liquidity_reproducible_evidence"
+output_root: "reports/evidence_packages"
+latest_alias: "reports/evidence_packages/latest"
+archive_format: "zip"
+required_categories:
+  - data_quality
+  - scenario_results
+  - cover_1_cover_2
+  - lcr_results
+  - liquidity_shortfalls
+  - component_contributions
+  - sensitivity_results
+  - reverse_stress_results
+  - monitoring_results
+  - validation_findings
+  - configuration_provenance
+  - runtime_environment
+category_patterns:
+  data_quality:
+    - "reports/**/*data*quality*.csv"
+    - "reports/**/*data*quality*.json"
+    - "reports/**/*data*quality*.md"
+    - "data/**/*quality*.csv"
+    - "data/**/*validation*.csv"
+  scenario_results:
+    - "reports/**/*scenario*.csv"
+    - "reports/**/*scenario*.json"
+    - "reports/**/*scenario*.parquet"
+  cover_1_cover_2:
+    - "reports/**/*cover*1*.csv"
+    - "reports/**/*cover*2*.csv"
+    - "reports/**/*cover*.json"
+    - "reports/**/*default*set*.csv"
+  lcr_results:
+    - "reports/**/*lcr*.csv"
+    - "reports/**/*lcr*.json"
+    - "reports/**/*liquidity*coverage*.csv"
+  liquidity_shortfalls:
+    - "reports/**/*shortfall*.csv"
+    - "reports/**/*shortfall*.json"
+  component_contributions:
+    - "reports/**/*component*contribution*.csv"
+    - "reports/**/*component*contribution*.json"
+    - "reports/**/*component*reconciliation*.csv"
+  sensitivity_results:
+    - "reports/**/*sensitivity*.csv"
+    - "reports/**/*sensitivity*.json"
+  reverse_stress_results:
+    - "reports/**/*reverse*stress*.csv"
+    - "reports/**/*reverse*stress*.json"
+  monitoring_results:
+    - "reports/**/*monitoring*.csv"
+    - "reports/**/*monitoring*.json"
+    - "reports/**/*threshold*.csv"
+  validation_findings:
+    - "reports/**/*finding*register*.csv"
+    - "reports/**/*validation*finding*.csv"
+    - "reports/**/*finding*.json"
+  configuration_provenance:
+    - "configs/**/*.yaml"
+    - "configs/**/*.yml"
+    - "configs/**/*.json"
+    - "pyproject.toml"
+    - "requirements*.txt"
+    - "uv.lock"
+    - "poetry.lock"
+  runtime_environment:
+    - "reports/**/*runtime*.json"
+    - "reports/**/*environment*.txt"
+    - "reports/**/*environment*.json"
+exclude_patterns:
+  - "reports/evidence_packages/**"
+  - ".git/**"
+  - ".venv/**"
+  - "__pycache__/**"
+  - ".pytest_cache/**"
+  - ".mypy_cache/**"
+  - ".ruff_cache/**"
+copy_extensions:
+  - ".csv"
+  - ".json"
+  - ".yaml"
+  - ".yml"
+  - ".toml"
+  - ".md"
+  - ".txt"
+  - ".parquet"
+  - ".html"
+  - ".png"
+  - ".svg"
+strict_missing_category_failure: false

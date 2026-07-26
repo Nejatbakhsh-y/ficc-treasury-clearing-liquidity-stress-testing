@@ -42,3 +42,15 @@ pytest
 `
 
 See [CONTRIBUTING.md](CONTRIBUTING.md), [SECURITY.md](SECURITY.md), and [docs/project_backlog.md](docs/project_backlog.md).
+## Phase IX — Section 32: Reproducible Evidence Package
+
+Build the controlled evidence archive:
+
+```powershell
+$env:PYTHONPATH = "$PWD\src"
+python scripts\build_evidence_package.py --repo-root "$PWD"
+```
+
+Use `--strict` to fail when any required evidence category is missing. Detailed
+controls are documented in `docs/reproducible_evidence_package.md`.
+

@@ -62,3 +62,4 @@ data/manual/
 
 # Section 15 local transient files
 *.section15_backup_*
+reports/evidence_packages/
