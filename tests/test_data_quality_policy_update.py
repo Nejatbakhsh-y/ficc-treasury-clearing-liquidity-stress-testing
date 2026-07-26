@@ -240,6 +240,43 @@ def test_policy_helpers_cover_read_date_and_alignment_paths(tmp_path: Path) -> N
     assert total == 1
 
 
+def test_apply_control_policy_skips_missing_policy_inputs(tmp_path: Path) -> None:
+    weekly = pd.date_range("2024-01-03", periods=4, freq="W-WED")
+    fr2004 = pd.DataFrame(
+        {
+            "observation_date": weekly,
+            "series_id": ["net_position"] * len(weekly),
+            "value": [-125.0] * len(weekly),
+            "unit": ["USD millions"] * len(weekly),
+        }
+    )
+    fr_path = tmp_path / "fr2004.csv"
+    fr2004.to_csv(fr_path, index=False)
+
+    base = pd.DataFrame(
+        [
+            {
+                "dataset": "fr2004",
+                "check_id": "DQ06",
+                "check_name": "Expected-frequency completeness",
+                "observed": 0.0,
+                "threshold": 0.995,
+                "status": "FAIL",
+                "details": "",
+            }
+        ]
+    )
+
+    adjusted = _apply_control_policy(
+        base,
+        files={"fr2004": fr_path},
+        minimum_completeness=0.995,
+    )
+
+    assert adjusted.loc[0, "status"] == "PASS"
+    assert adjusted.loc[0, "observed"] == pytest.approx(1.0)
+
+
 def test_apply_control_policy_updates_rows_with_policy_data(tmp_path: Path) -> None:
     weekly = pd.date_range("2024-01-03", periods=4, freq="W-WED")
     fr2004 = pd.DataFrame(

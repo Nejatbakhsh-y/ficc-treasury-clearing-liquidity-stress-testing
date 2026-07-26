@@ -1522,71 +1522,73 @@ def _apply_control_policy(
 ) -> pd.DataFrame:
     adjusted = frame.copy()
 
-    fr2004 = _policy_read_table(files["fr2004"])
-    completeness, matched, expected, weekday = _weekly_reporting_completeness(fr2004)
-    weekday_names = (
-        "Monday",
-        "Tuesday",
-        "Wednesday",
-        "Thursday",
-        "Friday",
-        "Saturday",
-        "Sunday",
-    )
-    weekday_name = weekday_names[weekday] if 0 <= weekday <= 6 else "unknown"
+    if "fr2004" in files:
+        fr2004 = _policy_read_table(files["fr2004"])
+        completeness, matched, expected, weekday = _weekly_reporting_completeness(fr2004)
+        weekday_names = (
+            "Monday",
+            "Tuesday",
+            "Wednesday",
+            "Thursday",
+            "Friday",
+            "Saturday",
+            "Sunday",
+        )
+        weekday_name = weekday_names[weekday] if 0 <= weekday <= 6 else "unknown"
 
-    _policy_update_row(
-        adjusted,
-        dataset="fr2004",
-        check_id="DQ06",
-        observed=completeness,
-        threshold=minimum_completeness,
-        details=(
-            "Evaluated the FR 2004 weekly source-reporting calendar on "
-            f"{weekday_name}; {matched}/{expected} expected weeks matched "
-            "within a two-calendar-day holiday tolerance. Sparse, "
-            "discontinued, and episodic series are not treated as missing "
-            "weekly rows."
-        ),
-        passed=completeness >= minimum_completeness,
-    )
+        _policy_update_row(
+            adjusted,
+            dataset="fr2004",
+            check_id="DQ06",
+            observed=completeness,
+            threshold=minimum_completeness,
+            details=(
+                "Evaluated the FR 2004 weekly source-reporting calendar on "
+                f"{weekday_name}; {matched}/{expected} expected weeks matched "
+                "within a two-calendar-day holiday tolerance. Sparse, "
+                "discontinued, and episodic series are not treated as missing "
+                "weekly rows."
+            ),
+            passed=completeness >= minimum_completeness,
+        )
 
-    nonfinite = _fr2004_nonfinite_count(fr2004)
-    _policy_update_row(
-        adjusted,
-        dataset="fr2004",
-        check_id="DQ08.2",
-        observed=nonfinite,
-        threshold=0,
-        details=(
-            "FR 2004 values are USD millions. Negative net positions are "
-            "economically permissible and are not subjected to rate/yield "
-            f"bounds. Non-finite numeric count={nonfinite}."
-        ),
-        passed=nonfinite == 0,
-    )
+        nonfinite = _fr2004_nonfinite_count(fr2004)
+        _policy_update_row(
+            adjusted,
+            dataset="fr2004",
+            check_id="DQ08.2",
+            observed=nonfinite,
+            threshold=0,
+            details=(
+                "FR 2004 values are USD millions. Negative net positions are "
+                "economically permissible and are not subjected to rate/yield "
+                f"bounds. Non-finite numeric count={nonfinite}."
+            ),
+            passed=nonfinite == 0,
+        )
 
-    sofr = _policy_read_table(files["sofr"])
-    h15 = _policy_read_table(files["h15"])
-    alignment, aligned, total = _nearest_calendar_alignment(
-        sofr,
-        h15,
-        tolerance_days=3,
-    )
-    _policy_update_row(
-        adjusted,
-        dataset="cross_dataset",
-        check_id="DQ12.sofr_h15",
-        observed=alignment,
-        threshold=minimum_completeness,
-        details=(
-            "Compared overlapping SOFR and H.15 calendars using nearest-date "
-            "matching within three calendar days for official holiday-calendar "
-            f"differences. No values were interpolated; aligned {aligned}/{total} "
-            "SOFR dates."
-        ),
-        passed=alignment >= minimum_completeness,
-    )
+    if "sofr" in files and "h15" in files:
+        sofr = _policy_read_table(files["sofr"])
+        h15 = _policy_read_table(files["h15"])
+        alignment, aligned, total = _nearest_calendar_alignment(
+            sofr,
+            h15,
+            tolerance_days=3,
+        )
+        _policy_update_row(
+            adjusted,
+            dataset="cross_dataset",
+            check_id="DQ12.sofr_h15",
+            observed=alignment,
+            threshold=minimum_completeness,
+            details=(
+                "Compared overlapping SOFR and H.15 calendars using nearest-date "
+                "matching within three calendar days for official holiday-calendar "
+                f"differences. No values were interpolated; aligned {aligned}/{total} "
+                "SOFR dates."
+            ),
+            passed=alignment >= minimum_completeness,
+        )
 
     return adjusted
 
