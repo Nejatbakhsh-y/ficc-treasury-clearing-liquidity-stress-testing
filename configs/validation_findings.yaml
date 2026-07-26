@@ -1,0 +1,91 @@
+validation_findings:
+  schema_version: "1.0"
+  finding_id:
+    prefix: "FICC-LST"
+    pattern: '^FICC-LST-[0-9]{4}-[0-9]{3}$'
+    sequence_width: 3
+
+  required_fields:
+    - finding_id
+    - category
+    - condition
+    - evidence
+    - risk
+    - recommendation
+    - management_response
+    - owner
+    - target_date
+    - status
+    - closure_evidence
+
+  classifications:
+    Critical:
+      rank: 5
+      target_calendar_days: 5
+      risk_acceptance_allowed: false
+      escalation:
+        - Model Risk Management
+        - Senior Management
+        - Model Owner
+    High:
+      rank: 4
+      target_calendar_days: 20
+      risk_acceptance_allowed: false
+      escalation:
+        - Model Risk Management
+        - Model Owner
+    Medium:
+      rank: 3
+      target_calendar_days: 45
+      risk_acceptance_allowed: true
+      escalation:
+        - Model Validation Owner
+        - Model Owner
+    Low:
+      rank: 2
+      target_calendar_days: 90
+      risk_acceptance_allowed: true
+      escalation:
+        - Model Validation Owner
+    Observation:
+      rank: 1
+      target_calendar_days: 120
+      risk_acceptance_allowed: true
+      escalation:
+        - Model Validation Owner
+
+  statuses:
+    - Open
+    - Remediation in Progress
+    - Pending Validation Review
+    - Risk Accepted
+    - Closed
+    - Overdue
+
+  active_statuses:
+    - Open
+    - Remediation in Progress
+    - Pending Validation Review
+    - Overdue
+
+  terminal_statuses:
+    - Risk Accepted
+    - Closed
+
+  closure:
+    independent_validation_required: true
+    closure_evidence_required_for:
+      - Closed
+      - Risk Accepted
+    prohibited_placeholders:
+      - ""
+      - "n/a"
+      - "na"
+      - "none"
+      - "not applicable until closure"
+      - "pending"
+      - "tbd"
+      - "to be determined"
+
+  date_format: "%Y-%m-%d"
+  due_soon_calendar_days: 30

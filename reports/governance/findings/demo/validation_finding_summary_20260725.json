@@ -1,0 +1,26 @@
+{
+  "active_findings": 3,
+  "as_of_date": "2026-07-25",
+  "classification_counts": {
+    "Critical": 1,
+    "High": 1,
+    "Low": 1,
+    "Medium": 1,
+    "Observation": 1
+  },
+  "closed_findings": 1,
+  "due_soon_findings": 2,
+  "error_count": 0,
+  "highest_open_classification": "Critical",
+  "overdue_findings": 0,
+  "risk_accepted_findings": 1,
+  "status_counts": {
+    "Closed": 1,
+    "Open": 1,
+    "Pending Validation Review": 1,
+    "Remediation in Progress": 1,
+    "Risk Accepted": 1
+  },
+  "total_findings": 5,
+  "warning_count": 0
+}

@@ -1,0 +1,120 @@
+name: Validation finding
+description: Record a controlled model-validation or monitoring finding
+title: "[VALIDATION FINDING] "
+labels:
+  - model-risk
+body:
+  - type: markdown
+    attributes:
+      value: |
+        Do not include confidential FICC, DTCC, clearing-member, participant, or personal data.
+        Use only public-source or synthetic project evidence.
+
+  - type: input
+    id: finding_id
+    attributes:
+      label: Finding ID
+      description: Use the controlled FICC-LST-YYYY-NNN format.
+      placeholder: FICC-LST-2026-006
+    validations:
+      required: true
+
+  - type: dropdown
+    id: category
+    attributes:
+      label: Category
+      options:
+        - Critical
+        - High
+        - Medium
+        - Low
+        - Observation
+    validations:
+      required: true
+
+  - type: textarea
+    id: condition
+    attributes:
+      label: Condition
+      description: State the precise deficiency or control weakness.
+    validations:
+      required: true
+
+  - type: textarea
+    id: evidence
+    attributes:
+      label: Evidence
+      description: Identify controlled tests, files, calculations, or review records.
+    validations:
+      required: true
+
+  - type: textarea
+    id: risk
+    attributes:
+      label: Risk
+      description: Describe the model, liquidity, governance, reporting, or operational impact.
+    validations:
+      required: true
+
+  - type: textarea
+    id: recommendation
+    attributes:
+      label: Recommendation
+      description: State the specific and testable remediation requirement.
+    validations:
+      required: true
+
+  - type: textarea
+    id: management_response
+    attributes:
+      label: Management response
+    validations:
+      required: true
+
+  - type: input
+    id: owner
+    attributes:
+      label: Owner
+    validations:
+      required: true
+
+  - type: input
+    id: target_date
+    attributes:
+      label: Target date
+      description: Use YYYY-MM-DD.
+      placeholder: "2026-08-31"
+    validations:
+      required: true
+
+  - type: dropdown
+    id: status
+    attributes:
+      label: Status
+      options:
+        - Open
+        - Remediation in Progress
+        - Pending Validation Review
+        - Risk Accepted
+        - Closed
+        - Overdue
+    validations:
+      required: true
+
+  - type: textarea
+    id: closure_evidence
+    attributes:
+      label: Closure evidence
+      description: Use "Not applicable until closure" for active findings.
+    validations:
+      required: true
+
+  - type: checkboxes
+    id: confirmations
+    attributes:
+      label: Confirmations
+      options:
+        - label: I preserved unfavorable evidence and prior failed results.
+          required: true
+        - label: I used only public-source or synthetic project information.
+          required: true
