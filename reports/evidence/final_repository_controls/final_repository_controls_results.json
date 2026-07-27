@@ -1,0 +1,91 @@
+{
+    "section":  "Phase X Section 35 - Final Repository Controls",
+    "generated_at_utc":  "2026-07-27T01:51:56Z",
+    "repository":  "Nejatbakhsh-y/ficc-treasury-clearing-liquidity-stress-testing",
+    "repository_url":  "https://github.com/Nejatbakhsh-y/ficc-treasury-clearing-liquidity-stress-testing",
+    "branch":  "feature/22-final-repository-controls",
+    "base_branch":  "main",
+    "commit":  "97aeac7fe2c9d99eed27e7f3c06ba6d805b2668f",
+    "pass_count":  8,
+    "warn_count":  0,
+    "fail_count":  3,
+    "controls":  [
+                     {
+                         "Control":  "GitHub authentication and repository access",
+                         "Status":  "PASS",
+                         "Evidence":  "Authenticated repository: Nejatbakhsh-y/ficc-treasury-clearing-liquidity-stress-testing.",
+                         "Remediation":  "None.",
+                         "TimestampUtc":  "2026-07-27T01:51:56Z"
+                     },
+                     {
+                         "Control":  "Feature-branch entry and documented pull requests",
+                         "Status":  "PASS",
+                         "Evidence":  "1 merged pull requests reviewed; branch naming, PR documentation, and sampled main-branch commit association passed.",
+                         "Remediation":  "None.",
+                         "TimestampUtc":  "2026-07-27T01:51:56Z"
+                     },
+                     {
+                         "Control":  "CI checks passed",
+                         "Status":  "PASS",
+                         "Evidence":  "1 checks on main completed successfully, neutrally, or as intentionally skipped.",
+                         "Remediation":  "None.",
+                         "TimestampUtc":  "2026-07-27T01:51:56Z"
+                     },
+                     {
+                         "Control":  "Branch protection active",
+                         "Status":  "PASS",
+                         "Evidence":  "main is protected by a branch-protection rule or ruleset.",
+                         "Remediation":  "None.",
+                         "TimestampUtc":  "2026-07-27T01:51:56Z"
+                     },
+                     {
+                         "Control":  "No secrets committed",
+                         "Status":  "FAIL",
+                         "Evidence":  "Sensitive files=0; history pattern groups=0; open GitHub alerts=1.",
+                         "Remediation":  "Revoke exposed credentials, remove them from Git history, rotate affected secrets, and close verified alerts.",
+                         "TimestampUtc":  "2026-07-27T01:51:56Z"
+                     },
+                     {
+                         "Control":  "No raw data committed",
+                         "Status":  "FAIL",
+                         "Evidence":  "Current prohibited data paths=30; historical prohibited data paths=28.",
+                         "Remediation":  "Remove data artifacts from Git history and retain only contracts, manifests, metadata, and approved small test fixtures.",
+                         "TimestampUtc":  "2026-07-27T01:51:56Z"
+                     },
+                     {
+                         "Control":  "No confidential FICC information",
+                         "Status":  "PASS",
+                         "Evidence":  "No high-risk confidentiality markers were detected in Git history, and the README states the public/synthetic data boundary.",
+                         "Remediation":  "None.",
+                         "TimestampUtc":  "2026-07-27T01:51:56Z"
+                     },
+                     {
+                         "Control":  "Runtime outputs properly controlled",
+                         "Status":  "PASS",
+                         "Evidence":  "No prohibited runtime outputs are tracked, and mandatory ignore patterns are present.",
+                         "Remediation":  "None.",
+                         "TimestampUtc":  "2026-07-27T01:51:56Z"
+                     },
+                     {
+                         "Control":  "README installation instructions tested",
+                         "Status":  "PASS",
+                         "Evidence":  "README contains Python 3.11 environment, editable installation, Pytest, Ruff, and Mypy commands; execution is validated by the fresh-clone gate.",
+                         "Remediation":  "None.",
+                         "TimestampUtc":  "2026-07-27T01:51:56Z"
+                     },
+                     {
+                         "Control":  "Fresh-clone reproduction tested",
+                         "Status":  "PASS",
+                         "Evidence":  "A depth-one clone of origin/main created Python 3.11, installed the project, imported the package, and passed Pytest, Ruff, Mypy, and pip check.",
+                         "Remediation":  "None.",
+                         "TimestampUtc":  "2026-07-27T01:51:56Z"
+                     },
+                     {
+                         "Control":  "Security and dependency checks passed",
+                         "Status":  "FAIL",
+                         "Evidence":  "pip-audit or Bandit failed, or the tools could not be installed. See fresh_clone_reproduction.log. GitHub reports 1 open Dependabot alert(s).",
+                         "Remediation":  "Remediate or dismiss with documented rationale every open Dependabot alert, then rerun.",
+                         "TimestampUtc":  "2026-07-27T01:51:56Z"
+                     }
+                 ]
+}

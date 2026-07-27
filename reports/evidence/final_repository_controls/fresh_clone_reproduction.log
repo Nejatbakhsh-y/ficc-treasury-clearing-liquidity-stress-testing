@@ -1,0 +1,435 @@
+CLONE EXIT: 0
+Cloning into 'C:\Users\nejat\AppData\Local\Temp\ficc_section35_20260727_015156\repo'...
+VENV EXIT: 0
+
+COMMAND: C:\Users\nejat\AppData\Local\Temp\ficc_section35_20260727_015156\repo\.venv\Scripts\python.exe -m pip install --upgrade pip
+EXIT: 0
+Requirement already satisfied: pip in c:\users\nejat\appdata\local\temp\ficc_section35_20260727_015156\repo\.venv\lib\site-packages (22.3.1)
+Collecting pip
+  Using cached pip-26.1.2-py3-none-any.whl (1.8 MB)
+Installing collected packages: pip
+  Attempting uninstall: pip
+    Found existing installation: pip 22.3.1
+    Uninstalling pip-22.3.1:
+      Successfully uninstalled pip-22.3.1
+Successfully installed pip-26.1.2
+COMMAND: C:\Users\nejat\AppData\Local\Temp\ficc_section35_20260727_015156\repo\.venv\Scripts\python.exe -m pip install -e .[dev]
+EXIT: 0
+Obtaining file:///C:/Users/nejat/AppData/Local/Temp/ficc_section35_20260727_015156/repo
+  Installing build dependencies: started
+  Installing build dependencies: finished with status 'done'
+  Checking if build backend supports build_editable: started
+  Checking if build backend supports build_editable: finished with status 'done'
+  Getting requirements to build editable: started
+  Getting requirements to build editable: finished with status 'done'
+  Preparing editable metadata (pyproject.toml): started
+  Preparing editable metadata (pyproject.toml): finished with status 'done'
+Collecting duckdb<2.0,>=1.1 (from ficc-treasury-clearing-liquidity-stress-testing==0.1.0)
+  Using cached duckdb-1.5.5-cp311-cp311-win_amd64.whl.metadata (4.2 kB)
+Collecting numpy<3.0,>=1.26 (from ficc-treasury-clearing-liquidity-stress-testing==0.1.0)
+  Using cached numpy-2.4.6-cp311-cp311-win_amd64.whl.metadata (6.6 kB)
+Collecting matplotlib<4.0,>=3.8 (from ficc-treasury-clearing-liquidity-stress-testing==0.1.0)
+  Using cached matplotlib-3.11.1-cp311-cp311-win_amd64.whl.metadata (80 kB)
+Collecting pandas<4.0,>=2.2 (from ficc-treasury-clearing-liquidity-stress-testing==0.1.0)
+  Using cached pandas-3.0.5-cp311-cp311-win_amd64.whl.metadata (19 kB)
+Collecting pyarrow<25,>=17 (from ficc-treasury-clearing-liquidity-stress-testing==0.1.0)
+  Using cached pyarrow-24.0.0-cp311-cp311-win_amd64.whl.metadata (3.0 kB)
+Collecting PyYAML<7.0,>=6.0 (from ficc-treasury-clearing-liquidity-stress-testing==0.1.0)
+  Using cached pyyaml-6.0.3-cp311-cp311-win_amd64.whl.metadata (2.4 kB)
+Collecting requests<3.0,>=2.0 (from ficc-treasury-clearing-liquidity-stress-testing==0.1.0)
+  Using cached requests-2.34.2-py3-none-any.whl.metadata (4.8 kB)
+Collecting streamlit<2.0,>=1.60 (from ficc-treasury-clearing-liquidity-stress-testing==0.1.0)
+  Using cached streamlit-1.60.0-py3-none-any.whl.metadata (10 kB)
+Collecting mypy<2.0,>=1.13 (from ficc-treasury-clearing-liquidity-stress-testing==0.1.0)
+  Using cached mypy-1.20.2-cp311-cp311-win_amd64.whl.metadata (2.4 kB)
+Collecting pandas-stubs>=2.2 (from ficc-treasury-clearing-liquidity-stress-testing==0.1.0)
+  Using cached pandas_stubs-3.0.3.260530-py3-none-any.whl.metadata (11 kB)
+Collecting pytest<10.0,>=8.3 (from ficc-treasury-clearing-liquidity-stress-testing==0.1.0)
+  Using cached pytest-9.1.1-py3-none-any.whl.metadata (7.6 kB)
+Collecting pytest-cov<8.0,>=6.0 (from ficc-treasury-clearing-liquidity-stress-testing==0.1.0)
+  Using cached pytest_cov-7.1.0-py3-none-any.whl.metadata (32 kB)
+Collecting ruff<1.0,>=0.9 (from ficc-treasury-clearing-liquidity-stress-testing==0.1.0)
+  Using cached ruff-0.16.0-py3-none-win_amd64.whl.metadata (26 kB)
+Collecting types-PyYAML>=6.0 (from ficc-treasury-clearing-liquidity-stress-testing==0.1.0)
+  Using cached types_pyyaml-6.0.12.20260724-py3-none-any.whl.metadata (1.7 kB)
+Collecting contourpy>=1.0.1 (from matplotlib<4.0,>=3.8->ficc-treasury-clearing-liquidity-stress-testing==0.1.0)
+  Using cached contourpy-1.3.3-cp311-cp311-win_amd64.whl.metadata (5.5 kB)
+Collecting cycler>=0.10 (from matplotlib<4.0,>=3.8->ficc-treasury-clearing-liquidity-stress-testing==0.1.0)
+  Using cached cycler-0.12.1-py3-none-any.whl.metadata (3.8 kB)
+Collecting fonttools>=4.28.2 (from matplotlib<4.0,>=3.8->ficc-treasury-clearing-liquidity-stress-testing==0.1.0)
+  Using cached fonttools-4.63.0-cp311-cp311-win_amd64.whl.metadata (121 kB)
+Collecting kiwisolver>=1.3.1 (from matplotlib<4.0,>=3.8->ficc-treasury-clearing-liquidity-stress-testing==0.1.0)
+  Using cached kiwisolver-1.5.0-cp311-cp311-win_amd64.whl.metadata (5.2 kB)
+Collecting packaging>=20.0 (from matplotlib<4.0,>=3.8->ficc-treasury-clearing-liquidity-stress-testing==0.1.0)
+  Using cached packaging-26.2-py3-none-any.whl.metadata (3.5 kB)
+Collecting pillow>=9 (from matplotlib<4.0,>=3.8->ficc-treasury-clearing-liquidity-stress-testing==0.1.0)
+  Using cached pillow-12.3.0-cp311-cp311-win_amd64.whl.metadata (9.3 kB)
+Collecting pyparsing>=3 (from matplotlib<4.0,>=3.8->ficc-treasury-clearing-liquidity-stress-testing==0.1.0)
+  Using cached pyparsing-3.3.2-py3-none-any.whl.metadata (5.8 kB)
+Collecting python-dateutil>=2.7 (from matplotlib<4.0,>=3.8->ficc-treasury-clearing-liquidity-stress-testing==0.1.0)
+  Using cached python_dateutil-2.9.0.post0-py2.py3-none-any.whl.metadata (8.4 kB)
+Collecting typing_extensions>=4.6.0 (from mypy<2.0,>=1.13->ficc-treasury-clearing-liquidity-stress-testing==0.1.0)
+  Using cached typing_extensions-4.16.0-py3-none-any.whl.metadata (3.3 kB)
+Collecting mypy_extensions>=1.0.0 (from mypy<2.0,>=1.13->ficc-treasury-clearing-liquidity-stress-testing==0.1.0)
+  Using cached mypy_extensions-1.1.0-py3-none-any.whl.metadata (1.1 kB)
+Collecting pathspec>=1.0.0 (from mypy<2.0,>=1.13->ficc-treasury-clearing-liquidity-stress-testing==0.1.0)
+  Using cached pathspec-1.1.1-py3-none-any.whl.metadata (14 kB)
+Collecting librt>=0.8.0 (from mypy<2.0,>=1.13->ficc-treasury-clearing-liquidity-stress-testing==0.1.0)
+  Using cached librt-0.13.0-cp311-cp311-win_amd64.whl.metadata (1.3 kB)
+Collecting tzdata (from pandas<4.0,>=2.2->ficc-treasury-clearing-liquidity-stress-testing==0.1.0)
+  Using cached tzdata-2026.3-py2.py3-none-any.whl.metadata (1.4 kB)
+Collecting colorama>=0.4 (from pytest<10.0,>=8.3->ficc-treasury-clearing-liquidity-stress-testing==0.1.0)
+  Using cached colorama-0.4.6-py2.py3-none-any.whl.metadata (17 kB)
+Collecting iniconfig>=1.0.1 (from pytest<10.0,>=8.3->ficc-treasury-clearing-liquidity-stress-testing==0.1.0)
+  Using cached iniconfig-2.3.0-py3-none-any.whl.metadata (2.5 kB)
+Collecting pluggy<2,>=1.5 (from pytest<10.0,>=8.3->ficc-treasury-clearing-liquidity-stress-testing==0.1.0)
+  Using cached pluggy-1.6.0-py3-none-any.whl.metadata (4.8 kB)
+Collecting pygments>=2.7.2 (from pytest<10.0,>=8.3->ficc-treasury-clearing-liquidity-stress-testing==0.1.0)
+  Using cached pygments-2.20.0-py3-none-any.whl.metadata (2.5 kB)
+Collecting coverage>=7.10.6 (from coverage[toml]>=7.10.6->pytest-cov<8.0,>=6.0->ficc-treasury-clearing-liquidity-stress-testing==0.1.0)
+  Using cached coverage-7.15.2-cp311-cp311-win_amd64.whl.metadata (8.8 kB)
+Collecting charset_normalizer<4,>=2 (from requests<3.0,>=2.0->ficc-treasury-clearing-liquidity-stress-testing==0.1.0)
+  Using cached charset_normalizer-3.4.9-cp311-cp311-win_amd64.whl.metadata (42 kB)
+Collecting idna<4,>=2.5 (from requests<3.0,>=2.0->ficc-treasury-clearing-liquidity-stress-testing==0.1.0)
+  Using cached idna-3.18-py3-none-any.whl.metadata (6.1 kB)
+Collecting urllib3<3,>=1.26 (from requests<3.0,>=2.0->ficc-treasury-clearing-liquidity-stress-testing==0.1.0)
+  Using cached urllib3-2.7.0-py3-none-any.whl.metadata (6.9 kB)
+Collecting certifi>=2023.5.7 (from requests<3.0,>=2.0->ficc-treasury-clearing-liquidity-stress-testing==0.1.0)
+  Using cached certifi-2026.7.22-py3-none-any.whl.metadata (2.5 kB)
+Collecting altair!=5.4.0,!=5.4.1,<7,>=4.0 (from streamlit<2.0,>=1.60->ficc-treasury-clearing-liquidity-stress-testing==0.1.0)
+  Using cached altair-6.2.2-py3-none-any.whl.metadata (11 kB)
+Collecting blinker<2,>=1.5.0 (from streamlit<2.0,>=1.60->ficc-treasury-clearing-liquidity-stress-testing==0.1.0)
+  Using cached blinker-1.9.0-py3-none-any.whl.metadata (1.6 kB)
+Collecting click<9,>=7.0 (from streamlit<2.0,>=1.60->ficc-treasury-clearing-liquidity-stress-testing==0.1.0)
+  Using cached click-8.4.2-py3-none-any.whl.metadata (2.6 kB)
+Collecting gitpython!=3.1.19,<4,>=3.0.7 (from streamlit<2.0,>=1.60->ficc-treasury-clearing-liquidity-stress-testing==0.1.0)
+  Using cached gitpython-3.1.57-py3-none-any.whl.metadata (13 kB)
+Collecting pydeck<1,>=0.8.0b4 (from streamlit<2.0,>=1.60->ficc-treasury-clearing-liquidity-stress-testing==0.1.0)
+  Using cached pydeck-0.9.3-py2.py3-none-any.whl.metadata (4.2 kB)
+Collecting protobuf<8,>=3.20 (from streamlit<2.0,>=1.60->ficc-treasury-clearing-liquidity-stress-testing==0.1.0)
+  Using cached protobuf-7.35.1-cp310-abi3-win_amd64.whl.metadata (595 bytes)
+Collecting tenacity<10,>=8.1.0 (from streamlit<2.0,>=1.60->ficc-treasury-clearing-liquidity-stress-testing==0.1.0)
+  Using cached tenacity-9.1.4-py3-none-any.whl.metadata (1.2 kB)
+Collecting toml<2,>=0.10.1 (from streamlit<2.0,>=1.60->ficc-treasury-clearing-liquidity-stress-testing==0.1.0)
+  Using cached toml-0.10.2-py2.py3-none-any.whl.metadata (7.1 kB)
+Collecting starlette<2,>=0.40.0 (from streamlit<2.0,>=1.60->ficc-treasury-clearing-liquidity-stress-testing==0.1.0)
+  Using cached starlette-1.3.1-py3-none-any.whl.metadata (6.4 kB)
+Collecting uvicorn<1,>=0.30.0 (from streamlit<2.0,>=1.60->ficc-treasury-clearing-liquidity-stress-testing==0.1.0)
+  Using cached uvicorn-0.51.0-py3-none-any.whl.metadata (6.6 kB)
+Collecting httptools<1,>=0.6.3 (from streamlit<2.0,>=1.60->ficc-treasury-clearing-liquidity-stress-testing==0.1.0)
+  Using cached httptools-0.8.0-cp311-cp311-win_amd64.whl.metadata (3.7 kB)
+Collecting anyio<5,>=4.0.0 (from streamlit<2.0,>=1.60->ficc-treasury-clearing-liquidity-stress-testing==0.1.0)
+  Using cached anyio-4.14.2-py3-none-any.whl.metadata (4.6 kB)
+Collecting python-multipart<1,>=0.0.10 (from streamlit<2.0,>=1.60->ficc-treasury-clearing-liquidity-stress-testing==0.1.0)
+  Using cached python_multipart-0.0.32-py3-none-any.whl.metadata (2.1 kB)
+Collecting websockets<17,>=12.0.0 (from streamlit<2.0,>=1.60->ficc-treasury-clearing-liquidity-stress-testing==0.1.0)
+  Using cached websockets-16.1.1-cp311-cp311-win_amd64.whl.metadata (7.0 kB)
+Collecting itsdangerous<3,>=2.1.2 (from streamlit<2.0,>=1.60->ficc-treasury-clearing-liquidity-stress-testing==0.1.0)
+  Using cached itsdangerous-2.2.0-py3-none-any.whl.metadata (1.9 kB)
+Collecting watchdog<7,>=2.1.5 (from streamlit<2.0,>=1.60->ficc-treasury-clearing-liquidity-stress-testing==0.1.0)
+  Using cached watchdog-6.0.0-py3-none-win_amd64.whl.metadata (44 kB)
+Collecting jinja2 (from altair!=5.4.0,!=5.4.1,<7,>=4.0->streamlit<2.0,>=1.60->ficc-treasury-clearing-liquidity-stress-testing==0.1.0)
+  Using cached jinja2-3.1.6-py3-none-any.whl.metadata (2.9 kB)
+Collecting jsonschema>=3.0 (from altair!=5.4.0,!=5.4.1,<7,>=4.0->streamlit<2.0,>=1.60->ficc-treasury-clearing-liquidity-stress-testing==0.1.0)
+  Using cached jsonschema-4.26.0-py3-none-any.whl.metadata (7.6 kB)
+Collecting narwhals>=2.4.0 (from altair!=5.4.0,!=5.4.1,<7,>=4.0->streamlit<2.0,>=1.60->ficc-treasury-clearing-liquidity-stress-testing==0.1.0)
+  Using cached narwhals-2.24.0-py3-none-any.whl.metadata (15 kB)
+Collecting gitdb<5,>=4.0.1 (from gitpython!=3.1.19,<4,>=3.0.7->streamlit<2.0,>=1.60->ficc-treasury-clearing-liquidity-stress-testing==0.1.0)
+  Using cached gitdb-4.0.12-py3-none-any.whl.metadata (1.2 kB)
+Collecting smmap<6,>=3.0.1 (from gitdb<5,>=4.0.1->gitpython!=3.1.19,<4,>=3.0.7->streamlit<2.0,>=1.60->ficc-treasury-clearing-liquidity-stress-testing==0.1.0)
+  Using cached smmap-5.0.3-py3-none-any.whl.metadata (4.6 kB)
+Collecting h11>=0.8 (from uvicorn<1,>=0.30.0->streamlit<2.0,>=1.60->ficc-treasury-clearing-liquidity-stress-testing==0.1.0)
+  Using cached h11-0.16.0-py3-none-any.whl.metadata (8.3 kB)
+Collecting MarkupSafe>=2.0 (from jinja2->altair!=5.4.0,!=5.4.1,<7,>=4.0->streamlit<2.0,>=1.60->ficc-treasury-clearing-liquidity-stress-testing==0.1.0)
+  Using cached markupsafe-3.0.3-cp311-cp311-win_amd64.whl.metadata (2.8 kB)
+Collecting attrs>=22.2.0 (from jsonschema>=3.0->altair!=5.4.0,!=5.4.1,<7,>=4.0->streamlit<2.0,>=1.60->ficc-treasury-clearing-liquidity-stress-testing==0.1.0)
+  Using cached attrs-26.1.0-py3-none-any.whl.metadata (8.8 kB)
+Collecting jsonschema-specifications>=2023.03.6 (from jsonschema>=3.0->altair!=5.4.0,!=5.4.1,<7,>=4.0->streamlit<2.0,>=1.60->ficc-treasury-clearing-liquidity-stress-testing==0.1.0)
+  Using cached jsonschema_specifications-2025.9.1-py3-none-any.whl.metadata (2.9 kB)
+Collecting referencing>=0.28.4 (from jsonschema>=3.0->altair!=5.4.0,!=5.4.1,<7,>=4.0->streamlit<2.0,>=1.60->ficc-treasury-clearing-liquidity-stress-testing==0.1.0)
+  Using cached referencing-0.37.0-py3-none-any.whl.metadata (2.8 kB)
+Collecting rpds-py>=0.25.0 (from jsonschema>=3.0->altair!=5.4.0,!=5.4.1,<7,>=4.0->streamlit<2.0,>=1.60->ficc-treasury-clearing-liquidity-stress-testing==0.1.0)
+  Using cached rpds_py-2026.6.3-cp311-cp311-win_amd64.whl.metadata (4.2 kB)
+Collecting six>=1.5 (from python-dateutil>=2.7->matplotlib<4.0,>=3.8->ficc-treasury-clearing-liquidity-stress-testing==0.1.0)
+  Using cached six-1.17.0-py2.py3-none-any.whl.metadata (1.7 kB)
+Using cached duckdb-1.5.5-cp311-cp311-win_amd64.whl (13.2 MB)
+Using cached matplotlib-3.11.1-cp311-cp311-win_amd64.whl (9.3 MB)
+Using cached mypy-1.20.2-cp311-cp311-win_amd64.whl (10.8 MB)
+Using cached numpy-2.4.6-cp311-cp311-win_amd64.whl (12.6 MB)
+Using cached pandas-3.0.5-cp311-cp311-win_amd64.whl (10.0 MB)
+Using cached pyarrow-24.0.0-cp311-cp311-win_amd64.whl (27.3 MB)
+Using cached pytest-9.1.1-py3-none-any.whl (386 kB)
+Using cached pluggy-1.6.0-py3-none-any.whl (20 kB)
+Using cached pytest_cov-7.1.0-py3-none-any.whl (22 kB)
+Using cached pyyaml-6.0.3-cp311-cp311-win_amd64.whl (158 kB)
+Using cached requests-2.34.2-py3-none-any.whl (73 kB)
+Using cached charset_normalizer-3.4.9-cp311-cp311-win_amd64.whl (161 kB)
+Using cached idna-3.18-py3-none-any.whl (65 kB)
+Using cached ruff-0.16.0-py3-none-win_amd64.whl (11.9 MB)
+Using cached streamlit-1.60.0-py3-none-any.whl (10.4 MB)
+Using cached altair-6.2.2-py3-none-any.whl (797 kB)
+Using cached anyio-4.14.2-py3-none-any.whl (125 kB)
+Using cached blinker-1.9.0-py3-none-any.whl (8.5 kB)
+Using cached click-8.4.2-py3-none-any.whl (119 kB)
+Using cached gitpython-3.1.57-py3-none-any.whl (217 kB)
+Using cached gitdb-4.0.12-py3-none-any.whl (62 kB)
+Using cached httptools-0.8.0-cp311-cp311-win_amd64.whl (90 kB)
+Using cached itsdangerous-2.2.0-py3-none-any.whl (16 kB)
+Using cached pillow-12.3.0-cp311-cp311-win_amd64.whl (7.2 MB)
+Using cached protobuf-7.35.1-cp310-abi3-win_amd64.whl (439 kB)
+Using cached pydeck-0.9.3-py2.py3-none-any.whl (11.4 MB)
+Using cached python_multipart-0.0.32-py3-none-any.whl (30 kB)
+Using cached smmap-5.0.3-py3-none-any.whl (24 kB)
+Using cached starlette-1.3.1-py3-none-any.whl (73 kB)
+Using cached tenacity-9.1.4-py3-none-any.whl (28 kB)
+Using cached toml-0.10.2-py2.py3-none-any.whl (16 kB)
+Using cached typing_extensions-4.16.0-py3-none-any.whl (45 kB)
+Using cached urllib3-2.7.0-py3-none-any.whl (131 kB)
+Using cached uvicorn-0.51.0-py3-none-any.whl (73 kB)
+Using cached watchdog-6.0.0-py3-none-win_amd64.whl (79 kB)
+Using cached websockets-16.1.1-cp311-cp311-win_amd64.whl (180 kB)
+Using cached certifi-2026.7.22-py3-none-any.whl (136 kB)
+Using cached colorama-0.4.6-py2.py3-none-any.whl (25 kB)
+Using cached contourpy-1.3.3-cp311-cp311-win_amd64.whl (225 kB)
+Using cached coverage-7.15.2-cp311-cp311-win_amd64.whl (223 kB)
+Using cached cycler-0.12.1-py3-none-any.whl (8.3 kB)
+Using cached fonttools-4.63.0-cp311-cp311-win_amd64.whl (2.4 MB)
+Using cached h11-0.16.0-py3-none-any.whl (37 kB)
+Using cached iniconfig-2.3.0-py3-none-any.whl (7.5 kB)
+Using cached jinja2-3.1.6-py3-none-any.whl (134 kB)
+Using cached jsonschema-4.26.0-py3-none-any.whl (90 kB)
+Using cached attrs-26.1.0-py3-none-any.whl (67 kB)
+Using cached jsonschema_specifications-2025.9.1-py3-none-any.whl (18 kB)
+Using cached kiwisolver-1.5.0-cp311-cp311-win_amd64.whl (73 kB)
+Using cached librt-0.13.0-cp311-cp311-win_amd64.whl (125 kB)
+Using cached markupsafe-3.0.3-cp311-cp311-win_amd64.whl (15 kB)
+Using cached mypy_extensions-1.1.0-py3-none-any.whl (5.0 kB)
+Using cached narwhals-2.24.0-py3-none-any.whl (461 kB)
+Using cached packaging-26.2-py3-none-any.whl (100 kB)
+Using cached pandas_stubs-3.0.3.260530-py3-none-any.whl (173 kB)
+Using cached pathspec-1.1.1-py3-none-any.whl (57 kB)
+Using cached pygments-2.20.0-py3-none-any.whl (1.2 MB)
+Using cached pyparsing-3.3.2-py3-none-any.whl (122 kB)
+Using cached python_dateutil-2.9.0.post0-py2.py3-none-any.whl (229 kB)
+Using cached referencing-0.37.0-py3-none-any.whl (26 kB)
+Using cached rpds_py-2026.6.3-cp311-cp311-win_amd64.whl (223 kB)
+Using cached six-1.17.0-py2.py3-none-any.whl (11 kB)
+Using cached types_pyyaml-6.0.12.20260724-py3-none-any.whl (20 kB)
+Using cached tzdata-2026.3-py2.py3-none-any.whl (348 kB)
+Building wheels for collected packages: ficc-treasury-clearing-liquidity-stress-testing
+  Building editable for ficc-treasury-clearing-liquidity-stress-testing (pyproject.toml): started
+  Building editable for ficc-treasury-clearing-liquidity-stress-testing (pyproject.toml): finished with status 'done'
+  Created wheel for ficc-treasury-clearing-liquidity-stress-testing: filename=ficc_treasury_clearing_liquidity_stress_testing-0.1.0-0.editable-py3-none-any.whl size=5517 sha256=87e0f1b2bfbd74e467add65ec7eb498942178db0a0c1aa84fe25697b9770f6da
+  Stored in directory: C:\Users\nejat\AppData\Local\Temp\pip-ephem-wheel-cache-n3mlw0yw\wheels\26\d6\d2\f46dd89543c620bcfd5aac41b8ddfff0522e95ae15017be22b
+Successfully built ficc-treasury-clearing-liquidity-stress-testing
+Installing collected packages: websockets, watchdog, urllib3, tzdata, typing_extensions, types-PyYAML, toml, tenacity, smmap, six, ruff, rpds-py, PyYAML, python-multipart, pyparsing, pygments, pyarrow, protobuf, pluggy, pillow, pathspec, packaging, numpy, narwhals, mypy_extensions, MarkupSafe, librt, kiwisolver, itsdangerous, iniconfig, idna, httptools, h11, fonttools, duckdb, cycler, coverage, colorama, charset_normalizer, certifi, blinker, attrs, requests, referencing, python-dateutil, pytest, pandas-stubs, mypy, jinja2, gitdb, contourpy, click, anyio, uvicorn, starlette, pytest-cov, pydeck, pandas, matplotlib, jsonschema-specifications, gitpython, jsonschema, altair, streamlit, ficc-treasury-clearing-liquidity-stress-testing
+
+Successfully installed MarkupSafe-3.0.3 PyYAML-6.0.3 altair-6.2.2 anyio-4.14.2 attrs-26.1.0 blinker-1.9.0 certifi-2026.7.22 charset_normalizer-3.4.9 click-8.4.2 colorama-0.4.6 contourpy-1.3.3 coverage-7.15.2 cycler-0.12.1 duckdb-1.5.5 ficc-treasury-clearing-liquidity-stress-testing-0.1.0 fonttools-4.63.0 gitdb-4.0.12 gitpython-3.1.57 h11-0.16.0 httptools-0.8.0 idna-3.18 iniconfig-2.3.0 itsdangerous-2.2.0 jinja2-3.1.6 jsonschema-4.26.0 jsonschema-specifications-2025.9.1 kiwisolver-1.5.0 librt-0.13.0 matplotlib-3.11.1 mypy-1.20.2 mypy_extensions-1.1.0 narwhals-2.24.0 numpy-2.4.6 packaging-26.2 pandas-3.0.5 pandas-stubs-3.0.3.260530 pathspec-1.1.1 pillow-12.3.0 pluggy-1.6.0 protobuf-7.35.1 pyarrow-24.0.0 pydeck-0.9.3 pygments-2.20.0 pyparsing-3.3.2 pytest-9.1.1 pytest-cov-7.1.0 python-dateutil-2.9.0.post0 python-multipart-0.0.32 referencing-0.37.0 requests-2.34.2 rpds-py-2026.6.3 ruff-0.16.0 six-1.17.0 smmap-5.0.3 starlette-1.3.1 streamlit-1.60.0 tenacity-9.1.4 toml-0.10.2 types-PyYAML-6.0.12.20260724 typing_extensions-4.16.0 tzdata-2026.3 urllib3-2.7.0 uvicorn-0.51.0 watchdog-6.0.0 websockets-16.1.1
+COMMAND: C:\Users\nejat\AppData\Local\Temp\ficc_section35_20260727_015156\repo\.venv\Scripts\python.exe -c import ficc_liquidity; print('ficc_liquidity import PASS')
+EXIT: 0
+ficc_liquidity import PASS
+COMMAND: C:\Users\nejat\AppData\Local\Temp\ficc_section35_20260727_015156\repo\.venv\Scripts\python.exe -m pytest -q
+EXIT: 0
+........................................................................ [ 15%]
+........................................................................ [ 30%]
+........................................................................ [ 45%]
+........................................................................ [ 60%]
+........................................................................ [ 76%]
+........................................................................ [ 91%]
+.........................................                                [100%]
+============================== warnings summary ===============================
+tests/test_monthly_monitoring.py::test_unavailable_inputs_schema_and_parameter_change_branches
+  C:\Users\nejat\AppData\Local\Temp\ficc_section35_20260727_015156\repo\src\ficc_liquidity\monitoring\monthly.py:613: Pandas4Warning: Timestamp.utcnow is deprecated and will be removed in a future version. Use Timestamp.now('UTC') instead.
+    return pd.Timestamp.utcnow().date().isoformat()
+
+-- Docs: https://docs.pytest.org/en/stable/how-to/capture-warnings.html
+=============================== tests coverage ================================
+_______________ coverage: platform win32, python 3.11.1-final-0 _______________
+
+Name                                                          Stmts   Miss Branch BrPart  Cover   Missing
+---------------------------------------------------------------------------------------------------------
+src\ficc_liquidity\__init__.py                                    3      0      0      0   100%
+src\ficc_liquidity\__main__.py                                    2      0      0      0   100%
+src\ficc_liquidity\analysis\__init__.py                           0      0      0      0   100%
+src\ficc_liquidity\analysis\historical_stress.py                264     11     80     14    93%   175->178, 179->182, 183->186, 192, 215, 243, 274, 291, 297, 330, 420, 425, 436, 485
+src\ficc_liquidity\cli.py                                        47      0      6      0   100%
+src\ficc_liquidity\config.py                                     53      0     10      0   100%
+src\ficc_liquidity\dashboard\__init__.py                          2      0      0      0   100%
+src\ficc_liquidity\dashboard\core.py                            130      9     58      6    91%   124-126, 147, 188, 196, 207->204, 215-216, 505
+src\ficc_liquidity\data\__init__.py                               0      0      0      0   100%
+src\ficc_liquidity\data\_fed_common.py                          111      0     32      0   100%
+src\ficc_liquidity\data\fr2004.py                               265     46     62     17    79%   142-143, 154-155, 170, 220-221, 225, 232, 234, 238-239, 242, 244-245, 255, 261, 266->268, 292-314, 327, 333, 338, 343->342, 348, 356-360, 363, 380-383, 421, 439-440, 451-452, 563-576
+src\ficc_liquidity\data\h15.py                                   84      6     24      4    91%   54, 57-58, 71, 73, 75
+src\ficc_liquidity\data\h41.py                                   86      8     26      6    88%   35, 40, 42, 50, 53-54, 67, 69
+src\ficc_liquidity\data\sofr.py                                 103      0     42      1    99%   64->69
+src\ficc_liquidity\database.py                                   13      0      2      0   100%
+src\ficc_liquidity\liquidity\__init__.py                          2      0      0      0   100%
+src\ficc_liquidity\liquidity\baseline_cashflow.py               301     19     86     19    90%   80, 87, 117, 133, 143, 147, 208, 210, 212, 220, 224, 231, 234, 254, 279, 285, 299, 628, 763
+src\ficc_liquidity\logging_config.py                             24      0      4      0   100%
+src\ficc_liquidity\monitoring\__init__.py                         3      0      0      0   100%
+src\ficc_liquidity\monitoring\governance.py                     246      6     72      6    96%   283->286, 298, 381, 463-465, 564
+src\ficc_liquidity\monitoring\monthly.py                        365     30     88     18    88%   234, 276, 321, 329, 386->395, 428, 471, 479, 513, 530, 566, 578, 612, 641, 646, 662, 749-752, 756-760, 845, 849, 875-877, 895
+src\ficc_liquidity\reproducibility.py                            11      0      2      0   100%
+src\ficc_liquidity\scenarios\__init__.py                          0      0      0      0   100%
+src\ficc_liquidity\scenarios\cover_analysis.py                  214      8     74      8    94%   143, 169, 181, 188, 191, 244, 463, 470
+src\ficc_liquidity\scenarios\historical_scenarios.py            355     35    122     34    85%   86, 92-96, 106, 113, 116, 126, 129, 133, 138, 160, 170, 178, 225->228, 259->261, 262->264, 265->267, 272, 307, 309, 320, 324, 330, 350, 357, 368, 400, 412, 420, 466, 472, 475, 490, 578, 623, 676
+src\ficc_liquidity\scenarios\hypothetical_scenarios.py          308     30    130     25    87%   109, 116, 119, 126, 137-141, 153, 160, 211, 217, 220, 238, 282, 321, 325, 337, 359, 367, 384, 412, 416, 455, 470, 496, 537, 574, 728
+src\ficc_liquidity\scenarios\reverse_stress.py                  287     22     90     24    88%   81, 88, 91, 98, 115->117, 131, 140, 142, 144, 150, 155, 174, 176, 187, 230, 247, 291, 293, 306, 563, 586, 588, 590, 737->751
+src\ficc_liquidity\stress\__init__.py                             5      0      0      0   100%
+src\ficc_liquidity\stress\collateral_haircut_stress.py          368     31    128     31    88%   83, 90, 93, 100, 114-115, 121, 126, 148, 158, 175, 185, 189, 197, 206, 231, 239, 244, 248, 256, 271, 289->291, 300, 303, 391, 394->406, 397, 442, 481, 486, 690, 880-881
+src\ficc_liquidity\stress\integrated_stress.py                  358     22    134     23    91%   92, 95, 102, 133, 135, 155, 166, 171, 184, 196, 211, 228, 259->261, 281, 284, 303, 308, 322, 437, 445, 473, 516, 527
+src\ficc_liquidity\stress\repo_funding_stress.py                335      8    122      8    96%   78, 224, 234, 332, 340, 358, 375, 460
+src\ficc_liquidity\stress\settlement_fail_stress.py             354     26    138     27    89%   77, 84, 87, 94, 181, 185, 200, 202, 222, 224, 250, 265, 282->284, 293, 296, 315, 320, 327, 329, 358, 362->373, 365, 426, 505, 511, 601, 799-800
+src\ficc_liquidity\stress\treasury_yield_shock.py               259     58    108     32    71%   64-84, 104, 112, 117, 126, 132, 140, 147-152, 166, 169->178, 181, 192-193, 196, 207, 210, 212, 214, 244, 255, 264-277, 288, 296, 305, 310, 324, 332, 337, 343, 389, 418, 425, 462, 476
+src\ficc_liquidity\synthetic\__init__.py                          2      0      0      0   100%
+src\ficc_liquidity\synthetic\default_sets.py                    337     40    138     27    85%   58, 64, 75, 80, 86, 95, 101->83, 108-111, 118, 146, 172, 176, 191, 201->204, 296, 300, 307, 324, 345, 425, 434, 441, 530, 759-762, 867, 870-901, 905
+src\ficc_liquidity\synthetic\generate_members.py                145      2     20      2    98%   59, 394
+src\ficc_liquidity\synthetic\member_schema.py                   124     15     58     15    84%   20, 119, 125, 127, 132, 136, 141, 146, 149, 151, 155, 164, 220, 223, 231
+src\ficc_liquidity\validation\__init__.py                         0      0      0      0   100%
+src\ficc_liquidity\validation\conceptual_soundness.py           252      9     80      8    95%   185, 188-189, 196->195, 508, 510, 512, 572, 642, 647
+src\ficc_liquidity\validation\data_quality.py                   676    103    246     56    81%   238, 241, 266-275, 281-286, 294-295, 319, 320->305, 331-332, 351-352, 363, 372, 373->375, 387, 397, 399->389, 414-422, 447, 484-485, 527, 529, 544, 575->583, 602, 618, 626-627, 649, 681, 706-708, 724-734, 777, 794->791, 840->829, 889-894, 897-901, 930-942, 965-975, 979-990, 1008, 1026, 1030, 1053-1064, 1094, 1113, 1140-1152, 1155->1137, 1269, 1314, 1317, 1324, 1361, 1373, 1409, 1440-1448, 1487, 1500, 1525->1570, 1600, 1604, 1609-1610, 1628
+src\ficc_liquidity\validation\independent_implementation.py     286    110     74     10    58%   96, 104-105, 112-113, 127-132, 218-222, 254-258, 321, 410, 413, 523-525, 561-573, 577-580, 584-587, 591-592, 602-738, 742-760, 764-771, 775
+src\ficc_liquidity\validation\outcomes_benchmark.py             552     60    190     29    85%   264-271, 278-294, 315, 318, 324, 331-334, 337, 348, 352, 364, 385-390, 402->404, 408->412, 413, 438, 444-464, 466, 663, 867->864, 876, 947, 993, 1048, 1051, 1105, 1108, 1113, 1255, 1283, 1346->1351
+src\ficc_liquidity\validation\sensitivity_analysis.py           272     35     90     25    83%   60, 65, 68, 70, 79, 82, 93, 97, 100, 108, 170, 176, 198, 200, 246, 248, 269, 330, 396, 480-486, 540, 548, 550, 558, 630-637, 641-644, 648
+src\ficc_liquidity\validation\uncertainty_limitations.py        266      1     56      2    99%   638->654, 741
+---------------------------------------------------------------------------------------------------------
+TOTAL                                                          7870    750   2592    477    87%
+Coverage XML written to file coverage.xml
+Required test coverage of 85% reached. Total coverage: 87.22%
+473 passed, 1 warning in 271.46s (0:04:31)
+COMMAND: C:\Users\nejat\AppData\Local\Temp\ficc_section35_20260727_015156\repo\.venv\Scripts\python.exe -m ruff check .
+EXIT: 0
+All checks passed!
+COMMAND: C:\Users\nejat\AppData\Local\Temp\ficc_section35_20260727_015156\repo\.venv\Scripts\python.exe -m mypy src tests
+EXIT: 0
+Success: no issues found in 84 source files
+COMMAND: C:\Users\nejat\AppData\Local\Temp\ficc_section35_20260727_015156\repo\.venv\Scripts\python.exe -m pip check
+EXIT: 0
+No broken requirements found.
+SECURITY TOOL INSTALL EXIT: 0
+Collecting pip-audit
+  Using cached pip_audit-2.10.1-py3-none-any.whl.metadata (28 kB)
+Collecting bandit
+  Using cached bandit-1.9.4-py3-none-any.whl.metadata (7.1 kB)
+Collecting CacheControl>=0.13.0 (from CacheControl[filecache]>=0.13.0->pip-audit)
+  Using cached cachecontrol-0.14.4-py3-none-any.whl.metadata (3.1 kB)
+Collecting cyclonedx-python-lib<12,>=5 (from pip-audit)
+  Using cached cyclonedx_python_lib-11.11.0-py3-none-any.whl.metadata (6.9 kB)
+Requirement already satisfied: packaging>=23.0.0 in .\.venv\Lib\site-packages (from pip-audit) (26.2)
+Collecting pip-api>=0.0.28 (from pip-audit)
+  Using cached pip_api-0.0.34-py3-none-any.whl.metadata (6.6 kB)
+Collecting pip-requirements-parser>=32.0.0 (from pip-audit)
+  Using cached pip_requirements_parser-32.0.1-py3-none-any.whl.metadata (9.3 kB)
+Requirement already satisfied: requests>=2.31.0 in .\.venv\Lib\site-packages (from pip-audit) (2.34.2)
+Collecting rich>=12.4 (from pip-audit)
+  Using cached rich-15.0.0-py3-none-any.whl.metadata (18 kB)
+Collecting tomli>=2.2.1 (from pip-audit)
+  Using cached tomli-2.4.1-cp311-cp311-win_amd64.whl.metadata (10 kB)
+Collecting tomli-w>=1.2.0 (from pip-audit)
+  Using cached tomli_w-1.2.0-py3-none-any.whl.metadata (5.7 kB)
+Collecting platformdirs>=4.2.0 (from pip-audit)
+  Using cached platformdirs-4.11.0-py3-none-any.whl.metadata (5.5 kB)
+Collecting license-expression<31,>=30 (from cyclonedx-python-lib<12,>=5->pip-audit)
+  Using cached license_expression-30.4.4-py3-none-any.whl.metadata (11 kB)
+Collecting packageurl-python<2,>=0.11 (from cyclonedx-python-lib<12,>=5->pip-audit)
+  Using cached packageurl_python-0.17.6-py3-none-any.whl.metadata (5.1 kB)
+Collecting py-serializable<3.0.0,>=2.1.0 (from cyclonedx-python-lib<12,>=5->pip-audit)
+  Using cached py_serializable-2.1.0-py3-none-any.whl.metadata (4.3 kB)
+Collecting sortedcontainers<3.0.0,>=2.4.0 (from cyclonedx-python-lib<12,>=5->pip-audit)
+  Using cached sortedcontainers-2.4.0-py2.py3-none-any.whl.metadata (10 kB)
+Requirement already satisfied: typing_extensions<5.0,>=4.6 in .\.venv\Lib\site-packages (from cyclonedx-python-lib<12,>=5->pip-audit) (4.16.0)
+Collecting boolean.py>=4.0 (from license-expression<31,>=30->cyclonedx-python-lib<12,>=5->pip-audit)
+  Using cached boolean_py-5.0-py3-none-any.whl.metadata (2.3 kB)
+Collecting defusedxml<0.8.0,>=0.7.1 (from py-serializable<3.0.0,>=2.1.0->cyclonedx-python-lib<12,>=5->pip-audit)
+  Using cached defusedxml-0.7.1-py2.py3-none-any.whl.metadata (32 kB)
+Requirement already satisfied: PyYAML>=5.3.1 in .\.venv\Lib\site-packages (from bandit) (6.0.3)
+Collecting stevedore>=1.20.0 (from bandit)
+  Using cached stevedore-5.9.0-py3-none-any.whl.metadata (2.3 kB)
+Requirement already satisfied: colorama>=0.3.9 in .\.venv\Lib\site-packages (from bandit) (0.4.6)
+Collecting msgpack<2.0.0,>=0.5.2 (from CacheControl>=0.13.0->CacheControl[filecache]>=0.13.0->pip-audit)
+  Using cached msgpack-1.2.1-cp311-cp311-win_amd64.whl.metadata (8.5 kB)
+Collecting filelock>=3.8.0 (from CacheControl[filecache]>=0.13.0->pip-audit)
+  Using cached filelock-3.32.0-py3-none-any.whl.metadata (2.0 kB)
+Requirement already satisfied: pip in .\.venv\Lib\site-packages (from pip-api>=0.0.28->pip-audit) (26.1.2)
+Requirement already satisfied: pyparsing in .\.venv\Lib\site-packages (from pip-requirements-parser>=32.0.0->pip-audit) (3.3.2)
+Requirement already satisfied: charset_normalizer<4,>=2 in .\.venv\Lib\site-packages (from requests>=2.31.0->pip-audit) (3.4.9)
+Requirement already satisfied: idna<4,>=2.5 in .\.venv\Lib\site-packages (from requests>=2.31.0->pip-audit) (3.18)
+Requirement already satisfied: urllib3<3,>=1.26 in .\.venv\Lib\site-packages (from requests>=2.31.0->pip-audit) (2.7.0)
+Requirement already satisfied: certifi>=2023.5.7 in .\.venv\Lib\site-packages (from requests>=2.31.0->pip-audit) (2026.7.22)
+Collecting markdown-it-py>=2.2.0 (from rich>=12.4->pip-audit)
+  Using cached markdown_it_py-4.2.0-py3-none-any.whl.metadata (7.4 kB)
+Requirement already satisfied: pygments<3.0.0,>=2.13.0 in .\.venv\Lib\site-packages (from rich>=12.4->pip-audit) (2.20.0)
+Collecting mdurl~=0.1 (from markdown-it-py>=2.2.0->rich>=12.4->pip-audit)
+  Using cached mdurl-0.1.2-py3-none-any.whl.metadata (1.6 kB)
+Using cached pip_audit-2.10.1-py3-none-any.whl (62 kB)
+Using cached cyclonedx_python_lib-11.11.0-py3-none-any.whl (528 kB)
+Using cached license_expression-30.4.4-py3-none-any.whl (120 kB)
+Using cached packageurl_python-0.17.6-py3-none-any.whl (36 kB)
+Using cached py_serializable-2.1.0-py3-none-any.whl (23 kB)
+Using cached defusedxml-0.7.1-py2.py3-none-any.whl (25 kB)
+Using cached sortedcontainers-2.4.0-py2.py3-none-any.whl (29 kB)
+Using cached bandit-1.9.4-py3-none-any.whl (134 kB)
+Using cached boolean_py-5.0-py3-none-any.whl (26 kB)
+Using cached cachecontrol-0.14.4-py3-none-any.whl (22 kB)
+Using cached msgpack-1.2.1-cp311-cp311-win_amd64.whl (70 kB)
+Using cached filelock-3.32.0-py3-none-any.whl (97 kB)
+Using cached pip_api-0.0.34-py3-none-any.whl (120 kB)
+Using cached pip_requirements_parser-32.0.1-py3-none-any.whl (35 kB)
+Using cached platformdirs-4.11.0-py3-none-any.whl (23 kB)
+Using cached rich-15.0.0-py3-none-any.whl (310 kB)
+Using cached markdown_it_py-4.2.0-py3-none-any.whl (91 kB)
+Using cached mdurl-0.1.2-py3-none-any.whl (10.0 kB)
+Using cached stevedore-5.9.0-py3-none-any.whl (54 kB)
+Using cached tomli-2.4.1-cp311-cp311-win_amd64.whl (108 kB)
+Using cached tomli_w-1.2.0-py3-none-any.whl (6.7 kB)
+Installing collected packages: sortedcontainers, boolean.py, tomli-w, tomli, stevedore, platformdirs, pip-requirements-parser, pip-api, packageurl-python, msgpack, mdurl, license-expression, filelock, defusedxml, py-serializable, markdown-it-py, CacheControl, rich, cyclonedx-python-lib, pip-audit, bandit
+
+Successfully installed CacheControl-0.14.4 bandit-1.9.4 boolean.py-5.0 cyclonedx-python-lib-11.11.0 defusedxml-0.7.1 filelock-3.32.0 license-expression-30.4.4 markdown-it-py-4.2.0 mdurl-0.1.2 msgpack-1.2.1 packageurl-python-0.17.6 pip-api-0.0.34 pip-audit-2.10.1 pip-requirements-parser-32.0.1 platformdirs-4.11.0 py-serializable-2.1.0 rich-15.0.0 sortedcontainers-2.4.0 stevedore-5.9.0 tomli-2.4.1 tomli-w-1.2.0
+PIP-AUDIT EXIT: 1
+WARNING:pip_audit._dependency_source.pip:pip-audit will run pip against C:\Users\nejat\AppData\Local\Temp\ficc_section35_20260727_015156\repo\.venv\Scripts\python.exe, but you have a virtual environment loaded at C:\Users\nejat\OneDrive\Desktop\UN\Skills\GitHub 2026\ficc-treasury-clearing-liquidity-stress-testing\.venv. This may result in unintuitive audits, since your local environment will not be audited. You can forcefully override this behavior by setting PIPAPI_PYTHON_LOCATION to the location of your virtual environment's Python interpreter.
+Found 7 known vulnerabilities in 1 package
+Name       Version ID               Fix Versions
+---------- ------- ---------------- ------------
+setuptools 65.5.0  PYSEC-2022-43012 65.5.1
+setuptools 65.5.0  PYSEC-2022-43012 65.5.1
+setuptools 65.5.0  PYSEC-2025-49    78.1.1
+setuptools 65.5.0  PYSEC-2025-49    78.1.1
+setuptools 65.5.0  PYSEC-2026-1918  70.0.0
+setuptools 65.5.0  PYSEC-2026-3447  83.0.0
+setuptools 65.5.0  PYSEC-2026-3447  83.0.0
+
+Name                                            Skip Reason
+----------------------------------------------- --------------------------------------------------------------------------------------------------------------
+ficc-treasury-clearing-liquidity-stress-testing Dependency not found on PyPI and could not be audited: ficc-treasury-clearing-liquidity-stress-testing (0.1.0)
+BANDIT EXIT: 1
+Run started:2026-07-27 02:06:57.213597+00:00
+
+Test results:
+>> Issue: [B310:blacklist] Audit url open for permitted schemes. Allowing use of file:/ or custom schemes is often unexpected.
+   Severity: Medium   Confidence: High
+   CWE: CWE-22 (https://cwe.mitre.org/data/definitions/22.html)
+   More Info: https://bandit.readthedocs.io/en/1.9.4/blacklists/blacklist_calls.html#b310-urllib-urlopen
+   Location: src\ficc_liquidity\data\_fed_common.py:93:17
+92	            )
+93	            with urlopen(request, timeout=timeout_seconds) as response:
+94	                payload = bytes(response.read())
+
+--------------------------------------------------
+
+Code scanned:
+	Total lines of code: 19784
+	Total lines skipped (#nosec): 0
+	Total potential issues skipped due to specifically being disabled (e.g., #nosec BXXX): 0
+
+Run metrics:
+	Total issues (by severity):
+		Undefined: 0
+		Low: 13
+		Medium: 1
+		High: 0
+	Total issues (by confidence):
+		Undefined: 0
+		Low: 0
+		Medium: 2
+		High: 12
+Files skipped (0):
