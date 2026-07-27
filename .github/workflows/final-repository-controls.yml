@@ -1,0 +1,97 @@
+name: Final Repository Controls
+
+on:
+  pull_request:
+    branches: [main]
+  push:
+    branches: [main]
+  workflow_dispatch:
+
+permissions:
+  contents: read
+  security-events: write
+
+jobs:
+  quality-security:
+    name: section35-quality-security
+    runs-on: ubuntu-latest
+    steps:
+      - name: Checkout full history
+        uses: actions/checkout@v4
+        with:
+          fetch-depth: 0
+
+      - name: Set up Python 3.11
+        uses: actions/setup-python@v5
+        with:
+          python-version: "3.11"
+          cache: pip
+
+      - name: Install project and audit tools
+        run: |
+          python -m pip install --upgrade pip
+          python -m pip install -e ".[dev]"
+          python -m pip install pip-audit bandit
+
+      - name: Unit tests
+        run: python -m pytest -q
+
+      - name: Ruff validation
+        run: python -m ruff check .
+
+      - name: Mypy validation
+        run: python -m mypy src tests
+
+      - name: Installed-package consistency
+        run: python -m pip check
+
+      - name: Dependency vulnerability audit
+        run: python -m pip_audit
+
+      - name: Static security analysis
+        run: python -m bandit -r src -q -ll
+
+  repository-controls:
+    name: section35-repository-controls
+    runs-on: ubuntu-latest
+    steps:
+      - name: Checkout full history
+        uses: actions/checkout@v4
+        with:
+          fetch-depth: 0
+
+      - name: Run Section 35 repository audit
+        shell: pwsh
+        run: ./P10S35_Final_Repository_Controls.ps1 -AuditOnly -SkipGitHub -SkipFreshClone -CiMode
+
+  dependency-review:
+    name: section35-dependency-review
+    if: github.event_name == 'pull_request'
+    runs-on: ubuntu-latest
+    permissions:
+      contents: read
+    steps:
+      - name: Checkout repository
+        uses: actions/checkout@v4
+      - name: Review dependency changes
+        uses: actions/dependency-review-action@v4
+        with:
+          fail-on-severity: moderate
+
+  codeql:
+    name: section35-codeql
+    runs-on: ubuntu-latest
+    permissions:
+      security-events: write
+      packages: read
+      actions: read
+      contents: read
+    steps:
+      - name: Checkout repository
+        uses: actions/checkout@v4
+      - name: Initialize CodeQL
+        uses: github/codeql-action/init@v3
+        with:
+          languages: python
+      - name: Analyze
+        uses: github/codeql-action/analyze@v3

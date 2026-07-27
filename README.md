@@ -82,3 +82,22 @@ The controlled final validation package is available at:
 
 Automated conclusion: **CONDITIONALLY SATISFACTORY**
 <!-- SECTION34:END -->
+
+<!-- BEGIN SECTION 35 INSTALLATION -->
+## Installation and fresh-clone reproduction
+
+The controlled development environment uses Python 3.11. From Windows PowerShell in a fresh clone:
+
+```powershell
+git clone https://github.com/nejatbakhsh-y/ficc-treasury-clearing-liquidity-stress-testing.git
+Set-Location ficc-treasury-clearing-liquidity-stress-testing
+py -3.11 -m venv .venv
+.\.venv\Scripts\python.exe -m pip install --upgrade pip
+.\.venv\Scripts\python.exe -m pip install -e ".[dev]"
+.\.venv\Scripts\python.exe -m pytest -q
+.\.venv\Scripts\python.exe -m ruff check .
+.\.venv\Scripts\python.exe -m mypy src tests
+```
+
+Repository data controls prohibit raw, confidential, participant-level, and runtime-generated datasets from being committed. The public analytical package uses official public data, documented transformations, and synthetic clearing-member representations only.
+<!-- END SECTION 35 INSTALLATION -->
