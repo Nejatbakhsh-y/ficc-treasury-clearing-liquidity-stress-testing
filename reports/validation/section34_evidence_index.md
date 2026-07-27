@@ -1,0 +1,707 @@
+# Section 34 Independent Validation Evidence Index
+
+Generated UTC: 2026-07-26T23:46:05Z
+
+Repository branch: docs/22-final-validation-report
+
+Starting commit: 6bde9c50740b45dbbe5bc7efe1f1a5fabdb0488f
+
+Evidence count: 673
+
+| Evidence ID | Category | Repository path | Size (bytes) | Modified UTC | SHA-256 |
+|---|---|---|---:|---|---|
+| EV-0001 | Other supporting evidence | .github/dependabot.yml | 433 | 2026-07-19T21:54:02Z | efaea3afdd10602f442e756b2310cb624b85257b0809038028f129a8abe4b636 |
+| EV-0002 | Other supporting evidence | .github/ISSUE_TEMPLATE/config.yml | 275 | 2026-07-19T21:54:02Z | 29f3883c415aa17921fb4a11e74092ba1d0c061d1a3cd9a8cbb0df419a58ee2d |
+| EV-0003 | Data sources and quality | .github/ISSUE_TEMPLATE/data-quality.yml | 1685 | 2026-07-19T21:54:02Z | 31db9eae8b26a7e4f080405b83f8cd6a2dba7c68242731a925d1755ea210e5f8 |
+| EV-0004 | Limitations | .github/ISSUE_TEMPLATE/model-risk.yml | 1401 | 2026-07-19T21:54:02Z | 5ea1248e755baf379151eb6f6b0b694d214df0bdd3f0a5b74ddc062dc627d432 |
+| EV-0005 | Other supporting evidence | .github/PULL_REQUEST_TEMPLATE.md | 975 | 2026-07-19T21:54:02Z | 963a81875f0e8384b4ce150b65b8fb10571062c7145a64ccf1de4a3ee43ce3c6 |
+| EV-0006 | Reproducibility | .github/workflows/ci.yml | 1351 | 2026-07-21T15:37:24Z | 4f8be1cdce4083d0e4f0eebe2fed13803d8f6f462af0922113674c1acf149b42 |
+| EV-0007 | Reproducibility | .github/workflows/dependency-review.yml | 361 | 2026-07-19T21:54:02Z | 06f49a4d6ec6123e13c1a85661247b332d70a3337313c21d94bd42edce5ba9d0 |
+| EV-0008 | Other supporting evidence | .streamlit/config.toml | 234 | 2026-07-26T19:10:25Z | fafc4488e2b2c6f1e5eb313a5fbd804ebbb0e6cecd2c417ada7bbaef5f6ce6c7 |
+| EV-0009 | Other supporting evidence | 24_P6S22_Cover_Analysis_PS51.ps1 | 73221 | 2026-07-24T00:33:53Z | 60b7abc8c430a56461c103fc0d5132c30b5d5b77540895680925a542b0c622bc |
+| EV-0010 | Other supporting evidence | configs/baseline_liquidity.yaml | 2019 | 2026-07-22T14:10:44Z | 9e1c050c54d399bfccb33a47b46e90e91f1d2e52f93542bf45bf129b88b2de85 |
+| EV-0011 | Model methodology | configs/collateral_haircut_stress.yaml | 4091 | 2026-07-23T00:20:17Z | 79e3d5dce6b7add8f41eab4a56fc33c5c5392be1cdd5ec290b98bb3c5bab9da2 |
+| EV-0012 | Other supporting evidence | configs/conceptual_soundness_validation.yaml | 16162 | 2026-07-24T00:59:53Z | dca42806c84db77dbcf59220e4cecc42f52d36b2f4fa02b1808626a10cf86919 |
+| EV-0013 | Other supporting evidence | configs/cover_analysis.yaml | 2867 | 2026-07-24T00:33:53Z | 8b5b4e9184362289f38bb11fc7cbb5ee9f506735f060123c808d9cf9c3969a75 |
+| EV-0014 | Other supporting evidence | configs/dashboard.yaml | 862 | 2026-07-26T19:10:25Z | 46fc8756ee823fe5918f4b3ac07f850284231d6bc7bfd68c8377eb8ce9d8f8e3 |
+| EV-0015 | Data sources and quality | configs/data_sources.yaml | 49175 | 2026-07-21T15:37:24Z | a2b610fd1648c9a631afcb103e29886229a079b382adf706844f7578521f1160 |
+| EV-0016 | Synthetic portfolios | configs/default_sets.yaml | 2528 | 2026-07-22T03:34:59Z | 39052acc788653c5ab898982eac11d97fee028141a71288690a589a6ebae6195 |
+| EV-0017 | Scenario framework | configs/historical_scenario_replay.yaml | 2276 | 2026-07-24T00:33:53Z | 1d303944ab3e76a6889356a9a8367e8b3d7809b1958b73368e6a18c3ecd755cf |
+| EV-0018 | Scenario framework | configs/historical_scenarios.yaml | 7206 | 2026-07-21T23:10:52Z | 7a3974acd036412eddb00906a99807aececb92462cc7f47a51dd214abfd40c5a |
+| EV-0019 | Scenario framework | configs/hypothetical_scenarios.yaml | 12318 | 2026-07-24T00:33:53Z | 889b8b5b7b81e54de05154284e4b690138747571001cb4dc5866c9e0417c7fa5 |
+| EV-0020 | Other supporting evidence | configs/independent_verification.yaml | 1076 | 2026-07-24T14:52:13Z | f8d120df83a98682df441c534754d9394d01be54bed0c71467522499eb6adbf1 |
+| EV-0021 | Model methodology | configs/integrated_stress_engine.yaml | 5326 | 2026-07-23T15:29:58Z | 5959488481745a40cd95fa450c26a5df8fe351c8c944bd7bcb9bd1773a7ce2d5 |
+| EV-0022 | Other supporting evidence | configs/monitoring.yaml | 1612 | 2026-07-25T17:02:53Z | 41315dfec0ff05e48cc67fd1e727da6ab8bfea47089aa8faff135490361c7986 |
+| EV-0023 | Governance and scope | configs/monitoring_governance.yaml | 7893 | 2026-07-26T00:23:13Z | b34a77f8f36e823710bdfd845e3e96928d6dde7d6236c93437fe38b88e60b1ae |
+| EV-0024 | Data sources and quality | configs/processed_data.yaml | 1472 | 2026-07-21T21:25:18Z | 0e643bf60596d8de1ca7d564eba3cb5fa297bcb61af79824f28e0051da450e7d |
+| EV-0025 | Governance and scope | configs/project.yaml | 551 | 2026-07-21T15:37:24Z | 3d7390fc1637d302d1769369b2185e023e852a2e419d28604d1fff4d9ad7889a |
+| EV-0026 | Governance and scope | configs/README.md | 268 | 2026-07-19T21:54:02Z | be55f491a11ed0986d96a27d22491ab99b7d1a4ad217a5ad2e83870830dd1d6b |
+| EV-0027 | Other supporting evidence | configs/repo_funding_stress.yaml | 3532 | 2026-07-22T18:09:29Z | a440e7740333137b606548d21fb10f870183be69d51d22388f41365d47879df2 |
+| EV-0028 | Reverse stress | configs/reverse_stress_testing.yaml | 2551 | 2026-07-24T00:33:53Z | 5a6e5dce5c4138a0783b8463eb8d25ef1198f9b34d2eb19f91cc39ad9825b077 |
+| EV-0029 | Outcomes analysis | configs/section27_outcomes_benchmark.yaml | 1270 | 2026-07-24T23:50:32Z | ab058cf4142feaa86cad40c00967cbac276f39e1223592d41359a7482a9b007c |
+| EV-0030 | Sensitivity analysis | configs/sensitivity_analysis.yaml | 3637 | 2026-07-24T16:46:29Z | 7dcb755d5944a965761662d0b70b8f0c0c8c14a99978f90dde755b677c60f63a |
+| EV-0031 | Model methodology | configs/settlement_fail_stress.yaml | 3366 | 2026-07-23T13:47:17Z | e2acd591ad79f8f499f1bf9546f8ec5defacb79f5d3674680bdf513b37bbbde4 |
+| EV-0032 | Synthetic portfolios | configs/synthetic_calibration.yaml | 5813 | 2026-07-22T03:38:43Z | 7f061f5541f4407f33336ed1742ff31e1f0a6bca896b9abafedd8b62e69ca521 |
+| EV-0033 | Synthetic portfolios | configs/synthetic_members.yaml | 1761 | 2026-07-22T00:03:05Z | 4b5464c81ddc741f0730cdc9ded845688267b8ca66670b6862cb1822241f5582 |
+| EV-0034 | Other supporting evidence | configs/treasury_yield_stress.yaml | 5910 | 2026-07-23T18:09:09Z | 826c21509c106a0581ce6ccc9c7abd1b28f736aab98d68445129338b640fb4b2 |
+| EV-0035 | Limitations | configs/validation/section_28_uncertainty.yaml | 13423 | 2026-07-25T13:51:25Z | 15fe5ffd294cd437d66114a26163883c8fbbb4c66149aab9ee4054ac0594df39 |
+| EV-0036 | Governance and scope | CONTRIBUTING.md | 1643 | 2026-07-19T21:54:02Z | d7c690da8cea6c2414f2f1b99166d04a94c70c3ed84263a66114052baf008f88 |
+| EV-0037 | Other supporting evidence | dashboard/streamlit_app.py | 19042 | 2026-07-26T19:10:25Z | 7df36b6d852d3e565ab584d8ceb5f776fc93bdf14c58db136abc94cb124e2b66 |
+| EV-0038 | Data sources and quality | data/interim/fr2004/fr2004_series_definitions.csv | 265306 | 2026-07-22T00:47:31Z | 31776e9749211f25d0e68fb5478f5d5ce9bb88161e4239246acba721fdfe3efe |
+| EV-0039 | Data sources and quality | data/manifests/baseline_liquidity_manifest.csv | 803 | 2026-07-22T14:10:44Z | 142f66224f70792787c109501c88236a8215e725d006c9cf7289ce0fa19b2869 |
+| EV-0040 | Model methodology | data/manifests/collateral_haircut_stress_manifest.csv | 3733 | 2026-07-23T00:20:17Z | 1a582073f75b14b87c01b15899abf945aa785278b023e644878edbb2ebcde336 |
+| EV-0041 | Data sources and quality | data/manifests/cover_analysis_manifest.csv | 3882 | 2026-07-24T00:33:53Z | 2088bf0ae293ef7831230a2f291049569a139e316cb3eb70c91c78e4d79360fb |
+| EV-0042 | Data sources and quality | data/manifests/data_source_contract.csv | 31983 | 2026-07-21T15:37:24Z | 55545bc4c0d9c406649c04df4d3e9a035facc0e89c939ddddb8352267c69531f |
+| EV-0043 | Data sources and quality | data/manifests/fr2004_manifest.csv | 1067 | 2026-07-21T15:37:24Z | 6eedf2fbceb61074ca8e0b4e486fabd62772eb30ea2f8e57a06144313396edbe |
+| EV-0044 | Data sources and quality | data/manifests/h15_manifest.csv | 4392 | 2026-07-21T15:37:24Z | 2341c3bc22819221605b9838d123fe08fda9f531a79e561f951c0335134814b1 |
+| EV-0045 | Data sources and quality | data/manifests/h41_manifest.csv | 2976 | 2026-07-21T15:37:24Z | 1da8c1615233928ede250a17b01646824d1c7eb2f1c01732e4bfac541c44ff64 |
+| EV-0046 | Scenario framework | data/manifests/historical_scenario_manifest.csv | 5024 | 2026-07-24T00:33:53Z | 585cd42c95d375d87d8a12a9a3fb34282ae705269f6d8741dde9c261a3d7872e |
+| EV-0047 | Scenario framework | data/manifests/hypothetical_scenario_manifest.csv | 4064 | 2026-07-24T00:33:53Z | 9bd5171767808181b9607e9216262b7b8eaddd40bc87b0581aa8ae949459bb27 |
+| EV-0048 | Model methodology | data/manifests/integrated_stress_engine_manifest.csv | 4671 | 2026-07-23T15:29:58Z | 96a7b07dea0a906533f1d4f411ecbe6e9dc8f15049434b14e0cd6abcdae72dbd |
+| EV-0049 | Monitoring | data/manifests/monitoring_threshold_register.csv | 2124 | 2026-07-26T00:23:13Z | 8b263f682cdc57bec08c89ad4a3c46259d061bac0de639dc925c9f2c698f76ab |
+| EV-0050 | Data sources and quality | data/manifests/repo_funding_stress_manifest.csv | 3587 | 2026-07-23T01:12:16Z | 49ac47da7dc4e5ebd1c6558b14210f37c834c8cbecb7385d4a37c14e3f2ed2e3 |
+| EV-0051 | Reverse stress | data/manifests/reverse_stress_testing_manifest.csv | 4892 | 2026-07-24T00:33:53Z | 9b96d949796f07502b89907dc302f8b5bff793eb4a4dfd08601e29b1453081da |
+| EV-0052 | Model methodology | data/manifests/settlement_fail_stress_manifest.csv | 3951 | 2026-07-23T15:38:29Z | 1e4af49c77ba7e03189d6bf599503289029c1afc0ee692cee015a4533e7af2c4 |
+| EV-0053 | Data sources and quality | data/manifests/sofr_manifest.csv | 1017 | 2026-07-21T15:37:24Z | ad4aef34ee9d39f1afb39091cfcac30fe57b039d22235864999e2c9ba2376d64 |
+| EV-0054 | Synthetic portfolios | data/manifests/synthetic_calibration_manifest.csv | 967 | 2026-07-22T03:38:43Z | e64612fecaf33a2b0de89fbddab5d5975784826d80669662bf75dc0d13414a94 |
+| EV-0055 | Synthetic portfolios | data/manifests/synthetic_member_manifest.csv | 353 | 2026-07-22T00:03:05Z | a7720da0e9377a316abbfb0f05c0bbc632bcedea712211edb442aec507de531c |
+| EV-0056 | Synthetic portfolios | data/manifests/synthetic_member_schema.json | 1300 | 2026-07-22T00:03:05Z | b56ebf442374ca508262d07afea7f8c710aa1888c6058b26f91a8cc71df8d9d1 |
+| EV-0057 | Data sources and quality | data/manual/fred/h15/DGS1.csv | 117914 | 2026-07-20T08:49:35Z | 0c60be032f692a96e39a9869f632e3209c1c90d7a3c4e7164acab4d1459a01b5 |
+| EV-0058 | Data sources and quality | data/manual/fred/h15/DGS10.csv | 117915 | 2026-07-20T08:50:30Z | 7ecb389ad4221ec328890607a4f0850340898b1d19f16a75a67ed6041f01b384 |
+| EV-0059 | Data sources and quality | data/manual/fred/h15/DGS1MO.csv | 103144 | 2026-07-20T08:48:59Z | bbeb1944d7d6c10d3007492083e25c01151ec55f7077398bd00fe3a27a961b56 |
+| EV-0060 | Data sources and quality | data/manual/fred/h15/DGS2.csv | 117914 | 2026-07-20T08:49:44Z | 7655381c5ce04c63de507e28d4ebe8efab3d05163d3b43d374158707f07a657f |
+| EV-0061 | Data sources and quality | data/manual/fred/h15/DGS20.csv | 117915 | 2026-07-20T08:50:37Z | a32449c928b2b44db1ebdf7cb8f9ec29b347bea10840684a87d85e4f6ecc620d |
+| EV-0062 | Data sources and quality | data/manual/fred/h15/DGS3.csv | 117914 | 2026-07-20T08:49:52Z | c8328f2481ee998150b6e099c18f0bdeaa197225bb6a3f761828820662a9f667 |
+| EV-0063 | Data sources and quality | data/manual/fred/h15/DGS30.csv | 117915 | 2026-07-20T08:50:44Z | 42877baea1d543227d824185dee752562b35fda53082ab9ec8556727e8929ae3 |
+| EV-0064 | Data sources and quality | data/manual/fred/h15/DGS3MO.csv | 117916 | 2026-07-20T08:49:17Z | 8447af34749544d06353b2b251f57b634c71134d8456079ac6dbd50ecc9b8581 |
+| EV-0065 | Data sources and quality | data/manual/fred/h15/DGS5.csv | 117914 | 2026-07-20T08:50:07Z | a50d524f2730b5a24f0336f5b99edf5c0299c55caed1939601f8a5561add808f |
+| EV-0066 | Data sources and quality | data/manual/fred/h15/DGS6MO.csv | 117916 | 2026-07-20T08:49:27Z | 0d14dd702df88b9db504253358e0dddbb3cf53f20c6bab904475f0c32e719c1d |
+| EV-0067 | Data sources and quality | data/manual/fred/h15/DGS7.csv | 117914 | 2026-07-20T08:50:23Z | 9fa154049c98934d0880cb961cc62a7a0309d221663342744a89b83a88a417af |
+| EV-0068 | Data sources and quality | data/manual/fred/h41/TREAST.csv | 22995 | 2026-07-20T08:51:53Z | cb3c8b55162bbd36d8051a3c6cf589b54aa9cbc2f79dd49d741c5277c0dcb66d |
+| EV-0069 | Data sources and quality | data/manual/fred/h41/WALCL.csv | 23111 | 2026-07-20T08:51:47Z | ecf3550465895df47bebf173a37083f158aea87014b49d4cbb97e16852472a43 |
+| EV-0070 | Data sources and quality | data/manual/fred/h41/WDTGAL.csv | 21326 | 2026-07-20T08:52:10Z | 8c58ae206675f4af138b4a4f94a4536354553803aa1fe66cee49e032075687dc |
+| EV-0071 | Data sources and quality | data/manual/fred/h41/WLRRAL.csv | 21763 | 2026-07-20T08:52:02Z | a205e57baea61cacfdd0695927c4dc4d9c7e9adb4e1acc5c867357862f5d2b6f |
+| EV-0072 | Data sources and quality | data/manual/fred/h41/WORAL.csv | 17710 | 2026-07-20T08:52:26Z | 15022a22b234c0b3f7d3be6af06a108356ef686a57a02ef728ef7f6ee112cdb2 |
+| EV-0073 | Data sources and quality | data/manual/fred/h41/WRBWFRBL.csv | 22623 | 2026-07-20T08:51:33Z | c4e20c1a5d4a5d99a8dfe4f1df62a9637cb33ce7aa563361d4b927b906701b1f |
+| EV-0074 | Data sources and quality | data/manual/fred/h41/WRESBAL.csv | 22613 | 2026-07-20T08:51:40Z | 3ab8000fc827df5689ddc12123e52371d88a363ce7f9801bcfa99c04b4990e04 |
+| EV-0075 | Data sources and quality | data/manual/fred/sofr/SOFR.csv | 34254 | 2026-07-20T09:12:12Z | 09e90d60da07b3623d23510bcd16aee8a71e1ebe6a2db34acb81c6cbddf87833 |
+| EV-0076 | Data sources and quality | data/manual/fred/sofr/SOFR1.csv | 34384 | 2026-07-20T09:12:18Z | b4dbca765d911b646ecc8ac96bb0b3d340233245b41fbabbc06c7ca4401c5dbf |
+| EV-0077 | Data sources and quality | data/manual/fred/sofr/SOFR25.csv | 34255 | 2026-07-20T09:12:25Z | 4a00b935bf7a4aad0bcac91cca9c3692e44429d35a28f2ec8bc3fbeaca467b8a |
+| EV-0078 | Data sources and quality | data/manual/fred/sofr/SOFR75.csv | 34248 | 2026-07-20T09:12:31Z | 825de7765d423c0fd4be7a45e8143a58372f51d603fb49e5fa1d50126d46e3f5 |
+| EV-0079 | Data sources and quality | data/manual/fred/sofr/SOFR99.csv | 34248 | 2026-07-20T09:12:40Z | bf69ad333a99b94cd9eae516ca051e344015912d01c726885f26ed768c1b6b6d |
+| EV-0080 | Data sources and quality | data/manual/fred/sofr/SOFRVOL.csv | 33435 | 2026-07-20T09:12:46Z | 34b13e642e0184fe9ecffb2cc3b75e6553bb0fcb55fb8f6a0e38cb3296d9bd88 |
+| EV-0081 | Data sources and quality | data/processed/fed/fr2004/fr2004_canonical_def6076443fb.parquet | 2874437 | 2026-07-20T09:49:51Z | cf03518845c644579dddf762aaf361b08c7f897519fc5045d78fd0cc8b800b86 |
+| EV-0082 | Data sources and quality | data/processed/fed/h15/h15_treasury_yields_dd9526aedb66.parquet | 176602 | 2026-07-20T08:58:31Z | bbc2d2dc8f2d7039efd54021bdab4bdd0661613f233a1630b03db3e49c1b5b68 |
+| EV-0083 | Data sources and quality | data/processed/fed/h41/h41_liquidity_conditions_8ff751707fbe.parquet | 69638 | 2026-07-20T08:58:31Z | fcef5704bb4483b5221f07627225b0683c5a154efcff406d0d56e9fb6a0ee20e |
+| EV-0084 | Data sources and quality | data/processed/fed/sofr/sofr_ebcb2ed9d2b9.parquet | 25890 | 2026-07-20T03:53:24Z | 953e49046cd5e426d1ebe4cd75a0691ac84327143f7c0f48e2932a0ef963ef0f |
+| EV-0085 | Data sources and quality | data/processed/fed/sofr/sofr_fred_manual_bd0a26204539.parquet | 48080 | 2026-07-20T09:13:28Z | c4d53ea5c5cb1aec6e8f07153c178e4bd2f83c3b16804948ac784dea28caebca |
+| EV-0086 | Other supporting evidence | data/processed/fed_liquidity_factors.parquet | 2984944 | 2026-07-21T21:25:18Z | ec265d5670f550612a04aea536505d16940978ef602d81ec6e7e1ad3bbe49c5e |
+| EV-0087 | Other supporting evidence | data/processed/ficc_liquidity.duckdb | 274432 | 2026-07-20T00:34:30Z | 09a8ee390b5e05e5b4ca000838eeefbac1aad54da9d7398c6aba37df8bd1022a |
+| EV-0088 | Other supporting evidence | data/processed/treasury_market_factors.parquet | 7963102 | 2026-07-21T21:25:18Z | c39cfe7522ceee4c4b00f7b4ede2ab7a7a5970160fb2667c4aa0e06a24d7d60f |
+| EV-0089 | Data sources and quality | data/raw/fed/h15/frb_h15_DGS1_20260720T085830Z_0c60be032f69.csv | 117914 | 2026-07-20T08:58:30Z | 0c60be032f692a96e39a9869f632e3209c1c90d7a3c4e7164acab4d1459a01b5 |
+| EV-0090 | Data sources and quality | data/raw/fed/h15/frb_h15_DGS10_20260720T085830Z_7ecb389ad422.csv | 117915 | 2026-07-20T08:58:30Z | 7ecb389ad4221ec328890607a4f0850340898b1d19f16a75a67ed6041f01b384 |
+| EV-0091 | Data sources and quality | data/raw/fed/h15/frb_h15_DGS1MO_20260720T085830Z_bbeb1944d7d6.csv | 103144 | 2026-07-20T08:58:30Z | bbeb1944d7d6c10d3007492083e25c01151ec55f7077398bd00fe3a27a961b56 |
+| EV-0092 | Data sources and quality | data/raw/fed/h15/frb_h15_DGS2_20260720T085830Z_7655381c5ce0.csv | 117914 | 2026-07-20T08:58:30Z | 7655381c5ce04c63de507e28d4ebe8efab3d05163d3b43d374158707f07a657f |
+| EV-0093 | Data sources and quality | data/raw/fed/h15/frb_h15_DGS20_20260720T085830Z_a32449c928b2.csv | 117915 | 2026-07-20T08:58:30Z | a32449c928b2b44db1ebdf7cb8f9ec29b347bea10840684a87d85e4f6ecc620d |
+| EV-0094 | Data sources and quality | data/raw/fed/h15/frb_h15_DGS3_20260720T085830Z_c8328f2481ee.csv | 117914 | 2026-07-20T08:58:30Z | c8328f2481ee998150b6e099c18f0bdeaa197225bb6a3f761828820662a9f667 |
+| EV-0095 | Data sources and quality | data/raw/fed/h15/frb_h15_DGS30_20260720T085830Z_42877baea1d5.csv | 117915 | 2026-07-20T08:58:30Z | 42877baea1d543227d824185dee752562b35fda53082ab9ec8556727e8929ae3 |
+| EV-0096 | Data sources and quality | data/raw/fed/h15/frb_h15_DGS3MO_20260720T085830Z_8447af347495.csv | 117916 | 2026-07-20T08:58:30Z | 8447af34749544d06353b2b251f57b634c71134d8456079ac6dbd50ecc9b8581 |
+| EV-0097 | Data sources and quality | data/raw/fed/h15/frb_h15_DGS5_20260720T085830Z_a50d524f2730.csv | 117914 | 2026-07-20T08:58:30Z | a50d524f2730b5a24f0336f5b99edf5c0299c55caed1939601f8a5561add808f |
+| EV-0098 | Data sources and quality | data/raw/fed/h15/frb_h15_DGS6MO_20260720T085830Z_0d14dd702df8.csv | 117916 | 2026-07-20T08:58:30Z | 0d14dd702df88b9db504253358e0dddbb3cf53f20c6bab904475f0c32e719c1d |
+| EV-0099 | Data sources and quality | data/raw/fed/h15/frb_h15_DGS7_20260720T085830Z_9fa154049c98.csv | 117914 | 2026-07-20T08:58:30Z | 9fa154049c98934d0880cb961cc62a7a0309d221663342744a89b83a88a417af |
+| EV-0100 | Data sources and quality | data/raw/fed/h41/frb_h41_TREAST_20260720T085831Z_cb3c8b55162b.csv | 22995 | 2026-07-20T08:58:31Z | cb3c8b55162bbd36d8051a3c6cf589b54aa9cbc2f79dd49d741c5277c0dcb66d |
+| EV-0101 | Data sources and quality | data/raw/fed/h41/frb_h41_WALCL_20260720T085831Z_ecf355046589.csv | 23111 | 2026-07-20T08:58:31Z | ecf3550465895df47bebf173a37083f158aea87014b49d4cbb97e16852472a43 |
+| EV-0102 | Data sources and quality | data/raw/fed/h41/frb_h41_WDTGAL_20260720T085831Z_8c58ae206675.csv | 21326 | 2026-07-20T08:58:31Z | 8c58ae206675f4af138b4a4f94a4536354553803aa1fe66cee49e032075687dc |
+| EV-0103 | Data sources and quality | data/raw/fed/h41/frb_h41_WLRRAL_20260720T085831Z_a205e57baea6.csv | 21763 | 2026-07-20T08:58:31Z | a205e57baea61cacfdd0695927c4dc4d9c7e9adb4e1acc5c867357862f5d2b6f |
+| EV-0104 | Data sources and quality | data/raw/fed/h41/frb_h41_WORAL_20260720T085831Z_15022a22b234.csv | 17710 | 2026-07-20T08:58:31Z | 15022a22b234c0b3f7d3be6af06a108356ef686a57a02ef728ef7f6ee112cdb2 |
+| EV-0105 | Data sources and quality | data/raw/fed/h41/frb_h41_WRBWFRBL_20260720T085831Z_c4e20c1a5d4a.csv | 22623 | 2026-07-20T08:58:31Z | c4e20c1a5d4a5d99a8dfe4f1df62a9637cb33ce7aa563361d4b927b906701b1f |
+| EV-0106 | Data sources and quality | data/raw/fed/h41/frb_h41_WRESBAL_20260720T085831Z_3ab8000fc827.csv | 22613 | 2026-07-20T08:58:31Z | 3ab8000fc827df5689ddc12123e52371d88a363ce7f9801bcfa99c04b4990e04 |
+| EV-0107 | Data sources and quality | data/raw/fed/sofr/nyfed_sofr_SOFR_20260720T015737Z_ebcb2ed9d2b9.json | 439036 | 2026-07-20T01:57:37Z | ebcb2ed9d2b938401158e776ae04d1156578e464844d23ffad80dd56cba53932 |
+| EV-0108 | Data sources and quality | data/raw/fed/sofr/nyfed_sofr_SOFR_20260720T035324Z_ebcb2ed9d2b9.json | 439036 | 2026-07-20T03:53:24Z | ebcb2ed9d2b938401158e776ae04d1156578e464844d23ffad80dd56cba53932 |
+| EV-0109 | Data sources and quality | data/raw/fr2004/fr2004_20260720T012731Z_def6076443fb.csv | 26383651 | 2026-07-20T01:27:31Z | def6076443fb620fc866fed08ccafadaabf20c26b6522fdeec4155a5eb45844f |
+| EV-0110 | Governance and scope | data/README.md | 279 | 2026-07-19T21:54:02Z | e4fecbaa9787a2d53207a5aec29629754e4411eb4d48669432c980ca2cd97206 |
+| EV-0111 | Synthetic portfolios | data/synthetic/calibrated_member_portfolios.parquet | 41033 | 2026-07-22T03:38:43Z | 1bf23d7b8cc84d61d91124addbd6f57f1d696742360e49825dfdb4127289b3d3 |
+| EV-0112 | Synthetic portfolios | data/synthetic/synthetic_members.parquet | 32809 | 2026-07-22T00:00:08Z | f5227950b071018c3f7f8dff95c60a1299d806e1719b82f2f3d06f2b3aec78f1 |
+| EV-0113 | Other supporting evidence | data/validation/fixtures/section25_aggregate_controls.csv | 711 | 2026-07-24T14:52:13Z | d079c72549a21edb370823f70bc3d5231b95c9084bd56c35e7d41d50f7c6fed6 |
+| EV-0114 | Other supporting evidence | data/validation/fixtures/section25_control_results.csv | 383 | 2026-07-24T14:52:13Z | b3405c3c59c6fdcc98f4975d9214252501792d4b2003f687cc6d70f7c5dc6e02 |
+| EV-0115 | Other supporting evidence | data/validation/fixtures/section25_members.csv | 1077 | 2026-07-24T14:52:13Z | 2734593b1058fbe73c6e7ed5c26d95db70f253c92f26c59b856305e57cf879a3 |
+| EV-0116 | Other supporting evidence | data/validation/fixtures/section25_resources.csv | 645 | 2026-07-24T14:52:13Z | 00eb0c087d84a476240efe16ab8716e2e3d83de4b97d3ef4a3a10fcd63110ae5 |
+| EV-0117 | Other supporting evidence | docs/baseline_liquidity_methodology.md | 3659 | 2026-07-22T14:10:44Z | 220dbf8c4d99bc967b377ae65e9988cec68f734b4754e7f2641d06b4fe82d75f |
+| EV-0118 | Model methodology | docs/collateral_haircut_stress_methodology.md | 5302 | 2026-07-23T00:20:17Z | a677f5b49d12c2e9230fef2d453a65b163c86f12dd4556b5197a8f9f748b3a7e |
+| EV-0119 | Other supporting evidence | docs/conceptual_soundness_validation.md | 6920 | 2026-07-24T00:59:53Z | bfee0f22958744e3d2d2c8381548799b470192adcc3e3f02c1abcccdc682238e |
+| EV-0120 | Other supporting evidence | docs/cover_analysis_methodology.md | 3807 | 2026-07-24T00:33:53Z | 06dc69ce021805096a39cc304d95aa3cd3d8ea1da5570ef6d35c49ccf5cf8462 |
+| EV-0121 | Synthetic portfolios | docs/default_set_methodology.md | 4138 | 2026-07-22T03:34:59Z | 77fcffd6bb2b7494c94f7f0b12a56b67ea8f371d08bfecd05f09529901b8249d |
+| EV-0122 | Data sources and quality | docs/federal_reserve_data_catalog.md | 45385 | 2026-07-21T15:37:24Z | b600681deb7ab50c240b0bc571ca96986b91e42d7090f2f995f3d12c8611a457 |
+| EV-0123 | Scenario framework | docs/historical_scenarios_methodology.md | 3261 | 2026-07-24T00:33:53Z | af59db65aa41d1fd9d0e686c8d70d5b6042ecdca16f0c262ae5db0a57a4f8ff9 |
+| EV-0124 | Scenario framework | docs/hypothetical_scenarios_methodology.md | 6101 | 2026-07-24T00:33:53Z | 6620f7f75bd1046cd4ff2b2d54afc0fca471f64fa211320b551ee0cc16de0709 |
+| EV-0125 | Model methodology | docs/integrated_stress_engine_methodology.md | 7198 | 2026-07-23T15:29:58Z | 05a1876168a6a044d1c8edf707786b78c5fa8ecbc1013326ae593b331a5e3bfc |
+| EV-0126 | Other supporting evidence | docs/model_inventory.md | 4449 | 2026-07-20T01:21:10Z | 978ee5770bd3590859096263a6502c9c0f668ea7000417bdeb5ae24b5e223a2c |
+| EV-0127 | Limitations | docs/model_scope_and_limitations.md | 6196 | 2026-07-20T01:21:10Z | cc056d9763ee0eba0318073ad19ebc6d526228405e094c330cab0bf681ad9352 |
+| EV-0128 | Monitoring | docs/monitoring_thresholds_and_escalation.md | 7047 | 2026-07-26T00:23:13Z | a63e3e26553fa1097d0898df455be266197f4a95ea32ea22ab071a72631c5997 |
+| EV-0129 | Monitoring | docs/monthly_monitoring_framework.md | 4392 | 2026-07-25T17:02:53Z | b43e8d9640d605d80e699ccabbc37c086c123d69c9db9e78b4b65a5c1ec824a0 |
+| EV-0130 | Other supporting evidence | docs/project_backlog.md | 1612 | 2026-07-19T21:54:02Z | 38571e6297e8ec7456f13285c1027116d8f0093072f4c5aacb0d59abf98d6233 |
+| EV-0131 | Other supporting evidence | docs/project_charter.md | 8638 | 2026-07-20T01:21:10Z | 8b8d3d804ed82258c5693816e2ae549101ee0fd31f52173053398b7ee3d94066 |
+| EV-0132 | Other supporting evidence | docs/repo_funding_stress_methodology.md | 4459 | 2026-07-22T18:09:29Z | a513a196c6acc3c8ca2846c9b3031acaf25373c780ccf4e2c2a2b93979c7494a |
+| EV-0133 | Reverse stress | docs/reverse_stress_testing_methodology.md | 5815 | 2026-07-24T00:33:53Z | 74c4a9902df3896997aaedd1a47bbdf46be16ebe6803eec833fc0486b56a160f |
+| EV-0134 | Scenario framework | docs/section_10_historical_stress_methodology.md | 1929 | 2026-07-21T23:10:52Z | b91d0a43270f6d0fe830562999d813349a8c233bd6e3902687cd6a25c7420c9f |
+| EV-0135 | Implementation verification | docs/section25_independent_implementation_verification.md | 4861 | 2026-07-24T14:52:13Z | c0e3f05c3b3d622c1fb3a9ebbafdc27b2d5dd78ec282d81afffc95e27d7a2cce |
+| EV-0136 | Sensitivity analysis | docs/section26_sensitivity_analysis.md | 3838 | 2026-07-24T16:46:29Z | df6bfb7af48099b0d3b448e1a88998fa97d8699b575f63f5b6d0132322a6f707 |
+| EV-0137 | Model methodology | docs/settlement_fail_stress_methodology.md | 3522 | 2026-07-23T13:47:17Z | e64200e42b8d3213d748539f0fc577d61c8a02520b69d34715e77df9f83c3096 |
+| EV-0138 | Other supporting evidence | docs/streamlit_dashboard.md | 2560 | 2026-07-26T19:10:25Z | b2bcf4dbd3517ae2d6973b05766eb7c85c7e72f87d5015314ed37ab3b069537f |
+| EV-0139 | Synthetic portfolios | docs/synthetic_calibration_methodology.md | 4047 | 2026-07-22T03:38:43Z | 166a35007ad71df8a18042a5f610de366fecba1f58d95481280cd72bf9b15488 |
+| EV-0140 | Synthetic portfolios | docs/synthetic_member_data_model.md | 5379 | 2026-07-22T00:03:05Z | c308d2148755c1415e3b3455f2966f6630ec4c78214ee88bfcb579830c10140f |
+| EV-0141 | Other supporting evidence | docs/treasury_yield_shock_model.md | 3895 | 2026-07-22T15:00:03Z | d57a8aa933417b10d00cd86c3e9ab07f173ffb160db0c8e7b66271592b0a47a9 |
+| EV-0142 | Outcomes analysis | docs/validation/section_27_outcomes_benchmark_analysis.md | 2496 | 2026-07-24T23:50:32Z | 74be2af6fcc5cbe94d1a0cc4248450b78ff46eb9f791f8b6b7f55bebca71b5e1 |
+| EV-0143 | Limitations | docs/validation/section_28_uncertainty_methodology.md | 2630 | 2026-07-25T13:51:25Z | 0dcd0c1406aa73451b94861088321e8216082dcea1edabd287a7566498072ae9 |
+| EV-0144 | Other supporting evidence | docs/validation_charter.md | 4556 | 2026-07-20T01:21:10Z | b8503258e88cb48f4f6c48769389918d04b612866ed82f339779f2885207aefb |
+| EV-0145 | Other supporting evidence | htmlcov/class_index.html | 31129 | 2026-07-20T18:16:53Z | 0fb97d68ebd87423fd56c1286cc5066f1261f78fe90ce613fcec235de6bcbd34 |
+| EV-0146 | Other supporting evidence | htmlcov/favicon_32_cb_c827f16f.png | 1732 | 2026-07-20T18:16:53Z | bc8100fa8743c11bd243eb3259f4b012758651612fd9bf93bf8b734d17f02561 |
+| EV-0147 | Other supporting evidence | htmlcov/function_index.html | 111559 | 2026-07-20T18:16:53Z | d8e91ee51057140191ea3987dae6e88169fba8860dff16820ab7d8b2d97263db |
+| EV-0148 | Other supporting evidence | htmlcov/index.html | 15578 | 2026-07-20T18:16:53Z | d60c0548d0dea5d5ec74711804245994805402d1fe0a4a717547585613c0bbf0 |
+| EV-0149 | Other supporting evidence | htmlcov/keybd_closed_cb_900cfef5.png | 9004 | 2026-07-20T18:16:53Z | 7d9bf8ae66370e4349b4f423ac5279501384e4374da1fde675e099582ed33a8a |
+| EV-0150 | Other supporting evidence | htmlcov/status.json | 5359 | 2026-07-20T18:16:53Z | 88fe392109eb6d8b58874ba0b675caf843c4ab45b9467729567854ec9165a7e5 |
+| EV-0151 | Other supporting evidence | htmlcov/z_3640b7c2f231af63___init___py.html | 5121 | 2026-07-20T10:21:55Z | ec6bf947c7354267f4016864ff5e27c9f36284f15227c955bbf155d037997f3a |
+| EV-0152 | Data sources and quality | htmlcov/z_3640b7c2f231af63_data_quality_py.html | 502117 | 2026-07-20T17:31:51Z | bba4a5d02949f4e7f9c666c3147a401606ee2399890ab73eb60d3c0f69bebad6 |
+| EV-0153 | Other supporting evidence | htmlcov/z_86ccbf6aa1d6f62c___init___py.html | 6203 | 2026-07-20T10:21:55Z | ac8c683ff24f5d69cc67f6aa54274ddda3cf9d8fcd13c1935f12ea201858cd01 |
+| EV-0154 | Other supporting evidence | htmlcov/z_86ccbf6aa1d6f62c___main___py.html | 5910 | 2026-07-20T17:31:51Z | 285f5ead3a49bedfbdbf44787b799742ce1b3004bc4a8b5fdb1d98ae9890c712 |
+| EV-0155 | Other supporting evidence | htmlcov/z_86ccbf6aa1d6f62c_cli_py.html | 27821 | 2026-07-20T18:04:37Z | 124cac2fa27cf04db1a549a1ba832c5f317e364b3ccdae34f3549d7099b75b0a |
+| EV-0156 | Other supporting evidence | htmlcov/z_86ccbf6aa1d6f62c_config_py.html | 35847 | 2026-07-20T18:04:37Z | 94da06bf97761c8d3f9e2b07fe03a203759db50d246a46918c4bf18764922db4 |
+| EV-0157 | Other supporting evidence | htmlcov/z_86ccbf6aa1d6f62c_database_py.html | 14058 | 2026-07-20T10:21:55Z | ca7dc6d86c2b591ed10d76bf02b058401e95af35b1828cf351c4a79c50199320 |
+| EV-0158 | Other supporting evidence | htmlcov/z_86ccbf6aa1d6f62c_logging_config_py.html | 15362 | 2026-07-20T10:21:55Z | 690cd71ffaed91bb47c2674c9df4f74b1b4cffa5c727ab3411263e3f7a4c25eb |
+| EV-0159 | Other supporting evidence | htmlcov/z_86ccbf6aa1d6f62c_reproducibility_py.html | 9208 | 2026-07-20T10:21:55Z | 41fa8574973dd07dca82badb694f4629aa37fb014a4e472ce71f05fb8b29fd4b |
+| EV-0160 | Other supporting evidence | htmlcov/z_ca8381d541f64486___init___py.html | 5081 | 2026-07-20T10:21:55Z | 673d3269697e15b6fa9ff5c462b624060f5333e00ae5af912f8809fcd7794a63 |
+| EV-0161 | Other supporting evidence | htmlcov/z_ca8381d541f64486__fed_common_py.html | 70436 | 2026-07-20T10:21:55Z | bbc69f053b944015ef33fd08a4d8f4e153208773dda8156d43056b753c1696c7 |
+| EV-0162 | Data sources and quality | htmlcov/z_ca8381d541f64486_fr2004_py.html | 191201 | 2026-07-20T10:21:55Z | 6eaa3e33fbd0b27e971952227595f43a77718b65b6801d14ba356690096eeb16 |
+| EV-0163 | Data sources and quality | htmlcov/z_ca8381d541f64486_h15_py.html | 67331 | 2026-07-20T10:21:55Z | 885ff92ad468121698e7b131588829e044fab76ad9f7b3d9607ed5ea2df6cf9a |
+| EV-0164 | Data sources and quality | htmlcov/z_ca8381d541f64486_h41_py.html | 68042 | 2026-07-20T10:21:55Z | dbc742a5f784ef1d6f5e6ca699f6834453c29b8e5c2e2d198917c7cfa8acf7e3 |
+| EV-0165 | Data sources and quality | htmlcov/z_ca8381d541f64486_sofr_py.html | 76617 | 2026-07-20T18:04:37Z | ce32d8e92f65d3261b67df17497eee98f26f7505b193bdb4f7840f59ae7dd50f |
+| EV-0166 | Governance and scope | notebooks/README.md | 172 | 2026-07-19T21:54:02Z | f6923a5906bd92519eb0fec7cebef301af6a7d57efd81357d8268c46dde7c9a7 |
+| EV-0167 | Reproducibility | P1S1_Project_Charter_Automation.ps1 | 34539 | 2026-07-20T01:21:10Z | 11424dbdfcebecd7e91035ba9e332f3fda080440dea27b802865bdf28c3cd950 |
+| EV-0168 | Other supporting evidence | P1S3_RECOVER.ps1 | 7263 | 2026-07-20T00:31:04Z | 01740e07e617f862e05c479d772c04c52af0cc3737bf8a9a63149b1be3daeb4f |
+| EV-0169 | Other supporting evidence | P1S3_Resume_After_Ruff_Failure (1).ps1 | 9886 | 2026-07-20T00:27:50Z | 2c2f09d572094fcaf494cff9390280070a510b8fd1f2a0bef109d1d424263c0e |
+| EV-0170 | Other supporting evidence | P1S3_Resume_After_Ruff_Failure.ps1 | 9886 | 2026-07-20T00:24:50Z | 2c2f09d572094fcaf494cff9390280070a510b8fd1f2a0bef109d1d424263c0e |
+| EV-0171 | Other supporting evidence | P1S3_Retry_GitHub_Actions.ps1 | 6108 | 2026-07-20T00:38:01Z | d0747b294068722c2d969d1acb9c0915d3bac6b10e60d7296e256da0f75279bd |
+| EV-0172 | Other supporting evidence | P1S3_Retry_GitHub_Actions_FIXED.ps1 | 11228 | 2026-07-20T00:40:13Z | 473262f33a85ab70a383e1b1e0933e2e2417c71faa1dffdd32edbbeebcbc23e7 |
+| EV-0173 | Other supporting evidence | P2S10_Finalize_After_GitIgnore.ps1 | 10390 | 2026-07-21T23:00:56Z | 631f6f31997270ac020eddf49602b35abafecdd23a3fa411dd5837ec236769f9 |
+| EV-0174 | Other supporting evidence | P2S10_Finalize_After_GitIgnore_FIXED.ps1 | 10390 | 2026-07-21T23:00:56Z | 631f6f31997270ac020eddf49602b35abafecdd23a3fa411dd5837ec236769f9 |
+| EV-0175 | Scenario framework | P2S10_Historical_Stress_Calibration.ps1 | 62309 | 2026-07-21T22:04:09Z | 4dd1032b0de7297e4a256f29ed89d5f7eea61a703ca4183797c94c554a88cb89 |
+| EV-0176 | Scenario framework | P2S10_Historical_Stress_Calibration_V2.ps1 | 63985 | 2026-07-21T22:02:00Z | 90a0632cea368c97d12936a617c40f11b55e6ed36dea0a5640e6a2fb51347d7a |
+| EV-0177 | Scenario framework | P2S10_Historical_Stress_Calibration_V3.ps1 | 62309 | 2026-07-21T22:04:09Z | 4dd1032b0de7297e4a256f29ed89d5f7eea61a703ca4183797c94c554a88cb89 |
+| EV-0178 | Other supporting evidence | P2S10_Resume_After_Series_Resolution_Failure.ps1 | 21410 | 2026-07-21T22:23:51Z | 801b0287ced7dcd6cd23d0fe5a4acc816592066aa07db01cf0fe37a3c8e35eff |
+| EV-0179 | Data sources and quality | P2S4_Setup_Fed_Data_Catalog.ps1 | 38422 | 2026-07-20T00:54:49Z | a5329d8d942c9ca6b6257299c67700128b78dc5efa008d599c3a86f73ab20442 |
+| EV-0180 | Other supporting evidence | P2S5_Finalize_After_GitKeep_Failure.ps1 | 10173 | 2026-07-20T01:29:28Z | 07d63ad8df6ad7ba715564c63ad9e5b0e0d4dd62e5569c2daf3c0f102dde2faf |
+| EV-0181 | Other supporting evidence | P2S5_Finalize_After_GitKeep_Failure_FIXED.ps1 | 10219 | 2026-07-20T01:31:22Z | 551989a140c2303c339d8ae52e1d21ff6048d7e82617bd8652a72d59657f9395 |
+| EV-0182 | Data sources and quality | P2S5_FR2004_Ingestion_Automation.ps1 | 44680 | 2026-07-20T01:16:12Z | b068988bfe2ff4eeda16a68b966a004c24875a4cbf58dc1f344ea61ed24d480a |
+| EV-0183 | Data sources and quality | P2S5_FR2004_Ingestion_Automation_FIXED.ps1 | 44682 | 2026-07-20T01:17:44Z | 4f253c69325c8b963a7ba319b595dcb31d623c65c88df04b33a5324b77cad34d |
+| EV-0184 | Data sources and quality | P2S5_FR2004_Ingestion_Automation_FIXED_V2.ps1 | 44892 | 2026-07-20T01:20:58Z | db1d77af0ed360dd4363e766d7b7483a8a502ae65ea89b533c70609d0584538d |
+| EV-0185 | Data sources and quality | P2S5_FR2004_Ingestion_Automation_FIXED_V3.ps1 | 45314 | 2026-07-20T01:24:00Z | 6ad3b4a5bd07a64230413f8989d0a8c75e544ba7af3fe52f669af5fab734e099 |
+| EV-0186 | Data sources and quality | P2S5_FR2004_Ingestion_Automation_FIXED_V4.ps1 | 45713 | 2026-07-20T01:27:09Z | 23b247adde1c1b70cdabb7d3cbe084e3d292f64f56a5e683b957c87419706690 |
+| EV-0187 | Reproducibility | P2S6_Setup_Supporting_Fed_Data.ps1 | 64886 | 2026-07-20T01:41:22Z | 3065689864f7e7bc068f34f2a38b2a382574c997cafb1c1377b760d92b7a65c9 |
+| EV-0188 | Reproducibility | P2S6_Setup_Supporting_Fed_Data_v2.ps1 | 66259 | 2026-07-20T01:45:56Z | 4814ae80ebc80be3ebb118da033cb7a877f92734be9f40b79a7ee32a73e43483 |
+| EV-0189 | Reproducibility | P2S6_Setup_Supporting_Fed_Data_v3.ps1 | 67957 | 2026-07-20T01:48:11Z | 116d0e156a0799292551670a5b1528fc150bf2740a77c0684a5c61def7d99957 |
+| EV-0190 | Reproducibility | P2S6_Setup_Supporting_Fed_Data_v4.ps1 | 69456 | 2026-07-20T01:50:17Z | 5026e36e26a75b92a669e9a55179f6c37cee67c7113883bd24fc0190c4ec4d4f |
+| EV-0191 | Reproducibility | P2S6_Setup_Supporting_Fed_Data_v5.ps1 | 72676 | 2026-07-20T01:51:47Z | 75160199d68d8b26c3a200f61eb98e52918338e80c5541b414153464d5b055c3 |
+| EV-0192 | Reproducibility | P2S6_Setup_Supporting_Fed_Data_v6.ps1 | 74271 | 2026-07-20T01:53:42Z | d9c27724929ed13bdaabb89f824baec43b8cfd4aad9c2abce8bce518da2cf077 |
+| EV-0193 | Reproducibility | P2S6_Setup_Supporting_Fed_Data_v7.ps1 | 74230 | 2026-07-20T01:57:04Z | 9de75536be084ada40fb1844fe0e0bdf6af2be74179490967110b07bfd6b9504 |
+| EV-0194 | Reproducibility | P2S6_Setup_Supporting_Fed_Data_v8.ps1 | 74807 | 2026-07-20T02:09:35Z | 06a1c08b3c70095fa6ecb9bf42a5bf7a279f15ca9dc2d4490c2a5316f73ee61d |
+| EV-0195 | Other supporting evidence | P2S7_ADD_COMPLETION_COVERAGE_TESTS.ps1 | 17315 | 2026-07-20T17:29:23Z | 401a84d3b80589df53abac2f81063dce5cb62c4104727acc02379864efee7060 |
+| EV-0196 | Other supporting evidence | P2S7_ADD_POLICY_UPDATE_COVERAGE_TESTS.ps1 | 14121 | 2026-07-20T10:21:18Z | 3c5152fb14c83ca0ea03d9d10c6a6dc1a8be9fdfcdbd001c17ee39d725ccdb30 |
+| EV-0197 | Other supporting evidence | P2S7_CANONICAL_NORMALIZE_VALIDATE_COMPLETE.ps1 | 20736 | 2026-07-20T09:05:23Z | 6f4277b6428d1d18ea260f0592c25087da3a712f9403f3091748920faebbe3d2 |
+| EV-0198 | Data sources and quality | P2S7_Data_Quality_Automation.ps1 | 62793 | 2026-07-20T02:26:30Z | a7a64b5b9e7054375e6bbcca73efa30d94207235959b0a8d99193d17fc53d23d |
+| EV-0199 | Other supporting evidence | P2S7_EXACT_4_ERROR_FIX_AND_COMPLETE.ps1 | 12908 | 2026-07-20T02:54:55Z | 667ff7d7013c10f91aebfc81b9983c2ebe1825121798b5dd168924b7c3d1dcd5 |
+| EV-0200 | Other supporting evidence | P2S7_EXTENDED_TIMEOUT_RETRY_AND_RESUME.ps1 | 6025 | 2026-07-20T04:01:23Z | 00b7095898b3ca4e9f23914fc8273749d28eb1837f888c9521e957f9ebfc936f |
+| EV-0201 | Other supporting evidence | P2S7_FINAL_COVERAGE_CLOSURE.ps1 | 14711 | 2026-07-20T17:37:58Z | 23740db7eac76e34edd6b4cb9015ba48d7667ad6763daeead6700bca01e7351a |
+| EV-0202 | Other supporting evidence | P2S7_FINAL_COVERAGE_CLOSURE_V2.ps1 | 14737 | 2026-07-20T17:41:06Z | a4e058ec7b0337514c5d99134c1f18776593f1fd655100d79dfec349a3b8b6c3 |
+| EV-0203 | Other supporting evidence | P2S7_FINAL_COVERAGE_CLOSURE_V3.ps1 | 14747 | 2026-07-20T18:16:34Z | fd88de74c4aa491dae7404417a89a95786c2829eaec93eb46c1a5c16efc33389 |
+| EV-0204 | Other supporting evidence | P2S7_FINAL_POLICY_CALIBRATION_AND_COMPLETE.ps1 | 15983 | 2026-07-20T09:19:29Z | 6684d16f1614535f72317013a086e54381c36fb4e1f8a5e97a020072d439b42e |
+| EV-0205 | Other supporting evidence | P2S7_FINAL_Replace_Validate_Commit_Push.ps1 | 60072 | 2026-07-20T02:50:45Z | 3d77198c3cb0669bd1c2a4bba1e5acb7ef20d02acc102b126338df38e56d45c5 |
+| EV-0206 | Other supporting evidence | P2S7_FINAL_REPORT_AND_PR12_RECOVERY.ps1 | 13179 | 2026-07-20T03:21:19Z | 0380138055442425ef664f3bff46e31a3c9ed1b06e4a4d103f272befbd66f9c4 |
+| EV-0207 | Other supporting evidence | P2S7_FINAL_STRICT_MYPY_REPAIR.ps1 | 12289 | 2026-07-20T10:08:18Z | 56a8fbefac71daf61b9bfa5d9979c213d76bf96afb8acca7163904c55a5ca329 |
+| EV-0208 | Other supporting evidence | P2S7_FIX_ARROW_STRING_AND_COMPLETE.ps1 | 7607 | 2026-07-20T09:26:25Z | 680f1341eb1e6ca7a4baccdf70d7944c5cb6c419ad614c9e534673dabbc85603 |
+| EV-0209 | Other supporting evidence | P2S7_Fix_Branch_And_Push.ps1 | 5983 | 2026-07-20T02:42:44Z | 74b4118d4ae6b0ee906e0ca8446b25a50c575b3466fb5e0239e13d3680f540f2 |
+| EV-0210 | Other supporting evidence | P2S7_FIX_FINAL_E501_AND_COMPLETE (1).ps1 | 7111 | 2026-07-20T09:49:13Z | 40352e1de531b8ccac6b13b1bd55cb3cc30a131c466ee1256255fc33f772e225 |
+| EV-0211 | Other supporting evidence | P2S7_FIX_FINAL_E501_AND_COMPLETE.ps1 | 7111 | 2026-07-20T09:47:44Z | 40352e1de531b8ccac6b13b1bd55cb3cc30a131c466ee1256255fc33f772e225 |
+| EV-0212 | Other supporting evidence | P2S7_Fix_GitHub_Actions_PR12.ps1 | 6720 | 2026-07-20T03:12:44Z | ecb1d9293d99928b5e72791c736f7cb1386187a388c18df14bf1a95859598ea3 |
+| EV-0213 | Other supporting evidence | P2S7_FIX_MYPY_AND_COMPLETE.ps1 | 13374 | 2026-07-20T09:55:58Z | f3c9a8b7613935b7a95dfdee607bf1ae9808f9022843c9b220bf9cee9185e250 |
+| EV-0214 | Other supporting evidence | P2S7_FIX_MYPY_PARSER_AND_COMPLETE.ps1 | 14398 | 2026-07-20T10:00:02Z | 18cefd8aed19c78634cc7d1a5c4ed565c47ef488cb30abb0a9110d531b86cacf |
+| EV-0215 | Other supporting evidence | P2S7_FIX_PERCENTILE_NONE_AND_RESUME.ps1 | 4374 | 2026-07-20T03:48:47Z | 8c240e56cd9ecf590b1349241925b591383517c6282650eee18ac5994cfe1be2 |
+| EV-0216 | Other supporting evidence | P2S7_FIX_POLICY_RESULT_TYPE_AND_COMPLETE.ps1 | 8721 | 2026-07-20T09:24:21Z | 22f1fe97ff179723c730e811bbd969ef2ed95bf46da6964a3402a24ecd821fc2 |
+| EV-0217 | Other supporting evidence | P2S7_FIX_PR12_EXACT_MYPY_ERRORS.ps1 | 15460 | 2026-07-21T09:47:20Z | 78f259d1b3951ea2dbdf194a888d2bbc243828dcc7580ee5501ab8f0c1d374c9 |
+| EV-0218 | Other supporting evidence | P2S7_FIX_PY311_FSTRINGS_AND_COMPLETE.ps1 | 6969 | 2026-07-20T09:32:49Z | 7efaf7d967ae4772f66ed403cef8636ea9f3e0fe0cdf554e3587dd7b390f68d1 |
+| EV-0219 | Other supporting evidence | P2S7_FIX_RESULTS_FRAME_AND_COMPLETE.ps1 | 7837 | 2026-07-20T09:28:39Z | 3ccb5f82c32c479eb6ee86ec77e37931e7e58a1f4cc06b8a091c379762fffbbd |
+| EV-0220 | Other supporting evidence | P2S7_FIX_RUF046_AND_COMPLETE.ps1 | 5880 | 2026-07-20T09:22:17Z | ae24896702c1160959637ffb74e96a112d0e3ace7cc2f9b3a6fb79c50c95bde4 |
+| EV-0221 | Other supporting evidence | P2S7_Fix_Ruff_Generate_Commit_Push.ps1 | 9327 | 2026-07-20T02:47:24Z | c1c780a88f1398ba422fa7dd26526192f50236e0ce3a1dc6aa8cb786afca1d65 |
+| EV-0222 | Other supporting evidence | P2S7_FIX_SINGLE_UNREACHABLE_AND_FINALIZE.ps1 | 13326 | 2026-07-20T19:35:37Z | 5320188411788be26fb938670e598d8f26c312ac90f5fc6ac90b5a0273c89d57 |
+| EV-0223 | Reproducibility | P2S7_FIX_TEST_MYPY_AND_FINALIZE.ps1 | 15916 | 2026-07-20T19:30:54Z | 56a0635b8f441b6c2d066e69af616a9d5c664aa90561c892556bfe6c995bc61b |
+| EV-0224 | Other supporting evidence | P2S7_FIX_WRITE_EVIDENCE_AND_COMPLETE.ps1 | 9402 | 2026-07-20T09:31:19Z | c5ebbabe251c5f41bfe205ce24842fcb9e41fd3f998755b62265aa3400cbde82 |
+| EV-0225 | Other supporting evidence | P2S7_FORMAT_AND_FINALIZE.ps1 | 7826 | 2026-07-20T18:18:23Z | b36d3a2dc17572c22505d27751ba5ad90f7e35ff0b5697a9dde7b81a0959a0cf |
+| EV-0226 | Other supporting evidence | P2S7_Generate_Reports_Commit_Push.ps1 | 7832 | 2026-07-20T02:44:54Z | 8f39d41fee27bf31ffd88d3e1ab5634f6ab1a68abb65929d141239cdc0cbea95 |
+| EV-0227 | Data sources and quality | P2S7_IMPORT_MANUAL_SOFR_AND_COMPLETE.ps1 | 10175 | 2026-07-20T09:10:36Z | fc4cf76bb2ac369d249825edfcdc8641116522c4c0d4d9e201d324f59cfe3303 |
+| EV-0228 | Other supporting evidence | P2S7_MANUAL_FRED_IMPORT_AND_COMPLETE.ps1 | 13332 | 2026-07-20T08:55:26Z | 2b8df27ebc799d21d49bb4d7480938abfa4ea1245cfa17db308bcde6e0cb9012 |
+| EV-0229 | Other supporting evidence | P2S7_PATCH_SIM115_AND_RESUME.ps1 | 2943 | 2026-07-20T03:41:37Z | bd255fa471752a46a93c4c1e762e2bfe798a8c73af5267baf6933e83cf196ebb |
+| EV-0230 | Other supporting evidence | P2S7_POWERSHELL_SIM115_PATCH_AND_RESUME.ps1 | 3325 | 2026-07-20T03:44:19Z | e3454a104e1015912f607a4b4593e4adf666571d457f59155df801fc9406960c |
+| EV-0231 | Other supporting evidence | P2S7_PR12_COMPLETE_CI_REPAIR.ps1 | 14418 | 2026-07-20T03:19:39Z | eb89b11d289f553fc0a970144ac0cdfe431d4406b985d1e854ae3bb17c79fa71 |
+| EV-0232 | Data sources and quality | P2S7_REBUILD_SOFR_AND_RESUME.ps1 | 15428 | 2026-07-20T09:08:45Z | a9e87ccdbe27a559cc76be1f790699ed1bdb1803ed284059e5c64fc0f10f670b |
+| EV-0233 | Other supporting evidence | P2S7_RESIDUAL_RUFF_MYPY_FINALIZE_V2.ps1 | 18982 | 2026-07-20T19:33:20Z | 44776cab3a0de9798a230e59d04bb9bf3a49a4d3b694be5cadd9a904a830ee3a |
+| EV-0234 | Other supporting evidence | P2S7_RESOLVE_REMAINING_MYPY_AND_COMPLETE.ps1 | 13547 | 2026-07-20T10:05:43Z | 267c845381fb49133cd6854f05b8dd6c67c04f5849045e68bcce6312891ecb6b |
+| EV-0235 | Other supporting evidence | P2S7_RESTORE_FED_DATA_AND_RESUME.ps1 | 5959 | 2026-07-20T03:53:08Z | 883543a8b95c5b767883fcd6cdcbc36b3c7f35dda9000c844e8891569bb8ac96 |
+| EV-0236 | Other supporting evidence | P2S8_Build_Processed_Analytical_Dataset.ps1 | 49128 | 2026-07-21T16:58:00Z | a74da841c595f76fef977ba699d6009bf7a33f2463f5d107277c335ba672d5e5 |
+| EV-0237 | Other supporting evidence | P2S8_Build_Processed_Analytical_Dataset_CORRECTED.ps1 | 49130 | 2026-07-21T17:00:13Z | afe9d58d16bf8ce4594d6fbe0c6cc1b3f7e44e2a6fe3ed1115deebd842906a89 |
+| EV-0238 | Other supporting evidence | P2S8_Build_Processed_Analytical_Dataset_V2.ps1 | 49859 | 2026-07-21T17:01:36Z | 00f62caaa3ac10dd03e8b6bf03d9bd970df9fc508ff19d84c4a7ef96447ecc6e |
+| EV-0239 | Other supporting evidence | P2S8_Complete_After_Coverage.ps1 | 11960 | 2026-07-21T18:03:27Z | a1b7af179205a7332ad5b2ae0c9f16b3331783fe5adb60415e74b32554c50324 |
+| EV-0240 | Other supporting evidence | P2S8_Complete_Schema_Aware.ps1 | 21076 | 2026-07-21T18:11:12Z | b0af583aa17aefa91c8c7475724d240f3f2a03609441938c3aa5a421b577c678 |
+| EV-0241 | Other supporting evidence | P2S8_Final_PR13_Commit_Push.ps1 | 8157 | 2026-07-21T21:23:13Z | 336851180d521bda93dcd86f59babf5f67ab0a7c78c7a487b38c5b0664ec18df |
+| EV-0242 | Other supporting evidence | P2S8_Final_Stage_Commit_Push.ps1 | 5841 | 2026-07-21T18:20:00Z | bf84cd3abc86aa3a899ed3e10fd5a702158bdf7e3c56feaa33138ff7390f94e0 |
+| EV-0243 | Other supporting evidence | P2S8_Finalize_After_Ruff.ps1 | 12437 | 2026-07-21T18:01:17Z | beca4a69e07491975a0521dcd5be07161b06fe4cc57952a6403e9a6a384a9045 |
+| EV-0244 | Other supporting evidence | P2S8_Finalize_PR13_Coverage.ps1 | 9650 | 2026-07-21T21:17:04Z | 14899b48dbbbd979a475ef43d41498bf06eec9c36b36cab3ed193cf32c5466b0 |
+| EV-0245 | Other supporting evidence | P2S8_Fix_PR13_Mypy.ps1 | 9326 | 2026-07-21T20:58:56Z | ea9d8c3fd57ab94ffe333cc3e60d7ed60b4f84d2a3325ce5f905842fb82414b1 |
+| EV-0246 | Other supporting evidence | P2S8_Resume_After_Coverage_JSON.ps1 | 8957 | 2026-07-21T21:21:03Z | acbb5c65e1536b833526cdf5450c45b8eae84addb0343b2745c90cded9f8884a |
+| EV-0247 | Other supporting evidence | P2S8_Resume_Optimized.ps1 | 45097 | 2026-07-21T17:33:07Z | a4343168ec5ed6a955f0bcd2fd89605eabb8da2207b6e91eae2ef87c4d891a49 |
+| EV-0248 | Other supporting evidence | P2S8_Resume_PR13_Mypy_Fix.ps1 | 7091 | 2026-07-21T21:14:44Z | 1d307f600904ae007c3da47e6b78bc68f6cc632e74708559d0c839491c7ab86e |
+| EV-0249 | Implementation verification | P7S25_Independent_Implementation_Verification.ps1 | 61307 | 2026-07-24T14:52:13Z | 5e6abf71e132ced85891faeb30480f9d597171286737ad6b37fe5f344cc3ad40 |
+| EV-0250 | Sensitivity analysis | P7S26_Sensitivity_Analysis.ps1 | 56104 | 2026-07-24T16:46:29Z | d92944a148602861a8d690a8439c5701aad98aa34cfd9f3c3a311245c82c3659 |
+| EV-0251 | Monitoring | P8S29_Setup_Monthly_Monitoring_Framework.ps1 | 59586 | 2026-07-25T17:02:53Z | b2a8b283dc75a98d3891c8aafe0525f3d651cab5acd27734d6fb0e5a61106697 |
+| EV-0252 | Monitoring | P8S30_FINAL_V3_Setup_Monitoring_Thresholds_Escalation.ps1 | 66316 | 2026-07-26T00:23:13Z | 168621777012614b0db76c7e2371a339e9e70d9847f1298f8bef341102160cf1 |
+| EV-0253 | Other supporting evidence | P8S30_Fix_PR31_Mypy_CI_V2.ps1 | 9318 | 2026-07-26T00:23:13Z | 7ebb1ef7b39ce696924246b606824f68d128190fa039be07ff66852343a3825b |
+| EV-0254 | Other supporting evidence | P9S33_FINAL.ps1 | 13788 | 2026-07-26T19:10:25Z | c6e0c4f8616fe0ff9914bca984c1987064bc27e89586d0714700062b58b19a29 |
+| EV-0255 | Other supporting evidence | P9S33_Fix_Ruff_And_Validate.ps1 | 9369 | 2026-07-26T19:10:25Z | 9f88b15a4eea5b763843f0d3fc9ab0b8704fe9187edf20e6b867dac216f32da9 |
+| EV-0256 | Reproducibility | P9S34_Setup_Independent_Validation_Report.ps1 | 65470 | 2026-07-26T23:34:16Z | e8f828cc8396447cb8e3ae1760fae03aa65f055c76d98df635eab9422ff5949d |
+| EV-0257 | Reproducibility | pyproject.toml | 2180 | 2026-07-26T19:10:25Z | c99b24bc1574c303254251a09a929c6d5d5e960c4aab51d8ad4ea95a84a57d07 |
+| EV-0258 | Governance and scope | README.md | 3781 | 2026-07-26T23:35:15Z | 4261391f3137518c94ac66f41b29a5dba2482bea8b6f411d9d96a73bb8b55293 |
+| EV-0259 | Reproducibility | reports/evidence/backups/p1s3_20260719T234214Z/.github/workflows/ci.yml | 902 | 2026-07-19T21:54:02Z | 222bdb2ba55d14c0da9dc7d9c77ac04204693688caebf81062e55800fb84e6aa |
+| EV-0260 | Reproducibility | reports/evidence/backups/p1s3_20260719T234214Z/pyproject.toml | 1079 | 2026-07-19T21:54:02Z | 5bd1059974f9920a2842c041cbbd378ca7be48ae01042a57b925d985f1d880e4 |
+| EV-0261 | Other supporting evidence | reports/evidence/backups/p1s3_20260719T234214Z/src/ficc_liquidity/__init__.py | 96 | 2026-07-19T21:54:02Z | f2483da4a846aa90188b379f316eb3c680e1f6a580a5b422299fd88da9036ee7 |
+| EV-0262 | Other supporting evidence | reports/evidence/backups/p2s6_20260720T015356Z/scripts/download_supporting_fed_data.py | 1668 | 2026-07-20T01:52:05Z | 324ff7bf6f0054fe1b1c364b5b9bd05a68d92755ef17899829f6c64f7d70f43e |
+| EV-0263 | Other supporting evidence | reports/evidence/backups/p2s6_20260720T015356Z/src/ficc_liquidity/data/_fed_common.py | 7912 | 2026-07-20T01:52:05Z | a7b55b8ef5208db529522cbc2e55969fd214f02bf55966d02d15c11d02dfeb26 |
+| EV-0264 | Data sources and quality | reports/evidence/backups/p2s6_20260720T015356Z/src/ficc_liquidity/data/h15.py | 7448 | 2026-07-20T01:52:05Z | 9c0731947fc58bb17299a9a0ad195be69f805b74fa823ee74c23e3b0a2792bee |
+| EV-0265 | Data sources and quality | reports/evidence/backups/p2s6_20260720T015356Z/src/ficc_liquidity/data/h41.py | 7606 | 2026-07-20T01:52:05Z | ddca06442bbcf359d85783e313134fda212d04b0ada2824d1c9d1c0f7bea71de |
+| EV-0266 | Data sources and quality | reports/evidence/backups/p2s6_20260720T015356Z/src/ficc_liquidity/data/sofr.py | 8343 | 2026-07-20T01:52:05Z | 81f7c6db0473a88405151a601fa0a03f4fa202391fe734661f5cd25fa4f34b3e |
+| EV-0267 | Data sources and quality | reports/evidence/backups/p2s6_20260720T015356Z/tests/test_h15_ingestion.py | 3016 | 2026-07-20T01:52:05Z | 6417c83e21f2bc3bf373311209a25a38b1254af838eb2cda2f3ff9bc22d1b27c |
+| EV-0268 | Data sources and quality | reports/evidence/backups/p2s6_20260720T015356Z/tests/test_h41_ingestion.py | 2966 | 2026-07-20T01:52:05Z | d8a6a6991a96bab9e00b913d3b0cd4adb6069687f1b52e2d22f9607dbce9014d |
+| EV-0269 | Reproducibility | reports/evidence/backups/p2s6_20260720T015356Z/tests/test_supporting_fed_contracts.py | 1015 | 2026-07-20T01:52:05Z | 978bd559d4b81ac055abf02a306c283223bd31dc2a59735f1f5152938f6327b5 |
+| EV-0270 | Other supporting evidence | reports/evidence/backups/p2s6_20260720T015717Z/scripts/download_supporting_fed_data.py | 1668 | 2026-07-20T01:54:04Z | 324ff7bf6f0054fe1b1c364b5b9bd05a68d92755ef17899829f6c64f7d70f43e |
+| EV-0271 | Other supporting evidence | reports/evidence/backups/p2s6_20260720T015717Z/src/ficc_liquidity/data/_fed_common.py | 7898 | 2026-07-20T01:54:04Z | cbae517a0380e3e61a2aa0ecf115f768f824949ed943d7c0c2a885ea438d7bb0 |
+| EV-0272 | Data sources and quality | reports/evidence/backups/p2s6_20260720T015717Z/src/ficc_liquidity/data/h15.py | 7448 | 2026-07-20T01:54:04Z | 9c0731947fc58bb17299a9a0ad195be69f805b74fa823ee74c23e3b0a2792bee |
+| EV-0273 | Data sources and quality | reports/evidence/backups/p2s6_20260720T015717Z/src/ficc_liquidity/data/h41.py | 7606 | 2026-07-20T01:54:04Z | ddca06442bbcf359d85783e313134fda212d04b0ada2824d1c9d1c0f7bea71de |
+| EV-0274 | Data sources and quality | reports/evidence/backups/p2s6_20260720T015717Z/src/ficc_liquidity/data/sofr.py | 8343 | 2026-07-20T01:54:04Z | 81f7c6db0473a88405151a601fa0a03f4fa202391fe734661f5cd25fa4f34b3e |
+| EV-0275 | Reproducibility | reports/evidence/backups/p2s6_20260720T015717Z/tests/test_fed_common.py | 6140 | 2026-07-20T01:51:58Z | 92a68ba5b6ce626c991c6fc431a4d0141ef4e623058a51eff12de3a08e23b5ad |
+| EV-0276 | Data sources and quality | reports/evidence/backups/p2s6_20260720T015717Z/tests/test_h15_ingestion.py | 3016 | 2026-07-20T01:54:04Z | 6417c83e21f2bc3bf373311209a25a38b1254af838eb2cda2f3ff9bc22d1b27c |
+| EV-0277 | Data sources and quality | reports/evidence/backups/p2s6_20260720T015717Z/tests/test_h41_ingestion.py | 2966 | 2026-07-20T01:54:04Z | d8a6a6991a96bab9e00b913d3b0cd4adb6069687f1b52e2d22f9607dbce9014d |
+| EV-0278 | Data sources and quality | reports/evidence/backups/p2s6_20260720T015717Z/tests/test_sofr_ingestion.py | 3718 | 2026-07-20T01:51:58Z | 48c924cc496570a67bb36c6193b327b43b531aeb5016467156a637a91c54532d |
+| EV-0279 | Reproducibility | reports/evidence/backups/p2s6_20260720T015717Z/tests/test_supporting_fed_contracts.py | 1015 | 2026-07-20T01:54:04Z | 978bd559d4b81ac055abf02a306c283223bd31dc2a59735f1f5152938f6327b5 |
+| EV-0280 | Other supporting evidence | reports/evidence/backups/p2s6_20260720T020813Z/scripts/download_supporting_fed_data.py | 1668 | 2026-07-20T01:57:27Z | 324ff7bf6f0054fe1b1c364b5b9bd05a68d92755ef17899829f6c64f7d70f43e |
+| EV-0281 | Other supporting evidence | reports/evidence/backups/p2s6_20260720T020813Z/src/ficc_liquidity/data/_fed_common.py | 7814 | 2026-07-20T01:57:27Z | ecb50fbfb39ab33e09c08dc789a15ca7b3412b792f59e4d34eb94e86fa461a53 |
+| EV-0282 | Data sources and quality | reports/evidence/backups/p2s6_20260720T020813Z/src/ficc_liquidity/data/h15.py | 7448 | 2026-07-20T01:57:27Z | 9c0731947fc58bb17299a9a0ad195be69f805b74fa823ee74c23e3b0a2792bee |
+| EV-0283 | Data sources and quality | reports/evidence/backups/p2s6_20260720T020813Z/src/ficc_liquidity/data/h41.py | 7606 | 2026-07-20T01:57:27Z | ddca06442bbcf359d85783e313134fda212d04b0ada2824d1c9d1c0f7bea71de |
+| EV-0284 | Data sources and quality | reports/evidence/backups/p2s6_20260720T020813Z/src/ficc_liquidity/data/sofr.py | 8343 | 2026-07-20T01:57:27Z | 81f7c6db0473a88405151a601fa0a03f4fa202391fe734661f5cd25fa4f34b3e |
+| EV-0285 | Reproducibility | reports/evidence/backups/p2s6_20260720T020813Z/tests/test_fed_common.py | 6164 | 2026-07-20T01:57:27Z | e5270f70cd2eed5749811df42be28a93155851fc2c7a22c334244f6859c5a444 |
+| EV-0286 | Data sources and quality | reports/evidence/backups/p2s6_20260720T020813Z/tests/test_h15_ingestion.py | 3016 | 2026-07-20T01:57:27Z | 6417c83e21f2bc3bf373311209a25a38b1254af838eb2cda2f3ff9bc22d1b27c |
+| EV-0287 | Data sources and quality | reports/evidence/backups/p2s6_20260720T020813Z/tests/test_h41_ingestion.py | 2966 | 2026-07-20T01:57:27Z | d8a6a6991a96bab9e00b913d3b0cd4adb6069687f1b52e2d22f9607dbce9014d |
+| EV-0288 | Reproducibility | reports/evidence/backups/p2s6_20260720T020813Z/tests/test_supporting_fed_contracts.py | 1015 | 2026-07-20T01:57:27Z | 978bd559d4b81ac055abf02a306c283223bd31dc2a59735f1f5152938f6327b5 |
+| EV-0289 | Other supporting evidence | reports/evidence/backups/p2s6_20260720T020946Z/scripts/download_supporting_fed_data.py | 1668 | 2026-07-20T02:08:22Z | 324ff7bf6f0054fe1b1c364b5b9bd05a68d92755ef17899829f6c64f7d70f43e |
+| EV-0290 | Other supporting evidence | reports/evidence/backups/p2s6_20260720T020946Z/src/ficc_liquidity/data/_fed_common.py | 7814 | 2026-07-20T02:08:22Z | ecb50fbfb39ab33e09c08dc789a15ca7b3412b792f59e4d34eb94e86fa461a53 |
+| EV-0291 | Data sources and quality | reports/evidence/backups/p2s6_20260720T020946Z/src/ficc_liquidity/data/h15.py | 7448 | 2026-07-20T02:08:22Z | 9c0731947fc58bb17299a9a0ad195be69f805b74fa823ee74c23e3b0a2792bee |
+| EV-0292 | Data sources and quality | reports/evidence/backups/p2s6_20260720T020946Z/src/ficc_liquidity/data/h41.py | 7606 | 2026-07-20T02:08:22Z | ddca06442bbcf359d85783e313134fda212d04b0ada2824d1c9d1c0f7bea71de |
+| EV-0293 | Data sources and quality | reports/evidence/backups/p2s6_20260720T020946Z/src/ficc_liquidity/data/sofr.py | 8343 | 2026-07-20T02:08:22Z | 81f7c6db0473a88405151a601fa0a03f4fa202391fe734661f5cd25fa4f34b3e |
+| EV-0294 | Reproducibility | reports/evidence/backups/p2s6_20260720T020946Z/tests/test_fed_common.py | 6164 | 2026-07-20T02:08:22Z | e5270f70cd2eed5749811df42be28a93155851fc2c7a22c334244f6859c5a444 |
+| EV-0295 | Data sources and quality | reports/evidence/backups/p2s6_20260720T020946Z/tests/test_h15_ingestion.py | 3016 | 2026-07-20T02:08:22Z | 6417c83e21f2bc3bf373311209a25a38b1254af838eb2cda2f3ff9bc22d1b27c |
+| EV-0296 | Data sources and quality | reports/evidence/backups/p2s6_20260720T020946Z/tests/test_h41_ingestion.py | 2966 | 2026-07-20T02:08:22Z | d8a6a6991a96bab9e00b913d3b0cd4adb6069687f1b52e2d22f9607dbce9014d |
+| EV-0297 | Reproducibility | reports/evidence/backups/p2s6_20260720T020946Z/tests/test_supporting_fed_contracts.py | 1015 | 2026-07-20T02:08:22Z | 978bd559d4b81ac055abf02a306c283223bd31dc2a59735f1f5152938f6327b5 |
+| EV-0298 | Other supporting evidence | reports/evidence/backups/section30_20260725_131945/src/ficc_liquidity/monitoring/__init__.py | 300 | 2026-07-25T17:02:53Z | 13ec35b5b41bd67132b12ec3486c0bd14fa0b38b276e020c051f8c2a9b444eb8 |
+| EV-0299 | Governance and scope | reports/evidence/backups/section30_20260725_132610/configs/monitoring_governance.yaml | 7894 | 2026-07-25T17:19:46Z | 6316bbcc42e62d4fb5484863e21710406b09025a864d4cbf4d523b1cb96c4189 |
+| EV-0300 | Monitoring | reports/evidence/backups/section30_20260725_132610/data/manifests/monitoring_threshold_register.csv | 2125 | 2026-07-25T17:19:46Z | cdd4d2ac2ad47b46a30cc91a061175abcddc86b3240a7d83608e316f16b989cb |
+| EV-0301 | Monitoring | reports/evidence/backups/section30_20260725_132610/docs/monitoring_thresholds_and_escalation.md | 7048 | 2026-07-25T17:19:46Z | cbcbcfdd8578b856ebffc23008c47be2ee664d5bf9cfbc5e5d81296d573bcf3a |
+| EV-0302 | Governance and scope | reports/evidence/backups/section30_20260725_132610/scripts/run_monitoring_governance.py | 177 | 2026-07-25T17:19:58Z | 37e6171ad4d54fcb054652f23c14d0611382db93db2c9d777d9f5578760b7faa |
+| EV-0303 | Governance and scope | reports/evidence/backups/section30_20260725_132610/sql/monitoring_governance.sql | 2446 | 2026-07-25T17:19:46Z | 4cc173b4b39d80265e0793536460ac6dc0817d51f67e00e54e265d1b468404e0 |
+| EV-0304 | Other supporting evidence | reports/evidence/backups/section30_20260725_132610/src/ficc_liquidity/monitoring/__init__.py | 300 | 2026-07-25T17:26:06Z | 13ec35b5b41bd67132b12ec3486c0bd14fa0b38b276e020c051f8c2a9b444eb8 |
+| EV-0305 | Governance and scope | reports/evidence/backups/section30_20260725_132610/src/ficc_liquidity/monitoring/governance.py | 22240 | 2026-07-25T17:19:58Z | 38fef6da8b56f61d340584e4200ee24579fa39219c8273c779546fd1f2dd79d3 |
+| EV-0306 | Governance and scope | reports/evidence/backups/section30_20260725_132610/tests/test_monitoring_governance.py | 3522 | 2026-07-25T17:19:58Z | 02a4926b10c59c032eb69830a2ffb14444fe8c7e831d1c11f68579fab295249d |
+| EV-0307 | Other supporting evidence | reports/evidence/backups/section30_20260725_132946/src/ficc_liquidity/monitoring/__init__.py | 300 | 2026-07-25T17:29:43Z | 13ec35b5b41bd67132b12ec3486c0bd14fa0b38b276e020c051f8c2a9b444eb8 |
+| EV-0308 | Governance and scope | reports/evidence/backups/section30_20260725_134031/configs/monitoring_governance.yaml | 7894 | 2026-07-25T17:29:52Z | 6316bbcc42e62d4fb5484863e21710406b09025a864d4cbf4d523b1cb96c4189 |
+| EV-0309 | Monitoring | reports/evidence/backups/section30_20260725_134031/data/manifests/monitoring_threshold_register.csv | 2125 | 2026-07-25T17:29:52Z | cdd4d2ac2ad47b46a30cc91a061175abcddc86b3240a7d83608e316f16b989cb |
+| EV-0310 | Monitoring | reports/evidence/backups/section30_20260725_134031/docs/monitoring_thresholds_and_escalation.md | 7048 | 2026-07-25T17:29:52Z | cbcbcfdd8578b856ebffc23008c47be2ee664d5bf9cfbc5e5d81296d573bcf3a |
+| EV-0311 | Governance and scope | reports/evidence/backups/section30_20260725_134031/scripts/run_monitoring_governance.py | 177 | 2026-07-25T17:29:59Z | 37e6171ad4d54fcb054652f23c14d0611382db93db2c9d777d9f5578760b7faa |
+| EV-0312 | Governance and scope | reports/evidence/backups/section30_20260725_134031/sql/monitoring_governance.sql | 2446 | 2026-07-25T17:29:53Z | 4cc173b4b39d80265e0793536460ac6dc0817d51f67e00e54e265d1b468404e0 |
+| EV-0313 | Other supporting evidence | reports/evidence/backups/section30_20260725_134031/src/ficc_liquidity/monitoring/__init__.py | 300 | 2026-07-25T17:40:15Z | 13ec35b5b41bd67132b12ec3486c0bd14fa0b38b276e020c051f8c2a9b444eb8 |
+| EV-0314 | Governance and scope | reports/evidence/backups/section30_20260725_134031/src/ficc_liquidity/monitoring/governance.py | 22270 | 2026-07-25T17:29:59Z | 33d6b054fc121d828e85b3694422e16cfe6152b4b0683018c60830a92f6fee5f |
+| EV-0315 | Governance and scope | reports/evidence/backups/section30_20260725_134031/tests/test_monitoring_governance.py | 3522 | 2026-07-25T17:29:59Z | 02a4926b10c59c032eb69830a2ffb14444fe8c7e831d1c11f68579fab295249d |
+| EV-0316 | Governance and scope | reports/evidence/backups/section30_20260725_134810/configs/monitoring_governance.yaml | 7894 | 2026-07-25T17:40:37Z | 6316bbcc42e62d4fb5484863e21710406b09025a864d4cbf4d523b1cb96c4189 |
+| EV-0317 | Monitoring | reports/evidence/backups/section30_20260725_134810/data/manifests/monitoring_threshold_register.csv | 2125 | 2026-07-25T17:40:37Z | cdd4d2ac2ad47b46a30cc91a061175abcddc86b3240a7d83608e316f16b989cb |
+| EV-0318 | Monitoring | reports/evidence/backups/section30_20260725_134810/docs/monitoring_thresholds_and_escalation.md | 7048 | 2026-07-25T17:40:37Z | cbcbcfdd8578b856ebffc23008c47be2ee664d5bf9cfbc5e5d81296d573bcf3a |
+| EV-0319 | Governance and scope | reports/evidence/backups/section30_20260725_134810/scripts/run_monitoring_governance.py | 177 | 2026-07-25T17:41:03Z | 37e6171ad4d54fcb054652f23c14d0611382db93db2c9d777d9f5578760b7faa |
+| EV-0320 | Governance and scope | reports/evidence/backups/section30_20260725_134810/sql/monitoring_governance.sql | 2446 | 2026-07-25T17:40:37Z | 4cc173b4b39d80265e0793536460ac6dc0817d51f67e00e54e265d1b468404e0 |
+| EV-0321 | Other supporting evidence | reports/evidence/backups/section30_20260725_134810/src/ficc_liquidity/monitoring/__init__.py | 300 | 2026-07-25T17:47:52Z | 13ec35b5b41bd67132b12ec3486c0bd14fa0b38b276e020c051f8c2a9b444eb8 |
+| EV-0322 | Governance and scope | reports/evidence/backups/section30_20260725_134810/src/ficc_liquidity/monitoring/governance.py | 22240 | 2026-07-25T17:41:03Z | 38fef6da8b56f61d340584e4200ee24579fa39219c8273c779546fd1f2dd79d3 |
+| EV-0323 | Governance and scope | reports/evidence/backups/section30_20260725_134810/tests/test_monitoring_governance.py | 3522 | 2026-07-25T17:41:03Z | 02a4926b10c59c032eb69830a2ffb14444fe8c7e831d1c11f68579fab295249d |
+| EV-0324 | Governance and scope | reports/evidence/backups/section30_20260725_183538/configs/monitoring_governance.yaml | 7894 | 2026-07-25T17:48:11Z | 6316bbcc42e62d4fb5484863e21710406b09025a864d4cbf4d523b1cb96c4189 |
+| EV-0325 | Monitoring | reports/evidence/backups/section30_20260725_183538/data/manifests/monitoring_threshold_register.csv | 2125 | 2026-07-25T17:48:11Z | cdd4d2ac2ad47b46a30cc91a061175abcddc86b3240a7d83608e316f16b989cb |
+| EV-0326 | Monitoring | reports/evidence/backups/section30_20260725_183538/docs/monitoring_thresholds_and_escalation.md | 7048 | 2026-07-25T17:48:11Z | cbcbcfdd8578b856ebffc23008c47be2ee664d5bf9cfbc5e5d81296d573bcf3a |
+| EV-0327 | Governance and scope | reports/evidence/backups/section30_20260725_183538/scripts/run_monitoring_governance.py | 177 | 2026-07-25T17:48:20Z | 37e6171ad4d54fcb054652f23c14d0611382db93db2c9d777d9f5578760b7faa |
+| EV-0328 | Governance and scope | reports/evidence/backups/section30_20260725_183538/sql/monitoring_governance.sql | 2446 | 2026-07-25T17:48:11Z | 4cc173b4b39d80265e0793536460ac6dc0817d51f67e00e54e265d1b468404e0 |
+| EV-0329 | Other supporting evidence | reports/evidence/backups/section30_20260725_183538/src/ficc_liquidity/monitoring/__init__.py | 300 | 2026-07-25T22:35:39Z | 13ec35b5b41bd67132b12ec3486c0bd14fa0b38b276e020c051f8c2a9b444eb8 |
+| EV-0330 | Governance and scope | reports/evidence/backups/section30_20260725_183538/src/ficc_liquidity/monitoring/governance.py | 22240 | 2026-07-25T17:48:20Z | 38fef6da8b56f61d340584e4200ee24579fa39219c8273c779546fd1f2dd79d3 |
+| EV-0331 | Governance and scope | reports/evidence/backups/section30_20260725_183538/tests/test_monitoring_governance.py | 3522 | 2026-07-25T17:48:20Z | 02a4926b10c59c032eb69830a2ffb14444fe8c7e831d1c11f68579fab295249d |
+| EV-0332 | Governance and scope | reports/evidence/backups/section30_pr31_mypy_20260725_184212/governance.py | 22270 | 2026-07-25T22:35:45Z | 33d6b054fc121d828e85b3694422e16cfe6152b4b0683018c60830a92f6fee5f |
+| EV-0333 | Governance and scope | reports/evidence/backups/section30_pr31_mypy_v2_20260725_184423/governance.py | 22384 | 2026-07-25T22:42:13Z | c73e9e0261d2df298eb5d1eba7d5b71f2d62b8548023b1ce347bc73cff326bc6 |
+| EV-0334 | Other supporting evidence | reports/evidence/backups/section30_pr31_mypy_v2_20260725_184423/monthly.py | 35008 | 2026-07-25T17:02:53Z | 262bf27071c82a22dd7f1b69102c16b496f79e078116619b6632ea305e786b2f |
+| EV-0335 | Other supporting evidence | reports/evidence/backups/section30_pr31_mypy_v3_20260725_185742/monthly.py | 35061 | 2026-07-25T22:44:24Z | f8df8105f5dadd956a2ce43c05fb2faf68ba56bfe5f493978a0d46d03a292e26 |
+| EV-0336 | Findings | reports/evidence/backups/section31_20260725_211940/.github/ISSUE_TEMPLATE/validation-finding.yml | 2779 | 2026-07-26T01:11:55Z | 3fb92815e33b53e1a3c770d0c533987caa09409d006c780a9ac311fc3c4c4130 |
+| EV-0337 | Findings | reports/evidence/backups/section31_20260725_211940/configs/validation_findings.yaml | 1848 | 2026-07-26T01:11:55Z | fad64369dc0a04aa8ba0b14224744deac8b43d4386507e00c1270a12c8e20675 |
+| EV-0338 | Findings | reports/evidence/backups/section31_20260725_211940/data/manifests/validation_finding_register.csv | 3085 | 2026-07-26T01:11:55Z | 8317f69002ca5b089317c2ff2839a708dc9ed3579d869f69988773aa78615431 |
+| EV-0339 | Findings | reports/evidence/backups/section31_20260725_211940/docs/validation_finding_register.md | 5157 | 2026-07-26T01:11:55Z | 265d748448b641126156b1bc5234e5130401fe94dc876357c94767b43ab6d136 |
+| EV-0340 | Findings | reports/evidence/backups/section31_20260725_211940/scripts/automation/P8S31_Setup_Validation_Finding_Register.ps1 | 70349 | 2026-07-26T01:11:55Z | 73533d40dfc49cebd9265e2ece8a0bd2c5891d256fdf4b8f883c9f53d7193830 |
+| EV-0341 | Findings | reports/evidence/backups/section31_20260725_211940/scripts/run_validation_findings.py | 2536 | 2026-07-26T01:11:55Z | c7d413516d0ed0e4d89a47dea83c964d9bc09d0304bcabd84d30cd5ea8b8bba4 |
+| EV-0342 | Findings | reports/evidence/backups/section31_20260725_211940/sql/validation_finding_register.sql | 2138 | 2026-07-26T01:11:55Z | 631489b5290e59d94c665ea8e137c90661c822f31cca2c6451e314ce4f679c04 |
+| EV-0343 | Findings | reports/evidence/backups/section31_20260725_211940/src/ficc_liquidity/governance/validation_findings.py | 27872 | 2026-07-26T01:11:56Z | c545d27652c181ca24ba2382a80c4950d206c184e65bd513c4e92c5f4cea697f |
+| EV-0344 | Findings | reports/evidence/backups/section31_20260725_211940/tests/test_validation_findings.py | 4121 | 2026-07-26T01:11:56Z | 92369d5a74e73fb3e7f77c12ef2c2e5aba9b7f770269de62775a296308edc870 |
+| EV-0345 | Other supporting evidence | reports/evidence/coverage_completion.json | 137062 | 2026-07-20T17:31:51Z | 91f46bddfd996d843cb634655e12f8b7f775219eb13016c37bfbc1186c057bea |
+| EV-0346 | Other supporting evidence | reports/evidence/coverage_final_closure.json | 136900 | 2026-07-20T18:16:53Z | 0b5e8348c0fd26910f9b55b8650f81e42f90923820b97341d2758eadf1670f3d |
+| EV-0347 | Other supporting evidence | reports/evidence/coverage_policy_update.json | 136351 | 2026-07-20T10:27:26Z | d0873d4ff236a151750edb934b7bcb9bb0543b192546ccdaee07e3df1ba48203 |
+| EV-0348 | Data sources and quality | reports/evidence/data_quality_report.txt | 14561 | 2026-07-20T09:51:41Z | cefac08e9591fe6059059767283868a2607f825ceeace39f5ddc373e86260ad1 |
+| EV-0349 | Data sources and quality | reports/evidence/fr2004_series_resolution_diagnostic.csv | 363718 | 2026-07-22T03:38:43Z | daa8a62677f3f87e21b5d89000ca282926acad31bef7406799e9d1f242489123 |
+| EV-0350 | Scenario framework | reports/evidence/historical_stress_calibration.txt | 27382 | 2026-07-21T23:10:52Z | b52fc9799a207dab1055c93e1d266f095223b67cb760929018edd4f6cd751eaa |
+| EV-0351 | Other supporting evidence | reports/evidence/local_mypy_failure.txt | 3040 | 2026-07-21T09:23:09Z | 64616b6cdd665aa74cc616bb4b062a083828d639f6cfdb0a2462089949c8efc4 |
+| EV-0352 | Other supporting evidence | reports/evidence/logs/ficc_liquidity.log | 436 | 2026-07-25T04:08:48Z | 49eb371ced9b561729448fd56608f5168d94ae5c14072a2bdf0db82d369a6015 |
+| EV-0353 | Other supporting evidence | reports/evidence/logs/p2s7_restore_fed_data_20260719_235323.log | 1417 | 2026-07-20T03:57:13Z | 67dae68bdc32508bb8b627ab93a586ea475caa11ef3b874bd819ed1ef3372d70 |
+| EV-0354 | Data sources and quality | reports/evidence/p2s7_arrow_string_backup/data_quality_before_20260720_052634.py | 53013 | 2026-07-20T09:24:35Z | d3dff355f828805669fc0bf79ff38c2fd3331c45375d810dc1ccd5977956e56c |
+| EV-0355 | Data sources and quality | reports/evidence/p2s7_exact_four_error_backup/data_quality_20260719_225726.py | 44745 | 2026-07-20T02:50:54Z | 520eee921b56c222f5f7c1ccaf4b4ec8fd5d9ec249868f3e2443201d18c8c190 |
+| EV-0356 | Data sources and quality | reports/evidence/p2s7_exact_four_error_backup/test_data_quality_20260719_225726.py | 5898 | 2026-07-20T02:50:54Z | 453a14bf0103e3e3ac27a4c552303c98f041e5dee838fd7af6111a1f669d9743 |
+| EV-0357 | Data sources and quality | reports/evidence/p2s7_final_e501_backup/data_quality_before_20260720_054939.py | 53568 | 2026-07-20T09:33:09Z | fe3bf15e4ff4c1a6840a08232295c72699ac0b74e4dfcc7389611dd5730bd4cc |
+| EV-0358 | Data sources and quality | reports/evidence/p2s7_final_mypy_backup/data_quality_before_20260720_060553.py | 53634 | 2026-07-20T10:00:17Z | 553f2bcd4c0ee1d05fd57fed5919cb4fde11f033b1dafb53f0a140f37351eee4 |
+| EV-0359 | Data sources and quality | reports/evidence/p2s7_final_mypy_backup/data_quality_before_20260720_060839.py | 53634 | 2026-07-20T10:00:17Z | 553f2bcd4c0ee1d05fd57fed5919cb4fde11f033b1dafb53f0a140f37351eee4 |
+| EV-0360 | Data sources and quality | reports/evidence/p2s7_mypy_repair_backup/data_quality_20260720_060016.py | 53584 | 2026-07-20T09:49:48Z | 2bb49f8df5f1b49a0cc5873e0610de2ffa47dbdf7bcf330c624ca6103e5c1a1e |
+| EV-0361 | Data sources and quality | reports/evidence/p2s7_mypy_repair_backup/test_data_quality_policy_20260720_060016.py | 2500 | 2026-07-20T09:19:46Z | ff1aac002f3e434bb0e9ba24e1a20b9ff8dc06689de08ad035b7de9eeac3a627 |
+| EV-0362 | Data sources and quality | reports/evidence/p2s7_mypy_repair_backup/test_fr2004_ingestion_20260720_060016.py | 5080 | 2026-07-20T03:21:57Z | 71f84ef9a64630e9e4d83d2426860dc5186ef86ba913f76e8d83e7146feef3d6 |
+| EV-0363 | Data sources and quality | reports/evidence/p2s7_python311_fstring_backup/data_quality_before_20260720_053309.py | 53576 | 2026-07-20T09:31:31Z | 7fedc7835c8a50dec6047c532ff7c61f4c0b4c217e10784675defd66f15c64d7 |
+| EV-0364 | Data sources and quality | reports/evidence/p2s7_result_type_backup/data_quality_before_20260720_052434.py | 52973 | 2026-07-20T09:22:34Z | 3e358255b9c69b41acad7388318ad3f17369ca7cfb26663cbc7cd22f56c6fd08 |
+| EV-0365 | Data sources and quality | reports/evidence/p2s7_results_frame_backup/data_quality_before_20260720_052848.py | 53310 | 2026-07-20T09:26:34Z | f8ba708eede50139579c94c4b1c0c702ffed05a8f9de292a3b0df8b190d4b739 |
+| EV-0366 | Data sources and quality | reports/evidence/p2s7_ruf046_backup/data_quality_before_20260720_052234.py | 52988 | 2026-07-20T09:19:46Z | c42a9596727f0b84fd5e039c91efe610b68d877f22febf69a0c3b503c80a8690 |
+| EV-0367 | Data sources and quality | reports/evidence/p2s7_ruf046_backup/test_data_quality_policy_before_20260720_052234.py | 2500 | 2026-07-20T09:19:46Z | ff1aac002f3e434bb0e9ba24e1a20b9ff8dc06689de08ad035b7de9eeac3a627 |
+| EV-0368 | Data sources and quality | reports/evidence/p2s7_ruff_backup/data_quality_20260719_224745.py | 44447 | 2026-07-20T02:39:16Z | 70d23470ff3c3e173cc0202f2893899fd959069c1673540e0c4cdfc90d9a571c |
+| EV-0369 | Data sources and quality | reports/evidence/p2s7_ruff_backup/test_data_quality_20260719_224745.py | 5899 | 2026-07-20T02:39:16Z | 1580d59ca323d1885bdc8438f8d3ec7f7dce1ae5c6e5f6e80b6605ce6ba4a616 |
+| EV-0370 | Data sources and quality | reports/evidence/p2s7_source_backup/data_quality_before_20260719_225054.py | 44413 | 2026-07-20T02:47:45Z | 3d3968e9ce7ca18e64ec19a8ccfe26cb91d1d847cd055fa149ec8a3557adb842 |
+| EV-0371 | Data sources and quality | reports/evidence/p2s7_source_backup/test_data_quality_before_20260719_225054.py | 5899 | 2026-07-20T02:39:16Z | 1580d59ca323d1885bdc8438f8d3ec7f7dce1ae5c6e5f6e80b6605ce6ba4a616 |
+| EV-0372 | Data sources and quality | reports/evidence/p2s7_test_backups/test_data_quality_coverage_completion_20260720_063514.py | 8955 | 2026-07-20T10:32:45Z | 63e5cd6ab3816c9f274b6dbece65fdc0b12d124484f0a633b6243a31c1b5b218 |
+| EV-0373 | Data sources and quality | reports/evidence/p2s7_test_backups/test_data_quality_coverage_completion_20260720_133137.py | 8955 | 2026-07-20T10:35:15Z | 63e5cd6ab3816c9f274b6dbece65fdc0b12d124484f0a633b6243a31c1b5b218 |
+| EV-0374 | Data sources and quality | reports/evidence/p2s7_test_backups/test_data_quality_policy_update_20260720_062710.py | 5820 | 2026-07-20T10:21:42Z | b1ef2b373d275902b7802fca66991b2aaccccd7edd9eb01b90499cef99194f94 |
+| EV-0375 | Reproducibility | reports/evidence/p2s7_test_backups/test_final_coverage_closure_20260720_133934.py | 5763 | 2026-07-20T17:39:08Z | 77e0c2e25c068896661e61de51d53f35021d72233daa317646f2c2bd10252bf7 |
+| EV-0376 | Reproducibility | reports/evidence/p2s7_test_backups/test_final_coverage_closure_20260720_134118.py | 5761 | 2026-07-20T17:39:34Z | d2669d464bba7e12d937fcf6a8d93f2d344349eca8d64a7bf889667c14b3f51b |
+| EV-0377 | Reproducibility | reports/evidence/p2s7_test_backups/test_final_coverage_closure_20260720_140429.py | 5763 | 2026-07-20T17:41:18Z | 77e0c2e25c068896661e61de51d53f35021d72233daa317646f2c2bd10252bf7 |
+| EV-0378 | Reproducibility | reports/evidence/p2s7_test_backups/test_final_coverage_closure_20260720_141645.py | 5773 | 2026-07-20T18:04:29Z | 0d40cf03821c38cf92feaa6326aee677277cab25d15b7c3a623b031c6aecddd8 |
+| EV-0379 | Data sources and quality | reports/evidence/p2s7_write_evidence_backup/data_quality_before_20260720_053131.py | 53405 | 2026-07-20T09:28:48Z | 7e818fda10b7c73fe2fa80b6d3691de9a5a05ed4ff3376028619334b0337ecf5 |
+| EV-0380 | Other supporting evidence | reports/evidence/phase1_section1_completion_gate.md | 778 | 2026-07-20T01:21:10Z | ab8f8ee9a81855cf23e7cd24749759e741b779d9e970ec9dd2980e393c1dd39b |
+| EV-0381 | Data sources and quality | reports/evidence/phase1_section1_manifest.csv | 689 | 2026-07-20T01:21:10Z | cad2a1a841620c2f4a26d9ee7f91d4f2b9aed731e4eb752809cadaf871751503 |
+| EV-0382 | Other supporting evidence | reports/evidence/phase2_section6_supporting_fed_data_gate.txt | 1279 | 2026-07-21T15:37:24Z | 2a08d20de60027dc7dcda342e7d07e33ccabfb9112b5faac2920c68a22445ed6 |
+| EV-0383 | Other supporting evidence | reports/evidence/pr12_ci_mypy_failure.txt | 102766 | 2026-07-21T09:23:08Z | a0b9618e01e8da1169ccbe7e74c49a8f172ff6d8bccd6297edf7a789afda67eb |
+| EV-0384 | Other supporting evidence | reports/evidence/pr12_final_coverage.json | 136733 | 2026-07-21T09:48:18Z | 5620a71b8d57a0dc0c0cd903fce9ee1496fa36c5ee786cc1d9a6b7463e2968a6 |
+| EV-0385 | Other supporting evidence | reports/evidence/section_08_final_completion.txt | 3218 | 2026-07-21T21:25:18Z | 0c6bee2987c569215baf3b6582c052a03b357ce59453aca8acd963ff9ac9c272 |
+| EV-0386 | Data sources and quality | reports/evidence/section_08_processed_data_report.txt | 7915 | 2026-07-21T21:25:18Z | 20dfd6e6ca48930eaf11b6d706ab2ba075f3e12e80e282afdda361291af09dcc |
+| EV-0387 | Other supporting evidence | reports/evidence/section_12_coverage_disposition.txt | 817 | 2026-07-22T03:38:43Z | a8ee6403e3af44c43ab2188aeabd2b94673eed5401d1e29decb3170c7c9cc01c |
+| EV-0388 | Synthetic portfolios | reports/evidence/section_12_synthetic_calibration_report.txt | 1355 | 2026-07-22T03:38:43Z | dde9b8711788d51f38ce16d9ed8ed9b629ea28b95ce0b000be6d3c6f90c1e0db |
+| EV-0389 | Synthetic portfolios | reports/evidence/section11_synthetic_member_schema.txt | 1340 | 2026-07-22T00:03:05Z | be1de3051967e7d4c8a7ede3d6afb379d5016af58587b7f273e28d4d9794266e |
+| EV-0390 | Synthetic portfolios | reports/evidence/section13_default_set_validation.txt | 963 | 2026-07-22T03:34:59Z | bf4999e25001db926a4a370c1aa08d57ff7e47d6d8e713880dbab112f3778540 |
+| EV-0391 | Other supporting evidence | reports/evidence/section14_baseline_liquidity_validation.txt | 1356 | 2026-07-22T14:10:44Z | 56e040260e91ff5ec64a3411f742979007fc90d31035f5642bca0cdf398103e4 |
+| EV-0392 | Other supporting evidence | reports/evidence/section15_treasury_yield_stress_smoke.json | 1749 | 2026-07-22T14:44:35Z | df8c3c9e60329179ccd36e2412168aec1aa4c060594e64d0cde44affadec5a23 |
+| EV-0393 | Other supporting evidence | reports/evidence/section15_treasury_yield_stress_smoke.md | 722 | 2026-07-22T14:44:35Z | b98fbebd0e041a9748153c509f01651c4c6e3480b67e3d2e170cf96be4fcd31c |
+| EV-0394 | Other supporting evidence | reports/evidence/section16_ci_mypy_failure.txt | 4180 | 2026-07-22T17:58:50Z | eeb253418955fee314d2d142c51954b1f4262f7f13fb6a632d56d060373bfd7a |
+| EV-0395 | Other supporting evidence | reports/evidence/section16_repo_funding_stress.json | 2502 | 2026-07-23T01:12:16Z | 13fd5a8b33305aaae86fe121ac4e47cd42c52538a993955acf36d91629d2afc4 |
+| EV-0396 | Other supporting evidence | reports/evidence/section16_repo_funding_stress.md | 1859 | 2026-07-23T01:12:17Z | a08a48070c6895fff51defe7d7e38b0547cbc44340f7b9040c34912cfd3fd26d |
+| EV-0397 | Model methodology | reports/evidence/section17_collateral_haircut_stress.json | 1938 | 2026-07-23T00:20:17Z | b4e8fc74481c1acd81ae7ef43473dd1c42c9fccb0828d4ab647e248960aea1f0 |
+| EV-0398 | Model methodology | reports/evidence/section17_collateral_haircut_stress.md | 1367 | 2026-07-23T00:20:17Z | 2b6e7fd58839337708c0194ecb427a1b3570b5fb4475a3f3af1cce893be822da |
+| EV-0399 | Model methodology | reports/evidence/section18_settlement_fail_stress.json | 2103 | 2026-07-23T15:38:29Z | 89007c1175307991be97b4f22f9c0138ccd779247eecb089cd7bd3a1451eea8f |
+| EV-0400 | Model methodology | reports/evidence/section18_settlement_fail_stress.md | 1572 | 2026-07-23T15:38:29Z | 66555010bd7f2d33ccbadd7cfa066e865be682b30006f89c7c4a68ced3932780 |
+| EV-0401 | Model methodology | reports/evidence/section19_integrated_stress_engine.json | 6581 | 2026-07-23T15:29:58Z | 0784bef439ad83e7cbb3d401e4d1758fb1daa20d51d5f80fbcc194124f2ff9ef |
+| EV-0402 | Model methodology | reports/evidence/section19_integrated_stress_engine.md | 1864 | 2026-07-23T15:29:58Z | b28c06a6f113c8ebde0afc60d342a3fbc4fa3a79c69962c6a122bf441f1a0b90 |
+| EV-0403 | Reproducibility | reports/evidence/section20_automation_gate.txt | 661 | 2026-07-23T18:22:28Z | ce87c14da74ed2329a94681cc4013222c252fc019cad9cd600187b5a5fcd2231 |
+| EV-0404 | Scenario framework | reports/evidence/section20_historical_scenarios.json | 9350 | 2026-07-23T18:22:07Z | 604f32e3ce44e2e37f1bcc540b11292edddbf9767dc4a7140907dfd7b6db6fcc |
+| EV-0405 | Scenario framework | reports/evidence/section20_historical_scenarios.md | 615 | 2026-07-23T18:22:07Z | 5a7cba0600fa480de93b7e2ba269961c93756277255acc0d01adc2b2347a3e89 |
+| EV-0406 | Reproducibility | reports/evidence/section21_automation_gate.txt | 856 | 2026-07-24T00:33:53Z | a3cd5b8e50adaa1387747eb1a759862effe7bf7c97ba0f51b40d9946f40289b9 |
+| EV-0407 | Scenario framework | reports/evidence/section21_hypothetical_scenarios.json | 876 | 2026-07-24T00:33:53Z | 555483c72cbbbe82352439f14200d60c727c61f99a781050b8b2c5649383f469 |
+| EV-0408 | Scenario framework | reports/evidence/section21_hypothetical_scenarios.md | 695 | 2026-07-24T00:33:53Z | 15ebfe834e77a1fdb659809cef02e5e57c79d15c799580fc22e226c21fe8832e |
+| EV-0409 | Scenario framework | reports/evidence/section21_hypothetical_scenarios_smoke.json | 874 | 2026-07-24T00:33:53Z | 9f49963a57b4e6f44f807dce98b39a628225229079745b28a156a6ff7f491e55 |
+| EV-0410 | Scenario framework | reports/evidence/section21_hypothetical_scenarios_smoke.md | 693 | 2026-07-24T00:33:53Z | 1374610b3cd87123157959c0829ee44a95e99976f821b3b4a5ab27935d6ea412 |
+| EV-0411 | Other supporting evidence | reports/evidence/section22_cover_analysis.json | 1235 | 2026-07-24T00:33:53Z | ce44e3496005c58077f2218f581d0d5e074cad03d34fe5d9912f442114248d66 |
+| EV-0412 | Other supporting evidence | reports/evidence/section22_cover_analysis.md | 1591 | 2026-07-24T00:33:53Z | 1a8611acd2e29be411ee1d0d1f72867c829d2d8153d18e53880667760c0e787a |
+| EV-0413 | Reverse stress | reports/evidence/section23_reverse_stress_testing.json | 5405 | 2026-07-24T00:33:53Z | 75cb377b8b682b9e77cec63a848c6661e8509073a3034fb438ebe77b998400f0 |
+| EV-0414 | Reverse stress | reports/evidence/section23_reverse_stress_testing.md | 2114 | 2026-07-24T00:33:53Z | ed93dd69aa5c58dd725d013dbd80b8ad916b25d9eb72e620cf7c9a603d71765c |
+| EV-0415 | Other supporting evidence | reports/evidence/section24_conceptual_soundness_summary.json | 18700 | 2026-07-24T00:59:53Z | 7f3e21e2c4a38a50ec3d315bd996290db0409c40a80ec61c78f851e3e73939a5 |
+| EV-0416 | Other supporting evidence | reports/evidence/section24_conceptual_soundness_validation.txt | 1065 | 2026-07-24T00:59:53Z | 76b41d61e4a54234a80dbb0ef47a1e54e7943b5132db74efe80ee6a41e8b541a |
+| EV-0417 | Other supporting evidence | reports/evidence/section25_independent_verification.txt | 877 | 2026-07-24T14:52:13Z | d2ad10ade5b8f83c2620a8285b47ee203d088d443ece1557284069f946e6d035 |
+| EV-0418 | Other supporting evidence | reports/evidence/section25_independent_verification_summary.json | 1013 | 2026-07-24T14:52:13Z | 4896be292ff2d5fad557dec75774b87745b7fd5bfcd72fc5b59ef630a6fb222b |
+| EV-0419 | Sensitivity analysis | reports/evidence/section26_sensitivity_analysis.txt | 435 | 2026-07-26T23:39:21Z | bb3134987fdee199dd6306d1353f6fe4fec38a11b975eeb4f1faef8774dd4940 |
+| EV-0420 | Sensitivity analysis | reports/evidence/section26_sensitivity_summary.json | 1226 | 2026-07-26T23:39:21Z | f8e76cb24cc88eae793d29fb8506352fa261bd1d20e1e900cc80edaede25cd21 |
+| EV-0421 | Governance and scope | reports/evidence/section30_monitoring_governance_demo/monitoring_breach_register_20260630.csv | 1972 | 2026-07-25T22:36:05Z | 2dd6555226086dcb4dbd8e9003edde70e3a1c149ddcbe22e75b98582fcaaf1e8 |
+| EV-0422 | Monitoring | reports/evidence/section30_monitoring_governance_demo/monitoring_escalation_report_20260630.md | 1207 | 2026-07-25T22:36:05Z | 0f3d432539300cec631ab3e76a64a4af84e1905eca2f7ba1f12c24278fc65d1c |
+| EV-0423 | Governance and scope | reports/evidence/section30_monitoring_governance_demo/monitoring_governance_summary_20260630.json | 437 | 2026-07-25T22:36:05Z | 92743bad088825807f70c3ce35b721b33c49667cee722cd79974ddeaaacdf413 |
+| EV-0424 | Monitoring | reports/evidence/section30_monitoring_governance_demo/monthly_signoff_template_20260630.csv | 382 | 2026-07-25T22:36:05Z | 42a3213d61883387d94edd497470982e4756a99f66fe995e7e7083df30bccf71 |
+| EV-0425 | Other supporting evidence | reports/independent_validation/section24_conceptual_soundness_report.md | 12673 | 2026-07-24T00:59:53Z | fc3eca1100eace6fd0a37e1f25d277e6ffe877259e0845f1fc2d8e07e1542430 |
+| EV-0426 | Governance and scope | reports/README.md | 182 | 2026-07-19T21:54:02Z | 99e62e1ffc4aeed40810e38e1ad36923013a24cc81dac21af111b57d525bfdff |
+| EV-0427 | Other supporting evidence | reports/sql/ficc_liquidity.duckdb | 27275264 | 2026-07-21T21:25:18Z | 5792ad08138653d9878f2b18f018275841402b8029cdb89f00c1126b3a751c86 |
+| EV-0428 | Other supporting evidence | reports/tables/baseline_liquidity_cashflows.csv | 110084 | 2026-07-22T14:10:44Z | 4ba5197b03daafeb4b76021c5b7541073e6ced47e4333b244c1d9c30420c66c2 |
+| EV-0429 | Other supporting evidence | reports/tables/baseline_liquidity_summary.csv | 15958 | 2026-07-22T14:10:44Z | d2614efc6bcc1abb55cba2c52adeed1100071fd8a0815696d20275661819f0ca |
+| EV-0430 | Model methodology | reports/tables/collateral_haircut_stress_bucket_results.csv | 612635 | 2026-07-23T00:20:17Z | 0e548662f96707b182a163caa497e779ac261b464a311a1a291925ee38b0e7e9 |
+| EV-0431 | Model methodology | reports/tables/collateral_haircut_stress_bucket_results.parquet | 129495 | 2026-07-22T19:40:10Z | cbf05ffb81ed1fdc2e92d6ca9eda7ed9284296f0ff4b5f107f9c615a739c0bcb |
+| EV-0432 | Model methodology | reports/tables/collateral_haircut_stress_member_summary.csv | 102877 | 2026-07-23T00:20:17Z | f3ed7a8e735786ec5430eba0a84adaed9d0cd89556a77b87557e4e4a706c736d |
+| EV-0433 | Model methodology | reports/tables/collateral_haircut_stress_member_summary.parquet | 57416 | 2026-07-22T19:40:10Z | a724af0b68911d0ab4564fd34e824114575fdd25db4795e49d90ec8fc16261a8 |
+| EV-0434 | Scenario framework | reports/tables/collateral_haircut_stress_scenario_summary.csv | 1174 | 2026-07-23T00:20:17Z | ac2ca0be72fb5c468117170555e67439ae19e300568a3c9183281b6c2cc7a1a3 |
+| EV-0435 | Scenario framework | reports/tables/collateral_haircut_stress_scenario_summary.parquet | 12518 | 2026-07-22T19:40:10Z | 1ec0d548b7f7a428002a227d4ba7cf4cb0fca0788e03a20af364fb340cd5cc0e |
+| EV-0436 | Other supporting evidence | reports/tables/cover_analysis_component_summary.csv | 27426 | 2026-07-24T00:33:53Z | b33a8a2bd668842ba444ef9037338f8f7f634cd80b5e23c494aaf309973f106b |
+| EV-0437 | Other supporting evidence | reports/tables/cover_analysis_component_summary.parquet | 10968 | 2026-07-24T00:33:53Z | 385501bc4f1dc809e7bb8ddccb547e99969a8db17a01ec131fff95745b93bd68 |
+| EV-0438 | Other supporting evidence | reports/tables/cover_analysis_results.csv | 6838 | 2026-07-24T00:33:53Z | 3c01d7a126c9071d1c39fa7ab81aef9f68efbfc28e7a2e9cf0ed1b550d460ffb |
+| EV-0439 | Other supporting evidence | reports/tables/cover_analysis_results.parquet | 15836 | 2026-07-24T00:33:53Z | 060d9da669a7f7043c8ff5aceebd4e6efb52de52bc6b09a775eb0b7396d16da2 |
+| EV-0440 | Scenario framework | reports/tables/cover_analysis_scenario_summary.csv | 4965 | 2026-07-24T00:33:53Z | d7b9f749d29be2a8d2bbb44edb79380c13bd0777883baf7a5c3acf0f01a5f19b |
+| EV-0441 | Scenario framework | reports/tables/cover_analysis_scenario_summary.parquet | 18722 | 2026-07-24T00:33:53Z | 5c542bd621f1fddba217231e45bbaa77ac6695bb2b3761bb9b36522ea5841f06 |
+| EV-0442 | Other supporting evidence | reports/tables/cover_analysis_selected_members.csv | 4590 | 2026-07-24T00:33:53Z | 30e93cf0a7aa2771e1d321202b09450949dea8446e3523b2fd87ed7106cd66d7 |
+| EV-0443 | Other supporting evidence | reports/tables/cover_analysis_selected_members.parquet | 9380 | 2026-07-24T00:33:53Z | fb7d58776368806a55ffbdaa7cbddad12e08718db65cb5b500260070cae58eb0 |
+| EV-0444 | Data sources and quality | reports/tables/data_quality_results.csv | 24510 | 2026-07-20T09:51:41Z | 3521eb95b42293d7f54b45865cf2952f8b6f174f4df57fdffc0b1fb985477e11 |
+| EV-0445 | Synthetic portfolios | reports/tables/default_sets.csv | 4627 | 2026-07-22T03:34:59Z | d79f2ee4a81a3b2fe85f50d6714703f493f0d3e6fc55056dda01a095fcb18dc4 |
+| EV-0446 | Other supporting evidence | reports/tables/historical_component_selections.csv | 1849 | 2026-07-23T18:22:07Z | 6369455b83e31fda4ac4fca4014a59a8703d56373c527a8786c3efba8aa04e9d |
+| EV-0447 | Other supporting evidence | reports/tables/historical_component_selections.parquet | 8355 | 2026-07-23T18:22:07Z | d7ecb99b3b55496991c7372d5fbbd9e2750c7318a804eb2f6c01fc696a622b77 |
+| EV-0448 | Other supporting evidence | reports/tables/historical_factor_observations.csv | 11958 | 2026-07-23T18:22:07Z | cca2e09f2d41cba98439013ff3239bd64c0de719ad13633a0342c14fa8ee16a2 |
+| EV-0449 | Other supporting evidence | reports/tables/historical_factor_observations.parquet | 5307 | 2026-07-23T18:22:07Z | 00f1166bf15f8790f1f4e8d16c0833c575bbd6b99a9f7abe3dc94f9ba7564450 |
+| EV-0450 | Scenario framework | reports/tables/historical_scenario_double_count_controls.csv | 269137 | 2026-07-23T18:22:07Z | 428f1e8659f0e21adcd0352773583cd838ed2449646cf84d4cf36d749b72bde5 |
+| EV-0451 | Scenario framework | reports/tables/historical_scenario_double_count_controls.parquet | 30749 | 2026-07-23T18:22:07Z | 2e007bb5de769a8f8bc1598dc0eb4831084a74cf1f35ed07a73519309449e9d8 |
+| EV-0452 | Scenario framework | reports/tables/historical_scenario_member_results.csv | 408432 | 2026-07-23T18:22:07Z | d50764e3581cea6adc2767f57a14f6a9761dec1973175c9f132edf087432645e |
+| EV-0453 | Scenario framework | reports/tables/historical_scenario_member_results.parquet | 79923 | 2026-07-23T18:22:07Z | e2ae1a6ebde778614af2ca9579c0095afa85ac7e42e2cb4ee5e03d55f62036f9 |
+| EV-0454 | Scenario framework | reports/tables/historical_scenario_metrics.csv | 3481 | 2026-07-23T18:22:07Z | b13488c466f5d30066e63562c8b52c573d38cc1a5c2a614516bfb656bc0cd178 |
+| EV-0455 | Scenario framework | reports/tables/historical_scenario_metrics.parquet | 18515 | 2026-07-23T18:22:07Z | 7f2ba7908306916d8ec73ccebc250839a290f398c67697a35236e004201dc659 |
+| EV-0456 | Scenario framework | reports/tables/historical_scenario_summary.csv | 6074 | 2026-07-23T18:22:07Z | 239e508c02108d016aaa93fdbc1858a3ea859fd821bc0c80eb9306d79595b49d |
+| EV-0457 | Scenario framework | reports/tables/historical_scenario_summary.parquet | 24545 | 2026-07-23T18:22:07Z | 9100c27f075c02166f379ee7500514ee3aa87006e75349f001a4e2840efc5d72 |
+| EV-0458 | Scenario framework | reports/tables/historical_stress_daily_scores.csv | 411852 | 2026-07-21T23:10:52Z | 61b6bfa5d11e7ef626fe415ce8bb5b73a0a8f8a55ceec4eab27ccb22f99048cb |
+| EV-0459 | Scenario framework | reports/tables/historical_stress_windows.csv | 4420 | 2026-07-21T23:10:52Z | 027197d57ba3f69e5120f9dbf6b82815431dd22bf3f1807d51c5bba27b17c29c |
+| EV-0460 | Other supporting evidence | reports/tables/historical_treasury_bucket_shocks.csv | 4374 | 2026-07-23T18:22:07Z | 4ce2462037d82cc5b41b3e3e75f6c6b20c0f7affeb446baf9f7609380a1e7ad0 |
+| EV-0461 | Other supporting evidence | reports/tables/historical_treasury_bucket_shocks.parquet | 3267 | 2026-07-23T18:22:07Z | 3c52193865dda698cbaace8316b26585ad45d12a2a135c416f1a111db0bbaec4 |
+| EV-0462 | Other supporting evidence | reports/tables/hypothetical_component_checks.csv | 52471 | 2026-07-24T00:33:53Z | 1f3b27cfad27ae07046887fe08fe856fa31659919aa672c55d503bc8ad0c6403 |
+| EV-0463 | Other supporting evidence | reports/tables/hypothetical_component_checks.parquet | 5752 | 2026-07-24T00:33:53Z | a31e35c335b70771bcce9fd5edff840b1f6251c85d4b69fc71dd00786855db72 |
+| EV-0464 | Other supporting evidence | reports/tables/hypothetical_component_summary.csv | 2059 | 2026-07-24T00:33:53Z | 03ed5657dc27e2517a3cdb33864bfb98e909b9e0b149979c3fcfae4a6d61da99 |
+| EV-0465 | Other supporting evidence | reports/tables/hypothetical_component_summary.parquet | 11043 | 2026-07-24T00:33:53Z | cad282003b029cd14e80c614bda37136869d03f924f88af5f32c2c449eb7ebde |
+| EV-0466 | Scenario framework | reports/tables/hypothetical_scenario_catalog.csv | 2150 | 2026-07-24T00:33:53Z | af19118b31cf1c4a48cf4370d272936f6c8dbe5048d8bf86e0b78010ed20e88d |
+| EV-0467 | Scenario framework | reports/tables/hypothetical_scenario_catalog.parquet | 12060 | 2026-07-24T00:33:53Z | 42128ef170e09fa378e004c61c6c8f0d69c34baae79dd8e1655a96026f013303 |
+| EV-0468 | Scenario framework | reports/tables/hypothetical_scenario_double_count_controls.csv | 194927 | 2026-07-24T00:33:53Z | 1f05a8b670c978643607bfebbaef3c8ad6479a618c71a32b3267380290bad920 |
+| EV-0469 | Scenario framework | reports/tables/hypothetical_scenario_double_count_controls.parquet | 45033 | 2026-07-24T00:33:53Z | bf5ab3a55d7dd92ff11277d607f7e02796a1f3797f897894fccdd38bcbb34d75 |
+| EV-0470 | Scenario framework | reports/tables/hypothetical_scenario_member_results.csv | 311440 | 2026-07-24T00:33:53Z | ba26b8ece4775fbecd275ce39fbd66d642b75b9b1ba820181f1c6018be074197 |
+| EV-0471 | Scenario framework | reports/tables/hypothetical_scenario_member_results.parquet | 91366 | 2026-07-24T00:33:53Z | 9c307463e8cc2395186d1a16a6f38c1f99ecd5120d97396b6fd74648ee60ee0e |
+| EV-0472 | Scenario framework | reports/tables/hypothetical_scenario_summary.csv | 4366 | 2026-07-24T00:33:53Z | a6192a3985c3002be12309945c18d41b577145566ed6030e5010f5eb794bb1b4 |
+| EV-0473 | Scenario framework | reports/tables/hypothetical_scenario_summary.parquet | 20867 | 2026-07-24T00:33:53Z | d4c564cea5e4b32c7a5c3ebec7d6b8b565b3e6a587d5cc00955373b957623bfb |
+| EV-0474 | Other supporting evidence | reports/tables/hypothetical_treasury_shocks.csv | 5352 | 2026-07-24T00:33:53Z | 07b6236e5135821d532d6905a0e02ddbd32f6a531026e15f0c4d0aebe03847a8 |
+| EV-0475 | Other supporting evidence | reports/tables/hypothetical_treasury_shocks.parquet | 4934 | 2026-07-24T00:33:53Z | 500e3e16343b55ad7eef4c31e2a29c53209856d17a00aaaf5936cba4000aedae |
+| EV-0476 | Model methodology | reports/tables/integrated_stress_double_count_controls.csv | 64276 | 2026-07-23T15:29:58Z | 44cad314a07413eff723316fc30e90b126ac983a859d5c0d04042f0b1836f534 |
+| EV-0477 | Model methodology | reports/tables/integrated_stress_double_count_controls.parquet | 32076 | 2026-07-23T15:29:58Z | 766bc91bfa3769554eb39d6e593f39ae3619eeb42bd845fb020a9136d75335bc |
+| EV-0478 | Model methodology | reports/tables/integrated_stress_member_results.csv | 110050 | 2026-07-23T15:29:58Z | 34554c913f1299e5b797af5facb61414d3c968dded1d3ea6dbf4a9f7f1a09e90 |
+| EV-0479 | Model methodology | reports/tables/integrated_stress_member_results.parquet | 60373 | 2026-07-23T15:29:58Z | fc8a715fb52e9394cf124dab98f98925d591a27ac2aea8570083659f041d4c86 |
+| EV-0480 | Scenario framework | reports/tables/integrated_stress_scenario_summary.csv | 1702 | 2026-07-23T15:29:58Z | 26e9875ab8ed09079db6388e8522c19ce69b399e1fdd2c6e07a584d72cead96d |
+| EV-0481 | Scenario framework | reports/tables/integrated_stress_scenario_summary.parquet | 16605 | 2026-07-23T15:29:58Z | 137d1d1a923b524e6065bc80af07068efb5fc66bfe9a418b0d2c55983bd61aef |
+| EV-0482 | Other supporting evidence | reports/tables/repo_funding_stress_cashflows.csv | 814294 | 2026-07-23T01:12:17Z | efe41d0d3305acb62218832699ca987f90ae145b7365749d10146541e78cc4e8 |
+| EV-0483 | Other supporting evidence | reports/tables/repo_funding_stress_member_summary.csv | 75743 | 2026-07-23T01:14:36Z | 57f5bf3f6b327ede05dc7952821ed415a46301d972079266670212b63aa21aa2 |
+| EV-0484 | Scenario framework | reports/tables/repo_funding_stress_scenario_summary.csv | 1370 | 2026-07-23T01:14:36Z | d8ad76ef5fafa469dbff2e36ac3fc7206933c70df06fcbbb5fe9a9fc31545204 |
+| EV-0485 | Reverse stress | reports/tables/reverse_stress_member_combination_ranking.csv | 6159 | 2026-07-24T00:33:53Z | 2a479c44f207c589a438968a95732b6cdcbfbc55e7e33619ca37e489848abed0 |
+| EV-0486 | Reverse stress | reports/tables/reverse_stress_member_combination_ranking.parquet | 14070 | 2026-07-24T00:33:53Z | f809c38fce8b266cee11afc86209f3eff2dc4eb4a177a2e4d9a3e6a7c2cc40d6 |
+| EV-0487 | Reverse stress | reports/tables/reverse_stress_member_details.csv | 35224 | 2026-07-24T00:33:53Z | 0045ea44e028277f46d53d92efda342d23357239fe3d64dd82725199f9d0f380 |
+| EV-0488 | Reverse stress | reports/tables/reverse_stress_member_details.parquet | 14349 | 2026-07-24T00:33:53Z | 80604ff674667ee5cf8c8eb314fba0679c406a064e65543ac2b4ea241be2b82f |
+| EV-0489 | Reverse stress | reports/tables/reverse_stress_search_trace.csv | 647 | 2026-07-24T00:33:53Z | 59d60ca9aca79b0a05a6e9eed1cb716b140fceaa0d69966524ff5095f4aec695 |
+| EV-0490 | Reverse stress | reports/tables/reverse_stress_search_trace.parquet | 6374 | 2026-07-24T00:33:53Z | b582f17be45dfbd981bf41a65683c07ec4818d8f26e4d74bb5f1bdf2e13a4831 |
+| EV-0491 | Reverse stress | reports/tables/reverse_stress_thresholds.csv | 1078 | 2026-07-24T00:33:53Z | 0f92ce6bf0934ead3a48a475dbf252ddef9078dc75b706588da4b555cecb490c |
+| EV-0492 | Reverse stress | reports/tables/reverse_stress_thresholds.parquet | 12690 | 2026-07-24T00:33:53Z | ea8195d3ee6ff7c14ffe1abcda5bcc05edde5e6cb14a7651ade441f6d2c14dd7 |
+| EV-0493 | Other supporting evidence | reports/tables/section24_conceptual_soundness_findings.csv | 2168 | 2026-07-24T00:59:53Z | a82a1ba7ded83437853716fc07caf576d6be466ddbacb1fbce7e95cfd8ea2459 |
+| EV-0494 | Other supporting evidence | reports/tables/section24_conceptual_soundness_matrix.csv | 5201 | 2026-07-24T00:59:53Z | 7be8f3db41aa16e65601d240662e02c60f1e825962ac8e44d70f01bfa31df95d |
+| EV-0495 | Other supporting evidence | reports/tables/section25_aggregate_reconciliation.csv | 1518 | 2026-07-24T14:52:13Z | a986a635c15eaa107a8bc32409051f6ad60a37f47850fbf81225f33db4db30d3 |
+| EV-0496 | Other supporting evidence | reports/tables/section25_calculation_comparison.csv | 2444 | 2026-07-24T14:52:13Z | 565577d0b13f6179660eb7599407b03581386e9a43d469a018bf7f737dabe4ac |
+| EV-0497 | Other supporting evidence | reports/tables/section25_cover_results.csv | 677 | 2026-07-24T14:52:13Z | 56d2bfb18f2f3ab83731183a59bfe76716293a1eba914c3b0cd0d0a137c60a3d |
+| EV-0498 | Synthetic portfolios | reports/tables/section25_default_sets.csv | 315 | 2026-07-24T14:52:13Z | 47169f5f3ee3cfaa9c1be08671de45e83bb26ef6667d9894e28fa12316262c8e |
+| EV-0499 | Other supporting evidence | reports/tables/section25_member_calculations.csv | 3900 | 2026-07-24T14:52:13Z | 4bc99d6eaf57f3b5a488c050d5cd735e8952e7c9a0101f5b731ec6388981f8e6 |
+| EV-0500 | Other supporting evidence | reports/tables/section25_qualified_resources.csv | 1168 | 2026-07-24T14:52:13Z | dc9e2f15df739a808360cc0223c40bd91a440576a17e9781863f662535b83ad2 |
+| EV-0501 | Sensitivity analysis | reports/tables/section26_sensitivity_baselines.csv | 14097 | 2026-07-26T23:39:21Z | d6ce3e48e4f45d7c34def334c41136cef28c7dc06d3b2b78f94da60819142039 |
+| EV-0502 | Sensitivity analysis | reports/tables/section26_sensitivity_detailed.csv | 83508 | 2026-07-26T23:39:21Z | 8cf9d7c6938c05d9aad20ccd7a270100501abf5890126fb7c2a3d83065771ecf |
+| EV-0503 | Sensitivity analysis | reports/tables/section26_sensitivity_findings.csv | 9925 | 2026-07-26T23:39:21Z | 8f3bbe68037cc3fe4dd492562a9c274c4704c3fa7e0814ee251f591e97b9ad12 |
+| EV-0504 | Sensitivity analysis | reports/tables/section26_sensitivity_summary.csv | 12488 | 2026-07-26T23:39:21Z | 97c4d64f5331f259d35c65a7f9a7da21b48465e4aeae1223265467df7ac51ef5 |
+| EV-0505 | Model methodology | reports/tables/settlement_fail_stress_cashflows.csv | 873166 | 2026-07-23T15:38:29Z | ad88dacedd1e0052e394c161bc9bd6dadfb76e29797f34de3be88affb065a59e |
+| EV-0506 | Model methodology | reports/tables/settlement_fail_stress_cashflows.parquet | 195008 | 2026-07-23T15:24:49Z | 9af91c17cead82459ee0119f1a85fa06cf6bcfed060d77a2ac8d4877c206002a |
+| EV-0507 | Model methodology | reports/tables/settlement_fail_stress_member_summary.csv | 48514 | 2026-07-23T15:38:29Z | 07eb6846e09949c5d656ef8457c2c874b06f060c02592592777bded956dd750a |
+| EV-0508 | Model methodology | reports/tables/settlement_fail_stress_member_summary.parquet | 28514 | 2026-07-23T15:24:49Z | d748d1e86155fe7012b0919cb2e49ad12f397984cb67134bfa514b30f2f49910 |
+| EV-0509 | Scenario framework | reports/tables/settlement_fail_stress_scenario_summary.csv | 1054 | 2026-07-23T15:38:29Z | 5442fdc1b42f5dd8167ebbbcf5b61f794960c045653b32b304b2e203629fd7d8 |
+| EV-0510 | Scenario framework | reports/tables/settlement_fail_stress_scenario_summary.parquet | 10227 | 2026-07-23T15:24:49Z | 6894950afebf0459340e201b029c5d6dd5e26ea6a1433b46f545d2e5eb8b74f8 |
+| EV-0511 | Synthetic portfolios | reports/tables/synthetic_calibration_reconciliation.csv | 2206 | 2026-07-22T03:38:43Z | b25e4f70821e8d292a7327a4586442d0c33610e9eb446a07bb28e179d7bb0695 |
+| EV-0512 | Other supporting evidence | reports/tables/treasury_yield_stress_member_summary_section19_adapter.csv | 25299 | 2026-07-23T15:29:58Z | c71b25fc64a4b0fb07a5b8f49f3e59ad962db83b4ecbe20c1b23d13e7afb61e4 |
+| EV-0513 | Other supporting evidence | reports/tables/treasury_yield_stress_member_summary_section19_adapter.parquet | 15173 | 2026-07-23T15:29:58Z | aa4cc86ad6b4944158cd649fdf46e74baf0402ca8b7ca66195e40441cca85b60 |
+| EV-0514 | Other supporting evidence | reports/tables/treasury_yield_stress_member_summary_smoke.csv | 3884 | 2026-07-22T14:44:35Z | c4134f6d42607d192fa1e5910ea6ba63cce53dadb6bb7076ab82d5361e5ce846 |
+| EV-0515 | Other supporting evidence | reports/tables/treasury_yield_stress_member_summary_smoke.parquet | 8186 | 2026-07-22T14:44:35Z | 9a5a3448f05d4398067427bd5caf47213ed68dcf79074059105137144a9727d0 |
+| EV-0516 | Other supporting evidence | reports/tables/treasury_yield_stress_position_results_smoke.csv | 79204 | 2026-07-22T14:44:35Z | 32fe5082cf0b97345f4cb3bf208101c98b563a3716214ec86109c03c38102193 |
+| EV-0517 | Other supporting evidence | reports/tables/treasury_yield_stress_position_results_smoke.parquet | 33039 | 2026-07-22T14:44:35Z | eed1e5766834a97349046715f672af26533b8676471920b01f4cf42351fe4b66 |
+| EV-0518 | Other supporting evidence | reports/tables/treasury_yield_stress_positions_section19_adapter.csv | 511481 | 2026-07-23T15:29:58Z | b3ea14131d3d43a45dc387d4fc567d420c1ca8e2d17d49cb50368b0b82fbc11e |
+| EV-0519 | Other supporting evidence | reports/tables/treasury_yield_stress_positions_section19_adapter.parquet | 119686 | 2026-07-23T15:29:58Z | 2458bbdae1763ba99f6997d438c3424f537af82a8b55edff04f61fa72945bd45 |
+| EV-0520 | Scenario framework | reports/tables/treasury_yield_stress_scenario_summary_smoke.csv | 801 | 2026-07-22T14:44:35Z | 2070829d6b0bf588a5c156d1ed37f30bf8e20a0492788510688abb00023a3825 |
+| EV-0521 | Scenario framework | reports/tables/treasury_yield_stress_scenario_summary_smoke.parquet | 4915 | 2026-07-22T14:44:35Z | b05bb5692d20f1e957bf54057ea9abbc71360ed8166550d66144ea05beb07b16 |
+| EV-0522 | Other supporting evidence | reports/validation/section_28/joint_lcr_distribution.png | 40606 | 2026-07-25T13:51:25Z | 0a0d74d650e136d4ba9552a204c7fcf849fbcf5635cabc2390cf9302de0f1c1f |
+| EV-0523 | Limitations | reports/validation/section_28/joint_uncertainty_simulations.csv | 749124 | 2026-07-25T13:51:25Z | c1ccd931e5eceac3ab50754d80a8b212f0a208deea52b24d0506299c651112f5 |
+| EV-0524 | Limitations | reports/validation/section_28/joint_uncertainty_summary.csv | 661 | 2026-07-25T13:51:25Z | 83e477c4e648e7685e211b13b3e6d4ac6d0cc277a725ce8e12e197a205af1605 |
+| EV-0525 | Limitations | reports/validation/section_28/one_at_a_time_uncertainty.csv | 1889 | 2026-07-25T13:51:25Z | f12977cf71d94f69263fb3a188d28af46f4a34afb4afa1ab7c4ccc5a2705adcc |
+| EV-0526 | Other supporting evidence | reports/validation/section_28/section_28_summary.json | 1996 | 2026-07-25T13:51:25Z | 9d0cf529c5e94c9450e05a661de4a52614092071c3a0c1b26ef3794615cba6dd |
+| EV-0527 | Limitations | reports/validation/section_28/section_28_uncertainty_limitations.md | 13897 | 2026-07-25T13:51:25Z | 3ba56dab00ccc551f5c5d650db91c1bd65a4a33829ff9b65a33bcd08566e79f9 |
+| EV-0528 | Limitations | reports/validation/section_28/uncertainty_register.csv | 8311 | 2026-07-25T13:51:25Z | 897cd54b1c5ce5ca908e46b0978416a86f48f8974e4f2761f81d605ced6fe995 |
+| EV-0529 | Limitations | reports/validation/section_28/uncertainty_tornado.png | 73055 | 2026-07-25T13:51:25Z | be84918fd800212febaa21dde6720e231d68ddef7fbbbc70dd4fd94e387fb1ae |
+| EV-0530 | Implementation verification | reports/validation/section27/component_reconciliation.csv | 40994 | 2026-07-24T23:50:32Z | df5de2b1a066d33fb51cf58c3c91f5a2f7a8ee06743321a02d76afc2a4d21ff1 |
+| EV-0531 | Other supporting evidence | reports/validation/section27/economic_interpretation.csv | 2745 | 2026-07-24T23:50:32Z | 7b5804ff7e968c199763b241fdbfb3cbf933e494385e7b5c4cb82eb6f816d6f0 |
+| EV-0532 | Outcomes analysis | reports/validation/section27/historical_plausibility.csv | 27522 | 2026-07-24T23:50:33Z | 08c9d723176ae11fa79e7e02812439f24f72553d06b2dda381e623db69e83448 |
+| EV-0533 | Other supporting evidence | reports/validation/section27/independent_benchmark_comparison.csv | 57531 | 2026-07-24T23:50:33Z | cba81f4d8882552d53734aebed3fb1e72469b1cf807802557d3b04775bc5c6dc |
+| EV-0534 | Outcomes analysis | reports/validation/section27/monotonicity_results.csv | 18645 | 2026-07-24T23:50:33Z | ce27d1015ce01d47fe5253f07777525ec819baf48aa35185f28802fcacbe91dc |
+| EV-0535 | Outcomes analysis | reports/validation/section27/normalized_outcomes.csv | 114309 | 2026-07-24T23:50:33Z | 8920f3bb6478849b1d6a9e20f443faeb8250b76c9987bf1f5e88e62c9bc7e4a6 |
+| EV-0536 | Outcomes analysis | reports/validation/section27/scenario_rank_ordering.csv | 2910 | 2026-07-24T23:50:33Z | bac5f917b9cfd21d5b8fe3273470a3ce7b39ce6971640d8a220e7c7014b5db4b |
+| EV-0537 | Other supporting evidence | reports/validation/section27/section27_summary.json | 3426 | 2026-07-24T23:50:33Z | dd49eb89586626a45622036269de5f45e766aa46207ee35b7ea95930ecb0c989 |
+| EV-0538 | Other supporting evidence | reports/validation/section27/section27_validation_report.md | 4506 | 2026-07-24T23:50:33Z | 3bd3ae4d1e57a973d3287653a136413fd0e2f918479f539229375d0fcbc5e6ad |
+| EV-0539 | Outcomes analysis | reports/validation/section27/seed_stability.csv | 10676 | 2026-07-24T23:50:33Z | e11344bce8f4665694857154aea95eb2b8df6352eb774659e94170bfc1779cfa |
+| EV-0540 | Outcomes analysis | reports/validation/section27/tail_behavior.csv | 129 | 2026-07-24T23:50:33Z | 5a72bac1da035d63998aee613061dc0a9b560eee0dd552263712b09c33c9c225 |
+| EV-0541 | Other supporting evidence | scripts/__init__.py | 68 | 2026-07-21T23:10:52Z | 46d9f236ccef503e24c5916418c81b9efe4ff4e0385695ea224903aed68c2506 |
+| EV-0542 | Synthetic portfolios | scripts/automation/14_P4S12_FR2004_Synthetic_Calibration_PS51.ps1 | 92348 | 2026-07-22T03:38:43Z | 23423bae33e590e599c0d3ba0b54e973e78d5423345b216bcef6a2352f8ab8ce |
+| EV-0543 | Reproducibility | scripts/automation/16_P5S14_Baseline_Liquidity_Cashflow_Engine_PS51.ps1 | 74604 | 2026-07-22T14:10:44Z | 75ae678c0c485f94490641080f56559d332a367c01330452c6f782d86dfd650f |
+| EV-0544 | Reproducibility | scripts/automation/18_P5S16_Repo_Funding_Stress_Model_PS51.ps1 | 107565 | 2026-07-22T18:09:29Z | 3cbdec110aa4ccb585ed0143fa19685ae4d85d3c5a71bbf7b018abdafe91aea8 |
+| EV-0545 | Model methodology | scripts/automation/19_P5S17_Collateral_Haircut_Stress_PS51.ps1 | 107122 | 2026-07-23T00:20:17Z | 63777be162f25cd9b2c9e30b85754ec68bd064e7b8c6ac4df22c73933b7f9989 |
+| EV-0546 | Model methodology | scripts/automation/20_P5S18_Settlement_Fail_Stress_PS51.ps1 | 101460 | 2026-07-23T13:47:17Z | aad9a8392bdea330322b778db9e883cdd633c68bfd91b6e800d50c87b581ee12 |
+| EV-0547 | Model methodology | scripts/automation/21_P5S19_Integrated_Stress_Engine_PS51.ps1 | 122965 | 2026-07-23T15:29:58Z | 3e969ebc89ae07e21d8e2bc015b110d4f6be8112024317fac714f36ddc017d99 |
+| EV-0548 | Scenario framework | scripts/automation/22_P6S20_Historical_Scenarios_PS51.ps1 | 78203 | 2026-07-24T00:33:53Z | dfcc290f623c98e1999cc6ef0f9c4b0206d01632ccda58c8393259039e590ed2 |
+| EV-0549 | Scenario framework | scripts/automation/23_P6S21_Hypothetical_Scenarios_PS51.ps1 | 106674 | 2026-07-24T00:33:53Z | c9a20284d262347f2f5ada93a26680b9b94aa1a43c36f8e302a9370ccfbc2541 |
+| EV-0550 | Reproducibility | scripts/automation/24_P6S22_Cover_Analysis_PS51.ps1 | 73221 | 2026-07-24T00:33:53Z | 60b7abc8c430a56461c103fc0d5132c30b5d5b77540895680925a542b0c622bc |
+| EV-0551 | Reverse stress | scripts/automation/25_P5S23_Reverse_Stress_Testing_PS51.ps1 | 103758 | 2026-07-24T00:33:53Z | d6f10e47fa325d0e76b84693c56fe5361e2ceb13d16425d002719544dcaa2c62 |
+| EV-0552 | Reproducibility | scripts/automation/P2S10_Finalize_After_GitIgnore.ps1 | 10716 | 2026-07-21T23:10:52Z | 32a510295bce70e6952a9e9035d739a5e2931a88e3a2d2c460e4115d88d6be19 |
+| EV-0553 | Reproducibility | scripts/automation/P2S10_Resume_After_Series_Resolution_Failure.ps1 | 22020 | 2026-07-21T23:10:52Z | 5c1ceca22963cd871bea4c01712544872262a6b4f47dcf49fe7e9faf5f7ec340 |
+| EV-0554 | Reproducibility | scripts/automation/P2S8_Complete_Schema_Aware.ps1 | 21810 | 2026-07-21T21:25:18Z | 977c70ece196f5f71590932101475333484ba7d43697a04d1331ea45276c7541 |
+| EV-0555 | Reproducibility | scripts/automation/P2S8_Resume_Optimized.ps1 | 46345 | 2026-07-21T21:25:18Z | c351e7640771d0f8d606bab5f1dfa8ef3b4a321b9c49a85ecd72e76ba2f52da0 |
+| EV-0556 | Data sources and quality | scripts/build_processed_data.py | 1340 | 2026-07-21T21:25:18Z | 61044f38859884db3535ff8bf13a24a669c687d9a03bfdbfb49e023a53672a3b |
+| EV-0557 | Data sources and quality | scripts/download_fr2004.py | 2527 | 2026-07-21T15:37:24Z | 953ce6a53eea9c78a3ef1b3ef5b8c94f1a4d731a9543222e933df111c7e30bda |
+| EV-0558 | Other supporting evidence | scripts/download_supporting_fed_data.py | 1668 | 2026-07-21T15:37:24Z | 324ff7bf6f0054fe1b1c364b5b9bd05a68d92755ef17899829f6c64f7d70f43e |
+| EV-0559 | Governance and scope | scripts/README.md | 142 | 2026-07-19T21:54:02Z | 60670a340126f8aa8bc8d5a526375a1d0d47ab38513d18be46537a0234be4372 |
+| EV-0560 | Other supporting evidence | scripts/run_baseline_liquidity.py | 438 | 2026-07-22T14:10:44Z | 4053445c913f4f70871b4014ccbb8e0f1d4d3bcbe1ce543efc8c207b90435740 |
+| EV-0561 | Model methodology | scripts/run_collateral_haircut_stress.py | 14461 | 2026-07-23T00:20:17Z | 8be2fd5d7fed20f206438f6290b0f06e52d7c5cf3d3d33b77d141e1cbf0bdbe3 |
+| EV-0562 | Other supporting evidence | scripts/run_conceptual_soundness_validation.py | 1594 | 2026-07-24T00:59:53Z | b669439c3c14a82f93ea4f7e52dfa92e599fb648de09eafe24af02efa7b8f3f3 |
+| EV-0563 | Other supporting evidence | scripts/run_cover_analysis.py | 11481 | 2026-07-24T00:33:53Z | 9bc85d3dfdc4fbc7bf00e05bf37eae1c8b7f3b3543be9f194b22d634d1a95ef4 |
+| EV-0564 | Other supporting evidence | scripts/run_dashboard.py | 1243 | 2026-07-26T19:10:25Z | 45030444f7108e0a878d920ee415067ef2d542d7c50384c949701184a1c73440 |
+| EV-0565 | Synthetic portfolios | scripts/run_default_sets.py | 184 | 2026-07-22T03:34:59Z | e882ab65c4d2298317c79de8667c32b75ba9efa46118c9e989053714a854448d |
+| EV-0566 | Scenario framework | scripts/run_historical_scenarios.py | 16208 | 2026-07-24T00:33:53Z | 1fc349ea88f8a0fa43e2001673ed4d5e6b99a20c43321e97f4a5efda21ee2249 |
+| EV-0567 | Scenario framework | scripts/run_historical_stress_calibration.py | 13361 | 2026-07-21T23:10:52Z | 09675cb2abfd976de1b9e6f19cadf048449952620f105618a676b296d9f34a95 |
+| EV-0568 | Scenario framework | scripts/run_hypothetical_scenarios.py | 22951 | 2026-07-24T00:33:53Z | 4e15b1e19e2c2622fb4c4fb7f0757336ee911d0b682d9962a57158655ed2a168 |
+| EV-0569 | Model methodology | scripts/run_integrated_stress.py | 22585 | 2026-07-23T15:29:58Z | fe1655a6751b27bdd84b0eb3c72e807d19e80c1b9bd6a8ec0741524e06fad768 |
+| EV-0570 | Governance and scope | scripts/run_monitoring_governance.py | 177 | 2026-07-26T00:23:13Z | 37e6171ad4d54fcb054652f23c14d0611382db93db2c9d777d9f5578760b7faa |
+| EV-0571 | Monitoring | scripts/run_monthly_monitoring.py | 174 | 2026-07-25T17:02:53Z | 158b43ac6ae2544877b272291f9622b40022350865ce25c30c4a12747827cfda |
+| EV-0572 | Other supporting evidence | scripts/run_repo_funding_stress.py | 17039 | 2026-07-22T18:09:29Z | 8cbe1b4a58c2734128b1bc1bfb205dff5ab43138705fac8bb3f931507ca83d9a |
+| EV-0573 | Reverse stress | scripts/run_reverse_stress.py | 25356 | 2026-07-24T00:33:53Z | bc9ca15f087b9352f29897caa04c33efd7584ebc7738e469e61657782bac0360 |
+| EV-0574 | Limitations | scripts/run_section_28_uncertainty.py | 179 | 2026-07-25T13:51:25Z | c7a8fb2dcc278f5bf36415ee2742c8c44c38a9c323eeed7dd3c05811ddcf660a |
+| EV-0575 | Other supporting evidence | scripts/run_section25_independent_verification.py | 190 | 2026-07-24T14:52:13Z | 1fb4fa4aafdeb8a576745ce4158fa8e23caef2f74b134f59db3f94864cf5b6fe |
+| EV-0576 | Sensitivity analysis | scripts/run_section26_sensitivity_analysis.py | 121 | 2026-07-24T16:46:29Z | e8738d060203e7addc055225ae3fe01857afd497c5d27229a8d21b5ff9604501 |
+| EV-0577 | Other supporting evidence | scripts/run_section27.py | 1622 | 2026-07-24T23:50:33Z | 1bc9621e4c27817f05c37a1e34c8068abe0a5b5f8afc6cd5f8813c1f5ce0adb9 |
+| EV-0578 | Model methodology | scripts/run_settlement_fail_stress.py | 14566 | 2026-07-23T13:47:17Z | cebd976865bcc467ba14efa6e5ed5ef88b9debbdb61d17a2bc939e6b55502666 |
+| EV-0579 | Synthetic portfolios | scripts/run_synthetic_calibration.py | 1089 | 2026-07-22T03:38:43Z | 3f0503d73f5337c47e1379aa48b3a8a8c199d3f5c25e0f8d7de6f6643f57ac1b |
+| EV-0580 | Other supporting evidence | scripts/run_treasury_yield_stress.py | 11081 | 2026-07-22T15:00:03Z | 769fcc6df9beb25eb0dac3596da07ee03dc3dc3eb4b584c5b8b8117f935d4095 |
+| EV-0581 | Governance and scope | SECURITY.md | 816 | 2026-07-19T21:54:02Z | c4ca0429be859f70ac0146ef3f9bcd6cff6c25fac424913896c0e6b50985ffee |
+| EV-0582 | Other supporting evidence | sql/create_analytical_tables.sql | 1924 | 2026-07-21T21:25:18Z | ab24e62f013200f0ac090418b5797330418eb2ae39314b4ed36e40d9038b9a76 |
+| EV-0583 | Governance and scope | sql/monitoring_governance.sql | 2445 | 2026-07-26T00:23:13Z | 45b4d8050874e5d5ee26869f1d27068f605445dfe0ce3694364cb757f2932033 |
+| EV-0584 | Monitoring | sql/monthly_monitoring.sql | 1365 | 2026-07-25T17:02:53Z | afa8c5cdab828e632ebb4cb985d98f36d4199469932b55d2bdc68ead05b98a7b |
+| EV-0585 | Governance and scope | sql/README.md | 122 | 2026-07-19T21:54:02Z | d3237c9a71ffeed3db431cc8c16103388995b86ffc46386e6f45a57eaef71eaa |
+| EV-0586 | Other supporting evidence | src/ficc_liquidity/__init__.py | 191 | 2026-07-21T15:37:24Z | a72cf882bf10956d862bf2794fe867de44c65f88cff1611a3e712aad944810f0 |
+| EV-0587 | Other supporting evidence | src/ficc_liquidity/__main__.py | 106 | 2026-07-21T15:37:24Z | 9134b27dcb41eacf064f2a193128f9b9f84e875cad18a96f7d0a27194e614e5b |
+| EV-0588 | Other supporting evidence | src/ficc_liquidity/analysis/__init__.py | 72 | 2026-07-21T23:10:52Z | 1e99a7d21527097bcb3ca66096336cb70310d5f5c944528bff93bf27e76dc726 |
+| EV-0589 | Scenario framework | src/ficc_liquidity/analysis/historical_stress.py | 22399 | 2026-07-21T23:10:52Z | 7b5a59bc6701cfa32ee05cddb3df84cd19b1e16ed8f788a526eda1bdc0349917 |
+| EV-0590 | Other supporting evidence | src/ficc_liquidity/cli.py | 2758 | 2026-07-21T15:37:24Z | c9fbb7fdbe00f6218959ed91b5c47cc702b30336a56ebdf20f5f040e6a7a950b |
+| EV-0591 | Other supporting evidence | src/ficc_liquidity/config.py | 3817 | 2026-07-21T15:37:24Z | 3796d9fea7d7c735c2f8488a3c15bda37617a3e958623e98bcd9aabd15b5cb0e |
+| EV-0592 | Other supporting evidence | src/ficc_liquidity/dashboard/__init__.py | 337 | 2026-07-26T19:10:25Z | 09b23429defb3a71c0d6b59a5bbc7b1fbad1d253ea6661b20272ddade5c970fb |
+| EV-0593 | Other supporting evidence | src/ficc_liquidity/dashboard/core.py | 18124 | 2026-07-26T19:10:25Z | 3ed785ae20c9be51dab2c4bbf46ff52f9852853517384814ebaa6095d6e6b329 |
+| EV-0594 | Other supporting evidence | src/ficc_liquidity/data/__init__.py | 50 | 2026-07-21T15:37:24Z | 1a3381eaba48c9a15a1060b7c1b5ae738ec90ab93232cd662ef501f743987611 |
+| EV-0595 | Other supporting evidence | src/ficc_liquidity/data/_fed_common.py | 7814 | 2026-07-21T15:37:24Z | ecb50fbfb39ab33e09c08dc789a15ca7b3412b792f59e4d34eb94e86fa461a53 |
+| EV-0596 | Data sources and quality | src/ficc_liquidity/data/fr2004.py | 21186 | 2026-07-21T15:37:24Z | 20bb2986d7d01c2894775d4e8e34e84aceb69f49ef95c2c8d14a42ccb8dc93dd |
+| EV-0597 | Data sources and quality | src/ficc_liquidity/data/h15.py | 7448 | 2026-07-21T15:37:24Z | 9c0731947fc58bb17299a9a0ad195be69f805b74fa823ee74c23e3b0a2792bee |
+| EV-0598 | Data sources and quality | src/ficc_liquidity/data/h41.py | 7606 | 2026-07-21T15:37:24Z | ddca06442bbcf359d85783e313134fda212d04b0ada2824d1c9d1c0f7bea71de |
+| EV-0599 | Other supporting evidence | src/ficc_liquidity/data/processed.py | 35988 | 2026-07-21T21:25:18Z | efa59397e1ebcbf71e0b49952fcedf738db6e1ac023a49ad7bdaa0620b4f738b |
+| EV-0600 | Data sources and quality | src/ficc_liquidity/data/sofr.py | 8504 | 2026-07-21T15:37:24Z | 7457bce1efc289de1d2fdabcb3f94896f61da0ee02639e0fed7613f1bff3a805 |
+| EV-0601 | Other supporting evidence | src/ficc_liquidity/database.py | 1165 | 2026-07-21T15:37:24Z | 206b5c8fa9182e75bb1466a3085e8a930122e63f968ffa5643591dbd59f9914b |
+| EV-0602 | Other supporting evidence | src/ficc_liquidity/liquidity/__init__.py | 566 | 2026-07-22T14:10:44Z | 2e5f66b2ff3cea19a460b244ed7334d66bdadc5709b6ff1de6747f3116be9c5f |
+| EV-0603 | Other supporting evidence | src/ficc_liquidity/liquidity/baseline_cashflow.py | 31698 | 2026-07-22T14:10:44Z | bd8f63da1ae9f9e1af16241cb6d4bbeeb3317960206e0a29c1b0333d7ccda896 |
+| EV-0604 | Other supporting evidence | src/ficc_liquidity/logging_config.py | 1244 | 2026-07-21T15:37:24Z | 45a5727c40c9b6278bb23ca002b5692f3528ae609c9f11ad30ad39bee0fc1f54 |
+| EV-0605 | Other supporting evidence | src/ficc_liquidity/monitoring/__init__.py | 467 | 2026-07-26T00:23:13Z | 90d158b090a8b00e0861e5db8528ca55b31ece82d82b4f29ecf8625a9d924bf8 |
+| EV-0606 | Governance and scope | src/ficc_liquidity/monitoring/governance.py | 22384 | 2026-07-26T00:23:13Z | c73e9e0261d2df298eb5d1eba7d5b71f2d62b8548023b1ce347bc73cff326bc6 |
+| EV-0607 | Other supporting evidence | src/ficc_liquidity/monitoring/monthly.py | 35096 | 2026-07-26T00:23:13Z | 940401f744674de5d2ec06e787ae8b86f22fdb2f12a848d8b057d399aed88223 |
+| EV-0608 | Other supporting evidence | src/ficc_liquidity/reproducibility.py | 461 | 2026-07-21T15:37:24Z | e7d0a3ee26fdebbfa0cd342821a763888b0563a1513b54131e5716c8df1e108c |
+| EV-0609 | Scenario framework | src/ficc_liquidity/scenarios/__init__.py | 78 | 2026-07-24T00:33:53Z | 2b80d4e2a38281093f7ec01f544e4d1e176fa8585fa2eb60ba29bfa6066cd3ed |
+| EV-0610 | Scenario framework | src/ficc_liquidity/scenarios/cover_analysis.py | 24688 | 2026-07-24T00:33:53Z | 6ded3a15a92712708e82517bf7ac0e09943d32f788e40afd2f83dd8c55c610f3 |
+| EV-0611 | Scenario framework | src/ficc_liquidity/scenarios/historical_scenarios.py | 28138 | 2026-07-24T00:33:53Z | eef7042810791c89367f698c2e6c044a591377c82c3476aa939d6e12ed998aec |
+| EV-0612 | Scenario framework | src/ficc_liquidity/scenarios/hypothetical_scenarios.py | 27791 | 2026-07-24T00:33:53Z | b95721287c940ebd46a41bc4d0b7a58f1e543c70c04b196c23d45628d6a2f6b0 |
+| EV-0613 | Reverse stress | src/ficc_liquidity/scenarios/reverse_stress.py | 31873 | 2026-07-24T00:33:53Z | d5d11b84c5ed28f08a6840dbae8b55cebab6d80cb7a2a3dce3156afd15dbce6e |
+| EV-0614 | Other supporting evidence | src/ficc_liquidity/stress/__init__.py | 1216 | 2026-07-23T00:20:17Z | 8712b85b3d38e2aca394c033628f402ff4c21f50e76f5c4786d4f28d541747af |
+| EV-0615 | Model methodology | src/ficc_liquidity/stress/collateral_haircut_stress.py | 39173 | 2026-07-23T00:20:17Z | 900393e9dbee9cfad45f677b8f5aee384c72eeb5de03f4a9979fa0610acbb37e |
+| EV-0616 | Model methodology | src/ficc_liquidity/stress/integrated_stress.py | 38277 | 2026-07-23T15:29:58Z | ac27259937d10730ac7982a7fb358cd6ba23778a5db7e806534b822dedcea9da |
+| EV-0617 | Other supporting evidence | src/ficc_liquidity/stress/repo_funding_stress.py | 39332 | 2026-07-22T18:09:29Z | b94889def2b30296f89ad74af95b228a5f28f29892edd82e74e2acbf39787d80 |
+| EV-0618 | Model methodology | src/ficc_liquidity/stress/settlement_fail_stress.py | 37730 | 2026-07-23T13:47:17Z | 5c39accd4e8fb9e98a183eb7697fef16de74dacd59b6e4c99d5406d70687ecec |
+| EV-0619 | Other supporting evidence | src/ficc_liquidity/stress/treasury_yield_shock.py | 20043 | 2026-07-22T15:00:03Z | a5aadb7dae7aff0340a2e61c9cc287e2ad2bb7ccffb593f6c7b565a8b048282f |
+| EV-0620 | Synthetic portfolios | src/ficc_liquidity/synthetic/__init__.py | 237 | 2026-07-22T00:03:05Z | b4e024b8837afffb8de63f2a99ef1c57168434379e303d25f72871c422e610f4 |
+| EV-0621 | Synthetic portfolios | src/ficc_liquidity/synthetic/calibrate_members.py | 49294 | 2026-07-22T18:09:29Z | 2948c41e97d04dbb4631dd2b547aa81567ccfb00bf680bb5421874e99fdbfc57 |
+| EV-0622 | Synthetic portfolios | src/ficc_liquidity/synthetic/default_sets.py | 31632 | 2026-07-22T03:34:59Z | d7090d294a1f5ed7488c6f73944e2a8079512436d9167780b6d5f25d7a92bbf7 |
+| EV-0623 | Synthetic portfolios | src/ficc_liquidity/synthetic/generate_members.py | 14450 | 2026-07-22T00:03:05Z | b6eb259482f50511f08d943f57ce2ada02595080b3af97c0694154ba5721dca1 |
+| EV-0624 | Synthetic portfolios | src/ficc_liquidity/synthetic/member_schema.py | 10092 | 2026-07-22T00:03:05Z | 9633f297ceaf496fc43f83872d84bc8fab6c856dae763b7235ee1622ec98c97c |
+| EV-0625 | Other supporting evidence | src/ficc_liquidity/validation/__init__.py | 58 | 2026-07-21T15:37:24Z | aa2fd2a9ce610f6f910013d3e4f4a1eae0b5ae4397520b03f4034033020038f8 |
+| EV-0626 | Other supporting evidence | src/ficc_liquidity/validation/conceptual_soundness.py | 25191 | 2026-07-24T00:59:53Z | 93d83e395f02f0aab9353e7efd74d1930b2673e40ac3a65a5bf30a8c8e12f274 |
+| EV-0627 | Data sources and quality | src/ficc_liquidity/validation/data_quality.py | 55678 | 2026-07-26T19:10:25Z | 54ae95e1f132c88512bc066fc86af19db728762d8bf118020c417d403ecbdcf1 |
+| EV-0628 | Implementation verification | src/ficc_liquidity/validation/independent_implementation.py | 29325 | 2026-07-24T14:52:13Z | d9ab53f3fe64af616221ba6a8a042296717263f7cedc244618b8311e3ea815bb |
+| EV-0629 | Outcomes analysis | src/ficc_liquidity/validation/outcomes_benchmark.py | 56125 | 2026-07-24T23:50:33Z | d7d1821c0c9333d951a66a46f73e4eb3dec4cfdc01fce023ab1d0106aaf1eb46 |
+| EV-0630 | Sensitivity analysis | src/ficc_liquidity/validation/sensitivity_analysis.py | 27393 | 2026-07-24T16:46:29Z | 3f28cfa124567f48fa1288e598a630bc8d9e46a46cdf91a10edcbd07d4bb341d |
+| EV-0631 | Limitations | src/ficc_liquidity/validation/uncertainty_limitations.py | 29823 | 2026-07-25T13:51:25Z | d7d40376913355a17651c64021ae8803e4dd88bf388f3ec08144f60b969a3256 |
+| EV-0632 | Other supporting evidence | src/ficc_treasury_clearing_liquidity_stress_testing.egg-info/dependency_links.txt | 1 | 2026-07-26T13:57:30Z | 01ba4719c80b6fe911b091a7c05124b64eeece964e09c058ef8f9805daca546b |
+| EV-0633 | Other supporting evidence | src/ficc_treasury_clearing_liquidity_stress_testing.egg-info/entry_points.txt | 59 | 2026-07-26T13:57:30Z | fb946fb7939e2e939000d4fe9927f82cc1edb15d0e7871d155aec58ea07fdbe1 |
+| EV-0634 | Other supporting evidence | src/ficc_treasury_clearing_liquidity_stress_testing.egg-info/requires.txt | 258 | 2026-07-26T13:57:30Z | 25751189afc700053371f0d872955027413f9ecd170d71ec214682cca5b24df8 |
+| EV-0635 | Other supporting evidence | src/ficc_treasury_clearing_liquidity_stress_testing.egg-info/SOURCES.txt | 3734 | 2026-07-26T13:57:30Z | 8d3e68335b78c5d9be240844ebd6b78f61a9f13a13fbca5bcd5cef839592a40f |
+| EV-0636 | Other supporting evidence | src/ficc_treasury_clearing_liquidity_stress_testing.egg-info/top_level.txt | 15 | 2026-07-26T13:57:30Z | b43d23de8b3c8916fc8891813d898bfd1b2e5cf6092568ec07e7107b1921ef70 |
+| EV-0637 | Reproducibility | tests/test_baseline_liquidity.py | 10249 | 2026-07-22T14:10:44Z | 7ab11bac4db3bd7019a01c33da1fc2ac310224e05bb15ad58f3889c74bc08a13 |
+| EV-0638 | Model methodology | tests/test_collateral_haircut_stress.py | 16354 | 2026-07-23T00:20:17Z | 51f017e8b0c332b38e1be174bb05744b520d43b90d5dc5fae0390aac562d5326 |
+| EV-0639 | Reproducibility | tests/test_conceptual_soundness.py | 10108 | 2026-07-24T00:59:53Z | d980949b90b6cdcdbc94d0e120541527d6713e87d1854423968f1ae58cde7cb5 |
+| EV-0640 | Reproducibility | tests/test_cover_analysis.py | 9382 | 2026-07-24T00:33:53Z | 5c83362983791a6c5612ce89e97bf6c1053c78edb310b734e3d48af019cd4f70 |
+| EV-0641 | Reproducibility | tests/test_dashboard.py | 2573 | 2026-07-26T23:44:49Z | af7bb9ecb9631e27ab1e71a946a036aec74491cef1ea7336ac28b22f995920f8 |
+| EV-0642 | Data sources and quality | tests/test_data_quality.py | 5899 | 2026-07-21T15:37:24Z | 1580d59ca323d1885bdc8438f8d3ec7f7dce1ae5c6e5f6e80b6605ce6ba4a616 |
+| EV-0643 | Data sources and quality | tests/test_data_quality_coverage_completion.py | 9483 | 2026-07-21T15:37:24Z | e1eb156ff4790a01729e1dcb2035204e5a76f1d9c2b031b09107a76762b6b1d4 |
+| EV-0644 | Data sources and quality | tests/test_data_quality_policy.py | 2532 | 2026-07-21T15:37:24Z | b8d4fdb19bc2dae2ef0e57fd6af2d473de3aa3ca5d32570459313b8cd87a12f0 |
+| EV-0645 | Data sources and quality | tests/test_data_quality_policy_update.py | 10578 | 2026-07-26T19:10:25Z | 97904306d0b6a3c0c90c8ee21b58c81abb2800aa44473673a87a64dec2a8ab1d |
+| EV-0646 | Synthetic portfolios | tests/test_default_sets.py | 7349 | 2026-07-22T03:34:59Z | aac7b502268600320f2e74ee1fad6b85fff8da6c55c08bf0777a03d543ccd6f8 |
+| EV-0647 | Synthetic portfolios | tests/test_default_sets_coverage.py | 11608 | 2026-07-22T03:34:59Z | df1a4cd4ee57f8b34a85ed216c199033030620700231d19b92d66b99d8a6a946 |
+| EV-0648 | Reproducibility | tests/test_environment.py | 5253 | 2026-07-21T15:37:24Z | 26813124df07e03e20aefc72cd470d35df3a63cf1a7eb5175b8c4d88e36ab531 |
+| EV-0649 | Reproducibility | tests/test_fed_common.py | 6164 | 2026-07-21T15:37:24Z | e5270f70cd2eed5749811df42be28a93155851fc2c7a22c334244f6859c5a444 |
+| EV-0650 | Reproducibility | tests/test_final_coverage_closure.py | 5783 | 2026-07-21T15:37:24Z | 717535744bcf739703c6282100e43005c5b74c19d6132507bb34adbea0ea0ea8 |
+| EV-0651 | Data sources and quality | tests/test_fr2004_ingestion.py | 5119 | 2026-07-21T15:37:24Z | 026e2651f7cd4195750663c5d65e63fdfa2fae06a0691f8741771c1904b17f2b |
+| EV-0652 | Data sources and quality | tests/test_h15_ingestion.py | 3016 | 2026-07-21T15:37:24Z | 6417c83e21f2bc3bf373311209a25a38b1254af838eb2cda2f3ff9bc22d1b27c |
+| EV-0653 | Data sources and quality | tests/test_h41_ingestion.py | 2966 | 2026-07-21T15:37:24Z | d8a6a6991a96bab9e00b913d3b0cd4adb6069687f1b52e2d22f9607dbce9014d |
+| EV-0654 | Scenario framework | tests/test_historical_scenarios.py | 13312 | 2026-07-24T00:33:53Z | ae95074ef7888e3f18390bea816f5493aa54d2adc058d2103e3a7638cbf6995d |
+| EV-0655 | Scenario framework | tests/test_historical_stress.py | 14062 | 2026-07-21T23:10:52Z | aafec40a2e7cf19ebcdd3e25116e464961ce0102711620649ee725ecb2244ee7 |
+| EV-0656 | Scenario framework | tests/test_hypothetical_scenarios.py | 14518 | 2026-07-24T00:33:53Z | a346ed9d925ba27fe0a5d5b771439b194e016031d8eea122c56dbe63c1e6eb59 |
+| EV-0657 | Model methodology | tests/test_integrated_stress.py | 19510 | 2026-07-23T15:29:58Z | 2079b25454a2cf36a0bbe463e6fad041fc6c6c2929ffbd5bfaf9596d2f264d97 |
+| EV-0658 | Governance and scope | tests/test_monitoring_governance.py | 8456 | 2026-07-26T00:23:13Z | f4f7a1d3953e8ed24c254587125555f9a48b4f370bb4977054556255d15a6e81 |
+| EV-0659 | Monitoring | tests/test_monthly_monitoring.py | 3722 | 2026-07-25T17:02:53Z | 9c6aa19852a4161b7fd19e82f6041573476071a84a6079e9731643aa055ba1fb |
+| EV-0660 | Data sources and quality | tests/test_processed_data.py | 3598 | 2026-07-21T21:25:18Z | bd88d13a31f355bf112b2fbaa78d619b4bb37a1ac133a77018e60288479b5718 |
+| EV-0661 | Reproducibility | tests/test_repo_funding_stress.py | 16171 | 2026-07-22T18:09:29Z | 88e6e00b9206772c768d7609dcae597d8063d5bdcb3b6486fe1cf5efa49489e9 |
+| EV-0662 | Reproducibility | tests/test_repository_foundation.py | 571 | 2026-07-20T00:31:39Z | 72870a2e9063fd0c9cd9a6930a763884be611a3afcea8939010eac6a60a3821a |
+| EV-0663 | Reverse stress | tests/test_reverse_stress.py | 12210 | 2026-07-24T00:33:53Z | 0b70f0692719db6f17f4d4314a629ade3fbf2722f88e57ad4c6dcbcb7fc2a8cf |
+| EV-0664 | Implementation verification | tests/test_section25_independent_implementation.py | 5396 | 2026-07-24T14:52:13Z | 467d8bd2aeae1df287562e20b66eb979d48403f63a3d014b09643f2def76d132 |
+| EV-0665 | Sensitivity analysis | tests/test_section26_sensitivity_analysis.py | 5907 | 2026-07-24T16:46:29Z | 8fd6f50a022b2be624db4f80dc2b4a7b0024fff25ed204a994aa053f4c2f0d6d |
+| EV-0666 | Outcomes analysis | tests/test_section27_outcomes_benchmark.py | 5161 | 2026-07-24T23:50:33Z | 83541066afc7ea65f3d7480b1585826ddd96edada4ccd44723bdb1262db688f1 |
+| EV-0667 | Model methodology | tests/test_settlement_fail_stress.py | 14938 | 2026-07-23T13:47:17Z | 33e432a3562afad91cab14c64ce44ccdddc54eb89b9f8c3f7be02778b07f7349 |
+| EV-0668 | Data sources and quality | tests/test_sofr_ingestion.py | 3723 | 2026-07-21T15:37:24Z | d2616973a3955907829c040ad38b3aab9127dcfa52f52b32ee37a355335433b6 |
+| EV-0669 | Reproducibility | tests/test_supporting_fed_contracts.py | 1015 | 2026-07-21T15:37:24Z | 978bd559d4b81ac055abf02a306c283223bd31dc2a59735f1f5152938f6327b5 |
+| EV-0670 | Synthetic portfolios | tests/test_synthetic_calibration.py | 4682 | 2026-07-22T03:38:43Z | bca792d36d20ab2f86dc308dda98c84aa8985689db37c4f76ab7e318bab2e901 |
+| EV-0671 | Synthetic portfolios | tests/test_synthetic_member_schema.py | 6940 | 2026-07-22T00:03:05Z | b2fd97bf469b94c32bfee4fde0750ac33d421a100f3037e63858c320b4e97d09 |
+| EV-0672 | Reproducibility | tests/test_treasury_yield_shock.py | 8669 | 2026-07-22T15:00:03Z | 687f6672f3900d08894a280e48017573d28146cd7329dfc52be0dc615320f240 |
+| EV-0673 | Limitations | tests/test_uncertainty_limitations.py | 8872 | 2026-07-25T13:51:25Z | 8e55482d03394ae505c31fb1ffabbf370c4f25524ea17efdc7bc881a1767e010 |
+
+## Readiness summary
+
+| Validation domain | Status | Evidence count |
+|---|---:|---:|
+| Governance and scope | PASS | 39 |
+| Data sources and quality | PASS | 141 |
+| Synthetic portfolios | PASS | 29 |
+| Model methodology | PASS | 39 |
+| Scenario framework | PASS | 60 |
+| Implementation verification | PASS | 5 |
+| Sensitivity analysis | PASS | 12 |
+| Outcomes analysis | PASS | 10 |
+| Reverse stress | PASS | 17 |
+| Monitoring | PASS | 18 |
+| Findings | PASS | 9 |
+| Limitations | PASS | 13 |
+| Reproducibility | PASS | 47 |
+
+The index records repository-relative paths and SHA-256 hashes. Generated
+Section 34 outputs are excluded from the source evidence inventory to prevent
+self-referential evidence.

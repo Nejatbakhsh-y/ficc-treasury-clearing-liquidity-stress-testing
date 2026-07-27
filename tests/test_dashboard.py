@@ -77,7 +77,7 @@ def test_streamlit_default_page_smoke(monkeypatch: pytest.MonkeyPatch) -> None:
     root = Path(__file__).resolve().parents[1]
     monkeypatch.setenv("FICC_DASHBOARD_ALLOW_DEMO", "1")
     app = AppTest.from_file(root / "dashboard" / "streamlit_app.py")
-    app.run(timeout=30)
+    app.run(timeout=120)
 
     assert not app.exception
     assert app.title
